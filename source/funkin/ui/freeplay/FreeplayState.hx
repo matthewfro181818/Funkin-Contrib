@@ -176,6 +176,8 @@ class FreeplayState extends MusicBeatSubState
    */
   public static var rememberedVariation:String = Constants.DEFAULT_VARIATION;
 
+  var allDifficulties:Array<String> = Constants.DEFAULT_DIFFICULTY_LIST;
+
   var funnyCam:FunkinCamera;
   var rankCamera:FunkinCamera;
   var rankBg:FunkinSprite;
@@ -636,6 +638,15 @@ class FreeplayState extends MusicBeatSubState
     else
     {
       onDJIntroDone();
+    }
+
+    allDifficulties = [];
+    for (song in songs)
+    {
+      if (song == null) continue;
+
+      for (diff in song.data.listDifficulties(null, song.data.getVariationsByCharacter(currentCharacter)))
+        if (!allDifficulties.contains(diff)) allDifficulties.push(diff);
     }
 
     // Generates song list with the starter params (who our current character is, last remembered difficulty, etc.)
@@ -1693,11 +1704,11 @@ class FreeplayState extends MusicBeatSubState
 
     // Available variations for current character. We get this since bf is usually `default` variation, and `pico` is `pico`
     // but sometimes pico can be the default variation (weekend 1 songs), and bf can be `bf` variation (darnell)
-    var characterVariations:Array<String> = grpCapsules.members[curSelected].freeplayData?.data.getVariationsByCharacter(currentCharacter) ?? Constants.DEFAULT_VARIATION_LIST;
+    var characterVariations:Array<String> = grpCapsules.members[curSelected].freeplayData?.data.getVariationsByCharacter(currentCharacter) ?? allDifficulties;
 
     // Gets all available difficulties for our character, via our available variations
     var difficultiesAvailable:Array<String> = grpCapsules.members[curSelected].freeplayData?.data.listDifficulties(null,
-      characterVariations) ?? Constants.DEFAULT_DIFFICULTY_LIST;
+      characterVariations) ?? allDifficulties;
 
     var currentDifficultyIndex:Int = difficultiesAvailable.indexOf(currentDifficulty);
 
