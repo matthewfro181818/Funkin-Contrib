@@ -75,6 +75,7 @@ class ResultState extends MusicBeatSubState
   var playerCharacterId:Null<String>;
 
   var introMusicAudio:Null<FunkinSound>;
+  var fromFreeplay:Bool = false;
 
   var rankBg:FunkinSprite;
   final cameraBG:FunkinCamera;
@@ -86,6 +87,7 @@ class ResultState extends MusicBeatSubState
     super();
 
     this.params = params;
+    this.fromFreeplay = params.fromFreeplay ?? false;
 
     rank = Scoring.calculateRank(params.scoreData) ?? SHIT;
 
@@ -127,7 +129,7 @@ class ResultState extends MusicBeatSubState
 
   override function create():Void
   {
-    if (FlxG.sound.music != null) FlxG.sound.music.stop();
+    if (FlxG.sound.music != null && !fromFreeplay) FlxG.sound.music.stop();
 
     // We need multiple cameras so we can put one at an angle.
     cameraScroll.angle = -3.8;
@@ -140,11 +142,14 @@ class ResultState extends MusicBeatSubState
     FlxG.cameras.add(cameraScroll, false);
     FlxG.cameras.add(cameraEverything, false);
 
-    FlxG.cameras.setDefaultDrawTarget(cameraEverything, true);
-    this.camera = cameraEverything;
+    if (!fromFreeplay)
+    {
+      FlxG.cameras.setDefaultDrawTarget(cameraEverything, true);
+      this.camera = cameraEverything;
 
-    // Reset the camera zoom on the results screen.
-    FlxG.camera.zoom = 1.0;
+      // Reset the camera zoom on the results screen.
+      FlxG.camera.zoom = 1.0;
+    }
 
     var bg:FlxSprite = FlxGradient.createGradientFlxSprite(FlxG.width, FlxG.height, [0xFFFECC5C, 0xFFFDC05C], 90);
     bg.scrollFactor.set();
@@ -410,37 +415,63 @@ class ResultState extends MusicBeatSubState
     //   highscoreNew.visible = false;
     // }
 
-    new FlxTimer().start(rank.getMusicDelay(), _ -> {
-      var introMusic:String = Paths.music(getMusicPath(playerCharacter, rank) + '/' + getMusicPath(playerCharacter, rank) + '-intro');
-      if (Assets.exists(introMusic))
-      {
-        // Play the intro music.
-        introMusicAudio = FunkinSound.load(introMusic, 1.0, false, true, true, () -> {
-          introMusicAudio = null;
+    if (!fromFreeplay)
+    {
+      new FlxTimer().start(rank.getMusicDelay(), _ -> {
+        var introMusic:String = Paths.music(getMusicPath(playerCharacter, rank) + '/' + getMusicPath(playerCharacter, rank) + '-intro');
+        if (Assets.exists(introMusic))
+        {
+          // Play the intro music.
+          introMusicAudio = FunkinSound.load(introMusic, 1.0, false, true, true, () -> {
+            introMusicAudio = null;
+            FunkinSound.playMusic(getMusicPath(playerCharacter, rank),
+              {
+                startingVolume: 1.0,
+                overrideExisting: true,
+                restartTrack: true
+              });
+          });
+        }
+        else
+        {
           FunkinSound.playMusic(getMusicPath(playerCharacter, rank),
             {
               startingVolume: 1.0,
               overrideExisting: true,
               restartTrack: true
             });
-        });
-      }
-      else
-      {
-        FunkinSound.playMusic(getMusicPath(playerCharacter, rank),
-          {
-            startingVolume: 1.0,
-            overrideExisting: true,
-            restartTrack: true
-          });
-      }
-    });
+        }
+      });
+    }
 
     rankBg.makeSolidColor(FlxG.width, FlxG.height, 0xFF000000);
     rankBg.zIndex = 99999;
     add(rankBg);
 
-    rankBg.alpha = 0;
+    if (fromFreeplay)
+    {
+      forEach(function(bs) {
+        bs.cameras = [cameraEverything];
+      });
+
+      // Update everything 100 times to hopefully skip the intros of animations.
+      for (i in 0...100)
+      {
+        FlxTimer.globalManager.update(FlxG.maxElapsed);
+        FlxTween.globalManager.update(FlxG.maxElapsed);
+        for (memb in members)
+          memb?.update(FlxG.maxElapsed);
+
+        FlxTween.tween(rankBg, {alpha: 0}, 0.25,
+          {
+            ease: FlxEase.expoOut
+          });
+      }
+    }
+    else
+    {
+      rankBg.alpha = 0;
+    }
 
     refresh();
 
@@ -482,12 +513,12 @@ class ResultState extends MusicBeatSubState
           {
             trace('$clearPercentLerp and ${clearPercentCounter.curNumber}');
             clearPercentLerp = clearPercentCounter.curNumber;
-            FunkinSound.playOnce(Paths.sound('scrollMenu'));
+            if (!fromFreeplay) FunkinSound.playOnce(Paths.sound('scrollMenu'));
           }
         },
         onComplete: _ -> {
           // Play confirm sound.
-          FunkinSound.playOnce(Paths.sound('confirmMenu'));
+          if (!fromFreeplay) FunkinSound.playOnce(Paths.sound('confirmMenu'));
 
           // Just to be sure that the lerp didn't mess things up.
           clearPercentCounter.curNumber = clearPercentTarget;
@@ -728,21 +759,24 @@ class ResultState extends MusicBeatSubState
       speedOfTween.x -= 0.1;
     }
 
-    if (controls.PAUSE)
+    if (controls.PAUSE && !fromFreeplay)
     {
-      if (introMusicAudio != null) {
+      if (introMusicAudio != null)
+      {
         @:nullSafety(Off)
         introMusicAudio.onComplete = null;
 
-        FlxTween.tween(introMusicAudio, {volume: 0}, 0.8, {
-          onComplete: _ -> {
-            if (introMusicAudio != null) {
-              introMusicAudio.stop();
-              introMusicAudio.destroy();
-              introMusicAudio = null;
+        FlxTween.tween(introMusicAudio, {volume: 0}, 0.8,
+          {
+            onComplete: _ -> {
+              if (introMusicAudio != null)
+              {
+                introMusicAudio.stop();
+                introMusicAudio.destroy();
+                introMusicAudio = null;
+              }
             }
-          }
-        });
+          });
         FlxTween.tween(introMusicAudio, {pitch: 3}, 0.1,
           {
             onComplete: _ -> {
@@ -752,12 +786,13 @@ class ResultState extends MusicBeatSubState
       }
       else if (FlxG.sound.music != null)
       {
-        FlxTween.tween(FlxG.sound.music, {volume: 0}, 0.8, {
-          onComplete: _ -> {
-            FlxG.sound.music.stop();
-            FlxG.sound.music.destroy();
-          }
-        });
+        FlxTween.tween(FlxG.sound.music, {volume: 0}, 0.8,
+          {
+            onComplete: _ -> {
+              FlxG.sound.music.stop();
+              FlxG.sound.music.destroy();
+            }
+          });
         FlxTween.tween(FlxG.sound.music, {pitch: 3}, 0.1,
           {
             onComplete: _ -> {
@@ -855,6 +890,20 @@ class ResultState extends MusicBeatSubState
         }
       }
     }
+    else if (controls.PAUSE && fromFreeplay)
+    {
+      FlxTween.globalManager.cancelTweensOf(rankBg);
+      FlxTween.tween(rankBg, {alpha: 1}, 0.25,
+        {
+          ease: FlxEase.expoOut,
+          onComplete: function(_) {
+            FlxG.cameras.remove(cameraBG);
+            FlxG.cameras.remove(cameraScroll);
+            FlxG.cameras.remove(cameraEverything);
+            close();
+          }
+        });
+    }
 
     super.update(elapsed);
   }
@@ -904,4 +953,9 @@ typedef ResultsStateParams =
    * The previous score data, used for rank comparision.
    */
   var ?prevScoreData:SaveScoreData;
+
+  /**
+   * True if displaying results from the freeplay menu.
+   */
+  var ?fromFreeplay:Bool;
 };

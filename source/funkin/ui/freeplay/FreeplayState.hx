@@ -1337,6 +1337,53 @@ class FreeplayState extends MusicBeatSubState
     // }
     #end // ^<-- FEATURE_DEBUG_FUNCTIONS
 
+    if (FlxG.keys.justPressed.R && !busy)
+    {
+      var targetSong = grpCapsules.members[curSelected]?.freeplayData;
+      var tallies = targetSong != null ? Save.instance.getSongScore(targetSong.data.id, currentDifficulty, currentVariation) : null;
+      var chart = targetSong != null ? targetSong.data.getDifficulty(currentDifficulty, currentVariation) : null;
+
+      if (targetSong != null && tallies != null && chart != null)
+      {
+        var results = new funkin.play.ResultState(
+          {
+            storyMode: false,
+            songId: targetSong.data.id,
+            difficultyId: currentDifficulty,
+            characterId: currentCharacterId,
+            title: '${chart.songName} by ${chart.songArtist}',
+            scoreData:
+              {
+                score: intendedScore,
+                tallies:
+                  {
+                    sick: tallies.tallies.sick,
+                    good: tallies.tallies.good,
+                    bad: tallies.tallies.bad,
+                    shit: tallies.tallies.shit,
+                    missed: tallies.tallies.missed,
+                    combo: tallies.tallies.combo,
+                    maxCombo: tallies.tallies.maxCombo,
+                    totalNotesHit: tallies.tallies.totalNotesHit,
+                    totalNotes: tallies.tallies.totalNotes,
+                  },
+              },
+            isNewHighscore: true,
+            fromFreeplay: true
+          });
+
+        results.cameras = [funnyCam];
+
+        this.persistentDraw = true;
+        this.persistentUpdate = true;
+        busy = true;
+
+        rankCamera.fade(0xFF000000, 0.25, false, function() {
+          openSubState(results);
+        }, true);
+      }
+    }
+
     if (controls.FREEPLAY_CHAR_SELECT && !busy)
     {
       tryOpenCharSelect();
@@ -1433,6 +1480,20 @@ class FreeplayState extends MusicBeatSubState
     handleInputs(elapsed);
 
     if (dj != null) FlxG.watch.addQuick('dj-anim', dj.getCurrentAnimation());
+  }
+
+  override function closeSubState()
+  {
+    super.closeSubState();
+
+    // Close the ResultState with a neat transition.
+    if (busy)
+    {
+      rankCamera.fade(0xFF000000, 0, false, null, true);
+      rankCamera.fade(0xFF000000, 0.25, true, function() {
+        busy = false;
+      }, true);
+    }
   }
 
   function handleInputs(elapsed:Float):Void
