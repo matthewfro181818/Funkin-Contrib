@@ -181,6 +181,11 @@ class PlayState extends MusicBeatSubState
   public var currentStage:Stage = null;
 
   /**
+   * An Array containing every stage that was loaded by the `Change Stage` event.
+   */
+  public var allLoadedStages:Array<Stage> = [];
+
+  /**
    * Gets set to true when the PlayState needs to reset (player opted to restart or died).
    * Gets disabled once resetting happens.
    */
@@ -724,6 +729,8 @@ class PlayState extends MusicBeatSubState
     // Read the song's note data and pass it to the strumlines.
     generateSong();
 
+    if (!isMinimalMode) initEventStages();
+
     // Reset the camera's zoom and force it to focus on the camera follow point.
     resetCamera();
 
@@ -882,11 +889,11 @@ class PlayState extends MusicBeatSubState
       {
         if (currentStageId != chartStageId)
         {
-          swapStage(chartStageId, [
-            currentChart.characters.player,
-            currentChart.characters.girlfriend,
-            currentChart.characters.opponent
-          ]);
+          // swapStage(chartStageId, [
+          // currentChart.characters.player,
+          // currentChart.characters.girlfriend,
+          // currentChart.characters.opponent
+          // ]);
 
           // Focus the camera on dad
           cameraFollowPoint.setPosition(currentStage.getDad().cameraFocusPoint?.x ?? 0.0, currentStage.getDad().cameraFocusPoint?.y ?? 0.0);
@@ -1667,49 +1674,14 @@ class PlayState extends MusicBeatSubState
      * Loads stage data from cache, assembles the props,
      * and adds it to the state.
      * @param id
-     * @param swap
      */
-  function loadStage(id:String, ?swap:Bool = false):Void
+  function loadStage(id:String):Void
   {
-    if (swap)
-    {
-      remove(currentStage);
-      currentStage.kill();
-      for (sprite in currentStage.group)
-      {
-        if (sprite != null)
-        {
-          sprite.kill();
-          currentStage.group.remove(sprite);
-        }
-      }
-      currentStage = null;
-    }
-
     currentStage = StageRegistry.instance.fetchEntry(id);
 
     if (currentStage != null)
     {
-      if (swap)
-      {
-        var stageDirectory:String = currentStage._data?.directory ?? "shared";
-        Paths.setCurrentLevel(stageDirectory);
-      }
-
       currentStage.revive(); // Stages are killed and props destroyed when the PlayState is destroyed to save memory.
-
-      if (!swap)
-      {
-        // Actually create and position the sprites.
-        var event:ScriptEvent = new ScriptEvent(CREATE, false);
-        ScriptEventDispatcher.callEvent(currentStage, event);
-      }
-      else
-      {
-        currentStage.buildStage(true);
-        currentStage.resetStage();
-      }
-
       resetCameraZoom();
 
       // Add the stage to the scene.
@@ -1733,39 +1705,82 @@ class PlayState extends MusicBeatSubState
      */
   public function swapStage(id:String, ?characters:Null<Array<String>>):Void
   {
-    characters = [
-      characters != null ? characters[0] : currentStage.getBoyfriend()?.characterId,
-      characters != null ? characters[1] : currentStage.getGirlfriend()?.characterId,
-      characters != null ? characters[2] : currentStage.getDad()?.characterId
+    // If the provided id is the same, do not switch the stage, only the characters.
+    if (id != currentStage.id)
+    {
+      var newStage:Stage = null;
+
+      // First, we look through the loaded stages.
+      for (stage in allLoadedStages)
+      {
+        if (stage.id == id)
+        {
+          newStage = stage;
+          break;
+        }
+      }
+
+      // If we didn't find the stage, load it right now. This can cause some lag spikes.
+      if (newStage == null)
+      {
+        trace("WARNING: Stage " + id + " not found in the cache. This can cause some lag spikes.");
+
+        var stageToLoad:Stage = getEventStage(id);
+        if (stageToLoad != null)
+        {
+          allLoadedStages.push(stageToLoad);
+          newStage = stageToLoad;
+        }
+      }
+
+      if (newStage == null)
+      {
+        trace("WARNING: Couldn't find stage " + id + ". The stage will not be swapped.");
+      }
+      else
+      {
+        currentStage.kill();
+        currentStage = newStage;
+        currentStage.revive();
+      }
+    }
+
+    var currentCharacters:Array<String> = [
+      currentStage.getBoyfriend()?.characterId ?? Constants.DEFAULT_CHARACTER,
+      currentStage.getGirlfriend()?.characterId ?? Constants.DEFAULT_CHARACTER,
+      currentStage.getDad()?.characterId ?? Constants.DEFAULT_CHARACTER
     ];
 
-    loadStage(id, true);
+    characters = [
+      characters != null ? characters[0] : currentCharacters[0],
+      characters != null ? characters[1] : currentCharacters[1],
+      characters != null ? characters[2] : currentCharacters[2]
+    ];
 
     var bf:BaseCharacter = CharacterDataParser.fetchCharacter(characters[0]);
     var gf:BaseCharacter = CharacterDataParser.fetchCharacter(characters[1]);
     var dad:BaseCharacter = CharacterDataParser.fetchCharacter(characters[2]);
 
-    if (bf != null)
+    if (bf != null && characters[0] != currentCharacters[0])
     {
       bf.initHealthIcon(true);
-      currentStage.getBoyfriend()?.destroy();
+      // currentStage.getBoyfriend()?.destroy();
       currentStage.addCharacter(bf, CharacterType.BF);
     }
 
-    if (gf != null)
+    if (gf != null && characters[1] != currentCharacters[1])
     {
-      currentStage.getGirlfriend()?.destroy();
+      // currentStage.getGirlfriend()?.destroy();
       currentStage.addCharacter(gf, CharacterType.GF);
     }
 
-    if (dad != null)
+    if (dad != null && characters[2] != currentCharacters[2])
     {
       dad.initHealthIcon(true);
-      currentStage.getDad()?.destroy();
+      // currentStage.getDad()?.destroy();
       currentStage.addCharacter(dad, CharacterType.DAD);
     }
 
-    currentStage.resetStage();
     currentStage.refresh();
   }
 
@@ -2088,6 +2103,66 @@ class PlayState extends MusicBeatSubState
 
     playerStrumline.applyNoteData(playerNoteData);
     opponentStrumline.applyNoteData(opponentNoteData);
+  }
+
+  /**
+     * Initializes stages from the `Change Stage` event, for better
+     */
+  function initEventStages()
+  {
+    // Add the starting stage to the array.
+    var startingStage:Stage = StageRegistry.instance.fetchEntry(chartStageId);
+    if (startingStage != null) allLoadedStages.push(startingStage);
+
+    // Go through all events and locate stages to be added to the array.
+    var addedStages:Array<String> = [chartStageId];
+    for (event in songEvents)
+    {
+      if (event.eventKind != "SetStage") continue;
+
+      var stageId:String = event.value?.stageId ?? Constants.DEFAULT_STAGE;
+      if (addedStages.contains(chartStageId)) continue;
+
+      var stageObject:Stage = getEventStage(stageId);
+      if (stageObject == null) continue;
+
+      // Add the event stages to the array(s).
+      addedStages.push(stageId);
+      allLoadedStages.push(stageObject);
+    }
+  }
+
+  /**
+     * Loads a Stage from the `Change Stage` event. This stage contains the characters determined by chart.
+     * @param id
+     */
+  function getEventStage(stageId:String):Stage
+  {
+    var girlfriend:BaseCharacter = CharacterDataParser.fetchCharacter(currentChart.characters.girlfriend);
+    var dad:BaseCharacter = CharacterDataParser.fetchCharacter(currentChart.characters.opponent);
+    var boyfriend:BaseCharacter = CharacterDataParser.fetchCharacter(currentChart.characters.player);
+
+    var stageObject:Stage = StageRegistry.instance.fetchEntry(stageId);
+    if (stageObject == null)
+    {
+      trace("WARNING: No stage with the id " + stageId + " found.");
+      return null;
+    }
+
+    // Also initialize the event stages.
+    var stageDirectory:String = stageObject._data?.directory ?? "shared";
+    Paths.setCurrentLevel(stageDirectory);
+
+    var event:ScriptEvent = new ScriptEvent(CREATE, false);
+    ScriptEventDispatcher.callEvent(stageObject, event);
+
+    // Add the current characters to the stage.
+    if (girlfriend != null) stageObject.addCharacter(girlfriend, GF);
+    if (dad != null) stageObject.addCharacter(dad, DAD);
+    if (boyfriend != null) stageObject.addCharacter(boyfriend, BF);
+
+    stageObject.refresh();
+    return stageObject;
   }
 
   function onStrumlineNoteIncoming(noteSprite:NoteSprite):Void
