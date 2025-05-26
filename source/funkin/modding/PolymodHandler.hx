@@ -18,6 +18,7 @@ import funkin.play.character.CharacterData.CharacterDataParser;
 import funkin.save.Save;
 import funkin.util.FileUtil;
 import funkin.util.macro.ClassMacro;
+import funkin.util.macro.PolymodWrapperMacro;
 import polymod.backends.PolymodAssets.PolymodAssetType;
 import polymod.format.ParseRules.TextFileFormat;
 import polymod.Polymod;
@@ -348,6 +349,8 @@ class PolymodHandler
       var className:String = Type.getClassName(cls);
       Polymod.blacklistImport(className);
     }
+
+    trace(PolymodWrapperMacro.getAllWrappers());
   }
 
   /**
