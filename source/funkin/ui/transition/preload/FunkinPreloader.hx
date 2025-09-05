@@ -193,8 +193,6 @@ class FunkinPreloader extends FlxBasePreloader
     addChild(progressLeftText);
     progressLeftText.y -= (progressLeftText.textHeight / ratio) * 2.5;
 
-    if (!isLandscapeFlipped()) progressLeftText.x += ScreenUtil.getNotchRect().width * ratio;
-
     // Create the progress % in the bottom right
     // This displays in the bottom right corner, so it's generally safe from notches...
     // but we should do a sweep online to make sure that there's no hole-punch style cameras on android that may block this
@@ -238,7 +236,6 @@ class FunkinPreloader extends FlxBasePreloader
 
     // todo: check if these actually overlap the notch with some rect check thing
     // im making more sweeping assumptions rn because i only have iOS
-    if (isLandscapeFlipped()) rTextGroup.x -= ScreenUtil.getNotchRect().width * ratio;
 
     vfdBitmap = new Bitmap(new BitmapData(this._width, this._height, true, 0xFFFFFFFF));
     addChild(vfdBitmap);
@@ -918,11 +915,6 @@ class FunkinPreloader extends FlxBasePreloader
    * generally for mobile to accomodate the device notch!
    * @return Bool
    */
-  function isLandscapeFlipped():Bool
-  {
-    return lime.system.System.getDisplayOrientation(0) == DISPLAY_ORIENTATION_LANDSCAPE_FLIPPED;
-  }
-
   function immediatelyStartGame():Void
   {
     _loaded = true;
