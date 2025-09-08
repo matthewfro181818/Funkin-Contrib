@@ -193,6 +193,8 @@ class FunkinPreloader extends FlxBasePreloader
     addChild(progressLeftText);
     progressLeftText.y -= (progressLeftText.textHeight / ratio) * 2.5;
 
+    if (!isLandscapeFlipped()) progressLeftText.x += ScreenUtil.getNotchRect().width * ratio;
+
     // Create the progress % in the bottom right
     // This displays in the bottom right corner, so it's generally safe from notches...
     // but we should do a sweep online to make sure that there's no hole-punch style cameras on android that may block this
@@ -236,6 +238,7 @@ class FunkinPreloader extends FlxBasePreloader
 
     // todo: check if these actually overlap the notch with some rect check thing
     // im making more sweeping assumptions rn because i only have iOS
+    if (isLandscapeFlipped()) rTextGroup.x -= ScreenUtil.getNotchRect().width * ratio;
 
     vfdBitmap = new Bitmap(new BitmapData(this._width, this._height, true, 0xFFFFFFFF));
     addChild(vfdBitmap);
@@ -247,7 +250,7 @@ class FunkinPreloader extends FlxBasePreloader
     touchHereToPlay = createBitmap(TouchHereToPlayImage, function(bmp:Bitmap) {
       // Scale and center the touch to start image.
       // We have to do this inside the async call, after the image size is known.
-      bmp.scaleX = bmp.scaleY = ratio;
+      bmp.scaleX = bmp.scaleY = ratio * 0.5;
       bmp.x = (this._width - bmp.width) / 2;
       bmp.y = (this._height - bmp.height) / 2;
     });
@@ -800,16 +803,12 @@ class FunkinPreloader extends FlxBasePreloader
   #if FEATURE_TOUCH_HERE_TO_PLAY
   function overTouchHereToPlay(e:MouseEvent):Void
   {
-    touchHereToPlay.scaleX = touchHereToPlay.scaleY = ratio * 1.1;
-    touchHereToPlay.x = (this._width - touchHereToPlay.width) / 2;
-    touchHereToPlay.y = (this._height - touchHereToPlay.height) / 2;
+    scaleAndCenter(touchHereToPlay, ratio * 1.1 * 0.5);
   }
 
   function outTouchHereToPlay(e:MouseEvent):Void
   {
-    touchHereToPlay.scaleX = touchHereToPlay.scaleY = ratio * 1;
-    touchHereToPlay.x = (this._width - touchHereToPlay.width) / 2;
-    touchHereToPlay.y = (this._height - touchHereToPlay.height) / 2;
+    scaleAndCenter(touchHereToPlay, ratio * 0.5);
   }
 
   function mouseDownTouchHereToPlay(e:MouseEvent):Void
@@ -819,8 +818,7 @@ class FunkinPreloader extends FlxBasePreloader
 
   function onTouchHereToPlay(e:MouseEvent):Void
   {
-    touchHereToPlay.x = (this._width - touchHereToPlay.width) / 2;
-    touchHereToPlay.y = (this._height - touchHereToPlay.height) / 2;
+    scaleAndCenter(touchHereToPlay, ratio * 0.5);
 
     removeEventListener(MouseEvent.CLICK, onTouchHereToPlay);
     touchHereSprite.removeEventListener(MouseEvent.MOUSE_OVER, overTouchHereToPlay);
@@ -829,6 +827,13 @@ class FunkinPreloader extends FlxBasePreloader
 
     // This is the actual thing that makes the game load.
     immediatelyStartGame();
+  }
+
+  function scaleAndCenter(bmp:Bitmap, scale:Float)
+  {
+    bmp.scaleX = bmp.scaleY = scale;
+    bmp.x = (this._width - bmp.width) / 2;
+    bmp.y = (this._height - bmp.height) / 2;
   }
   #end
 
@@ -913,6 +918,11 @@ class FunkinPreloader extends FlxBasePreloader
    * generally for mobile to accomodate the device notch!
    * @return Bool
    */
+  function isLandscapeFlipped():Bool
+  {
+    return lime.system.System.getDisplayOrientation(0) == DISPLAY_ORIENTATION_LANDSCAPE_FLIPPED;
+  }
+
   function immediatelyStartGame():Void
   {
     _loaded = true;
