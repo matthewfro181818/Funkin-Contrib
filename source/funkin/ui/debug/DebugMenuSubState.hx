@@ -4,6 +4,7 @@ import flixel.math.FlxPoint;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import funkin.ui.MusicBeatSubState;
+import funkin.ui.FullScreenScaleMode;
 import funkin.audio.FunkinSound;
 import funkin.ui.TextMenuList;
 import funkin.ui.debug.charting.ChartEditorState;
@@ -37,7 +38,7 @@ class DebugMenuSubState extends MusicBeatSubState
     // Create the green background.
     var menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
     menuBG.color = 0xFF4CAF50;
-    menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
+    menuBG.setGraphicSize(Std.int(menuBG.width * 1.1 * FullScreenScaleMode.wideScale.x));
     menuBG.updateHitbox();
     menuBG.screenCenter();
     menuBG.scrollFactor.set(0, 0);
@@ -62,6 +63,7 @@ class DebugMenuSubState extends MusicBeatSubState
     #if FEATURE_STAGE_EDITOR
     createItem("STAGE EDITOR", openStageEditor);
     #end
+    createItem("CHARACTER CREATOR", openCharCreator);
     #if FEATURE_RESULTS_DEBUG
     createItem("RESULTS SCREEN DEBUG", openTestResultsScreen);
     #end
@@ -127,6 +129,12 @@ class DebugMenuSubState extends MusicBeatSubState
   {
     trace('Stage Editor');
     FlxG.switchState(() -> new funkin.ui.debug.stageeditor.StageEditorState());
+  }
+
+  function openCharCreator()
+  {
+    trace('Character Creator');
+    FlxG.switchState(() -> new funkin.ui.debug.char.CharCreatorState());
   }
 
   function openTestResultsScreen():Void
