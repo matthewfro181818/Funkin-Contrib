@@ -2,15 +2,14 @@ package funkin.ui.debug.charting.util;
 
 import funkin.data.notestyle.NoteStyleRegistry;
 import funkin.play.notes.notestyle.NoteStyle;
-import funkin.data.stage.StageData;
 import funkin.play.event.SongEvent;
 import funkin.data.stage.StageRegistry;
+import funkin.play.character.CharacterData;
 import haxe.ui.components.DropDown;
 import funkin.play.stage.Stage;
 import funkin.play.character.BaseCharacter.CharacterType;
 import funkin.data.event.SongEventRegistry;
-import funkin.data.character.CharacterData;
-import funkin.data.character.CharacterRegistry;
+import funkin.play.character.CharacterData.CharacterDataParser;
 
 /**
  * Functions for populating dropdowns based on game data.
@@ -28,7 +27,7 @@ class ChartEditorDropdowns
     dropDown.dataSource.clear();
 
     // TODO: Filter based on charType.
-    var charIds:Array<String> = CharacterRegistry.listCharacterIds();
+    var charIds:Array<String> = CharacterDataParser.listCharacterIds();
 
     var returnValue:DropDownEntry = switch (charType)
     {
@@ -42,7 +41,7 @@ class ChartEditorDropdowns
 
     for (charId in charIds)
     {
-      var character:Null<CharacterData> = CharacterRegistry.fetchCharacterData(charId);
+      var character:Null<CharacterData> = CharacterDataParser.fetchCharacterData(charId);
       if (character == null) continue;
 
       var value = {id: charId, text: character.name};
@@ -159,10 +158,16 @@ class ChartEditorDropdowns
     "" => "Default",
     "~CUSTOM~" => "Custom",
     // Weeks 1-7
+    "censor" => "[UH-OH!] Censor Bar",
     "mom" => "Mom Sings (Week 5)",
-    "ugh" => "Ugh (Week 7)",
-    "hehPrettyGood" => "Heh, Pretty Good (Week 7)",
+    "ugh" => "Tankman Ugh (Week 7)",
+    "hehPrettyGood" => "Tankman Heh, Pretty Good (Week 7)",
     // Weekend 1
+    "weekend-1-lightcan" => "Darnell Light Can (2hot)",
+    "weekend-1-kneecan" => "Darnell Knee Can (2hot)",
+    "weekend-1-kickcan" => "Darnell Kick Can (2hot)",
+    "weekend-1-cockgun" => "Pico Cock Gun (2hot)",
+    "weekend-1-firegun" => "Pico Fire Gun (2hot)",
     "weekend-1-punchhigh" => "Punch High (Blazin')",
     "weekend-1-punchhighdodged" => "Punch High (Dodge) (Blazin')",
     "weekend-1-punchhighblocked" => "Punch High (Block) (Blazin')",
