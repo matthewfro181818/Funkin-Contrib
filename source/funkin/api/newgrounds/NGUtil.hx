@@ -249,6 +249,8 @@ import flixel.util.FlxSignal;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.display.Stage;
+import funkin.api.newgrounds.NGio;
+import funkin.api.newgrounds.NGio.ConnectionResult;
 #if newgrounds
 import io.newgrounds.NG;
 import io.newgrounds.NGLite;
