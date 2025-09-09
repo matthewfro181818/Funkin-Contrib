@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menubar id="menubar" width="100%" height="35" paddingLeft="172">
+  <style>
+    .menu {
+    // The width of the individual menu items
+    width: 160px;
+    }
+  </style>
+
+  <menu text="File" id="menubarMenuFile">
+    <menu-item id="menubarItemNewChar" text="New Character"/>
+    <menu-separator />
+    <menu-item id="menubarItemExport" text="Export as ZIP" shortcutText="Ctrl+S" />
+    <menu-separator />
+    <menu-item id="menubarItemExit" text="Exit" shortcutText="Esc" />
+  </menu>
+
+  <menu text="Tools" id="menubarMenuTools">
+    <menu-checkbox id="menubarCheckToolsPivot" text="Show Atlas Pivot" tooltip="Show the Pivot Point of any Atlas Object."/>
+    <menu-checkbox id="menubarCheckToolsBase" text="Show Atlas Base" tooltip="Show the Base Point of any Atlas Object."/>
+    <menu-checkbox id="menubarCheckToolsMidpoint" text="Show Midpoint" tooltip="Show the Middle Point of any non-Atlas Object."/>
+    <menu-checkbox id="menubarCheckToolsCam" text="Show Camera Bounds" tooltip="Show the Camera Boundaries for the Gameplay Page."/>
+    <menu-separator />
+    <menu-checkbox id="menubarCheckToolsFrames" text="Show Frame Text" tooltip="Show a Text indicating the Current Frame of any Object."/>
+    <vbox width="100%" style="padding: 5px;">
+      <label id="menubarLabelAnimSpeed" styleName="menuLabel" text="Animation Speed - 100%" />
+      <slider id="menubarSliderAnimSpeed" width="100%" majorTicks="10" minorTicks="5" pos="100" step="5"/>
+    </vbox>
+    <menu-separator />
+    <menu-checkbox id="menubarCheckToolsLoop" text="Ignore Loop" tooltip="When selected, Animations will never loop during Preview."/>
+    <menu-checkbox id="menubarCheckToolsPause" text="Space to Pause" tooltip="When selected, SPACE key will be used to pause Animations instead of restarting them, which SHIFT + SPACE will be used for."/>
+  </menu>
+
+  <menu text="Pages" id="menubarMenuPages">
+    <menuoptionbox id="menubarOptionGameplay" text="Gameplay" group="pageGroup" disabled="true" selected="true"/>
+    <menuoptionbox id="menubarOptionCharSelect" text="Character Select" group="pageGroup" disabled="true"/>
+    <menuoptionbox id="menubarOptionFreeplay" text="Freeplay" group="pageGroup" disabled="true"/>
+    <menuoptionbox id="menubarOptionResults" text="Result Screen" group="pageGroup" disabled="true"/>
+  </menu>
+
+  <menu text="Settings" id="menubarMenuSettings">
+
+  </menu>
+
+  <menu text="Help" id="menubarMenuHelp">
+    <menu-item id="menubarItemAbout" text="About..." />
+  </menu>
+
+  <spacer width="100%" />
+  <label text="PROTOTYPE Functionality is subject to change." verticalAlign="center" />
+</menubar>

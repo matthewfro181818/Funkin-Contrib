@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog title="Rank Animations" width="400" height="400">
+  <vbox width="100%" height="100%">
+    <dropdown id="rankDropdown" text="Rank" width="100%" height="25" dropdownHeight="100">
+      <data>
+        <item text="Perfect Gold"/>
+        <item text="Perfect"/>
+        <item text="Excellent"/>
+        <item text="Great"/>
+        <item text="Good"/>
+        <item text="Shit"/>
+      </data>
+    </dropdown>
+    <frame text="Animations" width="100%" height="100%">
+      <scrollview id="rankAnimationView" contentWidth="100%" width="100%" height="100%"/>
+    </frame>
+  </vbox>
+</collapsible-dialog>

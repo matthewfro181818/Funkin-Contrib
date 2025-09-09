@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog title="Freeplay DJ Settings" width="400" height="400">
+  <vbox width="100%" height="100%">
+    <frame text="Background Texts" width="100%" height="35%">
+      <vbox width="100%" height="100%">
+        <textfield id="bgTextField1" placeholder="BOYFRIEND" width="100%" />
+        <textfield id="bgTextField2" placeholder="HOT BLOODED IN MORE WAYS THAN ONE" width="100%" />
+        <textfield id="bgTextField3" placeholder="PROTECT YO NUTS" width="100%" />
+      </vbox>
+    </frame>
+
+    <frame text="Delays and Frames" width="100%" height="65%">
+      <scrollview width="100%" height="100%" contentWidth="100%">
+        <vbox width="100%">
+          <hbox width="100%">
+            <frame text="Good Rank Frames" width="50%">
+              <grid width="100%">
+                <label text="Start"/>
+                <number-stepper id="introStartFrame" pos="0" />
+                <label text="End" />
+                <number-stepper id="introEndFrame" pos="4" />
+                <label text="Loop Start" />
+                <number-stepper id="loopStartFrame" pos="4" />
+                <label text="Loop End" />
+                <number-stepper id="loopEndFrame" pos="-1" />
+              </grid>
+            </frame>
+
+            <frame text="Bad Rank Frames" width="50%">
+              <grid width="100%">
+                <label text="Start" />
+                <number-stepper id="introBadStartFrame" pos="0" />
+                <label text="End"/>
+                <number-stepper id="introBadEndFrame" pos="4" />
+                <label text="Loop Start" />
+                <number-stepper id="loopBadStartFrame" pos="4" />
+                <label text="Loop End" />
+                <number-stepper id="loopBadEndFrame" pos="-1" />
+              </grid>
+            </frame>
+          </hbox>
+
+          <hbox width="100%">
+            <frame text="Character Select" width="50%">
+              <grid width="100%">
+                <label text="Delay" width="50%"/>
+                <number-stepper id="charSelectTransitionDelay" pos="0.25" width="50%"/>
+              </grid>
+            </frame>
+
+            <frame text="Cartoon Frames" width="50%">
+              <grid width="100%">
+                <label text="Click" width="50%"/>
+                <number-stepper id="soundClickFrame" pos="80" width="50%"/>
+                <label text="Sound" width="50%"/>
+                <number-stepper id="soundCartoonFrame" pos="85" width="50%"/>
+                <label text="Blink" width="50%"/>
+                <number-stepper id="loopBlinkFrame" pos="112" width="50%"/>
+                <label text="Loop" width="50%"/>
+                <number-stepper id="loopFrame" pos="166" width="50%"/>
+                <label text="Change" width="50%"/>
+                <number-stepper id="channelChangeFrame" pos="60" width="50%"/>
+              </grid>
+            </frame>
+          </hbox>
+
+        </vbox>
+      </scrollview>
+    </frame>
+  </vbox>
+</collapsible-dialog>
