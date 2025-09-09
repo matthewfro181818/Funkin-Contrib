@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package funkin.ui.debug;
 
 import flixel.math.FlxPoint;
@@ -151,3 +152,7 @@ class DebugMenuSubState extends MusicBeatSubState
     this.close();
   }
 }
+||||||| parent of a48c9f7d (Create DebugMenuSubState.hx)
+=======
+
+>>>>>>> a48c9f7d (Create DebugMenuSubState.hx)
