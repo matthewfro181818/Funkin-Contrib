@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog title="Rank Music" width="400" height="200">
+  <vbox width="100%" height="100%">
+   <dropdown id="rankMusicDrop" text="Rank" width="100%" height="25" dropdownHeight="100">
+      <data>
+        <item text="Perfect Gold"/>
+        <item text="Perfect"/>
+        <item text="Excellent"/>
+        <item text="Great"/>
+        <item text="Good"/>
+        <item text="Shit"/>
+      </data>
+    </dropdown>
+
+    <frame id="rankMusicFrame" text="Rank Music" width="100%" height="100%">
+      <vbox width="100%" height="100%">
+        <hbox width="100%" height="50%">
+          <label text="Intro" width="15%"/>
+          <textfield id="rankMusicIntroField" placeholder="Put the (.ogg) Path here." width="65%"/>
+          <button id="rankMusicIntroLoad" text="Load" width="20%"/>
+        </hbox>
+        <hbox width="100%" height="50%">
+          <label text="Song" width="15%"/>
+          <textfield id="rankMusicSongField" placeholder="Put the (.ogg) Path here." width="65%"/>
+          <button id="rankMusicSongLoad" text="Load" width="20%"/>
+        </hbox>
+      </vbox>
+    </frame>
+  </vbox>
+</collapsible-dialog>
