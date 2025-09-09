@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package funkin.audio.visualize;
 
 import flixel.FlxSprite;
@@ -11,3 +12,18 @@ class ABot extends FlxTypedSpriteGroup<FlxSprite>
     super();
   }
 }
+||||||| parent of d27d731a (Add files via upload)
+=======
+package funkin.audio.visualize;
+
+import flixel.FlxSprite;
+import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+
+class ABot extends FlxTypedSpriteGroup<FlxSprite>
+{
+  public function new()
+  {
+    super();
+  }
+}
+>>>>>>> d27d731a (Add files via upload)
