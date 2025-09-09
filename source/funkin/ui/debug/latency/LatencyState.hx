@@ -4,48 +4,85 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
 import funkin.Conductor;
-import funkin.ui.debug.DebugState;
+import funkin.ui.debug.DebugMenuSubState;
 
-class LatencyState extends DebugState
+/**
+ * Rewritten for FNF 0.7.4 – fixes DebugState import and missing inputOffset/audioVisualOffset.
+ */
+class LatencyState extends MusicBeatState
 {
-    var localConductor:Conductor;
-    var offsetText:FlxText;
-    var songVisFollowVideo:FlxSprite;
-    var inputOffset:Int = 0; // local replacement, since Conductor.inputOffset no longer exists
+  var localConductor:Conductor;
+  var inputOffset:Int = 0;
+  var audioVisualOffset:Int = 0;
 
-    override public function create()
+  var offsetText:FlxText;
+  var songVisFollowVideo:FlxSprite;
+
+  override public function create()
+  {
+    super.create();
+
+    localConductor = Conductor.instance;
+
+    add(new FlxText(20, 20, 0, "Latency Calibration", 24));
+
+    offsetText = new FlxText(20, 60, 0, "", 16);
+    add(offsetText);
+
+    songVisFollowVideo = new FlxSprite(0, FlxG.height * 0.5).makeGraphic(100, 20, FlxColor.RED);
+    add(songVisFollowVideo);
+
+    updateOffsetText();
+  }
+
+  override public function update(elapsed:Float)
+  {
+    super.update(elapsed);
+
+    // Move visualizer
+    songVisFollowVideo.x = songPosToX(localConductor.songPosition - inputOffset);
+
+    // Keybinds for adjusting offsets
+    var multiply:Int = FlxG.keys.pressed.SHIFT ? 10 : 1;
+
+    if (FlxG.keys.justPressed.LEFT)
     {
-        super.create();
-
-        localConductor = Conductor.instance;
-
-        songVisFollowVideo = new FlxSprite(0, 100).makeGraphic(200, 20, FlxColor.RED);
-        add(songVisFollowVideo);
-
-        offsetText = new FlxText(10, 10, 0, "", 16);
-        add(offsetText);
+      inputOffset -= 1 * multiply;
+      updateOffsetText();
+    }
+    if (FlxG.keys.justPressed.RIGHT)
+    {
+      inputOffset += 1 * multiply;
+      updateOffsetText();
     }
 
-    override public function update(elapsed:Float)
+    if (FlxG.keys.justPressed.UP)
     {
-        super.update(elapsed);
-
-        // Use our local inputOffset variable instead of Conductor.inputOffset
-        songVisFollowVideo.x = songPosToX(localConductor.songPosition - inputOffset);
-        offsetText.text = "INPUT Offset (Left/Right to change): " + inputOffset + "ms";
-
-        if (FlxG.keys.justPressed.LEFT)
-            inputOffset -= 1;
-        if (FlxG.keys.justPressed.RIGHT)
-            inputOffset += 1;
-
-        // audioVisualOffset can only be read safely in 0.7.4, not written.
-        // If you want to allow tweaking it, track a local copy instead.
+      audioVisualOffset += 1 * multiply;
+      updateOffsetText();
+    }
+    if (FlxG.keys.justPressed.DOWN)
+    {
+      audioVisualOffset -= 1 * multiply;
+      updateOffsetText();
     }
 
-    function songPosToX(ms:Float):Float
+    if (FlxG.keys.justPressed.ESCAPE)
     {
-        return (ms / 1000) * 100; // very rough mapping
+      FlxG.switchState(() -> new DebugMenuSubState());
     }
+  }
+
+  function updateOffsetText()
+  {
+    offsetText.text = "INPUT Offset (Left/Right): " + inputOffset + "ms\n" +
+                      "AV Offset (Up/Down): " + audioVisualOffset + "ms";
+  }
+
+  function songPosToX(songPos:Float):Float
+  {
+    return (songPos % FlxG.width);
+  }
 }
