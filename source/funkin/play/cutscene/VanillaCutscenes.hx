@@ -7,9 +7,14 @@ import flixel.util.FlxColor;
 import funkin.audio.FunkinSound;
 import flixel.util.FlxTimer;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.util.HapticUtil;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+import funkin.util.HapticUtil;
+>>>>>>> b150c43d (lol4)
 
 /**
  * Static methods for playing cutscenes in the PlayState.
@@ -46,9 +51,14 @@ class VanillaCutscenes
 
       // Play the Sound effect.
 <<<<<<< HEAD
+<<<<<<< HEAD
       HapticUtil.vibrate(0.1, 0.5, 1, 1);
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+      HapticUtil.vibrate(0.1, 0.5, 1, 1);
+>>>>>>> b150c43d (lol4)
       FunkinSound.playOnce(Paths.sound('Lights_Turn_On'), function() {
         // Fade in the HUD.
         trace('SFX done...');

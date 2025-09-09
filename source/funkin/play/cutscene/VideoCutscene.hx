@@ -7,17 +7,28 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxSignal;
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if html5
 import funkin.graphics.video.FlxVideo;
 #end
 #if hxvlc
 =======
 import flixel.util.FlxTimer;
+||||||| parent of b150c43d (lol4)
+import flixel.util.FlxTimer;
+=======
+>>>>>>> b150c43d (lol4)
 #if html5
 import funkin.graphics.video.FlxVideo;
 #end
+<<<<<<< HEAD
 #if hxCodec
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+#if hxCodec
+=======
+#if hxvlc
+>>>>>>> b150c43d (lol4)
 import funkin.graphics.video.FunkinVideoSprite;
 #end
 
@@ -33,10 +44,16 @@ class VideoCutscene
   static var vid:FlxVideo;
   #end
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if hxvlc
 =======
   #if hxCodec
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  #if hxCodec
+=======
+  #if hxvlc
+>>>>>>> b150c43d (lol4)
   static var vid:FunkinVideoSprite;
   #end
 
@@ -79,10 +96,16 @@ class VideoCutscene
     {
       // Display a popup.
 <<<<<<< HEAD
+<<<<<<< HEAD
       // funkin.util.WindowUtil.showError('Error playing video', 'Video file does not exist: ${filePath}');
 =======
       // lime.app.Application.current.window.alert('Video file does not exist: ${filePath}', 'Error playing video');
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      // lime.app.Application.current.window.alert('Video file does not exist: ${filePath}', 'Error playing video');
+=======
+      // funkin.util.WindowUtil.showError('Error playing video', 'Video file does not exist: ${filePath}');
+>>>>>>> b150c43d (lol4)
       // return;
 
       // TODO: After moving videos to their own library,
@@ -106,6 +129,7 @@ class VideoCutscene
     VideoCutscene.cutsceneType = cutsceneType;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if mobile
     if (cutsceneType == ENDING)
     {
@@ -118,11 +142,29 @@ class VideoCutscene
     #elseif hxvlc
     playVideoNative(filePath);
 =======
+||||||| parent of b150c43d (lol4)
+=======
+    #if mobile
+    if (cutsceneType == ENDING)
+    {
+      PlayState.instance.togglePauseButton();
+    }
+    #end
+
+>>>>>>> b150c43d (lol4)
     #if html5
     playVideoHTML5(rawFilePath);
+<<<<<<< HEAD
     #elseif hxCodec
     playVideoNative(rawFilePath);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    #elseif hxCodec
+    playVideoNative(rawFilePath);
+=======
+    #elseif hxvlc
+    playVideoNative(filePath);
+>>>>>>> b150c43d (lol4)
     #else
     throw "No video support for this platform!";
     #end
@@ -131,10 +173,16 @@ class VideoCutscene
   public static function isPlaying():Bool
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if (html5 || hxvlc)
 =======
     #if (html5 || hxCodec)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    #if (html5 || hxCodec)
+=======
+    #if (html5 || hxvlc)
+>>>>>>> b150c43d (lol4)
     return vid != null;
     #else
     return false;
@@ -168,10 +216,16 @@ class VideoCutscene
   #end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if hxvlc
 =======
   #if hxCodec
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  #if hxCodec
+=======
+  #if hxvlc
+>>>>>>> b150c43d (lol4)
   static function playVideoNative(filePath:String):Void
   {
     // Video displays OVER the FlxState.
@@ -181,6 +235,7 @@ class VideoCutscene
     {
       vid.zIndex = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
       vid.active = false;
       vid.bitmap.onEncounteredError.add(function(msg:String):Void {
         trace('[VLC] Encountered an error: $msg');
@@ -189,15 +244,30 @@ class VideoCutscene
       });
       vid.bitmap.onEndReached.add(finishVideo.bind(0.5));
 =======
+||||||| parent of b150c43d (lol4)
+=======
+      vid.active = false;
+      vid.bitmap.onEncounteredError.add(function(msg:String):Void {
+        trace('[VLC] Encountered an error: $msg');
+
+        finishVideo(0.5);
+      });
+>>>>>>> b150c43d (lol4)
       vid.bitmap.onEndReached.add(finishVideo.bind(0.5));
+<<<<<<< HEAD
       vid.autoPause = FlxG.autoPause;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      vid.autoPause = FlxG.autoPause;
+=======
+>>>>>>> b150c43d (lol4)
 
       vid.cameras = [PlayState.instance.camCutscene];
 
       PlayState.instance.add(vid);
 
       PlayState.instance.refresh();
+<<<<<<< HEAD
 <<<<<<< HEAD
 
       if (vid.load(filePath)) vid.play();
@@ -210,14 +280,28 @@ class VideoCutscene
         vid.screenCenter();
 =======
       vid.play(filePath, false);
+||||||| parent of b150c43d (lol4)
+      vid.play(filePath, false);
+=======
+
+      if (vid.load(filePath)) vid.play();
+>>>>>>> b150c43d (lol4)
 
       // Resize videos bigger or smaller than the screen.
-      vid.bitmap.onTextureSetup.add(() -> {
-        vid.setGraphicSize(FlxG.width, FlxG.height);
+      vid.bitmap.onFormatSetup.add(function():Void {
+        if (vid == null) return;
+        vid.setGraphicSize(FlxG.initialWidth, FlxG.initialHeight);
         vid.updateHitbox();
+<<<<<<< HEAD
         vid.x = 0;
         vid.y = 0;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        vid.x = 0;
+        vid.y = 0;
+=======
+        vid.screenCenter();
+>>>>>>> b150c43d (lol4)
         // vid.scale.set(0.5, 0.5);
       });
 
@@ -231,10 +315,16 @@ class VideoCutscene
   #end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   public static function restartVideo():Void
 =======
   public static function restartVideo(resume:Bool = true):Void
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public static function restartVideo(resume:Bool = true):Void
+=======
+  public static function restartVideo():Void
+>>>>>>> b150c43d (lol4)
   {
     #if html5
     if (vid != null)
@@ -245,6 +335,7 @@ class VideoCutscene
     #end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
     if (vid != null)
     {
@@ -252,10 +343,15 @@ class VideoCutscene
       vid.resume();
 =======
     #if hxCodec
+||||||| parent of b150c43d (lol4)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> b150c43d (lol4)
     if (vid != null)
     {
-      // Seek to the start of the video.
       vid.bitmap.time = 0;
+<<<<<<< HEAD
       if (resume)
       {
         // Resume the video if it was paused.
@@ -263,6 +359,16 @@ class VideoCutscene
       }
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      if (resume)
+      {
+        // Resume the video if it was paused.
+        vid.resume();
+      }
+
+=======
+      vid.resume();
+>>>>>>> b150c43d (lol4)
       onVideoRestarted.dispatch();
     }
     #end
@@ -279,10 +385,16 @@ class VideoCutscene
     #end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> b150c43d (lol4)
     if (vid != null)
     {
       vid.pause();
@@ -302,10 +414,16 @@ class VideoCutscene
     #end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> b150c43d (lol4)
     if (vid != null)
     {
       vid.visible = false;
@@ -325,10 +443,16 @@ class VideoCutscene
     #end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> b150c43d (lol4)
     if (vid != null)
     {
       vid.visible = true;
@@ -348,10 +472,16 @@ class VideoCutscene
     #end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> b150c43d (lol4)
     if (vid != null)
     {
       vid.resume();
@@ -379,10 +509,16 @@ class VideoCutscene
     #end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> b150c43d (lol4)
     if (vid != null)
     {
       vid.stop();
@@ -391,10 +527,16 @@ class VideoCutscene
     #end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if (html5 || hxvlc)
 =======
     #if (html5 || hxCodec)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    #if (html5 || hxCodec)
+=======
+    #if (html5 || hxvlc)
+>>>>>>> b150c43d (lol4)
     vid.destroy();
     vid = null;
     #end

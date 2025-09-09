@@ -1,16 +1,23 @@
 package funkin.play.cutscene.dialogue;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.addons.display.FlxPieDial;
 import flixel.FlxSprite;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.addons.display.FlxPieDial;
+import flixel.FlxSprite;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.group.FlxSpriteGroup;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import funkin.audio.FunkinSound;
+<<<<<<< HEAD
 <<<<<<< HEAD
 import funkin.data.dialogue.ConversationData;
 import funkin.data.dialogue.ConversationData.DialogueEntryData;
@@ -26,6 +33,21 @@ import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
 import funkin.data.dialogue.speaker.SpeakerData;
 import funkin.data.dialogue.speaker.SpeakerRegistry;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.data.dialogue.conversation.ConversationData;
+import funkin.data.dialogue.conversation.ConversationData.DialogueEntryData;
+import funkin.data.dialogue.conversation.ConversationRegistry;
+import funkin.data.dialogue.dialoguebox.DialogueBoxData;
+import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
+import funkin.data.dialogue.speaker.SpeakerData;
+import funkin.data.dialogue.speaker.SpeakerRegistry;
+=======
+import funkin.data.dialogue.ConversationData;
+import funkin.data.dialogue.ConversationData.DialogueEntryData;
+import funkin.data.dialogue.ConversationRegistry;
+import funkin.data.dialogue.DialogueBoxRegistry;
+import funkin.data.dialogue.SpeakerRegistry;
+>>>>>>> b150c43d (lol4)
 import funkin.data.IRegistryEntry;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.events.ScriptEvent;
@@ -33,9 +55,14 @@ import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.IScriptedClass.IDialogueScriptedClass;
 import funkin.modding.IScriptedClass.IEventHandler;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import funkin.play.cutscene.dialogue.DialogueBox;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.play.cutscene.dialogue.DialogueBox;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.util.SortUtil;
 import funkin.util.EaseUtil;
 
@@ -45,25 +72,40 @@ import funkin.util.EaseUtil;
  * This shit is great for modders but it's pretty elaborate for how much it'll actually be used, lolol. -Eric
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass implements IRegistryEntry<ConversationData>
 {
   /**
 =======
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass implements IRegistryEntry<ConversationData>
 {
   /**
+<<<<<<< HEAD
    * The ID of the conversation.
    */
   public final id:String;
 
   /**
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+   * The ID of the conversation.
+   */
+  public final id:String;
+
+  /**
+=======
+>>>>>>> b150c43d (lol4)
    * The current state of the conversation.
    */
   var state:ConversationState = ConversationState.Start;
 
   /**
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
    * Conversation data as parsed from the JSON file.
@@ -72,6 +114,14 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   /**
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+   * Conversation data as parsed from the JSON file.
+   */
+  public final _data:ConversationData;
+
+  /**
+=======
+>>>>>>> b150c43d (lol4)
    * The current entry in the dialogue.
    */
   var currentDialogueEntry:Int = 0;
@@ -81,10 +131,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function get_currentDialogueEntryCount():Int
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return _data?.dialogue?.length ?? 0;
 =======
     return _data.dialogue.length;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    return _data.dialogue.length;
+=======
+    return _data?.dialogue?.length ?? 0;
+>>>>>>> b150c43d (lol4)
   }
 
   /**
@@ -97,6 +153,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function get_currentDialogueLineCount():Int
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return currentDialogueEntryData?.text?.length ?? 0;
   }
 
@@ -105,12 +162,23 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function get_currentDialogueEntryData():Null<DialogueEntryData>
 =======
     return currentDialogueEntryData.text.length;
+||||||| parent of b150c43d (lol4)
+    return currentDialogueEntryData.text.length;
+=======
+    return currentDialogueEntryData?.text?.length ?? 0;
+>>>>>>> b150c43d (lol4)
   }
 
-  var currentDialogueEntryData(get, never):DialogueEntryData;
+  var currentDialogueEntryData(get, never):Null<DialogueEntryData>;
 
+<<<<<<< HEAD
   function get_currentDialogueEntryData():DialogueEntryData
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  function get_currentDialogueEntryData():DialogueEntryData
+=======
+  function get_currentDialogueEntryData():Null<DialogueEntryData>
+>>>>>>> b150c43d (lol4)
   {
     if (_data == null || _data.dialogue == null) return null;
     if (currentDialogueEntry < 0 || currentDialogueEntry >= _data.dialogue.length) return null;
@@ -123,25 +191,39 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function get_currentDialogueLineString():String
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     // TODO: Replace "" with some placeholder text?
     return currentDialogueEntryData?.text[currentDialogueLine] ?? "";
 =======
     return currentDialogueEntryData?.text[currentDialogueLine];
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    return currentDialogueEntryData?.text[currentDialogueLine];
+=======
+    // TODO: Replace "" with some placeholder text?
+    return currentDialogueEntryData?.text[currentDialogueLine] ?? "";
+>>>>>>> b150c43d (lol4)
   }
 
   /**
    * AUDIO
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   var music:Null<FunkinSound>;
 =======
   var music:FunkinSound;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  var music:FunkinSound;
+=======
+  var music:Null<FunkinSound>;
+>>>>>>> b150c43d (lol4)
 
   /**
    * GRAPHICS
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   var backdrop:Null<FunkinSprite>;
 
@@ -152,13 +234,24 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   public function new(id:String, ?params:Dynamic)
 =======
   var backdrop:FunkinSprite;
+||||||| parent of b150c43d (lol4)
+  var backdrop:FunkinSprite;
+=======
+  var backdrop:Null<FunkinSprite>;
+>>>>>>> b150c43d (lol4)
 
-  var currentSpeaker:Speaker;
+  var currentSpeaker:Null<Speaker>;
 
-  var currentDialogueBox:DialogueBox;
+  var currentDialogueBox:Null<DialogueBox>;
 
+<<<<<<< HEAD
   public function new(id:String)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public function new(id:String)
+=======
+  public function new(id:String, ?params:Dynamic)
+>>>>>>> b150c43d (lol4)
   {
     super();
 
@@ -185,6 +278,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function setupMusic():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (_data == null) return;
 
     if (_data.music == null || (_data.music.asset ?? "") == "") return;
@@ -204,17 +298,34 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
       }
 =======
     if (_data.music == null) return;
+||||||| parent of b150c43d (lol4)
+    if (_data.music == null) return;
+=======
+    if (_data == null) return;
+
+    if (_data.music == null || (_data.music.asset ?? "") == "") return;
+>>>>>>> b150c43d (lol4)
 
     music = FunkinSound.load(Paths.music(_data.music.asset), 0.0, true, true, true);
+    var fadeTime:Float = _data.music.fadeTime ?? 0.0;
 
-    if (_data.music.fadeTime > 0.0)
+    if (fadeTime > 0.0)
     {
-      FlxTween.tween(music, {volume: 1.0}, _data.music.fadeTime, {ease: FlxEase.linear});
+      FlxTween.tween(music, {volume: 1.0}, fadeTime, {ease: FlxEase.linear});
     }
     else
     {
+<<<<<<< HEAD
       music.volume = 1.0;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      music.volume = 1.0;
+=======
+      if (music != null)
+      {
+        music.volume = 1.0;
+      }
+>>>>>>> b150c43d (lol4)
     }
   }
 
@@ -237,10 +348,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function setupBackdrop():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (_data == null) return;
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    if (_data == null) return;
+
+>>>>>>> b150c43d (lol4)
     if (backdrop != null)
     {
       backdrop.destroy();
@@ -257,6 +374,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     {
       case SOLID(backdropData):
 <<<<<<< HEAD
+<<<<<<< HEAD
         var targetColor:Null<FlxColor> = FlxColor.fromString(backdropData.color);
         backdrop.makeSolidColor(Std.int(FlxG.width), Std.int(FlxG.height), targetColor);
         var fadeTime = backdropData.fadeTime ?? 0.0;
@@ -266,12 +384,24 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
           FlxTween.tween(backdrop, {alpha: 1.0}, fadeTime, {ease: EaseUtil.stepped(10)});
 =======
         var targetColor:FlxColor = FlxColor.fromString(backdropData.color);
+||||||| parent of b150c43d (lol4)
+        var targetColor:FlxColor = FlxColor.fromString(backdropData.color);
+=======
+        var targetColor:Null<FlxColor> = FlxColor.fromString(backdropData.color);
+>>>>>>> b150c43d (lol4)
         backdrop.makeSolidColor(Std.int(FlxG.width), Std.int(FlxG.height), targetColor);
-        if (backdropData.fadeTime > 0.0)
+        var fadeTime = backdropData.fadeTime ?? 0.0;
+        if (fadeTime > 0.0)
         {
           backdrop.alpha = 0.0;
+<<<<<<< HEAD
           FlxTween.tween(backdrop, {alpha: 1.0}, backdropData.fadeTime, {ease: EaseUtil.stepped(10)});
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+          FlxTween.tween(backdrop, {alpha: 1.0}, backdropData.fadeTime, {ease: EaseUtil.stepped(10)});
+=======
+          FlxTween.tween(backdrop, {alpha: 1.0}, fadeTime, {ease: EaseUtil.stepped(10)});
+>>>>>>> b150c43d (lol4)
         }
         else
         {
@@ -296,10 +426,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function showCurrentSpeaker():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextSpeakerId:String = currentDialogueEntryData?.speaker ?? "";
 =======
     var nextSpeakerId:String = currentDialogueEntryData.speaker;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var nextSpeakerId:String = currentDialogueEntryData.speaker;
+=======
+    var nextSpeakerId:String = currentDialogueEntryData?.speaker ?? "";
+>>>>>>> b150c43d (lol4)
 
     // Skip the next steps if the current speaker is already displayed.
     if ((currentSpeaker != null && currentSpeaker.alive) && nextSpeakerId == currentSpeaker.id) return;
@@ -312,10 +448,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextSpeaker:Null<Speaker> = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
 =======
     var nextSpeaker:Speaker = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var nextSpeaker:Speaker = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
+=======
+    var nextSpeaker:Null<Speaker> = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
+>>>>>>> b150c43d (lol4)
 
     if (nextSpeaker == null)
     {
@@ -342,6 +484,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function playSpeakerAnimation():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextSpeakerAnimation:Null<String> = currentDialogueEntryData?.speakerAnimation;
 
     if (nextSpeakerAnimation == null) return;
@@ -349,11 +492,22 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     if (currentSpeaker != null) currentSpeaker.playAnimation(nextSpeakerAnimation);
 =======
     var nextSpeakerAnimation:String = currentDialogueEntryData.speakerAnimation;
+||||||| parent of b150c43d (lol4)
+    var nextSpeakerAnimation:String = currentDialogueEntryData.speakerAnimation;
+=======
+    var nextSpeakerAnimation:Null<String> = currentDialogueEntryData?.speakerAnimation;
+>>>>>>> b150c43d (lol4)
 
     if (nextSpeakerAnimation == null) return;
 
+<<<<<<< HEAD
     currentSpeaker.playAnimation(nextSpeakerAnimation);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    currentSpeaker.playAnimation(nextSpeakerAnimation);
+=======
+    if (currentSpeaker != null) currentSpeaker.playAnimation(nextSpeakerAnimation);
+>>>>>>> b150c43d (lol4)
   }
 
   public function refresh():Void
@@ -364,10 +518,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function showCurrentDialogueBox():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextDialogueBoxId:String = currentDialogueEntryData?.box ?? "";
 =======
     var nextDialogueBoxId:String = currentDialogueEntryData?.box;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var nextDialogueBoxId:String = currentDialogueEntryData?.box;
+=======
+    var nextDialogueBoxId:String = currentDialogueEntryData?.box ?? "";
+>>>>>>> b150c43d (lol4)
 
     // Skip the next steps if the current dialogue box is already displayed.
     if ((currentDialogueBox != null && currentDialogueBox.alive) && nextDialogueBoxId == currentDialogueBox.id) return;
@@ -380,10 +540,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextDialogueBox:Null<DialogueBox> = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
 =======
     var nextDialogueBox:DialogueBox = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var nextDialogueBox:DialogueBox = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
+=======
+    var nextDialogueBox:Null<DialogueBox> = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
+>>>>>>> b150c43d (lol4)
 
     if (nextDialogueBox == null)
     {
@@ -406,6 +572,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   function playDialogueBoxAnimation():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextDialogueBoxAnimation:Null<String> = currentDialogueEntryData?.boxAnimation;
 
     if (nextDialogueBoxAnimation == null) return;
@@ -413,11 +580,22 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     if (currentDialogueBox != null) currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
 =======
     var nextDialogueBoxAnimation:String = currentDialogueEntryData?.boxAnimation;
+||||||| parent of b150c43d (lol4)
+    var nextDialogueBoxAnimation:String = currentDialogueEntryData?.boxAnimation;
+=======
+    var nextDialogueBoxAnimation:Null<String> = currentDialogueEntryData?.boxAnimation;
+>>>>>>> b150c43d (lol4)
 
     if (nextDialogueBoxAnimation == null) return;
 
+<<<<<<< HEAD
     currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
+=======
+    if (currentDialogueBox != null) currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
+>>>>>>> b150c43d (lol4)
   }
 
   function onTypingComplete():Void
@@ -487,6 +665,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     outroTween = null;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (this.music != null)
     {
       this.music.stop();
@@ -516,19 +695,48 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     if (this.music != null) this.music.stop();
     this.music = null;
+||||||| parent of b150c43d (lol4)
+    if (this.music != null) this.music.stop();
+    this.music = null;
+=======
+    if (this.music != null)
+    {
+      this.music.stop();
+      this.music = null;
+    }
+>>>>>>> b150c43d (lol4)
 
-    if (currentSpeaker != null) currentSpeaker.kill();
-    remove(currentSpeaker);
-    currentSpeaker = null;
+    if (currentSpeaker != null)
+    {
+      currentSpeaker.kill();
+      remove(currentSpeaker);
+      currentSpeaker = null;
+    }
 
-    if (currentDialogueBox != null) currentDialogueBox.kill();
-    remove(currentDialogueBox);
-    currentDialogueBox = null;
+    if (currentDialogueBox != null)
+    {
+      currentDialogueBox.kill();
+      remove(currentDialogueBox);
+      currentDialogueBox = null;
+    }
 
+<<<<<<< HEAD
     if (backdrop != null) backdrop.destroy();
     remove(backdrop);
     backdrop = null;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    if (backdrop != null) backdrop.destroy();
+    remove(backdrop);
+    backdrop = null;
+=======
+    if (backdrop != null)
+    {
+      backdrop.destroy();
+      remove(backdrop);
+      backdrop = null;
+    }
+>>>>>>> b150c43d (lol4)
 
     startConversation();
   }
@@ -545,10 +753,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   var outroTween:Null<FlxTween> = null;
 =======
   var outroTween:FlxTween;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  var outroTween:FlxTween;
+=======
+  var outroTween:Null<FlxTween> = null;
+>>>>>>> b150c43d (lol4)
 
   public function startOutro():Void
   {
@@ -564,10 +778,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
           });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (this.music != null) FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
 =======
         FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
+=======
+        if (this.music != null) FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
+>>>>>>> b150c43d (lol4)
       case NONE(_):
         // Immediately clean up.
         endOutro();
@@ -578,10 +798,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var completeCallback:Null<Void->Void> = null;
 =======
   public var completeCallback:() -> Void;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public var completeCallback:() -> Void;
+=======
+  public var completeCallback:Null<Void->Void> = null;
+>>>>>>> b150c43d (lol4)
 
   public function endOutro():Void
   {
@@ -642,10 +868,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
       // Continue the dialog with more lines.
       state = Speaking;
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (currentDialogueBox != null) currentDialogueBox.appendText(currentDialogueLineString);
 =======
       currentDialogueBox.appendText(currentDialogueLineString);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      currentDialogueBox.appendText(currentDialogueLineString);
+=======
+      if (currentDialogueBox != null) currentDialogueBox.appendText(currentDialogueLineString);
+>>>>>>> b150c43d (lol4)
     }
   }
 
@@ -658,10 +890,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     if (event.eventCanceled) return;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (currentDialogueBox != null) currentDialogueBox.skip();
 =======
     currentDialogueBox.skip();
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    currentDialogueBox.skip();
+=======
+    if (currentDialogueBox != null) currentDialogueBox.skip();
+>>>>>>> b150c43d (lol4)
   }
 
   /**
@@ -737,6 +975,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     this.music = null;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (currentSpeaker != null)
     {
       currentSpeaker.kill();
@@ -761,15 +1000,43 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     if (currentSpeaker != null) currentSpeaker.kill();
     remove(currentSpeaker);
     currentSpeaker = null;
+||||||| parent of b150c43d (lol4)
+    if (currentSpeaker != null) currentSpeaker.kill();
+    remove(currentSpeaker);
+    currentSpeaker = null;
+=======
+    if (currentSpeaker != null)
+    {
+      currentSpeaker.kill();
+      remove(currentSpeaker);
+      currentSpeaker = null;
+    }
+>>>>>>> b150c43d (lol4)
 
-    if (currentDialogueBox != null) currentDialogueBox.kill();
-    remove(currentDialogueBox);
-    currentDialogueBox = null;
+    if (currentDialogueBox != null)
+    {
+      currentDialogueBox.kill();
+      remove(currentDialogueBox);
+      currentDialogueBox = null;
+    }
 
+<<<<<<< HEAD
     if (backdrop != null) backdrop.destroy();
     remove(backdrop);
     backdrop = null;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    if (backdrop != null) backdrop.destroy();
+    remove(backdrop);
+    backdrop = null;
+=======
+    if (backdrop != null)
+    {
+      backdrop.destroy();
+      remove(backdrop);
+      backdrop = null;
+    }
+>>>>>>> b150c43d (lol4)
 
     this.clear();
 
@@ -827,6 +1094,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   public override function toString():String
@@ -839,6 +1107,19 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     return ConversationRegistry.instance.parseEntryDataWithMigration(id, ConversationRegistry.instance.fetchEntryVersion(id));
   }
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+
+  public override function toString():String
+  {
+    return 'Conversation($id)';
+  }
+
+  static function _fetchData(id:String):Null<ConversationData>
+  {
+    return ConversationRegistry.instance.parseEntryDataWithMigration(id, ConversationRegistry.instance.fetchEntryVersion(id));
+  }
+=======
+>>>>>>> b150c43d (lol4)
 }
 
 // Managing things with a single enum is a lot easier than a multitude of flags.

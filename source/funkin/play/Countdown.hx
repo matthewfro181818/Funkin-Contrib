@@ -3,12 +3,20 @@ package funkin.play;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.module.ModuleHandler;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.modding.module.ModuleHandler;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.modding.events.ScriptEvent;
 import funkin.modding.events.ScriptEvent.CountdownScriptEvent;
 import flixel.util.FlxTimer;
@@ -263,10 +271,16 @@ class Countdown
     if (path == null) return null;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME, null, null, true);
 =======
     return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME);
+=======
+    return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME, null, null, true);
+>>>>>>> b150c43d (lol4)
   }
 
   public static function decrement(step:CountdownStep):CountdownStep

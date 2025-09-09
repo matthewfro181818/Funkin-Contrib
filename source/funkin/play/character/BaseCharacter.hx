@@ -3,12 +3,20 @@ package funkin.play.character;
 import flixel.math.FlxPoint;
 import funkin.modding.events.ScriptEvent;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterDataParser;
 import funkin.play.character.CharacterData.CharacterRenderType;
 =======
 import funkin.data.character.CharacterRegistry;
 import funkin.data.character.CharacterData;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.data.character.CharacterRegistry;
+import funkin.data.character.CharacterData;
+=======
+import funkin.play.character.CharacterData.CharacterDataParser;
+import funkin.play.character.CharacterData.CharacterRenderType;
+>>>>>>> b150c43d (lol4)
 import funkin.play.stage.Bopper;
 import funkin.play.notes.NoteDirection;
 
@@ -154,20 +162,33 @@ class BaseCharacter extends Bopper
   public function new(id:String, renderType:CharacterRenderType)
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     super(CharacterDataParser.DEFAULT_DANCEEVERY);
 
 =======
     super(CharacterRegistry.DEFAULT_DANCEEVERY);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    super(CharacterRegistry.DEFAULT_DANCEEVERY);
+=======
+    super(CharacterDataParser.DEFAULT_DANCEEVERY);
+
+>>>>>>> b150c43d (lol4)
     this.characterId = id;
 
     ignoreExclusionPref = ["sing"];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     _data = CharacterDataParser.fetchCharacterData(this.characterId);
 =======
     _data = CharacterRegistry.fetchCharacterData(this.characterId);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    _data = CharacterRegistry.fetchCharacterData(this.characterId);
+=======
+    _data = CharacterDataParser.fetchCharacterData(this.characterId);
+>>>>>>> b150c43d (lol4)
     if (_data == null)
     {
       throw 'Could not find character data for characterId: $characterId';
@@ -567,23 +588,36 @@ class BaseCharacter extends Bopper
     if (event.note.noteData.getMustHitNote() && characterType == BF)
     {
 <<<<<<< HEAD
-      // If the note is from the same strumline, play the miss animation.
-=======
-      // If the note is from the same strumline, play the sing animation.
->>>>>>> e11c5f8d (Add files via upload)
-      this.playSingAnimation(event.note.noteData.getDirection(), true);
-    }
-    else if (!event.note.noteData.getMustHitNote() && characterType == DAD)
-    {
 <<<<<<< HEAD
       // If the note is from the same strumline, play the miss animation.
 =======
       // If the note is from the same strumline, play the sing animation.
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      // If the note is from the same strumline, play the sing animation.
+=======
+      // If the note is from the same strumline, play the miss animation.
+>>>>>>> b150c43d (lol4)
+      this.playSingAnimation(event.note.noteData.getDirection(), true);
+    }
+    else if (!event.note.noteData.getMustHitNote() && characterType == DAD)
+    {
+<<<<<<< HEAD
+<<<<<<< HEAD
+      // If the note is from the same strumline, play the miss animation.
+=======
+      // If the note is from the same strumline, play the sing animation.
+>>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      // If the note is from the same strumline, play the sing animation.
+=======
+      // If the note is from the same strumline, play the miss animation.
+>>>>>>> b150c43d (lol4)
       this.playSingAnimation(event.note.noteData.getDirection(), true);
     }
     else if (event.note.noteData.getMustHitNote() && characterType == GF)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       playComboDropAnimation(event.comboCount);
     }
@@ -612,6 +646,34 @@ class BaseCharacter extends Bopper
 =======
       playComboDropAnimation(Highscore.tallies.combo);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      playComboDropAnimation(Highscore.tallies.combo);
+=======
+      playComboDropAnimation(event.comboCount);
+    }
+  }
+
+  public override function onNoteHoldDrop(event:HoldNoteScriptEvent)
+  {
+    super.onNoteHoldDrop(event);
+
+    // If another script cancelled the event, don't do anything.
+    if (event.eventCanceled) return;
+
+    if (event.holdNote.noteData.getMustHitNote() && characterType == BF)
+    {
+      // If the note is from the same strumline, play the miss animation.
+      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
+    }
+    else if (!event.holdNote.noteData.getMustHitNote() && characterType == DAD)
+    {
+      // If the note is from the same strumline, play the miss animation.
+      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
+    }
+    else if (event.holdNote.noteData.getMustHitNote() && event.isComboBreak && characterType == GF)
+    {
+      playComboDropAnimation(event.comboCount);
+>>>>>>> b150c43d (lol4)
     }
   }
 
@@ -693,6 +755,7 @@ class BaseCharacter extends Bopper
     super.playAnimation(name, restart, ignoreOther, reversed);
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   public function getDeathQuote():Null<String>
   {
@@ -700,6 +763,14 @@ class BaseCharacter extends Bopper
   }
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+
+  public function getDeathQuote():Null<String>
+  {
+    return null;
+  }
+>>>>>>> b150c43d (lol4)
 }
 
 /**

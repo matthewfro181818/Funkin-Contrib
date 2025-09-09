@@ -1,6 +1,7 @@
 package funkin.play.event;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.tweens.FlxEase;
 // Data from the chart
 import funkin.data.song.SongData.SongEventData;
@@ -8,13 +9,22 @@ import funkin.data.song.SongData.SongEventData;
 =======
 import flixel.tweens.FlxTween;
 import flixel.FlxCamera;
+||||||| parent of b150c43d (lol4)
+import flixel.tweens.FlxTween;
+import flixel.FlxCamera;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.tweens.FlxEase;
 // Data from the chart
-import funkin.data.song.SongData;
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 import funkin.play.event.SongEvent;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.play.event.SongEvent;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -122,9 +132,14 @@ class ZoomCameraSongEvent extends SongEvent
         title: 'Zoom Level',
         defaultValue: 1.0,
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+        min: 0,
+>>>>>>> b150c43d (lol4)
         step: 0.05,
         type: SongEventFieldType.FLOAT,
         units: 'x'
@@ -134,9 +149,14 @@ class ZoomCameraSongEvent extends SongEvent
         title: 'Duration',
         defaultValue: 4.0,
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+        min: 0,
+>>>>>>> b150c43d (lol4)
         step: 0.5,
         type: SongEventFieldType.FLOAT,
         units: 'steps'
@@ -178,6 +198,7 @@ class ZoomCameraSongEvent extends SongEvent
           'Smooth Step Out' => 'smoothStepOut',
           'Smooth Step In/Out' => 'smoothStepInOut',
 <<<<<<< HEAD
+<<<<<<< HEAD
           'Smoother Step In' => 'smootherStepIn',
           'Smoother Step Out' => 'smootherStepOut',
           'Smoother Step In/Out' => 'smootherStepInOut',
@@ -194,10 +215,31 @@ class ZoomCameraSongEvent extends SongEvent
           'Circ Out' => 'circOut',
           'Circ In/Out' => 'circInOut'
 =======
+||||||| parent of b150c43d (lol4)
+=======
+          'Smoother Step In' => 'smootherStepIn',
+          'Smoother Step Out' => 'smootherStepOut',
+          'Smoother Step In/Out' => 'smootherStepInOut',
+>>>>>>> b150c43d (lol4)
           'Elastic In' => 'elasticIn',
           'Elastic Out' => 'elasticOut',
+<<<<<<< HEAD
           'Elastic In/Out' => 'elasticInOut'
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+          'Elastic In/Out' => 'elasticInOut'
+=======
+          'Elastic In/Out' => 'elasticInOut',
+          'Back In' => 'backIn',
+          'Back Out' => 'backOut',
+          'Back In/Out' => 'backInOut',
+          'Bounce In' => 'bounceIn',
+          'Bounce Out' => 'bounceOut',
+          'Bounce In/Out' => 'bounceInOut',
+          'Circ In' => 'circIn',
+          'Circ Out' => 'circOut',
+          'Circ In/Out' => 'circInOut'
+>>>>>>> b150c43d (lol4)
         ]
       }
     ]);

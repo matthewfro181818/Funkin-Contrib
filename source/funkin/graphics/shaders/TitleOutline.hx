@@ -1,9 +1,14 @@
 package funkin.graphics.shaders;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.math.FlxPoint;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.math.FlxPoint;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.system.FlxAssets.FlxShader;
 
 class TitleOutline extends FlxShader

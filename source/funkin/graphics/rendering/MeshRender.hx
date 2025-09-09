@@ -8,9 +8,14 @@ import flixel.util.FlxColor;
  * instead of my dumbass ugly code bro
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class MeshRender extends FlxStrip
 {
   public var vertex_count(default, null):Int = 0;

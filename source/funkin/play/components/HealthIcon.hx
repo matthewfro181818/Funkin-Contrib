@@ -1,17 +1,28 @@
 package funkin.play.components;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData;
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import funkin.play.character.CharacterData.CharacterDataParser;
 =======
+||||||| parent of b150c43d (lol4)
+=======
+import funkin.play.character.CharacterData;
+>>>>>>> b150c43d (lol4)
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
+<<<<<<< HEAD
 import funkin.data.character.CharacterData;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.data.character.CharacterData;
+=======
+import funkin.play.character.CharacterData.CharacterDataParser;
+>>>>>>> b150c43d (lol4)
 import funkin.graphics.FunkinSprite;
 import funkin.util.MathUtil;
 
@@ -123,10 +134,16 @@ class HealthIcon extends FunkinSprite
   static final POSITION_OFFSET:Int = 26;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var iconOffset:FlxPoint = FlxPoint.get();
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  public var iconOffset:FlxPoint = FlxPoint.get();
+
+>>>>>>> b150c43d (lol4)
   public function new(char:Null<String>, playerId:Int = 0)
   {
     super(0, 0);
@@ -164,6 +181,7 @@ class HealthIcon extends FunkinSprite
   public function toggleOldIcon():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     final playState:Null<PlayState> = PlayState.instance;
     if (playState == null || playState.currentStage == null) return;
     if (characterId == 'bf-old')
@@ -171,11 +189,24 @@ class HealthIcon extends FunkinSprite
       isPixel = playState.currentStage.getBoyfriend()?.isPixel ?? false;
       playState.currentStage.getBoyfriend()?.initHealthIcon(false);
 =======
+||||||| parent of b150c43d (lol4)
+=======
+    final playState:Null<PlayState> = PlayState.instance;
+    if (playState == null || playState.currentStage == null) return;
+>>>>>>> b150c43d (lol4)
     if (characterId == 'bf-old')
     {
+<<<<<<< HEAD
       isPixel = PlayState.instance.currentStage.getBoyfriend().isPixel;
       PlayState.instance.currentStage.getBoyfriend().initHealthIcon(false);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      isPixel = PlayState.instance.currentStage.getBoyfriend().isPixel;
+      PlayState.instance.currentStage.getBoyfriend().initHealthIcon(false);
+=======
+      isPixel = playState.currentStage.getBoyfriend()?.isPixel ?? false;
+      playState.currentStage.getBoyfriend()?.initHealthIcon(false);
+>>>>>>> b150c43d (lol4)
     }
     else
     {
@@ -202,11 +233,18 @@ class HealthIcon extends FunkinSprite
 
       this.size.set(1.0, 1.0);
 <<<<<<< HEAD
+<<<<<<< HEAD
       this.iconOffset.set();
 =======
       this.offset.x = 0.0;
       this.offset.y = 0.0;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      this.offset.x = 0.0;
+      this.offset.y = 0.0;
+=======
+      this.iconOffset.set();
+>>>>>>> b150c43d (lol4)
       this.flipX = false;
     }
     else
@@ -217,6 +255,7 @@ class HealthIcon extends FunkinSprite
       loadCharacter(characterId);
 
       this.size.set(data.scale ?? 1.0, data.scale ?? 1.0);
+<<<<<<< HEAD
 <<<<<<< HEAD
       if (data.offsets != null && data.offsets.length == 2)
       {
@@ -231,6 +270,20 @@ class HealthIcon extends FunkinSprite
       this.offset.x = (data.offsets != null) ? data.offsets[0] : 0.0;
       this.offset.y = (data.offsets != null) ? data.offsets[1] : 0.0;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      this.offset.x = (data.offsets != null) ? data.offsets[0] : 0.0;
+      this.offset.y = (data.offsets != null) ? data.offsets[1] : 0.0;
+=======
+      if (data.offsets != null && data.offsets.length == 2)
+      {
+        this.iconOffset.set(data.offsets[0], data.offsets[1]);
+      }
+      else
+      {
+        this.iconOffset.set(0, 0);
+      }
+
+>>>>>>> b150c43d (lol4)
       this.flipX = data.flipX ?? false; // Face the OTHER way by default, since that is more common.
     }
   }
@@ -248,10 +301,16 @@ class HealthIcon extends FunkinSprite
 
       // Lerp the health icon back to its normal angle.
 <<<<<<< HEAD
+<<<<<<< HEAD
       this.angle = MathUtil.smoothLerpPrecision(this.angle, 0, elapsed, 0.512);
 =======
       this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
+=======
+      this.angle = MathUtil.smoothLerpPrecision(this.angle, 0, elapsed, 0.512);
+>>>>>>> b150c43d (lol4)
     }
 
     this.updatePosition();
@@ -270,10 +329,16 @@ class HealthIcon extends FunkinSprite
     {
       // Apply linear interpolation while accounting for frame rate.
 <<<<<<< HEAD
+<<<<<<< HEAD
       var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.width, HEALTH_ICON_SIZE * this.size.x, FlxG.elapsed, 0.512));
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
+=======
+      var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.width, HEALTH_ICON_SIZE * this.size.x, FlxG.elapsed, 0.512));
+>>>>>>> b150c43d (lol4)
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.x);
 
@@ -282,10 +347,16 @@ class HealthIcon extends FunkinSprite
     else
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.height, HEALTH_ICON_SIZE * this.size.y, FlxG.elapsed, 0.512));
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
+=======
+      var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.height, HEALTH_ICON_SIZE * this.size.y, FlxG.elapsed, 0.512));
+>>>>>>> b150c43d (lol4)
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.y);
 
@@ -339,10 +410,16 @@ class HealthIcon extends FunkinSprite
       // Keep the icon centered vertically on the health bar.
       this.y = PlayState.instance.healthBar.y - (this.height / 2); // - (PlayState.instance.healthBar.height / 2)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
       offset += iconOffset;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+
+      offset += iconOffset;
+>>>>>>> b150c43d (lol4)
     }
   }
 

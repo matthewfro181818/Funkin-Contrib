@@ -3,20 +3,33 @@ package funkin.input;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.util.FlxDirectionFlags;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.input.FlxInput.FlxInputState;
 import flixel.input.actions.FlxAction;
 import flixel.input.actions.FlxActionInput;
 =======
 import flixel.FlxObject;
 import flixel.input.FlxInput;
+||||||| parent of b150c43d (lol4)
+import flixel.FlxObject;
+import flixel.input.FlxInput;
+=======
+import flixel.input.FlxInput.FlxInputState;
+>>>>>>> b150c43d (lol4)
 import flixel.input.actions.FlxAction;
 import flixel.input.actions.FlxActionInput;
+<<<<<<< HEAD
 import flixel.input.actions.FlxActionInputAnalog.FlxActionInputAnalogClickAndDragMouseMotion;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.input.actions.FlxActionInputAnalog.FlxActionInputAnalogClickAndDragMouseMotion;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.input.actions.FlxActionInputDigital;
 import flixel.input.actions.FlxActionManager;
 import flixel.input.actions.FlxActionSet;
 import flixel.input.android.FlxAndroidKey;
+<<<<<<< HEAD
 <<<<<<< HEAD
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
@@ -24,15 +37,25 @@ import flixel.math.FlxAngle;
 import flixel.math.FlxPoint;
 =======
 import flixel.input.gamepad.FlxGamepadButton;
+||||||| parent of b150c43d (lol4)
+import flixel.input.gamepad.FlxGamepadButton;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
-import flixel.input.mouse.FlxMouseButton.FlxMouseButtonID;
 import flixel.math.FlxAngle;
 import flixel.math.FlxPoint;
+<<<<<<< HEAD
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.ui.Haptic;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
+import lime.ui.Haptic;
+=======
+>>>>>>> b150c43d (lol4)
 
 /**
  * A core class which handles receiving player input and interpreting it into game actions.
@@ -84,12 +107,22 @@ class Controls extends FlxActionSet
   var _freeplay_jump_to_bottom = new FunkinAction(Action.FREEPLAY_JUMP_TO_BOTTOM);
   var _cutscene_advance = new FunkinAction(Action.CUTSCENE_ADVANCE);
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if FEATURE_DEBUG_MENU
+||||||| parent of b150c43d (lol4)
+=======
+  #if FEATURE_DEBUG_MENU
+>>>>>>> b150c43d (lol4)
   var _debug_menu = new FunkinAction(Action.DEBUG_MENU);
+<<<<<<< HEAD
   #end
 =======
   var _debug_menu = new FunkinAction(Action.DEBUG_MENU);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  #end
+>>>>>>> b150c43d (lol4)
   #if FEATURE_CHART_EDITOR
   var _debug_chart = new FunkinAction(Action.DEBUG_CHART);
   #end
@@ -313,17 +346,27 @@ class Controls extends FlxActionSet
     return _cutscene_advance.check();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if FEATURE_DEBUG_MENU
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  #if FEATURE_DEBUG_MENU
+>>>>>>> b150c43d (lol4)
   public var DEBUG_MENU(get, never):Bool;
 
   inline function get_DEBUG_MENU()
     return _debug_menu.check();
 <<<<<<< HEAD
+<<<<<<< HEAD
   #end
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  #end
+>>>>>>> b150c43d (lol4)
 
   #if FEATURE_CHART_EDITOR
   public var DEBUG_CHART(get, never):Bool;
@@ -355,10 +398,16 @@ class Controls extends FlxActionSet
     return _volume_mute.check();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   public function new(name, ?scheme:KeyboardScheme)
 =======
   public function new(name, scheme:KeyboardScheme = null)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public function new(name, scheme:KeyboardScheme = null)
+=======
+  public function new(name, ?scheme:KeyboardScheme)
+>>>>>>> b150c43d (lol4)
   {
     super(name);
 
@@ -384,10 +433,16 @@ class Controls extends FlxActionSet
     add(_freeplay_jump_to_bottom);
     add(_cutscene_advance);
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if FEATURE_DEBUG_MENU add(_debug_menu); #end
 =======
     add(_debug_menu);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    add(_debug_menu);
+=======
+    #if FEATURE_DEBUG_MENU add(_debug_menu); #end
+>>>>>>> b150c43d (lol4)
     #if FEATURE_CHART_EDITOR add(_debug_chart); #end
     #if FEATURE_STAGE_EDITOR add(_debug_stage); #end
     add(_volume_up);
@@ -411,10 +466,16 @@ class Controls extends FlxActionSet
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   override function update():Void
 =======
   override function update()
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  override function update()
+=======
+  override function update():Void
+>>>>>>> b150c43d (lol4)
   {
     super.update();
   }
@@ -463,9 +524,14 @@ class Controls extends FlxActionSet
   public function getDialogueName(action:FlxActionDigital, ?ignoreSurrounding:Bool = false):String
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (action.inputs.length == 0) return 'N/A';
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    if (action.inputs.length == 0) return 'N/A';
+>>>>>>> b150c43d (lol4)
     var input = action.inputs[0];
     if (ignoreSurrounding == false)
     {
@@ -523,10 +589,16 @@ class Controls extends FlxActionSet
       case FREEPLAY_JUMP_TO_BOTTOM: _freeplay_jump_to_bottom;
       case CUTSCENE_ADVANCE: _cutscene_advance;
 <<<<<<< HEAD
+<<<<<<< HEAD
       #if FEATURE_DEBUG_MENU case DEBUG_MENU: _debug_menu; #end
 =======
       case DEBUG_MENU: _debug_menu;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      case DEBUG_MENU: _debug_menu;
+=======
+      #if FEATURE_DEBUG_MENU case DEBUG_MENU: _debug_menu; #end
+>>>>>>> b150c43d (lol4)
       #if FEATURE_CHART_EDITOR case DEBUG_CHART: _debug_chart; #end
       #if FEATURE_STAGE_EDITOR case DEBUG_STAGE: _debug_stage; #end
       case VOLUME_UP: _volume_up;
@@ -538,11 +610,18 @@ class Controls extends FlxActionSet
   static function init():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     FlxG.inputs.addUniqueType(new FlxActionManager());
 =======
     var actions = new FlxActionManager();
     FlxG.inputs.add(actions);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var actions = new FlxActionManager();
+    FlxG.inputs.add(actions);
+=======
+    FlxG.inputs.addUniqueType(new FlxActionManager());
+>>>>>>> b150c43d (lol4)
   }
 
   /**
@@ -616,14 +695,24 @@ class Controls extends FlxActionSet
       case CUTSCENE_ADVANCE:
         func(_cutscene_advance, JUST_PRESSED);
 <<<<<<< HEAD
+<<<<<<< HEAD
       #if FEATURE_DEBUG_MENU
+||||||| parent of b150c43d (lol4)
+=======
+      #if FEATURE_DEBUG_MENU
+>>>>>>> b150c43d (lol4)
       case DEBUG_MENU:
         func(_debug_menu, JUST_PRESSED);
+<<<<<<< HEAD
       #end
 =======
       case DEBUG_MENU:
         func(_debug_menu, JUST_PRESSED);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+      #end
+>>>>>>> b150c43d (lol4)
       #if FEATURE_CHART_EDITOR
       case DEBUG_CHART:
         func(_debug_chart, JUST_PRESSED);
@@ -790,6 +879,7 @@ class Controls extends FlxActionSet
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   public function bindSwipe(control:Control, swipeDir:Int = FlxDirectionFlags.UP, ?swpLength:Float = 90)
   {
@@ -797,6 +887,14 @@ class Controls extends FlxActionSet
   }
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public function bindSwipe(control:Control, swipeDir:Int = FlxDirectionFlags.UP, ?swpLength:Float = 90)
+  {
+    forEachBound(control, function(action, press) action.add(new FlxActionInputDigitalMobileSwipeGameplay(swipeDir, press, swpLength)));
+  }
+
+=======
+>>>>>>> b150c43d (lol4)
   /**
    * Sets all actions that pertain to the binder to trigger when the supplied keys are used.
    * If binder is a literal you can inline this
@@ -855,12 +953,22 @@ class Controls extends FlxActionSet
     bindKeys(Control.FREEPLAY_JUMP_TO_BOTTOM, getDefaultKeybinds(scheme, Control.FREEPLAY_JUMP_TO_BOTTOM));
     bindKeys(Control.CUTSCENE_ADVANCE, getDefaultKeybinds(scheme, Control.CUTSCENE_ADVANCE));
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if FEATURE_DEBUG_MENU
+||||||| parent of b150c43d (lol4)
+=======
+    #if FEATURE_DEBUG_MENU
+>>>>>>> b150c43d (lol4)
     bindKeys(Control.DEBUG_MENU, getDefaultKeybinds(scheme, Control.DEBUG_MENU));
+<<<<<<< HEAD
     #end
 =======
     bindKeys(Control.DEBUG_MENU, getDefaultKeybinds(scheme, Control.DEBUG_MENU));
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    #end
+>>>>>>> b150c43d (lol4)
     #if FEATURE_CHART_EDITOR
     bindKeys(Control.DEBUG_CHART, getDefaultKeybinds(scheme, Control.DEBUG_CHART));
     #end
@@ -871,10 +979,16 @@ class Controls extends FlxActionSet
     bindKeys(Control.VOLUME_DOWN, getDefaultKeybinds(scheme, Control.VOLUME_DOWN));
     bindKeys(Control.VOLUME_MUTE, getDefaultKeybinds(scheme, Control.VOLUME_MUTE));
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
     bindMobileLol();
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+
+    bindMobileLol();
+=======
+>>>>>>> b150c43d (lol4)
   }
 
   function getDefaultKeybinds(scheme:KeyboardScheme, control:Control):Array<FlxKey>
@@ -906,10 +1020,16 @@ class Controls extends FlxActionSet
           case Control.FREEPLAY_JUMP_TO_BOTTOM: return [END];
           case Control.CUTSCENE_ADVANCE: return [Z, ENTER];
 <<<<<<< HEAD
+<<<<<<< HEAD
           #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
 =======
           case Control.DEBUG_MENU: return [GRAVEACCENT];
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+          case Control.DEBUG_MENU: return [GRAVEACCENT];
+=======
+          #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
+>>>>>>> b150c43d (lol4)
           #if FEATURE_CHART_EDITOR case Control.DEBUG_CHART: return []; #end
           #if FEATURE_STAGE_EDITOR case Control.DEBUG_STAGE: return []; #end
           case Control.VOLUME_UP: return [PLUS, NUMPADPLUS];
@@ -941,10 +1061,16 @@ class Controls extends FlxActionSet
           case Control.FREEPLAY_JUMP_TO_BOTTOM: return [END];
           case Control.CUTSCENE_ADVANCE: return [G, Z];
 <<<<<<< HEAD
+<<<<<<< HEAD
           #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
 =======
           case Control.DEBUG_MENU: return [GRAVEACCENT];
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+          case Control.DEBUG_MENU: return [GRAVEACCENT];
+=======
+          #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
+>>>>>>> b150c43d (lol4)
           #if FEATURE_CHART_EDITOR case Control.DEBUG_CHART: return []; #end
           #if FEATURE_STAGE_EDITOR case Control.DEBUG_STAGE: return []; #end
           case Control.VOLUME_UP: return [PLUS];
@@ -976,10 +1102,16 @@ class Controls extends FlxActionSet
           case Control.FREEPLAY_JUMP_TO_BOTTOM: return [];
           case Control.CUTSCENE_ADVANCE: return [ENTER];
 <<<<<<< HEAD
+<<<<<<< HEAD
           #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return []; #end
 =======
           case Control.DEBUG_MENU: return [];
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+          case Control.DEBUG_MENU: return [];
+=======
+          #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return []; #end
+>>>>>>> b150c43d (lol4)
           #if FEATURE_CHART_EDITOR case Control.DEBUG_CHART: return []; #end
           #if FEATURE_STAGE_EDITOR case Control.DEBUG_STAGE: return []; #end
           case Control.VOLUME_UP: return [NUMPADPLUS];
@@ -993,6 +1125,7 @@ class Controls extends FlxActionSet
     return [];
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   function bindMobileLol()
@@ -1020,6 +1153,33 @@ class Controls extends FlxActionSet
   }
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  function bindMobileLol()
+  {
+    #if FLX_TOUCH
+    // MAKE BETTER TOUCH BIND CODE
+
+    bindSwipe(Control.NOTE_UP, FlxDirectionFlags.UP, 40);
+    bindSwipe(Control.NOTE_DOWN, FlxDirectionFlags.DOWN, 40);
+    bindSwipe(Control.NOTE_LEFT, FlxDirectionFlags.LEFT, 40);
+    bindSwipe(Control.NOTE_RIGHT, FlxDirectionFlags.RIGHT, 40);
+
+    // feels more like drag when up/down are inversed
+    bindSwipe(Control.UI_UP, FlxDirectionFlags.DOWN);
+    bindSwipe(Control.UI_DOWN, FlxDirectionFlags.UP);
+    bindSwipe(Control.UI_LEFT, FlxDirectionFlags.LEFT);
+    bindSwipe(Control.UI_RIGHT, FlxDirectionFlags.RIGHT);
+    #end
+
+    #if android
+    forEachBound(Control.BACK, function(action, pres) {
+      action.add(new FlxActionInputDigitalAndroid(FlxAndroidKey.BACK, JUST_PRESSED));
+    });
+    #end
+  }
+
+=======
+>>>>>>> b150c43d (lol4)
   function removeKeyboard()
   {
     for (action in this.digitalActions)
@@ -1103,12 +1263,22 @@ class Controls extends FlxActionSet
       Control.VOLUME_DOWN => getDefaultGamepadBinds(Control.VOLUME_DOWN),
       Control.VOLUME_MUTE => getDefaultGamepadBinds(Control.VOLUME_MUTE),
 <<<<<<< HEAD
+<<<<<<< HEAD
       #if FEATURE_DEBUG_MENU
+||||||| parent of b150c43d (lol4)
+=======
+      #if FEATURE_DEBUG_MENU
+>>>>>>> b150c43d (lol4)
       Control.DEBUG_MENU => getDefaultGamepadBinds(Control.DEBUG_MENU),
+<<<<<<< HEAD
       #end
 =======
       Control.DEBUG_MENU => getDefaultGamepadBinds(Control.DEBUG_MENU),
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+      #end
+>>>>>>> b150c43d (lol4)
       #if FEATURE_CHART_EDITOR
       Control.DEBUG_CHART => getDefaultGamepadBinds(Control.DEBUG_CHART),
       #end
@@ -1164,14 +1334,26 @@ class Controls extends FlxActionSet
         return [X];
       case Control.FREEPLAY_JUMP_TO_TOP:
 <<<<<<< HEAD
+<<<<<<< HEAD
         return [RIGHT_STICK_DIGITAL_UP];
       case Control.FREEPLAY_JUMP_TO_BOTTOM:
         return [RIGHT_STICK_DIGITAL_DOWN];
 =======
         return [];
+||||||| parent of b150c43d (lol4)
+        return [];
+=======
+        return [RIGHT_STICK_DIGITAL_UP];
+>>>>>>> b150c43d (lol4)
       case Control.FREEPLAY_JUMP_TO_BOTTOM:
+<<<<<<< HEAD
         return [];
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        return [];
+=======
+        return [RIGHT_STICK_DIGITAL_DOWN];
+>>>>>>> b150c43d (lol4)
       case Control.VOLUME_UP:
         [];
       case Control.VOLUME_DOWN:
@@ -1179,14 +1361,24 @@ class Controls extends FlxActionSet
       case Control.VOLUME_MUTE:
         [];
 <<<<<<< HEAD
+<<<<<<< HEAD
       #if FEATURE_DEBUG_MENU
+||||||| parent of b150c43d (lol4)
+=======
+      #if FEATURE_DEBUG_MENU
+>>>>>>> b150c43d (lol4)
       case Control.DEBUG_MENU:
         [];
+<<<<<<< HEAD
       #end
 =======
       case Control.DEBUG_MENU:
         [];
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+      #end
+>>>>>>> b150c43d (lol4)
       #if FEATURE_CHART_EDITOR
       case Control.DEBUG_CHART:
         [];
@@ -1211,6 +1403,7 @@ class Controls extends FlxActionSet
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   public function touchShit(control:Control, id)
   {
@@ -1220,6 +1413,16 @@ class Controls extends FlxActionSet
   }
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public function touchShit(control:Control, id)
+  {
+    forEachBound(control, function(action, state) {
+      // action
+    });
+  }
+
+=======
+>>>>>>> b150c43d (lol4)
   /**
    * Sets all actions that pertain to the binder to trigger when the supplied keys are used.
    * If binder is a literal you can inline this
@@ -1582,6 +1785,7 @@ class FunkinAction extends FlxActionDigital
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 class FlxActionInputDigitalMobileSwipeGameplay extends FlxActionInputDigital
 {
@@ -1736,6 +1940,161 @@ class FlxActionInputDigitalAndroid extends FlxActionInputDigital
 #end
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+class FlxActionInputDigitalMobileSwipeGameplay extends FlxActionInputDigital
+{
+  var touchMap:Map<Int, Swipes> = new Map();
+
+  var vibrationSteps:Int = 5;
+  var curStep:Int = 5;
+  var activateLength:Float = 90;
+  var hapticPressure:Int = 100;
+
+  public function new(swipeDir:Int = FlxDirectionFlags.ANY, Trigger:FlxInputState, ?swipeLength:Float = 90)
+  {
+    super(OTHER, swipeDir, Trigger);
+
+    activateLength = swipeLength;
+  }
+
+  // fix right swipe
+  // make so cant double swipe during gameplay
+  // hold notes?
+
+  override function update():Void
+  {
+    super.update();
+
+    #if FLX_TOUCH
+    for (touch in FlxG.touches.list)
+    {
+      if (touch.justPressed)
+      {
+        var pos:FlxPoint = new FlxPoint(touch.screenX, touch.screenY);
+        var pos2:FlxPoint = new FlxPoint(touch.screenX, touch.screenY);
+
+        var swp:Swipes =
+          {
+            initTouchPos: pos,
+            curTouchPos: pos2,
+            touchAngle: 0,
+            touchLength: 0
+          };
+        touchMap[touch.touchPointID] = swp;
+
+        curStep = 1;
+        Haptic.vibrate(40, 70);
+      }
+      if (touch.pressed)
+      {
+        var daSwipe = touchMap[touch.touchPointID];
+
+        daSwipe.curTouchPos.set(touch.screenX, touch.screenY);
+
+        var dx = daSwipe.initTouchPos.x - touch.screenX;
+        var dy = daSwipe.initTouchPos.y - touch.screenY;
+
+        daSwipe.touchAngle = Math.atan2(dy, dx);
+        daSwipe.touchLength = Math.sqrt(dx * dx + dy * dy);
+
+        FlxG.watch.addQuick("LENGTH", daSwipe.touchLength);
+        FlxG.watch.addQuick("ANGLE", FlxAngle.asDegrees(daSwipe.touchAngle));
+
+        if (daSwipe.touchLength >= (activateLength / vibrationSteps) * curStep)
+        {
+          curStep += 1;
+          // Haptic.vibrate(Std.int(hapticPressure / (curStep * 1.5)), 50);
+        }
+      }
+
+      if (touch.justReleased)
+      {
+        touchMap.remove(touch.touchPointID);
+      }
+
+      /* switch (inputID)
+        {
+          case FlxDirectionFlags.UP:
+            return
+          case FlxDirectionFlags.DOWN:
+        }
+       */
+    }
+    #end
+  }
+
+  override public function check(Action:FlxAction):Bool
+  {
+    for (swp in touchMap)
+    {
+      var degAngle = FlxAngle.asDegrees(swp.touchAngle);
+
+      switch (trigger)
+      {
+        case JUST_PRESSED:
+          if (swp.touchLength >= activateLength)
+          {
+            switch (inputID)
+            {
+              case FlxDirectionFlags.UP:
+                if (degAngle >= 45 && degAngle <= 90 + 45) return properTouch(swp);
+              case FlxDirectionFlags.DOWN:
+                if (-degAngle >= 45 && -degAngle <= 90 + 45) return properTouch(swp);
+              case FlxDirectionFlags.LEFT:
+                if (degAngle <= 45 && -degAngle <= 45) return properTouch(swp);
+              case FlxDirectionFlags.RIGHT:
+                if (degAngle >= 90 + 45 && degAngle <= -90 + -45) return properTouch(swp);
+            }
+          }
+        default:
+      }
+    }
+
+    return false;
+  }
+
+  function properTouch(swipe:Swipes):Bool
+  {
+    curStep = 1;
+    Haptic.vibrate(100, 30);
+    swipe.initTouchPos.set(swipe.curTouchPos.x, swipe.curTouchPos.y);
+    return true;
+  }
+}
+
+// Maybe this can be committed to main HaxeFlixel repo?
+#if android
+class FlxActionInputDigitalAndroid extends FlxActionInputDigital
+{
+  /**
+   * Android buttons action input
+   * @param	androidKeyID Key identifier (FlxAndroidKey.BACK, FlxAndroidKey.MENU... those are the only 2 android specific ones)
+   * @param	Trigger What state triggers this action (PRESSED, JUST_PRESSED, RELEASED, JUST_RELEASED)
+   */
+  public function new(androidKeyID:FlxAndroidKey, Trigger:FlxInputState)
+  {
+    super(FlxInputDevice.OTHER, androidKeyID, Trigger);
+  }
+
+  override public function check(Action:FlxAction):Bool
+  {
+    return switch (trigger)
+    {
+      #if android
+      case PRESSED: FlxG.android.checkStatus(inputID, PRESSED) || FlxG.android.checkStatus(inputID, PRESSED);
+      case RELEASED: FlxG.android.checkStatus(inputID, RELEASED) || FlxG.android.checkStatus(inputID, JUST_RELEASED);
+      case JUST_PRESSED: FlxG.android.checkStatus(inputID, JUST_PRESSED);
+      case JUST_RELEASED: FlxG.android.checkStatus(inputID, JUST_RELEASED);
+      #end
+
+      default: false;
+    }
+  }
+}
+#end
+
+=======
+>>>>>>> b150c43d (lol4)
 /**
  * Since, in many cases multiple actions should use similar keys, we don't want the
  * rebinding UI to list every action. ActionBinders are what the user percieves as
@@ -1775,10 +2134,16 @@ enum Control
   VOLUME_MUTE;
   // DEBUG
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if FEATURE_DEBUG_MENU DEBUG_MENU; #end
 =======
   DEBUG_MENU;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  DEBUG_MENU;
+=======
+  #if FEATURE_DEBUG_MENU DEBUG_MENU; #end
+>>>>>>> b150c43d (lol4)
   #if FEATURE_CHART_EDITOR DEBUG_CHART; #end
   #if FEATURE_STAGE_EDITOR DEBUG_STAGE; #end
 }
@@ -1835,12 +2200,22 @@ enum abstract Action(String) to String from String
   var VOLUME_MUTE = "volume_mute";
   // DEBUG
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if FEATURE_DEBUG_MENU
+||||||| parent of b150c43d (lol4)
+=======
+  #if FEATURE_DEBUG_MENU
+>>>>>>> b150c43d (lol4)
   var DEBUG_MENU = "debug_menu";
+<<<<<<< HEAD
   #end
 =======
   var DEBUG_MENU = "debug_menu";
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  #end
+>>>>>>> b150c43d (lol4)
   #if FEATURE_CHART_EDITOR
   var DEBUG_CHART = "debug_chart";
   #end

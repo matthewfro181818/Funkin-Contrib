@@ -71,8 +71,6 @@ class VFDOverlay extends GraphicsShader
 =======
 package funkin.ui.transition.preload;
 
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
 import openfl.display.GraphicsShader;
 
 class VFDOverlay extends GraphicsShader

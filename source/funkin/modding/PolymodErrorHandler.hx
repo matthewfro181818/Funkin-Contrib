@@ -3,12 +3,18 @@ package funkin.modding;
 import polymod.Polymod;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 class PolymodErrorHandler
 {
 =======
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class PolymodErrorHandler
 {
+<<<<<<< HEAD
   /**
    * Show a popup with the given text.
    * This displays a system popup, it WILL interrupt the game.
@@ -23,6 +29,22 @@ class PolymodErrorHandler
   }
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  /**
+   * Show a popup with the given text.
+   * This displays a system popup, it WILL interrupt the game.
+   * Make sure to only use this when it's important, like when there's a script error.
+   *
+   * @param name The name at the top of the popup.
+   * @param desc The body text of the popup.
+   */
+  public static function showAlert(name:String, desc:String):Void
+  {
+    lime.app.Application.current.window.alert(desc, name);
+  }
+
+=======
+>>>>>>> b150c43d (lol4)
   public static function onPolymodError(error:PolymodError):Void
   {
     // Perform an action based on the error code.
@@ -43,49 +65,80 @@ class PolymodErrorHandler
         logError(error.message);
         // Notify the user via popup.
 <<<<<<< HEAD
+<<<<<<< HEAD
         funkin.util.WindowUtil.showError('Polymod Script Parsing Error', error.message);
 =======
         showAlert('Polymod Script Parsing Error', error.message);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        showAlert('Polymod Script Parsing Error', error.message);
+=======
+        funkin.util.WindowUtil.showError('Polymod Script Parsing Error', error.message);
+>>>>>>> b150c43d (lol4)
       case SCRIPT_RUNTIME_EXCEPTION:
         // A runtime error when running a script.
         logError(error.message);
         // Notify the user via popup.
 <<<<<<< HEAD
+<<<<<<< HEAD
         funkin.util.WindowUtil.showError('Polymod Script Exception', error.message);
 =======
         showAlert('Polymod Script Exception', error.message);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        showAlert('Polymod Script Exception', error.message);
+=======
+        funkin.util.WindowUtil.showError('Polymod Script Exception', error.message);
+>>>>>>> b150c43d (lol4)
       case SCRIPT_CLASS_MODULE_NOT_FOUND:
         // A scripted class tried to reference an unknown class or module.
         logError(error.message);
 
         // Last word is the class name.
 <<<<<<< HEAD
+<<<<<<< HEAD
         var className:Null<String> = error.message.split(' ').pop();
 =======
         var className:String = error.message.split(' ').pop();
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        var className:String = error.message.split(' ').pop();
+=======
+        var className:Null<String> = error.message.split(' ').pop();
+>>>>>>> b150c43d (lol4)
         var msg:String = 'Import error in ${error.origin}';
         msg += '\nCould not import unknown class ${className}';
         msg += '\nCheck to ensure the class exists and is spelled correctly.';
 
         // Notify the user via popup.
 <<<<<<< HEAD
+<<<<<<< HEAD
         funkin.util.WindowUtil.showError('Polymod Script Import Error', msg);
 =======
         showAlert('Polymod Script Import Error', msg);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        showAlert('Polymod Script Import Error', msg);
+=======
+        funkin.util.WindowUtil.showError('Polymod Script Import Error', msg);
+>>>>>>> b150c43d (lol4)
       case SCRIPT_CLASS_MODULE_BLACKLISTED:
         // A scripted class tried to reference a blacklisted class or module.
         logError(error.message);
         // Notify the user via popup.
+<<<<<<< HEAD
 <<<<<<< HEAD
         funkin.util.WindowUtil.showError('Polymod Script Blacklist Violation', error.message);
 =======
         showAlert('Polymod Script Blacklist Violation', error.message);
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        showAlert('Polymod Script Blacklist Violation', error.message);
+
+=======
+        funkin.util.WindowUtil.showError('Polymod Script Blacklist Violation', error.message);
+>>>>>>> b150c43d (lol4)
       default:
         // Log the message based on its severity.
         switch (error.severity)

@@ -13,9 +13,14 @@ import openfl.filters.BitmapFilter;
  * Provides cool stuff for `BitmapData`s that have a hardware texture internally.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 @:access(openfl.display.BitmapData)
 @:access(openfl.display3D.textures.TextureBase)
 @:access(openfl.display3D.Context3D)
@@ -24,10 +29,16 @@ class BitmapDataUtil
   static function getCache():{sprite:Sprite, bitmap:Bitmap}
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     static var cache:Null<{sprite:Sprite, bitmap:Bitmap}> = null;
 =======
     static var cache:{sprite:Sprite, bitmap:Bitmap} = null;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    static var cache:{sprite:Sprite, bitmap:Bitmap} = null;
+=======
+    static var cache:Null<{sprite:Sprite, bitmap:Bitmap}> = null;
+>>>>>>> b150c43d (lol4)
     if (cache == null)
     {
       final sprite = new Sprite();
@@ -65,10 +76,16 @@ class BitmapDataUtil
    * @return the bitmap
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   public static function create(width:Int, height:Int, format:Context3DTextureFormat = BGRA):Null<FixedBitmapData>
 =======
   public static function create(width:Int, height:Int, format:Context3DTextureFormat = BGRA):FixedBitmapData
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public static function create(width:Int, height:Int, format:Context3DTextureFormat = BGRA):FixedBitmapData
+=======
+  public static function create(width:Int, height:Int, format:Context3DTextureFormat = BGRA):Null<FixedBitmapData>
+>>>>>>> b150c43d (lol4)
   {
     final texture = Lib.current.stage.context3D.createTexture(width, height, format, true);
     return FixedBitmapData.fromTexture(texture);
@@ -96,9 +113,14 @@ class BitmapDataUtil
    * @param height the height
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   @:nullSafety(Off) // the final context there is causing an error, idk how to fix it
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  @:nullSafety(Off) // the final context there is causing an error, idk how to fix it
+>>>>>>> b150c43d (lol4)
   public static function resizeTexture(texture:TextureBase, width:Int, height:Int):Void
   {
     if (texture.__width == width && texture.__height == height) return;
@@ -118,9 +140,14 @@ class BitmapDataUtil
    * @param src the source bitmap
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   @:nullSafety(Off) // TODO: Remove this once openfl.display.Sprite has been null safed.
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  @:nullSafety(Off) // TODO: Remove this once openfl.display.Sprite has been null safed.
+>>>>>>> b150c43d (lol4)
   public static function copy(dst:BitmapData, src:BitmapData):Void
   {
     hardwareCheck(dst);

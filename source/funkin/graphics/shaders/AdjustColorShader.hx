@@ -3,6 +3,7 @@ package funkin.graphics.shaders;
 import flixel.addons.display.FlxRuntimeShader;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 class AdjustColorShader extends FlxRuntimeShader
 {
@@ -11,13 +12,29 @@ class AdjustColorShader extends FlxRuntimeShader
   public var brightness(default, set):Float = 0;
   public var contrast(default, set):Float = 0;
 =======
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class AdjustColorShader extends FlxRuntimeShader
 {
+<<<<<<< HEAD
   public var hue(default, set):Float;
   public var saturation(default, set):Float;
   public var brightness(default, set):Float;
   public var contrast(default, set):Float;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public var hue(default, set):Float;
+  public var saturation(default, set):Float;
+  public var brightness(default, set):Float;
+  public var contrast(default, set):Float;
+=======
+  public var hue(default, set):Float = 0;
+  public var saturation(default, set):Float = 0;
+  public var brightness(default, set):Float = 0;
+  public var contrast(default, set):Float = 0;
+>>>>>>> b150c43d (lol4)
 
   public function new()
   {

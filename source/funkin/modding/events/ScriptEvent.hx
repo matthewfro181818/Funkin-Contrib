@@ -6,16 +6,26 @@ import flixel.FlxState;
 import flixel.FlxSubState;
 import funkin.play.notes.NoteSprite;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.notes.SustainTrail;
 import funkin.play.cutscene.dialogue.Conversation;
 import funkin.play.Countdown.CountdownStep;
 import funkin.play.notes.NoteDirection;
 =======
+||||||| parent of b150c43d (lol4)
+=======
+import funkin.play.notes.SustainTrail;
+>>>>>>> b150c43d (lol4)
 import funkin.play.cutscene.dialogue.Conversation;
 import funkin.play.Countdown.CountdownStep;
 import funkin.play.notes.NoteDirection;
+<<<<<<< HEAD
 import openfl.events.EventType;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import openfl.events.EventType;
+=======
+>>>>>>> b150c43d (lol4)
 import openfl.events.KeyboardEvent;
 
 /**
@@ -23,9 +33,14 @@ import openfl.events.KeyboardEvent;
  * It can be used to identify the type of event called, store data, and cancel event propagation.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class ScriptEvent
 {
   /**
@@ -239,6 +254,7 @@ class GhostMissNoteScriptEvent extends ScriptEvent
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class HoldNoteScriptEvent extends NoteScriptEvent
 {
   /**
@@ -284,6 +300,52 @@ class HoldNoteScriptEvent extends NoteScriptEvent
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+class HoldNoteScriptEvent extends NoteScriptEvent
+{
+  /**
+   * The hold note that was hit (or dropped).
+   */
+  public var holdNote:SustainTrail;
+
+  /**
+   * The score the player received for hitting the note.
+   */
+  public var score:Int;
+
+  /**
+   * If the hit causes a combo break.
+   */
+  public var isComboBreak:Bool = false;
+
+  /**
+   * The time difference when the player hit the note
+   */
+  public var hitDiff:Float = 0;
+
+  /**
+   * Whether this note hit causes a note splash to display.
+   * Defaults to true only on "sick" notes.
+   */
+  public var doesNotesplash:Bool = false;
+
+  public function new(type:ScriptEventType, holdNote:SustainTrail, healthChange:Float, score:Int, isComboBreak:Bool, comboCount:Int = 0,
+      cancelable:Bool = false):Void
+  {
+    super(type, null, healthChange, comboCount, true);
+    this.holdNote = holdNote;
+    this.score = score;
+    this.isComboBreak = isComboBreak;
+  }
+
+  public override function toString():String
+  {
+    return 'HoldNoteScriptEvent(type=$type, holdNote=$holdNote, healthChange=$healthChange, score=$score, isComboBreak=$isComboBreak, cancelable=$cancelable)';
+  }
+}
+
+>>>>>>> b150c43d (lol4)
 /**
  * An event that is fired when the song reaches an event.
  */

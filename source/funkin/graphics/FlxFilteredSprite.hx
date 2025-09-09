@@ -8,12 +8,22 @@ import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxFrame;
 import flixel.math.FlxMatrix;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.math.FlxRect;
 =======
 import flixel.math.FlxPoint;
+||||||| parent of b150c43d (lol4)
+import flixel.math.FlxPoint;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.math.FlxRect;
+<<<<<<< HEAD
 import flixel.util.FlxColor;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.util.FlxColor;
+=======
+>>>>>>> b150c43d (lol4)
 import lime.graphics.cairo.Cairo;
 import openfl.display.BitmapData;
 import openfl.display.BlendMode;
@@ -21,20 +31,28 @@ import openfl.display.DisplayObjectRenderer;
 import openfl.display.Graphics;
 import openfl.display.OpenGLRenderer;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import openfl.display3D.Context3D;
 import openfl.filters.BitmapFilter;
 import openfl.geom.ColorTransform;
 import openfl.geom.Matrix;
 =======
 import openfl.display._internal.Context3DGraphics;
+||||||| parent of b150c43d (lol4)
+import openfl.display._internal.Context3DGraphics;
+=======
+>>>>>>> b150c43d (lol4)
 import openfl.display3D.Context3D;
-import openfl.display3D.Context3DClearMask;
 import openfl.filters.BitmapFilter;
-import openfl.filters.BlurFilter;
 import openfl.geom.ColorTransform;
 import openfl.geom.Matrix;
+<<<<<<< HEAD
 import openfl.geom.Point;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import openfl.geom.Point;
+=======
+>>>>>>> b150c43d (lol4)
 import openfl.geom.Rectangle;
 #if (js && html5)
 import lime._internal.graphics.ImageCanvasUtil;
@@ -50,9 +68,14 @@ import openfl.display._internal.CairoGraphics as GfxRenderer;
  * The name's pretty much self-explanatory.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 @:access(openfl.geom.Rectangle)
 @:access(openfl.filters.BitmapFilter)
 @:access(flixel.graphics.frames.FlxFrame)
@@ -61,19 +84,31 @@ class FlxFilteredSprite extends FlxSprite
   @:noCompletion var _renderer:FlxAnimateFilterRenderer = new FlxAnimateFilterRenderer();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   @:noCompletion var _filterMatrix:FlxMatrix = new FlxMatrix();
 =======
   @:noCompletion var _filterMatrix:FlxMatrix;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  @:noCompletion var _filterMatrix:FlxMatrix;
+=======
+  @:noCompletion var _filterMatrix:FlxMatrix = new FlxMatrix();
+>>>>>>> b150c43d (lol4)
 
   /**
    * An `Array` of shader filters (aka `BitmapFilter`).
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var filters(default, set):Null<Array<BitmapFilter>>;
 =======
   public var filters(default, set):Array<BitmapFilter>;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public var filters(default, set):Array<BitmapFilter>;
+=======
+  public var filters(default, set):Null<Array<BitmapFilter>>;
+>>>>>>> b150c43d (lol4)
 
   /**
    * a flag to update the image with the filters.
@@ -81,6 +116,7 @@ class FlxFilteredSprite extends FlxSprite
    */
   public var filterDirty:Bool = false;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   @:noCompletion var filtered:Bool = false;
 
@@ -93,11 +129,24 @@ class FlxFilteredSprite extends FlxSprite
   @:nullSafety(Off)
 =======
   @:noCompletion var filtered:Bool;
+||||||| parent of b150c43d (lol4)
+  @:noCompletion var filtered:Bool;
+=======
+  @:noCompletion var filtered:Bool = false;
+>>>>>>> b150c43d (lol4)
 
+  // These appear to be a little troublesome to null safe.
+  @:nullSafety(Off)
   @:noCompletion var _blankFrame:FlxFrame;
 
+  @:nullSafety(Off)
   var _filterBmp1:BitmapData;
+<<<<<<< HEAD
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  @:nullSafety(Off)
+>>>>>>> b150c43d (lol4)
   var _filterBmp2:BitmapData;
 
   override public function update(elapsed:Float)
@@ -204,9 +253,14 @@ class FlxFilteredSprite extends FlxSprite
       _flashRect.width += frameWidth;
       _flashRect.height += frameHeight;
 <<<<<<< HEAD
+<<<<<<< HEAD
       @:nullSafety(Off)
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+      @:nullSafety(Off)
+>>>>>>> b150c43d (lol4)
       if (_blankFrame == null) _blankFrame = new FlxFrame(null);
 
       if (_blankFrame.parent == null || _flashRect.width > _blankFrame.parent.width || _flashRect.height > _blankFrame.parent.height)
@@ -224,9 +278,14 @@ class FlxFilteredSprite extends FlxSprite
       }
       _blankFrame.offset.copyFrom(_frame.offset);
 <<<<<<< HEAD
+<<<<<<< HEAD
       @:nullSafety(Off)
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+      @:nullSafety(Off)
+>>>>>>> b150c43d (lol4)
       _blankFrame.parent.bitmap = _renderer.applyFilter(_blankFrame.parent.bitmap, _filterBmp1, _filterBmp2, frame.parent.bitmap, filters, _flashRect,
         frame.frame.copyToFlash());
       _blankFrame.frame = FlxRect.get(0, 0, _blankFrame.parent.bitmap.width, _blankFrame.parent.bitmap.height);
@@ -243,10 +302,16 @@ class FlxFilteredSprite extends FlxSprite
 
   @:noCompletion
 <<<<<<< HEAD
+<<<<<<< HEAD
   function set_filters(value:Null<Array<BitmapFilter>>)
 =======
   function set_filters(value:Array<BitmapFilter>)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  function set_filters(value:Array<BitmapFilter>)
+=======
+  function set_filters(value:Null<Array<BitmapFilter>>)
+>>>>>>> b150c43d (lol4)
   {
     if (filters != value) filterDirty = true;
 

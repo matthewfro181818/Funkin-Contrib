@@ -2,14 +2,26 @@ package funkin.play.components;
 
 import flixel.FlxSprite;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 =======
 import flixel.group.FlxGroup.FlxTypedGroup;
+||||||| parent of b150c43d (lol4)
+import flixel.group.FlxGroup.FlxTypedGroup;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+<<<<<<< HEAD
 import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.math.FlxMath;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.text.FlxText.FlxTextAlign;
 import funkin.util.MathUtil;
 
@@ -17,9 +29,14 @@ import funkin.util.MathUtil;
  * Numerical counters used next to each judgement in the Results screen.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
 {
   public var curNumber:Float = 0;
@@ -30,20 +47,32 @@ class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
   public var align:FlxTextAlign = FlxTextAlign.LEFT;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   public function new(x:Float, y:Float, neededNumber:Int = 0, ?flavour:Int, align:FlxTextAlign = FlxTextAlign.LEFT)
 =======
   public function new(x:Float, y:Float, neededNumber:Int = 0, ?flavour:Int = 0xFFFFFFFF, align:FlxTextAlign = FlxTextAlign.LEFT)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public function new(x:Float, y:Float, neededNumber:Int = 0, ?flavour:Int = 0xFFFFFFFF, align:FlxTextAlign = FlxTextAlign.LEFT)
+=======
+  public function new(x:Float, y:Float, neededNumber:Int = 0, ?flavour:Int, align:FlxTextAlign = FlxTextAlign.LEFT)
+>>>>>>> b150c43d (lol4)
   {
     super(x, y);
 
     this.align = align;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.flavour = flavour ?? 0xFFFFFFFF;
 =======
     this.flavour = flavour;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    this.flavour = flavour;
+=======
+    this.flavour = flavour ?? 0xFFFFFFFF;
+>>>>>>> b150c43d (lol4)
 
     this.neededNumber = neededNumber;
 
@@ -100,9 +129,14 @@ class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class TallyNumber extends FlxSprite
 {
   public function new(x:Float, y:Float, digit:Int)

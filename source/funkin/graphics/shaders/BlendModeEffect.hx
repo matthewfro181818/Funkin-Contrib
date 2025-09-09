@@ -9,19 +9,30 @@ typedef BlendModeShader =
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class BlendModeEffect
 {
   public var shader(default, null):BlendModeShader;
 
   @:isVar
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var color(default, set):FlxColor = new FlxColor();
 =======
   public var color(default, set):FlxColor;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public var color(default, set):FlxColor;
+=======
+  public var color(default, set):FlxColor = new FlxColor();
+>>>>>>> b150c43d (lol4)
 
   public function new(shader:BlendModeShader, color:FlxColor):Void
   {

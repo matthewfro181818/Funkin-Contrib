@@ -10,6 +10,7 @@ import openfl.display.BitmapData;
 import flixel.math.FlxRect;
 import flixel.math.FlxPoint;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
 import flixel.FlxCamera;
 import openfl.system.System;
@@ -18,8 +19,21 @@ import funkin.FunkinMemory;
 using StringTools;
 =======
 import flixel.graphics.frames.FlxFrame;
+||||||| parent of b150c43d (lol4)
+import flixel.graphics.frames.FlxFrame;
+=======
+import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
+>>>>>>> b150c43d (lol4)
 import flixel.FlxCamera;
+<<<<<<< HEAD
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+import openfl.system.System;
+import funkin.FunkinMemory;
+
+using StringTools;
+>>>>>>> b150c43d (lol4)
 
 /**
  * An FlxSprite with additional functionality.
@@ -27,14 +41,20 @@ import flixel.FlxCamera;
  * - TODO: Better cache handling for textures.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 class FunkinSprite extends FlxSprite
 {
   /**
 =======
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class FunkinSprite extends FlxSprite
 {
   /**
+<<<<<<< HEAD
    * An internal list of all the textures cached with `cacheTexture`.
    * This excludes any temporary textures like those from `FlxText` or `makeSolidColor`.
    */
@@ -48,6 +68,21 @@ class FunkinSprite extends FlxSprite
 
   /**
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+   * An internal list of all the textures cached with `cacheTexture`.
+   * This excludes any temporary textures like those from `FlxText` or `makeSolidColor`.
+   */
+  static var currentCachedTextures:Map<String, FlxGraphic> = [];
+
+  /**
+   * An internal list of textures that were cached in the previous state.
+   * We don't know whether we want to keep them cached or not.
+   */
+  static var previousCachedTextures:Map<String, FlxGraphic> = [];
+
+  /**
+=======
+>>>>>>> b150c43d (lol4)
    * @param x Starting X position
    * @param y Starting Y position
    */
@@ -114,6 +149,7 @@ class FunkinSprite extends FlxSprite
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   public function loadTextureAsync(key:String, fade:Bool = false):Void
   {
     var fadeTween:Null<FlxTween> = null;
@@ -151,11 +187,50 @@ class FunkinSprite extends FlxSprite
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  public function loadTextureAsync(key:String, fade:Bool = false):Void
+  {
+    var fadeTween:Null<FlxTween> = null;
+    if (fade)
+    {
+      fadeTween = FlxTween.tween(this, {alpha: 0}, 0.25);
+    }
+
+    trace('[ASYNC] Start loading image (${key})');
+    graphic.persist = true;
+    openfl.Assets.loadBitmapData(key)
+      .onComplete(function(bitmapData:openfl.display.BitmapData) {
+        trace('[ASYNC] Finished loading image');
+        var cache:Bool = false;
+        loadBitmapData(bitmapData, cache);
+
+        if (fadeTween != null)
+        {
+          fadeTween.cancel();
+          FlxTween.tween(this, {alpha: 1.0}, 0.25);
+        }
+      })
+      .onError(function(error:Dynamic) {
+        trace('[ASYNC] Failed to load image: ${error}');
+        if (fadeTween != null)
+        {
+          fadeTween.cancel();
+          this.alpha = 1.0;
+        }
+      })
+      .onProgress(function(progress:Int, total:Int) {
+        trace('[ASYNC] Loading image progress: ${progress}/${total}');
+      });
+  }
+
+>>>>>>> b150c43d (lol4)
   /**
    * Apply an OpenFL `BitmapData` to this sprite.
    * @param input The OpenFL `BitmapData` to apply
    * @return This sprite, for chaining
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   public function loadBitmapData(input:BitmapData, cache:Bool = true):FunkinSprite
   {
@@ -171,9 +246,29 @@ class FunkinSprite extends FlxSprite
     }
 =======
   public function loadBitmapData(input:BitmapData):FunkinSprite
+||||||| parent of b150c43d (lol4)
+  public function loadBitmapData(input:BitmapData):FunkinSprite
+=======
+  public function loadBitmapData(input:BitmapData, cache:Bool = true):FunkinSprite
+>>>>>>> b150c43d (lol4)
   {
+<<<<<<< HEAD
     loadGraphic(input);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    loadGraphic(input);
+=======
+    if (cache)
+    {
+      loadGraphic(input);
+    }
+    else
+    {
+      var graphic:FlxGraphic = FlxGraphic.fromBitmapData(input, false, null, false);
+      this.graphic = graphic;
+      this.frames = this.graphic.imageFrame;
+    }
+>>>>>>> b150c43d (lol4)
 
     return this;
   }
@@ -183,6 +278,7 @@ class FunkinSprite extends FlxSprite
    * @param input The OpenFL `TextureBase` to apply
    * @return This sprite, for chaining
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   public function loadTextureBase(input:TextureBase):Null<FunkinSprite>
   {
@@ -194,9 +290,25 @@ class FunkinSprite extends FlxSprite
     }
 =======
   public function loadTextureBase(input:TextureBase):FunkinSprite
+||||||| parent of b150c43d (lol4)
+  public function loadTextureBase(input:TextureBase):FunkinSprite
+=======
+  public function loadTextureBase(input:TextureBase):Null<FunkinSprite>
+>>>>>>> b150c43d (lol4)
   {
+<<<<<<< HEAD
     var inputBitmap:FixedBitmapData = FixedBitmapData.fromTexture(input);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var inputBitmap:FixedBitmapData = FixedBitmapData.fromTexture(input);
+=======
+    var inputBitmap:Null<FixedBitmapData> = FixedBitmapData.fromTexture(input);
+    if (inputBitmap == null)
+    {
+      FlxG.log.warn('loadTextureBase - input resulted in null bitmap! $input');
+      return null;
+    }
+>>>>>>> b150c43d (lol4)
 
     return loadBitmapData(inputBitmap);
   }
@@ -242,6 +354,7 @@ class FunkinSprite extends FlxSprite
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   @:deprecated("Use FunkinMemory.cacheTexture() instead")
   public static function cacheTexture(key:String):Void
   {
@@ -281,55 +394,47 @@ class FunkinSprite extends FlxSprite
    * Ensure the texture with the given key is cached.
    * @param key The key of the texture to cache.
    */
+||||||| parent of b150c43d (lol4)
+  /**
+   * Ensure the texture with the given key is cached.
+   * @param key The key of the texture to cache.
+   */
+=======
+  @:deprecated("Use FunkinMemory.cacheTexture() instead")
+>>>>>>> b150c43d (lol4)
   public static function cacheTexture(key:String):Void
   {
-    // We don't want to cache the same texture twice.
-    if (currentCachedTextures.exists(key)) return;
-
-    if (previousCachedTextures.exists(key))
-    {
-      // Move the graphic from the previous cache to the current cache.
-      var graphic = previousCachedTextures.get(key);
-      previousCachedTextures.remove(key);
-      currentCachedTextures.set(key, graphic);
-      return;
-    }
-
-    // Else, texture is currently uncached.
-    var graphic:FlxGraphic = FlxGraphic.fromAssetKey(key, false, null, true);
-    if (graphic == null)
-    {
-      FlxG.log.warn('Failed to cache graphic: $key');
-    }
-    else
-    {
-      trace('Successfully cached graphic: $key');
-      graphic.persist = true;
-      currentCachedTextures.set(key, graphic);
-    }
+    FunkinMemory.cacheTexture(Paths.image(key));
   }
 
+  @:deprecated("Use FunkinMemory.permanentCacheTexture() instead")
+  public static function permanentCacheTexture(key:String):Void
+  {
+    @:privateAccess FunkinMemory.permanentCacheTexture(Paths.image(key));
+  }
+
+  @:deprecated("Use FunkinMemory.cacheTexture() instead")
   public static function cacheSparrow(key:String):Void
   {
-    cacheTexture(Paths.image(key));
+    FunkinMemory.cacheTexture(Paths.image(key));
   }
 
+  @:deprecated("Use FunkinMemory.cacheTexture() instead")
   public static function cachePacker(key:String):Void
   {
-    cacheTexture(Paths.image(key));
+    FunkinMemory.cacheTexture(Paths.image(key));
   }
 
-  /**
-   * Call this, then `cacheTexture` to keep the textures we still need, then `purgeCache` to remove the textures that we won't be using anymore.
-   */
+  @:deprecated("Use FunkinMemory.preparePurgeTextureCache() instead")
   public static function preparePurgeCache():Void
   {
-    previousCachedTextures = currentCachedTextures;
-    currentCachedTextures = [];
+    FunkinMemory.preparePurgeTextureCache();
   }
 
+  @:deprecated("Use FunkinMemory.purgeCache() instead")
   public static function purgeCache():Void
   {
+<<<<<<< HEAD
     // Everything that is in previousCachedTextures but not in currentCachedTextures should be destroyed.
     for (graphicKey in previousCachedTextures.keys())
     {
@@ -340,18 +445,42 @@ class FunkinSprite extends FlxSprite
       previousCachedTextures.remove(graphicKey);
     }
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    // Everything that is in previousCachedTextures but not in currentCachedTextures should be destroyed.
+    for (graphicKey in previousCachedTextures.keys())
+    {
+      var graphic = previousCachedTextures.get(graphicKey);
+      if (graphic == null) continue;
+      FlxG.bitmap.remove(graphic);
+      graphic.destroy();
+      previousCachedTextures.remove(graphicKey);
+    }
+=======
+    FunkinMemory.purgeCache();
+>>>>>>> b150c43d (lol4)
   }
 
   static function isGraphicCached(graphic:FlxGraphic):Bool
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     var result = null;
     if (graphic == null) return false;
     result = FlxG.bitmap.get(graphic.key);
 =======
+||||||| parent of b150c43d (lol4)
+=======
+    var result = null;
+>>>>>>> b150c43d (lol4)
     if (graphic == null) return false;
+<<<<<<< HEAD
     var result = FlxG.bitmap.get(graphic.key);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var result = FlxG.bitmap.get(graphic.key);
+=======
+    result = FlxG.bitmap.get(graphic.key);
+>>>>>>> b150c43d (lol4)
     if (result == null) return false;
     if (result != graphic)
     {
@@ -368,13 +497,24 @@ class FunkinSprite extends FlxSprite
   public function isAnimationDynamic(id:String):Bool
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     var animData = null;
     if (this.animation == null) return false;
     animData = this.animation.getByName(id);
 =======
+||||||| parent of b150c43d (lol4)
+=======
+    var animData = null;
+>>>>>>> b150c43d (lol4)
     if (this.animation == null) return false;
+<<<<<<< HEAD
     var animData = this.animation.getByName(id);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var animData = this.animation.getByName(id);
+=======
+    animData = this.animation.getByName(id);
+>>>>>>> b150c43d (lol4)
     if (animData == null) return false;
     return animData.numFrames > 1;
   }
@@ -514,9 +654,14 @@ class FunkinSprite extends FlxSprite
   public override function destroy():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     @:nullSafety(Off) // TODO: Remove when flixel.FlxSprite is null safed.
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    @:nullSafety(Off) // TODO: Remove when flixel.FlxSprite is null safed.
+>>>>>>> b150c43d (lol4)
     frames = null;
     // Cancel all tweens so they don't continue to run on a destroyed sprite.
     // This prevents crashes.

@@ -125,7 +125,6 @@ package funkin.ui.freeplay;
 
 import funkin.data.freeplay.style.FreeplayStyleData;
 import funkin.data.freeplay.style.FreeplayStyleRegistry;
-import funkin.data.animation.AnimationData;
 import funkin.data.IRegistryEntry;
 import flixel.graphics.FlxGraphic;
 import flixel.util.FlxColor;
@@ -133,19 +132,19 @@ import flixel.util.FlxColor;
 /**
  * A class representing the data for a style of the Freeplay menu.
  */
+@:nullSafety
 class FreeplayStyle implements IRegistryEntry<FreeplayStyleData>
 {
   /**
    * The internal ID for this freeplay style.
    */
-  public final id:String;
+  // public final id:String;
 
   /**
    * The full data for a freeplay style.
    */
-  public final _data:FreeplayStyleData;
-
-  public function new(id:String)
+  // public final _data:FreeplayStyleData;
+  public function new(id:String, ?params:Dynamic)
   {
     this.id = id;
     this._data = _fetchData(id);
@@ -171,7 +170,7 @@ class FreeplayStyle implements IRegistryEntry<FreeplayStyleData>
    */
   public function getBgAssetKey():String
   {
-    return _data.bgAsset;
+    return _data?.bgAsset ?? "freeplay/freeplayBGweek1-bf";
   }
 
   /**
@@ -180,7 +179,7 @@ class FreeplayStyle implements IRegistryEntry<FreeplayStyleData>
    */
   public function getSelectorAssetKey():String
   {
-    return _data.selectorAsset;
+    return _data?.selectorAsset ?? "freeplay/freeplaySelector/freeplaySelector";
   }
 
   /**
@@ -189,7 +188,7 @@ class FreeplayStyle implements IRegistryEntry<FreeplayStyleData>
    */
   public function getCapsuleAssetKey():String
   {
-    return _data.capsuleAsset;
+    return _data?.capsuleAsset ?? "freeplay/freeplayCapsule/capsule/freeplayCapsule";
   }
 
   /**
@@ -198,7 +197,7 @@ class FreeplayStyle implements IRegistryEntry<FreeplayStyleData>
    */
   public function getNumbersAssetKey():String
   {
-    return _data.numbersAsset;
+    return _data?.numbersAsset ?? "digital_numbers";
   }
 
   /**
@@ -208,7 +207,7 @@ class FreeplayStyle implements IRegistryEntry<FreeplayStyleData>
    */
   public function getCapsuleDeselCol():FlxColor
   {
-    return FlxColor.fromString(_data.capsuleTextColors[0]);
+    return FlxColor.fromString(_data?.capsuleTextColors[0] ?? "#00ccff") ?? 0x00CCFF;
   }
 
   /**
@@ -217,7 +216,7 @@ class FreeplayStyle implements IRegistryEntry<FreeplayStyleData>
    */
   public function getStartDelay():Float
   {
-    return _data.startDelay;
+    return _data?.startDelay ?? 0.0;
   }
 
   public function toString():String
@@ -232,7 +231,7 @@ class FreeplayStyle implements IRegistryEntry<FreeplayStyleData>
    */
   public function getCapsuleSelCol():FlxColor
   {
-    return FlxColor.fromString(_data.capsuleTextColors[1]);
+    return FlxColor.fromString(_data?.capsuleTextColors[1] ?? "#00ccff") ?? 0x00CCFF;
   }
 
   public function destroy():Void {}

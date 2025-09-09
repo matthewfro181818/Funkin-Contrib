@@ -2,9 +2,14 @@ package funkin.graphics.shaders;
 
 import flixel.system.FlxAssets.FlxShader;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.util.FlxColor;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.util.FlxColor;
+=======
+>>>>>>> b150c43d (lol4)
 import openfl.display.BitmapData;
 
 class TextureSwap extends FlxShader
@@ -12,6 +17,7 @@ class TextureSwap extends FlxShader
   public var swappedImage(default, set):BitmapData;
   public var amount(default, set):Float;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   public function loadSwapImage(path:String)
   {
@@ -26,6 +32,20 @@ class TextureSwap extends FlxShader
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  public function loadSwapImage(path:String)
+  {
+    #if html5
+    BitmapData.loadFromFile(path).onComplete(function(bmp:BitmapData) {
+      swappedImage = bmp;
+    });
+    #else
+    swappedImage = BitmapData.fromFile(path);
+    #end
+  }
+
+>>>>>>> b150c43d (lol4)
   function set_swappedImage(_bitmapData:BitmapData):BitmapData
   {
     image.input = _bitmapData;

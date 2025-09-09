@@ -63,7 +63,7 @@ class StageEditorDefaultToolbox extends CollapsibleDialog
 
     this.stageEditorState = stageEditorState;
 
-    closable = false;
+    closable = true;
     modal = true;
     destroyOnClose = false;
   }

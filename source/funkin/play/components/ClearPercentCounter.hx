@@ -4,16 +4,30 @@ import funkin.graphics.FunkinSprite;
 import funkin.graphics.shaders.PureColor;
 import flixel.FlxSprite;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 =======
 import flixel.group.FlxGroup.FlxTypedGroup;
+||||||| parent of b150c43d (lol4)
+import flixel.group.FlxGroup.FlxTypedGroup;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+<<<<<<< HEAD
 import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.text.FlxText.FlxTextAlign;
 import funkin.util.MathUtil;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.math.FlxMath;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.text.FlxText.FlxTextAlign;
+import funkin.util.MathUtil;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.util.FlxColor;
 
 /**
@@ -76,10 +90,16 @@ class ClearPercentCounter extends FlxTypedSpriteGroup<FlxSprite>
     var tempCombo:Int = Math.round(curNumber);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     while (tempCombo > 0 && tempCombo != 0)
 =======
     while (tempCombo != 0)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    while (tempCombo != 0)
+=======
+    while (tempCombo > 0 && tempCombo != 0)
+>>>>>>> b150c43d (lol4)
     {
       seperatedScore.push(tempCombo % 10);
       tempCombo = Math.floor(tempCombo / 10);

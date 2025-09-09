@@ -581,19 +581,22 @@ package funkin.ui.options;
 import funkin.util.InputUtil;
 import flixel.FlxCamera;
 import flixel.FlxObject;
-import flixel.FlxSprite;
 import funkin.graphics.FunkinCamera;
-import flixel.group.FlxGroup;
-import flixel.input.actions.FlxActionInput;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
 import funkin.graphics.FunkinSprite;
-import funkin.input.Controls;
+import funkin.input.Controls.Device;
+import funkin.input.Controls.Control;
 import funkin.ui.AtlasText;
-import funkin.ui.MenuList;
+import funkin.ui.MenuList.MenuTypedList;
 import funkin.ui.TextMenuList;
+import funkin.ui.Page;
+#if FEATURE_TOUCH_CONTROLS
+import funkin.mobile.ui.FunkinBackButton;
+#end
 
-class ControlsMenu extends funkin.ui.options.OptionsState.Page
+class ControlsMenu extends Page<OptionsState.OptionsMenuPageName>
 {
   public static inline final COLUMNS = 2;
   static var controlList = Control.createAll();
@@ -610,7 +613,7 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
     [WINDOW_FULLSCREEN, #if FEATURE_SCREENSHOTS WINDOW_SCREENSHOT, #end],
     [VOLUME_UP, VOLUME_DOWN, VOLUME_MUTE],
     [
-      DEBUG_MENU,
+      #if FEATURE_DEBUG_MENU DEBUG_MENU, #end
       #if FEATURE_CHART_EDITOR DEBUG_CHART, #end
       #if FEATURE_STAGE_EDITOR DEBUG_STAGE, #end
     ]
@@ -622,11 +625,14 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
   var deviceList:TextMenuList;
   var menuCamera:FlxCamera;
   var prompt:Prompt;
+  var popup:Prompt;
   var camFollow:FlxObject;
   var labels:FlxTypedGroup<AtlasText>;
 
   var currentDevice:Device = Keys;
   var deviceListSelected:Bool = false;
+
+  var actionPrevented:Bool = false;
 
   static final CONTROL_BASE_X = 50;
   static final CONTROL_MARGIN_X = 700;
@@ -724,7 +730,7 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
       if (currentHeader != null && name.indexOf(currentHeader) == 0) name = name.substr(currentHeader.length);
 
       var formatName = name.replace('_', ' ');
-      var label = labels.add(new AtlasText(CONTROL_BASE_X, y, formatName, AtlasFont.BOLD));
+      var label = labels.add(new AtlasText(Math.max(FullScreenScaleMode.gameNotchSize.x, CONTROL_BASE_X), y, formatName, AtlasFont.BOLD));
       label.alpha = 0.6;
       for (i in 0...COLUMNS)
         createItem(label.x + CONTROL_MARGIN_X + i * CONTROL_SPACING_X, y, control, i);
@@ -759,6 +765,27 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
     prompt.back.scrollFactor.set(0, 0);
     prompt.exists = false;
     add(prompt);
+
+    popup = new Prompt("\nYou cannot unbind\nthat key!\n\n\nEscape to exit", None);
+    popup.create();
+    popup.createBgFromMargin(100, 0xFFfafd6d);
+    popup.back.scrollFactor.set(0, 0);
+    popup.exists = false;
+    add(popup);
+
+    #if FEATURE_TOUCH_CONTROLS
+    var backButton:FunkinBackButton = new FunkinBackButton(FlxG.width - 230, FlxG.height - 200, function():Void {
+      if (controlGrid.enabled && deviceList != null && deviceListSelected == false)
+      {
+        goToDeviceList();
+      }
+      else if (canExit)
+      {
+        exit();
+      }
+    }, 1.0);
+    add(backButton);
+    #end
   }
 
   function createItem(x = 0.0, y = 0.0, control:Control, index:Int)
@@ -791,7 +818,13 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
     prompt.exists = true;
   }
 
-  function goToDeviceList()
+  function createPopup():Void
+  {
+    canExit = false;
+    popup.exists = true;
+  }
+
+  function goToDeviceList():Void
   {
     controlGrid.selectedItem.idle();
     labels.members[Std.int(controlGrid.selectedIndex / COLUMNS)].alpha = 0.6;
@@ -802,7 +835,7 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
     deviceListSelected = true;
   }
 
-  function selectDevice(device:Device)
+  function selectDevice(device:Device):Void
   {
     currentDevice = device;
 
@@ -812,9 +845,16 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
     var inputName = device == Keys ? "key" : "button";
     var cancel = device == Keys ? "Escape" : "Back";
     // todo: alignment
-    if (device == Keys) prompt.setText('\nPress any key to rebind\n\n\n\n    $cancel to cancel');
+    if (device == Keys)
+    {
+      prompt.setText('\nPress any key to rebind\n\n\n\n    $cancel to cancel');
+      popup.setText('\nYou cannot unbind\nthat key!\n\n\n$cancel to exit');
+    }
     else
+    {
       prompt.setText('\nPress any button\n   to rebind\n\n\n $cancel to cancel');
+      popup.setText('\nYou cannot unbind\nthat button!\n\n\n$cancel to exit');
+    }
 
     controlGrid.selectedItem.select();
     labels.members[Std.int(controlGrid.selectedIndex / COLUMNS)].alpha = 1.0;
@@ -891,6 +931,28 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
       }
     }
 
+    if (actionPrevented && !popup.exists) createPopup();
+
+    if (popup.exists)
+    {
+      switch (currentDevice)
+      {
+        case Keys:
+          {
+            var key = FlxG.keys.firstJustReleased();
+            if (key == ESCAPE) closePopup();
+          }
+        case Gamepad(id):
+          {
+            var button = FlxG.gamepads.getByID(id).firstJustReleasedID();
+            if (button == BACK) closePopup();
+
+            var key = FlxG.keys.firstJustReleased();
+            if (key == ESCAPE) closePopup();
+          }
+      }
+    }
+
     switch (currentDevice)
     {
       case Keys:
@@ -917,6 +979,19 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
   function onInputSelect(input:Int):Void
   {
     var item = controlGrid.selectedItem;
+    var leftItem = controlGrid.members[controlGrid.selectedIndex - 1];
+    var rightItem = controlGrid.members[controlGrid.selectedIndex + 1];
+
+    // check if all keybinds are being removed and this is a UI control, prevent removing last keybind for this
+    if (input == FlxKey.NONE && controlGrid.selectedIndex != 1 && rightItem.input == FlxKey.NONE)
+    {
+      for (group in itemGroups)
+      {
+        if (group.toString() == itemGroups[1].toString() && group.contains(item)) actionPrevented = true;
+      }
+    }
+
+    if (actionPrevented) return;
 
     // check if that key is already set for this
     if (input != FlxKey.NONE)
@@ -957,7 +1032,6 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
     if (controlGrid.selectedIndex % 2 == 1)
     {
       trace('Modified item on right side of grid');
-      var leftItem = controlGrid.members[controlGrid.selectedIndex - 1];
       if (leftItem != null && input != FlxKey.NONE && leftItem.input == FlxKey.NONE)
       {
         trace('Left item is unbound and right item is not!');
@@ -973,7 +1047,6 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
     else
     {
       trace('Modified item on left side of grid');
-      var rightItem = controlGrid.members[controlGrid.selectedIndex + 1];
       if (rightItem != null && input == FlxKey.NONE && rightItem.input != FlxKey.NONE)
       {
         trace('Left item is unbound and right item is not!');
@@ -994,6 +1067,13 @@ class ControlsMenu extends funkin.ui.options.OptionsState.Page
   {
     prompt.exists = false;
     controlGrid.enabled = true;
+    if (deviceList == null) canExit = true;
+  }
+
+  function closePopup()
+  {
+    popup.exists = false;
+    actionPrevented = false;
     if (deviceList == null) canExit = true;
   }
 
@@ -1054,6 +1134,7 @@ class InputItem extends TextMenuItem
   function getInput()
   {
     var list = PlayerSettings.player1.controls.getInputsFor(control, device);
+    list = list.distinct();
     if (list.length > index)
     {
       if (list[index] != FlxKey.ESCAPE || list[index] != FlxGamepadInputID.BACK) return list[index];

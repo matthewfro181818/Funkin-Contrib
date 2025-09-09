@@ -16,11 +16,18 @@ import flixel.util.FlxDestroyUtil;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.modding.events.ScriptEvent;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterRenderType;
 import flixel.util.FlxDirectionFlags;
 =======
 import funkin.data.character.CharacterData.CharacterRenderType;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.data.character.CharacterData.CharacterRenderType;
+=======
+import funkin.play.character.CharacterData.CharacterRenderType;
+import flixel.util.FlxDirectionFlags;
+>>>>>>> b150c43d (lol4)
 import openfl.display.BitmapData;
 import openfl.display.BlendMode;
 
@@ -80,6 +87,7 @@ class AnimateAtlasCharacter extends BaseCharacter
   override function onCreate(event:ScriptEvent):Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Display a custom scope for debugging purposes.
     #if FEATURE_DEBUG_TRACY
     cpp.vm.tracy.TracyProfiler.zoneScoped('AnimateAtlasCharacter.create(${this.characterId})');
@@ -90,10 +98,23 @@ class AnimateAtlasCharacter extends BaseCharacter
       trace('Loading assets for Animate Atlas character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
 =======
     trace('Creating Animate Atlas character: ' + this.characterId);
+||||||| parent of b150c43d (lol4)
+    trace('Creating Animate Atlas character: ' + this.characterId);
+=======
+    // Display a custom scope for debugging purposes.
+    #if FEATURE_DEBUG_TRACY
+    cpp.vm.tracy.TracyProfiler.zoneScoped('AnimateAtlasCharacter.create(${this.characterId})');
+    #end
+>>>>>>> b150c43d (lol4)
 
     try
     {
+<<<<<<< HEAD
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+      trace('Loading assets for Animate Atlas character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+>>>>>>> b150c43d (lol4)
       var atlasSprite:FlxAtlasSprite = loadAtlasSprite();
       setSprite(atlasSprite);
 
@@ -110,6 +131,7 @@ class AnimateAtlasCharacter extends BaseCharacter
   public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reverse:Bool = false):Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     var correctName = correctAnimationName(name);
     if (correctName == null)
     {
@@ -117,11 +139,22 @@ class AnimateAtlasCharacter extends BaseCharacter
 =======
     if ((!canPlayOtherAnims && !ignoreOther)) return;
 
+||||||| parent of b150c43d (lol4)
+    if ((!canPlayOtherAnims && !ignoreOther)) return;
+
+=======
+>>>>>>> b150c43d (lol4)
     var correctName = correctAnimationName(name);
     if (correctName == null)
     {
+<<<<<<< HEAD
       trace('Could not find Atlas animation: ' + name);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      trace('Could not find Atlas animation: ' + name);
+=======
+      trace('$characterName Could not find Atlas animation: ' + name);
+>>>>>>> b150c43d (lol4)
       return;
     }
 
@@ -153,12 +186,20 @@ class AnimateAtlasCharacter extends BaseCharacter
     trace('[ATLASCHAR] Loading sprite atlas for ${characterId}.');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     var animLibrary:String = Paths.getLibrary(_data.assetPath);
     var animPath:String = Paths.stripLibrary(_data.assetPath);
 =======
     var animLibrary:String = Paths.getLibrary(_data.assetPaths[0]);
     var animPath:String = Paths.stripLibrary(_data.assetPaths[0]);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var animLibrary:String = Paths.getLibrary(_data.assetPaths[0]);
+    var animPath:String = Paths.stripLibrary(_data.assetPaths[0]);
+=======
+    var animLibrary:String = Paths.getLibrary(_data.assetPath);
+    var animPath:String = Paths.stripLibrary(_data.assetPath);
+>>>>>>> b150c43d (lol4)
     var assetPath:String = Paths.animateAtlas(animPath, animLibrary);
 
     var sprite:FlxAtlasSprite = new FlxAtlasSprite(0, 0, assetPath);
@@ -174,6 +215,7 @@ class AnimateAtlasCharacter extends BaseCharacter
     super.onAnimationFinished(prefix);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (!getCurrentAnimation().endsWith(Constants.ANIMATION_HOLD_SUFFIX)
       && hasAnimation(getCurrentAnimation() + Constants.ANIMATION_HOLD_SUFFIX))
     {
@@ -185,10 +227,26 @@ class AnimateAtlasCharacter extends BaseCharacter
       if (StringTools.endsWith(prefix, "-hold")) trace(prefix);
       playAnimation(prefix, true, false);
 =======
+||||||| parent of b150c43d (lol4)
+=======
+    if (!getCurrentAnimation().endsWith(Constants.ANIMATION_HOLD_SUFFIX)
+      && hasAnimation(getCurrentAnimation() + Constants.ANIMATION_HOLD_SUFFIX))
+    {
+      playAnimation(getCurrentAnimation() + Constants.ANIMATION_HOLD_SUFFIX);
+    }
+
+>>>>>>> b150c43d (lol4)
     if (getAnimationData() != null && getAnimationData().looped)
     {
+<<<<<<< HEAD
       playAnimation(currentAnimName, true, false);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      playAnimation(currentAnimName, true, false);
+=======
+      if (StringTools.endsWith(prefix, "-hold")) trace(prefix);
+      playAnimation(prefix, true, false);
+>>>>>>> b150c43d (lol4)
     }
     else
     {
@@ -241,12 +299,20 @@ class AnimateAtlasCharacter extends BaseCharacter
       if (!this.mainSprite.hasAnimation(prefix))
       {
 <<<<<<< HEAD
+<<<<<<< HEAD
         FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
         trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
 =======
         FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
         trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
+        trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
+=======
+        FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
+        trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
+>>>>>>> b150c43d (lol4)
         continue;
       }
       animations.set(anim.name, anim);
@@ -427,10 +493,16 @@ class AnimateAtlasCharacter extends BaseCharacter
     sprite.alpha = alpha; // direct set
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   inline function facingTransform(sprite:FlxSprite, facing:FlxDirectionFlags):Void
 =======
   inline function facingTransform(sprite:FlxSprite, facing:Int):Void
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  inline function facingTransform(sprite:FlxSprite, facing:Int):Void
+=======
+  inline function facingTransform(sprite:FlxSprite, facing:FlxDirectionFlags):Void
+>>>>>>> b150c43d (lol4)
     sprite.facing = facing;
 
   inline function flipXTransform(sprite:FlxSprite, flipX:Bool):Void
@@ -500,6 +572,7 @@ class AnimateAtlasCharacter extends BaseCharacter
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   var resS:FlxPoint = new FlxPoint();
 
   /**
@@ -553,6 +626,60 @@ class AnimateAtlasCharacter extends BaseCharacter
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  var resS:FlxPoint = new FlxPoint();
+
+  /**
+   * Reset the character so it can be used at the start of the level.
+   * Call this when restarting the level.
+   */
+  override public function resetCharacter(resetCamera:Bool = true):Void
+  {
+    trace("RESETTING ATLAS " + characterName);
+
+    // Reset the animation offsets. This will modify x and y to be the absolute position of the character.
+    // this.animOffsets = [0, 0];
+
+    // Now we can set the x and y to be their original values without having to account for animOffsets.
+    this.resetPosition();
+    mainSprite.setPosition(originalPosition.x, originalPosition.y);
+
+    // Then reapply animOffsets...
+    // applyAnimationOffsets(getCurrentAnimation());
+
+    // Make sure we are playing the idle animation
+    // ...then update the hitbox so that this.width and this.height are correct.
+
+    mainSprite.scale.set(1, 1);
+    mainSprite.alpha = 0.0001;
+    mainSprite.width = 0;
+    mainSprite.height = 0;
+    this.dance(true); // Force to avoid the old animation playing with the wrong offset at the start of the song.
+
+    mainSprite.draw(); // refresh frame
+
+    if (resS.x == 0)
+    {
+      resS.x = mainSprite.width; // clunky bizz
+      resS.y = mainSprite.height;
+    }
+
+    mainSprite.alpha = alpha;
+
+    mainSprite.width = resS.x;
+    mainSprite.height = resS.y;
+    frameWidth = 0;
+    frameHeight = 0;
+
+    scaleCallback(scale);
+    this.updateHitbox();
+
+    // Reset the camera focus point while we're at it.
+    if (resetCamera) this.resetCameraFocusPoint();
+  }
+
+>>>>>>> b150c43d (lol4)
   inline function offsetCallback(offset:FlxPoint):Void
     transformChildren(offsetTransform, offset);
 
@@ -624,10 +751,16 @@ class AnimateAtlasCharacter extends BaseCharacter
   override function set_alpha(value:Float):Float
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     value = value.clamp(0, 1);
 =======
     value = FlxMath.bound(value, 0, 1);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    value = FlxMath.bound(value, 0, 1);
+=======
+    value = value.clamp(0, 1);
+>>>>>>> b150c43d (lol4)
 
     if (exists && alpha != value)
     {
@@ -636,6 +769,7 @@ class AnimateAtlasCharacter extends BaseCharacter
     return alpha = value;
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   override function set_facing(value:FlxDirectionFlags):FlxDirectionFlags
@@ -656,6 +790,15 @@ class AnimateAtlasCharacter extends BaseCharacter
 
 =======
 >>>>>>> 3bbe1ef8 (lol2)
+||||||| parent of b150c43d (lol4)
+=======
+  override function set_facing(value:FlxDirectionFlags):FlxDirectionFlags
+  {
+    if (exists && facing != value) transformChildren(facingTransform, value);
+    return facing = value;
+  }
+
+>>>>>>> b150c43d (lol4)
   override function set_flipX(value:Bool):Bool
   {
     if (exists && flipX != value) transformChildren(flipXTransform, value);

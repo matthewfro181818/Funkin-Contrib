@@ -1,6 +1,7 @@
 package funkin.play;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.ui.freeplay.charselect.PlayableCharacter;
 import flixel.FlxState;
 import funkin.data.freeplay.player.PlayerRegistry;
@@ -11,13 +12,23 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import funkin.util.HapticUtil;
 =======
+||||||| parent of b150c43d (lol4)
+=======
+import funkin.ui.freeplay.charselect.PlayableCharacter;
+import flixel.FlxState;
+import funkin.data.freeplay.player.PlayerRegistry;
+>>>>>>> b150c43d (lol4)
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.input.touch.FlxTouch;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+<<<<<<< HEAD
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+import funkin.util.HapticUtil;
+>>>>>>> b150c43d (lol4)
 import funkin.audio.FunkinSound;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.events.ScriptEvent;
@@ -30,12 +41,20 @@ import funkin.util.MathUtil;
 import funkin.effects.RetroCameraFade;
 import flixel.math.FlxPoint;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.util.TouchUtil;
 #if FEATURE_MOBILE_ADVERTISEMENTS
 import funkin.mobile.util.AdMobUtil;
 #end
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+import funkin.util.TouchUtil;
+#if FEATURE_MOBILE_ADVERTISEMENTS
+import funkin.mobile.util.AdMobUtil;
+#end
+>>>>>>> b150c43d (lol4)
 
 /**
  * A substate which renders over the PlayState when the player dies.
@@ -112,10 +131,16 @@ class GameOverSubState extends MusicBeatSubState
   var targetCameraZoom:Float = 1.0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   var canInput:Bool = false;
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  var canInput:Bool = false;
+
+>>>>>>> b150c43d (lol4)
   public function new(params:GameOverParams)
   {
     super();
@@ -123,6 +148,7 @@ class GameOverSubState extends MusicBeatSubState
     this.isChartingMode = params?.isChartingMode ?? false;
     transparent = params.transparent;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     cameraFollowPoint = new FlxObject(0, 0, 1, 1);
     if (parentPlayState != null)
@@ -140,10 +166,29 @@ class GameOverSubState extends MusicBeatSubState
   /**
 =======
     cameraFollowPoint = new FlxObject(PlayState.instance.cameraFollowPoint.x, PlayState.instance.cameraFollowPoint.y, 1, 1);
+||||||| parent of b150c43d (lol4)
+    cameraFollowPoint = new FlxObject(PlayState.instance.cameraFollowPoint.x, PlayState.instance.cameraFollowPoint.y, 1, 1);
+=======
+    cameraFollowPoint = new FlxObject(0, 0, 1, 1);
+    if (parentPlayState != null)
+    {
+      cameraFollowPoint.x = parentPlayState.cameraFollowPoint.x;
+      cameraFollowPoint.y = parentPlayState.cameraFollowPoint.y;
+    }
+>>>>>>> b150c43d (lol4)
   }
 
   /**
+<<<<<<< HEAD
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+   * The PlayState that this GameOverSubState is displaying on top of.
+   */
+  public var parentPlayState:Null<PlayState>;
+
+  /**
+>>>>>>> b150c43d (lol4)
    * Reset the game over configuration to the default.
    */
   public static function reset():Void
@@ -159,9 +204,14 @@ class GameOverSubState extends MusicBeatSubState
     if (instance != null)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       // TODO: Do something in this case? IDK.
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      // TODO: Do something in this case? IDK.
+=======
+>>>>>>> b150c43d (lol4)
       FlxG.log.warn('WARNING: GameOverSubState instance already exists. This should not happen.');
     }
     instance = this;
@@ -169,19 +219,31 @@ class GameOverSubState extends MusicBeatSubState
     super.create();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     parentPlayState = cast _parentState;
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    parentPlayState = cast _parentState;
+
+>>>>>>> b150c43d (lol4)
     //
     // Set up the visuals
     //
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     var playState = PlayState.instance;
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var playState = PlayState.instance;
+
+=======
+>>>>>>> b150c43d (lol4)
     // Add a black background to the screen.
     var bg:FunkinSprite = new FunkinSprite().makeSolidColor(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
     // We make this transparent so that we can see the stage underneath during debugging,
@@ -193,6 +255,7 @@ class GameOverSubState extends MusicBeatSubState
 
     // Pluck Boyfriend from the PlayState and place him (in the same position) in the GameOverSubState.
     // We can then play the character's `firstDeath` animation.
+<<<<<<< HEAD
 <<<<<<< HEAD
     if ((parentPlayState?.isMinimalMode ?? true)) {}
     else
@@ -207,14 +270,36 @@ class GameOverSubState extends MusicBeatSubState
       }
 =======
     if (PlayState.instance.isMinimalMode) {}
+||||||| parent of b150c43d (lol4)
+    if (PlayState.instance.isMinimalMode) {}
+=======
+    if ((parentPlayState?.isMinimalMode ?? true)) {}
+>>>>>>> b150c43d (lol4)
     else
     {
+<<<<<<< HEAD
       boyfriend = PlayState.instance.currentStage.getBoyfriend(true);
       boyfriend.canPlayOtherAnims = true;
       boyfriend.isDead = true;
       add(boyfriend);
       boyfriend.resetCharacter();
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      boyfriend = PlayState.instance.currentStage.getBoyfriend(true);
+      boyfriend.canPlayOtherAnims = true;
+      boyfriend.isDead = true;
+      add(boyfriend);
+      boyfriend.resetCharacter();
+=======
+      boyfriend = parentPlayState?.currentStage?.getBoyfriend(true);
+      if (boyfriend != null)
+      {
+        boyfriend.canPlayOtherAnims = true;
+        boyfriend.isDead = true;
+        add(boyfriend);
+        boyfriend.resetCharacter();
+      }
+>>>>>>> b150c43d (lol4)
     }
 
     setCameraTarget();
@@ -225,6 +310,7 @@ class GameOverSubState extends MusicBeatSubState
 
     // The conductor now represents the BPM of the game over music.
     Conductor.instance.update(0);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     #if mobile
@@ -246,16 +332,35 @@ class GameOverSubState extends MusicBeatSubState
     // Assign a camera follow point to the boyfriend's position.
     cameraFollowPoint = new FlxObject(parentPlayState.cameraFollowPoint.x, parentPlayState.cameraFollowPoint.y, 1, 1);
 =======
+||||||| parent of b150c43d (lol4)
+=======
+
+    #if mobile
+    addBackButton(FlxG.width - 230, FlxG.height - 200, FlxColor.WHITE, goBack);
+    #end
+
+    HapticUtil.vibrate(0, Constants.DEFAULT_VIBRATION_DURATION);
+
+    // Allow input a second later to prevent accidental gameover skips.
+    new FlxTimer().start(1, function(tmr:FlxTimer) {
+      canInput = true;
+    });
+>>>>>>> b150c43d (lol4)
   }
 
-  @:nullSafety(Off)
   function setCameraTarget():Void
   {
-    if (PlayState.instance.isMinimalMode || boyfriend == null) return;
+    if (parentPlayState == null || parentPlayState.isMinimalMode || boyfriend == null) return;
 
     // Assign a camera follow point to the boyfriend's position.
+<<<<<<< HEAD
     cameraFollowPoint = new FlxObject(PlayState.instance.cameraFollowPoint.x, PlayState.instance.cameraFollowPoint.y, 1, 1);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    cameraFollowPoint = new FlxObject(PlayState.instance.cameraFollowPoint.x, PlayState.instance.cameraFollowPoint.y, 1, 1);
+=======
+    cameraFollowPoint = new FlxObject(parentPlayState.cameraFollowPoint.x, parentPlayState.cameraFollowPoint.y, 1, 1);
+>>>>>>> b150c43d (lol4)
     cameraFollowPoint.x = getMidPointOld(boyfriend).x;
     cameraFollowPoint.y = getMidPointOld(boyfriend).y;
     var offsets:Array<Float> = boyfriend.getDeathCameraOffsets();
@@ -264,15 +369,26 @@ class GameOverSubState extends MusicBeatSubState
     add(cameraFollowPoint);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @:nullSafety(Off)
     FlxG.camera.target = null;
     FlxG.camera.follow(cameraFollowPoint, LOCKON, Constants.DEFAULT_CAMERA_FOLLOW_RATE / 2);
     targetCameraZoom = (parentPlayState?.currentStage?.camZoom ?? 1.0) * boyfriend.getDeathCameraZoom();
 =======
+||||||| parent of b150c43d (lol4)
+=======
+    @:nullSafety(Off)
+>>>>>>> b150c43d (lol4)
     FlxG.camera.target = null;
     FlxG.camera.follow(cameraFollowPoint, LOCKON, Constants.DEFAULT_CAMERA_FOLLOW_RATE / 2);
+<<<<<<< HEAD
     targetCameraZoom = (PlayState?.instance?.currentStage?.camZoom ?? 1.0) * boyfriend.getDeathCameraZoom();
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    targetCameraZoom = (PlayState?.instance?.currentStage?.camZoom ?? 1.0) * boyfriend.getDeathCameraZoom();
+=======
+    targetCameraZoom = (parentPlayState?.currentStage?.camZoom ?? 1.0) * boyfriend.getDeathCameraZoom();
+>>>>>>> b150c43d (lol4)
   }
 
   /**
@@ -298,10 +414,16 @@ class GameOverSubState extends MusicBeatSubState
   {
     // Apply camera zoom level from stage data.
 <<<<<<< HEAD
+<<<<<<< HEAD
     FlxG.camera.zoom = parentPlayState?.currentStage?.camZoom ?? 1.0;
 =======
     FlxG.camera.zoom = PlayState?.instance?.currentStage?.camZoom ?? 1.0;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    FlxG.camera.zoom = PlayState?.instance?.currentStage?.camZoom ?? 1.0;
+=======
+    FlxG.camera.zoom = parentPlayState?.currentStage?.camZoom ?? 1.0;
+>>>>>>> b150c43d (lol4)
   }
 
   var hasStartedAnimation:Bool = false;
@@ -313,10 +435,16 @@ class GameOverSubState extends MusicBeatSubState
       hasStartedAnimation = true;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (boyfriend == null || (parentPlayState?.isMinimalMode ?? true))
 =======
       if (boyfriend == null || PlayState.instance.isMinimalMode)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      if (boyfriend == null || PlayState.instance.isMinimalMode)
+=======
+      if (boyfriend == null || (parentPlayState?.isMinimalMode ?? true))
+>>>>>>> b150c43d (lol4)
       {
         // Play the "blue balled" sound. May play a variant if one has been assigned.
         playBlueBalledSFX();
@@ -338,15 +466,22 @@ class GameOverSubState extends MusicBeatSubState
 
     // Smoothly lerp the camera
 <<<<<<< HEAD
+<<<<<<< HEAD
     FlxG.camera.zoom = MathUtil.smoothLerpPrecision(FlxG.camera.zoom, targetCameraZoom, elapsed, CAMERA_ZOOM_DURATION);
 =======
     FlxG.camera.zoom = MathUtil.smoothLerp(FlxG.camera.zoom, targetCameraZoom, elapsed, CAMERA_ZOOM_DURATION);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    FlxG.camera.zoom = MathUtil.smoothLerp(FlxG.camera.zoom, targetCameraZoom, elapsed, CAMERA_ZOOM_DURATION);
+=======
+    FlxG.camera.zoom = MathUtil.smoothLerpPrecision(FlxG.camera.zoom, targetCameraZoom, elapsed, CAMERA_ZOOM_DURATION);
+>>>>>>> b150c43d (lol4)
 
     //
     // Handle user inputs.
     //
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // Restart the level when pressing the assigned key.
     if ((controls.ACCEPT #if mobile || (TouchUtil.pressAction() && !TouchUtil.overlaps(backButton) && canInput) #end)
@@ -369,11 +504,34 @@ class GameOverSubState extends MusicBeatSubState
     // KEYBOARD ONLY: Restart the level when pressing the assigned key.
     if (controls.ACCEPT && blueballed && !mustNotExit)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    // MOBILE ONLY: Restart the level when tapping Boyfriend.
+    if (FlxG.onMobile)
+    {
+      var touch:FlxTouch = FlxG.touches.getFirst();
+      if (touch != null)
+      {
+        if (boyfriend == null || touch.overlaps(boyfriend))
+        {
+          confirmDeath();
+        }
+      }
+    }
+
+    // KEYBOARD ONLY: Restart the level when pressing the assigned key.
+    if (controls.ACCEPT && blueballed && !mustNotExit)
+=======
+    // Restart the level when pressing the assigned key.
+    if ((controls.ACCEPT #if mobile || (TouchUtil.pressAction() && !TouchUtil.overlaps(backButton) && canInput) #end)
+      && blueballed
+      && !mustNotExit)
+>>>>>>> b150c43d (lol4)
     {
       blueballed = false;
       confirmDeath();
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (controls.BACK && !mustNotExit && !isEnding) goBack();
 =======
@@ -403,6 +561,35 @@ class GameOverSubState extends MusicBeatSubState
       }
     }
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    // KEYBOARD ONLY: Return to the menu when pressing the assigned key.
+    if (controls.BACK && !mustNotExit && !isEnding)
+    {
+      isEnding = true;
+      blueballed = false;
+      PlayState.instance.deathCounter = 0;
+      // PlayState.seenCutscene = false; // old thing...
+      if (gameOverMusic != null) gameOverMusic.stop();
+
+      if (isChartingMode)
+      {
+        this.close();
+        if (FlxG.sound.music != null) FlxG.sound.music.pause(); // Don't reset song position!
+        PlayState.instance.close(); // This only works because PlayState is a substate!
+        return;
+      }
+      else if (PlayStatePlaylist.isStoryMode)
+      {
+        openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new StoryMenuState(sticker)));
+      }
+      else
+      {
+        openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> FreeplayState.build(sticker)));
+      }
+    }
+=======
+    if (controls.BACK && !mustNotExit && !isEnding) goBack();
+>>>>>>> b150c43d (lol4)
 
     if (gameOverMusic != null && gameOverMusic.playing)
     {
@@ -413,18 +600,31 @@ class GameOverSubState extends MusicBeatSubState
     else if (boyfriend != null)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       if ((parentPlayState?.isMinimalMode ?? true))
       {
         // Do nothing?
 =======
       if (PlayState.instance.isMinimalMode)
+||||||| parent of b150c43d (lol4)
+      if (PlayState.instance.isMinimalMode)
+=======
+      if ((parentPlayState?.isMinimalMode ?? true))
+>>>>>>> b150c43d (lol4)
       {
+<<<<<<< HEAD
         // startDeathMusic(1.0, false);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+        // startDeathMusic(1.0, false);
+=======
+        // Do nothing?
+>>>>>>> b150c43d (lol4)
       }
       else
       {
         // Music hasn't started yet.
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         if (boyfriend.getDeathQuote() != null)
@@ -445,7 +645,14 @@ class GameOverSubState extends MusicBeatSubState
           }
 =======
         switch (PlayStatePlaylist.campaignId)
+||||||| parent of b150c43d (lol4)
+        switch (PlayStatePlaylist.campaignId)
+=======
+
+        if (boyfriend.getDeathQuote() != null)
+>>>>>>> b150c43d (lol4)
         {
+<<<<<<< HEAD
           // TODO: Make the behavior for playing Jeff's voicelines generic or un-hardcoded.
           // This will simplify the class and make it easier for mods to add death quotes.
           case 'week7':
@@ -465,6 +672,41 @@ class GameOverSubState extends MusicBeatSubState
               boyfriend.playAnimation('deathLoop' + animationSuffix);
             }
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+          // TODO: Make the behavior for playing Jeff's voicelines generic or un-hardcoded.
+          // This will simplify the class and make it easier for mods to add death quotes.
+          case 'week7':
+            if (boyfriend.getCurrentAnimation().startsWith('firstDeath') && boyfriend.isAnimationFinished() && !playingJeffQuote)
+            {
+              playingJeffQuote = true;
+              playJeffQuote();
+              // Start music at lower volume
+              startDeathMusic(0.2, false);
+              boyfriend.playAnimation('deathLoop' + animationSuffix);
+            }
+          default:
+            // Start music at normal volume once the initial death animation finishes.
+            if (boyfriend.getCurrentAnimation().startsWith('firstDeath') && boyfriend.isAnimationFinished())
+            {
+              startDeathMusic(1.0, false);
+              boyfriend.playAnimation('deathLoop' + animationSuffix);
+            }
+=======
+          if (boyfriend.getCurrentAnimation().startsWith('firstDeath') && boyfriend.isAnimationFinished() && !hasPlayedDeathQuote)
+          {
+            hasPlayedDeathQuote = true;
+            playDeathQuote();
+          }
+        }
+        else
+        {
+          // Start music at normal volume once the initial death animation finishes.
+          if (boyfriend.getCurrentAnimation().startsWith('firstDeath') && boyfriend.isAnimationFinished())
+          {
+            startDeathMusic(1.0, false);
+            boyfriend.playAnimation('deathLoop' + animationSuffix);
+          }
+>>>>>>> b150c43d (lol4)
         }
       }
     }
@@ -473,6 +715,7 @@ class GameOverSubState extends MusicBeatSubState
     super.update(elapsed);
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   var deathQuoteSound:Null<FunkinSound> = null;
 
@@ -505,6 +748,38 @@ class GameOverSubState extends MusicBeatSubState
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  var deathQuoteSound:Null<FunkinSound> = null;
+
+  function playDeathQuote():Void
+  {
+    if (isEnding) return;
+    if (boyfriend == null) return;
+    if (parentPlayState == null) return;
+
+    var deathQuote:Null<String> = boyfriend.getDeathQuote();
+    if (deathQuote == null) return;
+
+    if (deathQuoteSound != null)
+    {
+      deathQuoteSound.stop();
+      deathQuoteSound = null;
+    }
+
+    // Start music at lower volume
+    startDeathMusic(0.2, false);
+    boyfriend.playAnimation('deathLoop' + animationSuffix);
+    deathQuoteSound = FunkinSound.playOnce(deathQuote, function() {
+      // Once the quote ends, fade in the game over music.
+      if (!isEnding && gameOverMusic != null)
+      {
+        gameOverMusic.fadeIn(4, 0.2, 1);
+      }
+    });
+  }
+
+>>>>>>> b150c43d (lol4)
   /**
    * Do behavior which occurs when you confirm and move to restart the level.
    */
@@ -513,6 +788,7 @@ class GameOverSubState extends MusicBeatSubState
     if (!isEnding)
     {
       isEnding = true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
       // Stop death quotes immediately.
@@ -527,10 +803,28 @@ class GameOverSubState extends MusicBeatSubState
 
       if ((parentPlayState?.isMinimalMode ?? true) || boyfriend == null) {}
 =======
+||||||| parent of b150c43d (lol4)
+=======
+
+      // Stop death quotes immediately.
+      hasPlayedDeathQuote = true;
+      if (deathQuoteSound != null)
+      {
+        deathQuoteSound.stop();
+        deathQuoteSound = null;
+      }
+
+>>>>>>> b150c43d (lol4)
       startDeathMusic(1.0, true); // isEnding changes this function's behavior.
 
+<<<<<<< HEAD
       if (PlayState.instance.isMinimalMode || boyfriend == null) {}
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+      if (PlayState.instance.isMinimalMode || boyfriend == null) {}
+=======
+      if ((parentPlayState?.isMinimalMode ?? true) || boyfriend == null) {}
+>>>>>>> b150c43d (lol4)
       else
       {
         boyfriend.playAnimation('deathConfirm' + animationSuffix, true);
@@ -546,24 +840,42 @@ class GameOverSubState extends MusicBeatSubState
           else
             FlxG.camera.fade(FlxColor.BLACK, 1, true, null, true);
 <<<<<<< HEAD
+<<<<<<< HEAD
           if (parentPlayState != null) parentPlayState.needsReset = true;
 
           if ((parentPlayState?.isMinimalMode ?? true) || boyfriend == null) {}
 =======
           PlayState.instance.needsReset = true;
+||||||| parent of b150c43d (lol4)
+          PlayState.instance.needsReset = true;
+=======
+          if (parentPlayState != null) parentPlayState.needsReset = true;
+>>>>>>> b150c43d (lol4)
 
+<<<<<<< HEAD
           if (PlayState.instance.isMinimalMode || boyfriend == null) {}
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+          if (PlayState.instance.isMinimalMode || boyfriend == null) {}
+=======
+          if ((parentPlayState?.isMinimalMode ?? true) || boyfriend == null) {}
+>>>>>>> b150c43d (lol4)
           else
           {
             // Readd Boyfriend to the stage.
             boyfriend.isDead = false;
             remove(boyfriend);
 <<<<<<< HEAD
+<<<<<<< HEAD
             parentPlayState?.currentStage?.addCharacter(boyfriend, BF);
 =======
             PlayState.instance.currentStage.addCharacter(boyfriend, BF);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+            PlayState.instance.currentStage.addCharacter(boyfriend, BF);
+=======
+            parentPlayState?.currentStage?.addCharacter(boyfriend, BF);
+>>>>>>> b150c43d (lol4)
           }
 
           // Snap reset the camera which may have changed because of the player character data.
@@ -579,6 +891,7 @@ class GameOverSubState extends MusicBeatSubState
           new FlxTimer().start(2, _ -> {
             FlxG.camera.filters = [];
 <<<<<<< HEAD
+<<<<<<< HEAD
             #if FEATURE_MOBILE_ADVERTISEMENTS
             if (AdMobUtil.PLAYING_COUNTER >= AdMobUtil.MAX_BEFORE_AD)
             {
@@ -590,16 +903,36 @@ class GameOverSubState extends MusicBeatSubState
             else
               resetPlaying(true);
             #else
+||||||| parent of b150c43d (lol4)
+=======
+            #if FEATURE_MOBILE_ADVERTISEMENTS
+            if (AdMobUtil.PLAYING_COUNTER >= AdMobUtil.MAX_BEFORE_AD)
+            {
+              AdMobUtil.loadInterstitial(function():Void {
+                AdMobUtil.PLAYING_COUNTER = 0;
+                resetPlaying(true);
+              });
+            }
+            else
+              resetPlaying(true);
+            #else
+>>>>>>> b150c43d (lol4)
             resetPlaying(true);
+<<<<<<< HEAD
             #end
 =======
             resetPlaying(true);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+            #end
+>>>>>>> b150c43d (lol4)
           });
         }
         else
         {
           FlxG.camera.fade(FlxColor.BLACK, 2, false, function() {
+<<<<<<< HEAD
 <<<<<<< HEAD
             #if FEATURE_MOBILE_ADVERTISEMENTS
             if (AdMobUtil.PLAYING_COUNTER >= AdMobUtil.MAX_BEFORE_AD)
@@ -616,9 +949,30 @@ class GameOverSubState extends MusicBeatSubState
             #end
           }, true);
 =======
+||||||| parent of b150c43d (lol4)
+=======
+            #if FEATURE_MOBILE_ADVERTISEMENTS
+            if (AdMobUtil.PLAYING_COUNTER >= AdMobUtil.MAX_BEFORE_AD)
+            {
+              AdMobUtil.loadInterstitial(function():Void {
+                AdMobUtil.PLAYING_COUNTER = 0;
+                resetPlaying();
+              });
+            }
+            else
+              resetPlaying();
+            #else
+>>>>>>> b150c43d (lol4)
             resetPlaying();
+<<<<<<< HEAD
           });
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+          });
+=======
+            #end
+          }, true);
+>>>>>>> b150c43d (lol4)
         }
       });
     }
@@ -661,10 +1015,16 @@ class GameOverSubState extends MusicBeatSubState
   {
     var musicPath:Null<String> = resolveMusicPath(musicSuffix, isStarting, isEnding);
 <<<<<<< HEAD
+<<<<<<< HEAD
     var onComplete:Void->Void = () -> {};
 =======
     var onComplete:() -> Void = () -> {};
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    var onComplete:() -> Void = () -> {};
+=======
+    var onComplete:Void->Void = () -> {};
+>>>>>>> b150c43d (lol4)
 
     if (isStarting)
     {
@@ -680,10 +1040,16 @@ class GameOverSubState extends MusicBeatSubState
           isStarting = true;
           // We need to force to ensure that the non-starting music plays.
 <<<<<<< HEAD
+<<<<<<< HEAD
           startDeathMusic(0.0, true);
 =======
           startDeathMusic(1.0, true);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+          startDeathMusic(1.0, true);
+=======
+          startDeathMusic(0.0, true);
+>>>>>>> b150c43d (lol4)
         };
       }
     }
@@ -713,6 +1079,7 @@ class GameOverSubState extends MusicBeatSubState
   }
 
   /**
+<<<<<<< HEAD
 <<<<<<< HEAD
    * Pressing BACK from the Game Over screen should return the player to the Story/Freeplay menu as appropriate.
    */
@@ -771,6 +1138,64 @@ class GameOverSubState extends MusicBeatSubState
   /**
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+   * Pressing BACK from the Game Over screen should return the player to the Story/Freeplay menu as appropriate.
+   */
+  public function goBack():Void
+  {
+    if (blueballed == false) return;
+    isEnding = true;
+    blueballed = false;
+    if (parentPlayState != null) parentPlayState.deathCounter = 0;
+    // PlayState.seenCutscene = false; // old thing...
+    if (gameOverMusic != null) gameOverMusic.stop();
+
+    // Stop death quotes immediately.
+    hasPlayedDeathQuote = true;
+    if (deathQuoteSound != null)
+    {
+      deathQuoteSound.stop();
+      deathQuoteSound = null;
+    }
+
+    if (isChartingMode)
+    {
+      this.close();
+      if (FlxG.sound.music != null) FlxG.sound.music.pause(); // Don't reset song position!
+      if (parentPlayState != null) parentPlayState.close(); // This only works because PlayState is a substate!
+      parentPlayState = null;
+      return;
+    }
+    else
+    {
+      var targetState:funkin.ui.transition.stickers.StickerSubState->FlxState = (PlayStatePlaylist.isStoryMode) ? (sticker) ->
+        new StoryMenuState(sticker) : (sticker) -> FreeplayState.build(sticker);
+
+      if (PlayStatePlaylist.isStoryMode)
+      {
+        PlayStatePlaylist.reset();
+      }
+
+      var stickerPackId:Null<String> = parentPlayState?.currentChart?.stickerPack;
+
+      if (stickerPackId == null)
+      {
+        var playerCharacterId:Null<String> = PlayerRegistry.instance.getCharacterOwnerId(parentPlayState?.currentChart?.characters.player);
+        var playerCharacter:Null<PlayableCharacter> = PlayerRegistry.instance.fetchEntry(playerCharacterId ?? Constants.DEFAULT_CHARACTER);
+
+        if (playerCharacter != null)
+        {
+          stickerPackId = playerCharacter.getStickerPackID();
+        }
+      }
+
+      openSubState(new funkin.ui.transition.stickers.StickerSubState({targetState: targetState, stickerPack: stickerPackId}));
+    }
+  }
+
+  /**
+>>>>>>> b150c43d (lol4)
    * Play the sound effect that occurs when
    * boyfriend's testicles get utterly annihilated.
    */
@@ -778,9 +1203,14 @@ class GameOverSubState extends MusicBeatSubState
   {
     blueballed = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+
+>>>>>>> b150c43d (lol4)
     if (Assets.exists(Paths.sound('gameplay/gameover/fnf_loss_sfx' + blueBallSuffix)))
     {
       FunkinSound.playOnce(Paths.sound('gameplay/gameover/fnf_loss_sfx' + blueBallSuffix));
@@ -791,6 +1221,7 @@ class GameOverSubState extends MusicBeatSubState
     }
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   var hasPlayedDeathQuote:Bool = false;
 =======
@@ -815,6 +1246,30 @@ class GameOverSubState extends MusicBeatSubState
     });
   }
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  var playingJeffQuote:Bool = false;
+
+  /**
+   * Week 7-specific hardcoded behavior, to play a custom death quote.
+   * TODO: Make this a module somehow.
+   */
+  function playJeffQuote():Void
+  {
+    var randomCensor:Array<Int> = [];
+
+    if (!Preferences.naughtyness) randomCensor = [1, 3, 8, 13, 17, 21];
+
+    FunkinSound.playOnce(Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, randomCensor)), function() {
+      // Once the quote ends, fade in the game over music.
+      if (!isEnding && gameOverMusic != null)
+      {
+        gameOverMusic.fadeIn(4, 0.2, 1);
+      }
+    });
+  }
+=======
+  var hasPlayedDeathQuote:Bool = false;
+>>>>>>> b150c43d (lol4)
 
   public override function destroy():Void
   {

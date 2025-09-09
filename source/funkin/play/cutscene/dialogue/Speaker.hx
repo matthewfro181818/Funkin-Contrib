@@ -7,6 +7,7 @@ import flixel.graphics.frames.FlxFramesCollection;
 import funkin.util.assets.FlxAnimationUtil;
 import funkin.modding.IScriptedClass.IDialogueScriptedClass;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.data.dialogue.SpeakerData;
 import funkin.data.dialogue.SpeakerRegistry;
 import funkin.ui.FullScreenScaleMode;
@@ -14,6 +15,14 @@ import funkin.ui.FullScreenScaleMode;
 import funkin.data.dialogue.speaker.SpeakerData;
 import funkin.data.dialogue.speaker.SpeakerRegistry;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.data.dialogue.speaker.SpeakerData;
+import funkin.data.dialogue.speaker.SpeakerRegistry;
+=======
+import funkin.data.dialogue.SpeakerData;
+import funkin.data.dialogue.SpeakerRegistry;
+import funkin.ui.FullScreenScaleMode;
+>>>>>>> b150c43d (lol4)
 
 /**
  * The character sprite which displays during dialogue.
@@ -23,6 +32,7 @@ import funkin.data.dialogue.speaker.SpeakerRegistry;
 class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRegistryEntry<SpeakerData>
 {
   /**
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
    * The internal ID for this speaker.
@@ -36,6 +46,19 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
   /**
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+   * The internal ID for this speaker.
+   */
+  public final id:String;
+
+  /**
+   * The full data for a speaker.
+   */
+  public final _data:SpeakerData;
+
+  /**
+=======
+>>>>>>> b150c43d (lol4)
    * A readable name for this speaker.
    */
   public var speakerName(get, never):String;
@@ -85,6 +108,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
     this.x += xDiff;
     this.y += yDiff;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -107,11 +131,37 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
   public function new(id:String, ?params:Dynamic)
 =======
+||||||| parent of b150c43d (lol4)
+=======
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      this.x *= fullscreenScale;
+      this.y = this.y * fullscreenScale + (-100 * fullscreenScale);
+    }
+
+>>>>>>> b150c43d (lol4)
     return globalOffsets = value;
   }
 
+<<<<<<< HEAD
   public function new(id:String)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public function new(id:String)
+=======
+  /**
+   * A value used for scaling object's parameters on mobile.
+   */
+  var fullscreenScale(get, never):Float;
+
+  function get_fullscreenScale():Float
+  {
+    return FullScreenScaleMode.wideScale.x - 0.05;
+  }
+
+  public function new(id:String, ?params:Dynamic)
+>>>>>>> b150c43d (lol4)
   {
     super();
 
@@ -195,6 +245,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
   {
     if (scale == null) scale = 1.0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -203,6 +254,15 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      scale *= fullscreenScale;
+    }
+
+>>>>>>> b150c43d (lol4)
     this.scale.x = scale;
     this.scale.y = scale;
     this.updateHitbox();
@@ -341,6 +401,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
   public function onScriptEvent(event:ScriptEvent):Void {}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   public override function toString():String
@@ -353,4 +414,17 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
     return SpeakerRegistry.instance.parseEntryDataWithMigration(id, SpeakerRegistry.instance.fetchEntryVersion(id));
   }
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+
+  public override function toString():String
+  {
+    return 'Speaker($id)';
+  }
+
+  static function _fetchData(id:String):Null<SpeakerData>
+  {
+    return SpeakerRegistry.instance.parseEntryDataWithMigration(id, SpeakerRegistry.instance.fetchEntryVersion(id));
+  }
+=======
+>>>>>>> b150c43d (lol4)
 }

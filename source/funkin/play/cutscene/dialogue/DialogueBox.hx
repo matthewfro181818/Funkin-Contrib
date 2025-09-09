@@ -6,14 +6,20 @@ import flixel.group.FlxSpriteGroup;
 import flixel.graphics.frames.FlxFramesCollection;
 import funkin.graphics.FunkinSprite;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.addons.text.FlxTypeText;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.addons.text.FlxTypeText;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.util.assets.FlxAnimationUtil;
 import funkin.modding.events.ScriptEvent;
 import funkin.audio.FunkinSound;
 import funkin.modding.IScriptedClass.IDialogueScriptedClass;
 import flixel.util.FlxColor;
+<<<<<<< HEAD
 <<<<<<< HEAD
 import funkin.ui.FullScreenScaleMode;
 import funkin.data.dialogue.DialogueBoxData;
@@ -24,12 +30,26 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 =======
 import funkin.data.dialogue.dialoguebox.DialogueBoxData;
 import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
+||||||| parent of b150c43d (lol4)
+import funkin.data.dialogue.dialoguebox.DialogueBoxData;
+import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
+=======
+import funkin.ui.FullScreenScaleMode;
+import funkin.data.dialogue.DialogueBoxData;
+import funkin.data.dialogue.DialogueBoxRegistry;
+>>>>>>> b150c43d (lol4)
 
 class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass implements IRegistryEntry<DialogueBoxData>
 {
+<<<<<<< HEAD
   public final id:String;
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public final id:String;
+
+=======
+>>>>>>> b150c43d (lol4)
   public var dialogueBoxName(get, never):String;
 
   function get_dialogueBoxName():String
@@ -38,10 +58,16 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   public final _data:DialogueBoxData;
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public final _data:DialogueBoxData;
+
+=======
+>>>>>>> b150c43d (lol4)
   /**
    * Offset the speaker's sprite by this much when playing each animation.
    */
@@ -82,6 +108,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
     this.x += xDiff;
     this.y += yDiff;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -91,15 +118,31 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      this.x *= fullscreenScale;
+      this.y = this.y * fullscreenScale + (-100 * fullscreenScale);
+    }
+
+>>>>>>> b150c43d (lol4)
     return globalOffsets = value;
   }
 
   var boxSprite:FlxSprite;
 <<<<<<< HEAD
+<<<<<<< HEAD
   var textDisplay:FunkinTypeText;
 =======
   var textDisplay:FlxTypeText;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  var textDisplay:FlxTypeText;
+=======
+  var textDisplay:FunkinTypeText;
+>>>>>>> b150c43d (lol4)
 
   var text(default, set):String;
 
@@ -123,6 +166,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * A value used for scaling object's parameters on mobile.
    */
@@ -137,6 +181,21 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 =======
   public function new(id:String)
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public function new(id:String)
+=======
+  /**
+   * A value used for scaling object's parameters on mobile.
+   */
+  var fullscreenScale(get, never):Float;
+
+  function get_fullscreenScale():Float
+  {
+    return FullScreenScaleMode.wideScale.x - 0.05;
+  }
+
+  public function new(id:String, ?params:Dynamic)
+>>>>>>> b150c43d (lol4)
   {
     super();
     this.id = id;
@@ -237,6 +296,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
   {
     if (scale == null) scale = 1.0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -245,6 +305,15 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      scale *= fullscreenScale;
+    }
+
+>>>>>>> b150c43d (lol4)
     this.boxSprite.scale.x = scale;
     this.boxSprite.scale.y = scale;
     this.boxSprite.updateHitbox();
@@ -300,12 +369,20 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
     trace('[DIALOGUE BOX] Successfully loaded ${animNames.length} animations for ${id}');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     boxSprite.animation.onFrameChange.add(this.onAnimationFrame);
     boxSprite.animation.onFinish.add(this.onAnimationFinished);
 =======
     boxSprite.animation.callback = this.onAnimationFrame;
     boxSprite.animation.finishCallback = this.onAnimationFinished;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    boxSprite.animation.callback = this.onAnimationFrame;
+    boxSprite.animation.finishCallback = this.onAnimationFinished;
+=======
+    boxSprite.animation.onFrameChange.add(this.onAnimationFrame);
+    boxSprite.animation.onFinish.add(this.onAnimationFinished);
+>>>>>>> b150c43d (lol4)
   }
 
   /**
@@ -335,10 +412,16 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
   function loadText():Void
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     textDisplay = new FunkinTypeText(0, 0, 300, '', 32);
 =======
     textDisplay = new FlxTypeText(0, 0, 300, '', 32);
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    textDisplay = new FlxTypeText(0, 0, 300, '', 32);
+=======
+    textDisplay = new FunkinTypeText(0, 0, 300, '', 32);
+>>>>>>> b150c43d (lol4)
     textDisplay.fieldWidth = _data.text.width;
     textDisplay.setFormat(_data.text.fontFamily, _data.text.size, FlxColor.fromString(_data.text.color), LEFT, SHADOW,
       FlxColor.fromString(_data.text.shadowColor ?? '#00000000'), false);
@@ -352,6 +435,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
     textDisplay.y += _data.text.offsets[1];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (FullScreenScaleMode.wideScale.x != 1)
     {
       textDisplay.fieldWidth *= fullscreenScale;
@@ -361,6 +445,16 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      textDisplay.fieldWidth *= fullscreenScale;
+      textDisplay.x *= fullscreenScale;
+      textDisplay.y *= fullscreenScale;
+    }
+
+>>>>>>> b150c43d (lol4)
     add(textDisplay);
   }
 
@@ -491,6 +585,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 
   public function onScriptEvent(event:ScriptEvent):Void {}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   public override function toString():String
@@ -503,4 +598,17 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
     return DialogueBoxRegistry.instance.parseEntryDataWithMigration(id, DialogueBoxRegistry.instance.fetchEntryVersion(id));
   }
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+
+  public override function toString():String
+  {
+    return 'DialogueBox($id)';
+  }
+
+  static function _fetchData(id:String):Null<DialogueBoxData>
+  {
+    return DialogueBoxRegistry.instance.parseEntryDataWithMigration(id, DialogueBoxRegistry.instance.fetchEntryVersion(id));
+  }
+=======
+>>>>>>> b150c43d (lol4)
 }

@@ -1,9 +1,14 @@
 package funkin.graphics.shaders;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.system.FlxAssets.FlxShader;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.system.FlxAssets.FlxShader;
+=======
+>>>>>>> b150c43d (lol4)
 import openfl.display.BitmapData;
 import openfl.display.ShaderParameter;
 import openfl.display.ShaderParameterType;

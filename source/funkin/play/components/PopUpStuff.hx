@@ -1,21 +1,28 @@
 package funkin.play.components;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tweens.FlxTween;
 import funkin.graphics.FunkinSprite;
 import funkin.util.EaseUtil;
 =======
 import flixel.FlxSprite;
+||||||| parent of b150c43d (lol4)
+import flixel.FlxSprite;
+=======
+>>>>>>> b150c43d (lol4)
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tweens.FlxTween;
-import flixel.util.FlxDirection;
 import funkin.graphics.FunkinSprite;
-import funkin.play.PlayState;
-import funkin.util.TimerUtil;
 import funkin.util.EaseUtil;
+<<<<<<< HEAD
 import funkin.data.notestyle.NoteStyleRegistry;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.data.notestyle.NoteStyleRegistry;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.play.notes.notestyle.NoteStyle;
 
 @:nullSafety

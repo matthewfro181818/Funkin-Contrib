@@ -4,14 +4,24 @@ import flixel.FlxSprite;
 import funkin.play.character.BaseCharacter;
 // Data from the chart
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
 =======
 import funkin.data.song.SongData;
+||||||| parent of b150c43d (lol4)
+import funkin.data.song.SongData;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 import funkin.play.event.SongEvent;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.play.event.SongEvent;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 

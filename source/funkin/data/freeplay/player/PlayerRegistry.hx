@@ -158,8 +158,11 @@ import funkin.data.freeplay.player.PlayerData;
 import funkin.ui.freeplay.charselect.PlayableCharacter;
 import funkin.ui.freeplay.charselect.ScriptedPlayableCharacter;
 import funkin.save.Save;
+import funkin.util.tools.ISingleton;
+import funkin.data.DefaultRegistryImpl;
 
-class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
+@:nullSafety
+class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData, PlayerEntryParams> implements ISingleton implements DefaultRegistryImpl
 {
   /**
    * The current version string for the stage data format.
@@ -169,15 +172,6 @@ class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
   public static final PLAYER_DATA_VERSION:thx.semver.Version = "1.0.0";
 
   public static final PLAYER_DATA_VERSION_RULE:thx.semver.VersionRule = "1.0.x";
-
-  public static var instance(get, never):PlayerRegistry;
-  static var _instance:Null<PlayerRegistry> = null;
-
-  static function get_instance():PlayerRegistry
-  {
-    if (_instance == null) _instance = new PlayerRegistry();
-    return _instance;
-  }
 
   /**
    * A mapping between stage character IDs and Freeplay playable character IDs.
@@ -217,7 +211,11 @@ class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
       var player = fetchEntry(charId);
       if (player == null) continue;
 
+      #if UNLOCK_EVERYTHING
+      count++;
+      #else
       if (player.isUnlocked()) count++;
+      #end
     }
 
     return count;
@@ -225,6 +223,7 @@ class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
 
   public function hasNewCharacter():Bool
   {
+    #if (!UNLOCK_EVERYTHING)
     var charactersSeen = Save.instance.charactersSeen.clone();
 
     for (charId in listEntryIds())
@@ -238,6 +237,7 @@ class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
       // This character is unlocked but we haven't seen them in Freeplay yet.
       return true;
     }
+    #end
 
     // Fallthrough case.
     return false;
@@ -245,9 +245,10 @@ class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
 
   public function listNewCharacters():Array<String>
   {
-    var charactersSeen = Save.instance.charactersSeen.clone();
     var result = [];
 
+    #if (!UNLOCK_EVERYTHING)
+    var charactersSeen = Save.instance.charactersSeen.clone();
     for (charId in listEntryIds())
     {
       var player = fetchEntry(charId);
@@ -259,6 +260,7 @@ class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
       // This character is unlocked but we haven't seen them in Freeplay yet.
       result.push(charId);
     }
+    #end
 
     return result;
   }
@@ -277,6 +279,7 @@ class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
   /**
    * Return true if the given stage character is associated with a specific playable character.
    * If so, the level should only appear if that character is selected in Freeplay.
+   * NOTE: This is NOT THE SAME as `player.isUnlocked()`!
    * @param characterId The stage character ID.
    * @return Whether the character is owned by any one character.
    */
@@ -286,78 +289,22 @@ class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
   }
 
   /**
-   * Read, parse, and validate the JSON data and produce the corresponding data object.
+   * @param characterId The character ID to check.
+   * @return Whether the player saw the character unlock animation in Character Select.
    */
-  public function parseEntryData(id:String):Null<PlayerData>
+  public function isCharacterSeen(characterId:String):Bool
   {
-    // JsonParser does not take type parameters,
-    // otherwise this function would be in BaseRegistry.
-    var parser = new json2object.JsonParser<PlayerData>();
-    parser.ignoreUnknownVariables = false;
-
-    switch (loadEntryFile(id))
-    {
-      case {fileName: fileName, contents: contents}:
-        parser.fromJson(contents, fileName);
-      default:
-        return null;
-    }
-
-    if (parser.errors.length > 0)
-    {
-      printErrors(parser.errors, id);
-      return null;
-    }
-    return parser.value;
-  }
-
-  /**
-   * Parse and validate the JSON data and produce the corresponding data object.
-   *
-   * NOTE: Must be implemented on the implementation class.
-   * @param contents The JSON as a string.
-   * @param fileName An optional file name for error reporting.
-   */
-  public function parseEntryDataRaw(contents:String, ?fileName:String):Null<PlayerData>
-  {
-    var parser = new json2object.JsonParser<PlayerData>();
-    parser.ignoreUnknownVariables = false;
-    parser.fromJson(contents, fileName);
-
-    if (parser.errors.length > 0)
-    {
-      printErrors(parser.errors, fileName);
-      return null;
-    }
-    return parser.value;
-  }
-
-  function createScriptedEntry(clsName:String):PlayableCharacter
-  {
-    return ScriptedPlayableCharacter.init(clsName, "unknown");
-  }
-
-  function getScriptedClassNames():Array<String>
-  {
-    return ScriptedPlayableCharacter.listScriptClasses();
-  }
-
-  /**
-   * A list of all the playable characters from the base game, in order.
-   */
-  public function listBaseGamePlayerIds():Array<String>
-  {
-    return ["bf", "pico"];
-  }
-
-  /**
-   * A list of all installed playable characters that are not from the base game.
-   */
-  public function listModdedPlayerIds():Array<String>
-  {
-    return listEntryIds().filter(function(id:String):Bool {
-      return listBaseGamePlayerIds().indexOf(id) == -1;
-    });
+    #if UNLOCK_EVERYTHING
+    return true;
+    #else
+    return Save.instance.charactersSeen.contains(characterId);
+    #end
   }
 }
+<<<<<<< HEAD
 >>>>>>> 76e5592a (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+
+typedef PlayerEntryParams = {}
+>>>>>>> b150c43d (lol4)

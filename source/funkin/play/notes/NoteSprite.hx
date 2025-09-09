@@ -4,10 +4,16 @@ import funkin.data.song.SongData.SongNoteData;
 import funkin.data.song.SongData.NoteParamData;
 import funkin.play.notes.notestyle.NoteStyle;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.FlxSprite;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.FlxSprite;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.graphics.FunkinSprite;
 import funkin.graphics.shaders.HSVShader;
 
@@ -16,11 +22,18 @@ class NoteSprite extends FunkinSprite
   static final DIRECTION_COLORS:Array<String> = ['purple', 'blue', 'green', 'red'];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * The hold note sprite for this note.
    */
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  /**
+   * The hold note sprite for this note.
+   */
+>>>>>>> b150c43d (lol4)
   public var holdNoteSprite:SustainTrail;
 
   var hsvShader:HSVShader;
@@ -107,12 +120,21 @@ class NoteSprite extends FunkinSprite
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * The note data associated with this note sprite.
    * This is used to store the strum time, length, and other properties.
    */
+||||||| parent of b150c43d (lol4)
+=======
+  /**
+   * The note data associated with this note sprite.
+   * This is used to store the strum time, length, and other properties.
+   */
+>>>>>>> b150c43d (lol4)
   public var noteData:SongNoteData;
 
+<<<<<<< HEAD
   /**
    * If this note kind is scoreable (i.e., counted towards score and accuracy)
    * Only accessible in scripts
@@ -128,6 +150,20 @@ class NoteSprite extends FunkinSprite
   public var noteData:SongNoteData;
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+  /**
+   * If this note kind is scoreable (i.e., counted towards score and accuracy)
+   * Only accessible in scripts
+   * Defaults to true
+   */
+  public var scoreable:Bool = true;
+
+  /**
+   * Whether this note is a hold note.
+   * This is true if the length is greater than 0.
+   */
+>>>>>>> b150c43d (lol4)
   public var isHoldNote(get, never):Bool;
 
   function get_isHoldNote():Bool
@@ -137,6 +173,7 @@ class NoteSprite extends FunkinSprite
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * The Y Offset of the note.
    */
   public var yOffset:Float = 0.0;
@@ -144,6 +181,14 @@ class NoteSprite extends FunkinSprite
   /**
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+   * The Y Offset of the note.
+   */
+  public var yOffset:Float = 0.0;
+
+  /**
+>>>>>>> b150c43d (lol4)
    * Set this flag to true when hitting the note to avoid scoring it multiple times.
    */
   public var hasBeenHit:Bool = false;
@@ -189,10 +234,16 @@ class NoteSprite extends FunkinSprite
     this.hsvShader = new HSVShader();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.alpha = 1;
 
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    this.alpha = 1;
+
+>>>>>>> b150c43d (lol4)
     setupNoteGraphic(noteStyle);
   }
 
@@ -205,10 +256,16 @@ class NoteSprite extends FunkinSprite
     noteStyle.buildNoteSprite(this);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     this.shader = hsvShader;
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+    this.shader = hsvShader;
+
+=======
+>>>>>>> b150c43d (lol4)
     // `false` disables the update() function for performance.
     this.active = noteStyle.isNoteAnimated();
   }
@@ -262,18 +319,28 @@ class NoteSprite extends FunkinSprite
   {
     this.hsvShader.saturation = 0.2;
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.shader = this.hsvShader;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    this.shader = this.hsvShader;
+>>>>>>> b150c43d (lol4)
   }
 
   public function setHue(hue:Float):Void
   {
     this.hsvShader.hue = hue;
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (hue != 1.0) this.shader = this.hsvShader;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    if (hue != 1.0) this.shader = this.hsvShader;
+>>>>>>> b150c43d (lol4)
   }
 
   public override function revive():Void
@@ -287,15 +354,28 @@ class NoteSprite extends FunkinSprite
     this.mayHit = false;
     this.hasMissed = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.handledMiss = false;
     this.holdNoteSprite = null;
+||||||| parent of b150c43d (lol4)
+=======
+    this.handledMiss = false;
+    this.holdNoteSprite = null;
+>>>>>>> b150c43d (lol4)
 
+<<<<<<< HEAD
     // The hsvShader should only be applied when it's necessary.
     // Otherwise, it should be turned off to keep note batching.
     this.shader = null;
 =======
 
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    // The hsvShader should only be applied when it's necessary.
+    // Otherwise, it should be turned off to keep note batching.
+    this.shader = null;
+>>>>>>> b150c43d (lol4)
     this.hsvShader.hue = 1.0;
     this.hsvShader.saturation = 1.0;
     this.hsvShader.value = 1.0;

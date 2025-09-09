@@ -7,9 +7,14 @@ import funkin.modding.IScriptedClass;
  * Utility functions to assist with handling scripted classes.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class ScriptEventDispatcher
 {
   /**
@@ -95,11 +100,18 @@ class ScriptEventDispatcher
           t.onNoteMiss(cast event);
           return;
 <<<<<<< HEAD
+<<<<<<< HEAD
         case NOTE_HOLD_DROP:
           t.onNoteHoldDrop(cast event);
           return;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+        case NOTE_HOLD_DROP:
+          t.onNoteHoldDrop(cast event);
+          return;
+>>>>>>> b150c43d (lol4)
         default: // Continue;
       }
     }

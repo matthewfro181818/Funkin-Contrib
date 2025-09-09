@@ -19,28 +19,51 @@ enum WiggleEffectType
  * 3. Call the update() method on the instance every frame.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 class WiggleEffectRuntime extends FlxRuntimeShader
 {
   public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
 =======
+||||||| parent of b150c43d (lol4)
+=======
+@:nullSafety
+>>>>>>> b150c43d (lol4)
 class WiggleEffectRuntime extends FlxRuntimeShader
 {
+<<<<<<< HEAD
   public static function getEffectTypeId(v:WiggleEffectType):Int
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  public static function getEffectTypeId(v:WiggleEffectType):Int
+=======
+  public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
+>>>>>>> b150c43d (lol4)
   {
     return WiggleEffectType.getConstructors().indexOf(Std.string(v));
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
 
   function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
 =======
   public var effectType(default, set):WiggleEffectType = DREAMY;
+||||||| parent of b150c43d (lol4)
+  public var effectType(default, set):WiggleEffectType = DREAMY;
+=======
+  public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
+>>>>>>> b150c43d (lol4)
 
+<<<<<<< HEAD
   function set_effectType(v:WiggleEffectType):WiggleEffectType
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+  function set_effectType(v:WiggleEffectType):WiggleEffectType
+=======
+  function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
+>>>>>>> b150c43d (lol4)
   {
     this.setInt('effectType', getEffectTypeId(v));
     return effectType = v;

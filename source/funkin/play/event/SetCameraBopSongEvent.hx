@@ -1,6 +1,7 @@
 package funkin.play.event;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Data from the chart
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
@@ -8,12 +9,22 @@ import funkin.data.song.SongData.SongEventData;
 import flixel.tweens.FlxTween;
 import flixel.FlxCamera;
 import flixel.tweens.FlxEase;
+||||||| parent of b150c43d (lol4)
+import flixel.tweens.FlxTween;
+import flixel.FlxCamera;
+import flixel.tweens.FlxEase;
+=======
+>>>>>>> b150c43d (lol4)
 // Data from the chart
-import funkin.data.song.SongData;
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 import funkin.play.event.SongEvent;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.play.event.SongEvent;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -54,10 +65,16 @@ class SetCameraBopSongEvent extends SongEvent
     var rate:Null<Int> = data.getInt('rate');
     if (rate == null) rate = Constants.DEFAULT_ZOOM_RATE;
 <<<<<<< HEAD
+<<<<<<< HEAD
     var offset:Null<Int> = data.getInt('offset');
     if (rate == null) offset = Constants.DEFAULT_ZOOM_OFFSET;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    var offset:Null<Int> = data.getInt('offset');
+    if (rate == null) offset = Constants.DEFAULT_ZOOM_OFFSET;
+>>>>>>> b150c43d (lol4)
     var intensity:Null<Float> = data.getFloat('intensity');
     if (intensity == null) intensity = 1.0;
 
@@ -65,9 +82,14 @@ class SetCameraBopSongEvent extends SongEvent
     PlayState.instance.hudCameraZoomIntensity = (Constants.DEFAULT_BOP_INTENSITY - 1.0) * intensity * 2.0;
     PlayState.instance.cameraZoomRate = rate;
 <<<<<<< HEAD
+<<<<<<< HEAD
     PlayState.instance.cameraZoomRateOffset = offset;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+    PlayState.instance.cameraZoomRateOffset = offset;
+>>>>>>> b150c43d (lol4)
     trace('Set camera zoom rate to ${PlayState.instance.cameraZoomRate}');
   }
 
@@ -93,14 +115,20 @@ class SetCameraBopSongEvent extends SongEvent
         title: 'Intensity',
         defaultValue: 1.0,
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+        min: 0,
+>>>>>>> b150c43d (lol4)
         step: 0.1,
         type: SongEventFieldType.FLOAT,
         units: 'x'
       },
       {
+<<<<<<< HEAD
 <<<<<<< HEAD
         name: 'offset',
         title: 'Offset',
@@ -110,15 +138,31 @@ class SetCameraBopSongEvent extends SongEvent
         units: 'beats'
       },
       {
+||||||| parent of b150c43d (lol4)
+=======
+        name: 'offset',
+        title: 'Offset',
+        defaultValue: 0,
+        step: 1,
+        type: SongEventFieldType.INTEGER,
+        units: 'beats'
+      },
+      {
+>>>>>>> b150c43d (lol4)
         name: 'rate',
         title: 'Rate',
         defaultValue: 4,
+<<<<<<< HEAD
         min: 0,
 =======
         name: 'rate',
         title: 'Rate',
         defaultValue: 4,
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+        min: 0,
+>>>>>>> b150c43d (lol4)
         step: 1,
         type: SongEventFieldType.INTEGER,
         units: 'beats/zoom'

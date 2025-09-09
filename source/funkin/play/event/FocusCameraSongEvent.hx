@@ -3,14 +3,24 @@ package funkin.play.event;
 import flixel.tweens.FlxEase;
 // Data from the chart
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
 =======
 import funkin.data.song.SongData;
+||||||| parent of b150c43d (lol4)
+import funkin.data.song.SongData;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 import funkin.play.event.SongEvent;
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+import funkin.play.event.SongEvent;
+=======
+>>>>>>> b150c43d (lol4)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -194,9 +204,14 @@ class FocusCameraSongEvent extends SongEvent
         title: 'Duration',
         defaultValue: 4.0,
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+        min: 0,
+>>>>>>> b150c43d (lol4)
         step: 0.5,
         type: SongEventFieldType.FLOAT,
         units: 'steps'
@@ -230,12 +245,20 @@ class FocusCameraSongEvent extends SongEvent
           'Smooth Step Out' => 'smoothStepOut',
           'Smooth Step In/Out' => 'smoothStepInOut',
 <<<<<<< HEAD
+<<<<<<< HEAD
           'Smoother Step In' => 'smootherStepIn',
           'Smoother Step Out' => 'smootherStepOut',
           'Smoother Step In/Out' => 'smootherStepInOut',
+||||||| parent of b150c43d (lol4)
+=======
+          'Smoother Step In' => 'smootherStepIn',
+          'Smoother Step Out' => 'smootherStepOut',
+          'Smoother Step In/Out' => 'smootherStepInOut',
+>>>>>>> b150c43d (lol4)
           'Elastic In' => 'elasticIn',
           'Elastic Out' => 'elasticOut',
           'Elastic In/Out' => 'elasticInOut',
+<<<<<<< HEAD
           'Back In' => 'backIn',
           'Back Out' => 'backOut',
           'Back In/Out' => 'backInOut',
@@ -250,6 +273,18 @@ class FocusCameraSongEvent extends SongEvent
           'Elastic Out' => 'elasticOut',
           'Elastic In/Out' => 'elasticInOut',
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| parent of b150c43d (lol4)
+=======
+          'Back In' => 'backIn',
+          'Back Out' => 'backOut',
+          'Back In/Out' => 'backInOut',
+          'Bounce In' => 'bounceIn',
+          'Bounce Out' => 'bounceOut',
+          'Bounce In/Out' => 'bounceInOut',
+          'Circ In' => 'circIn',
+          'Circ Out' => 'circOut',
+          'Circ In/Out' => 'circInOut',
+>>>>>>> b150c43d (lol4)
           'Instant (Ignores duration)' => 'INSTANT',
           'Classic (Ignores duration)' => 'CLASSIC'
         ]
