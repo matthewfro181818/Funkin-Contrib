@@ -4,9 +4,8 @@ import flixel.util.FlxSignal;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.display.Stage;
-import funkin.api.newgrounds.NGio;
-import funkin.api.newgrounds.NGio.ConnectionResult;
 #if newgrounds
+import funkin.api.newgrounds.NGio;
 import io.newgrounds.NG;
 import io.newgrounds.NGLite;
 import io.newgrounds.components.ScoreBoardComponent.Period;
@@ -15,7 +14,6 @@ import io.newgrounds.objects.Medal;
 import io.newgrounds.objects.Score;
 import io.newgrounds.objects.ScoreBoard;
 import io.newgrounds.objects.events.Response;
-import io.newgrounds.objects.events.Result.GetCurrentVersionResult;
 import io.newgrounds.objects.events.Result.GetVersionResult;
 #end
 
