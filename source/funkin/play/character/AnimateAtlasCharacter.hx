@@ -528,12 +528,6 @@ class AnimateAtlasCharacter extends BaseCharacter
     return alpha = value;
   }
 
-  override function set_facing(value:Int):Int
-  {
-    if (exists && facing != value) transformChildren(facingTransform, value);
-    return facing = value;
-  }
-
   override function set_flipX(value:Bool):Bool
   {
     if (exists && flipX != value) transformChildren(flipXTransform, value);

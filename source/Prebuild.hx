@@ -12,7 +12,6 @@ class Prebuild
   static function main():Void
   {
     saveBuildTime();
-    trace('Building...');
   }
 
   static function saveBuildTime():Void
