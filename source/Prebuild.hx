@@ -15,10 +15,15 @@ class Prebuild
     // Sys.println('[INFO] Performing pre-build tasks...');
 
     saveBuildTime();
+<<<<<<< HEAD
 
     var end:Float = Sys.time();
     var duration:Float = end - start;
     // Sys.println('[INFO] Finished pre-build tasks in $duration seconds.');
+||||||| parent of 3bbe1ef8 (lol2)
+    trace('Building...');
+=======
+>>>>>>> 3bbe1ef8 (lol2)
   }
 
   static function saveBuildTime():Void

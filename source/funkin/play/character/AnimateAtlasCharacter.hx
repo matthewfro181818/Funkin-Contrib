@@ -637,6 +637,7 @@ class AnimateAtlasCharacter extends BaseCharacter
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   override function set_facing(value:FlxDirectionFlags):FlxDirectionFlags
 =======
   override function set_facing(value:Int):Int
@@ -646,6 +647,15 @@ class AnimateAtlasCharacter extends BaseCharacter
     return facing = value;
   }
 
+||||||| parent of 3bbe1ef8 (lol2)
+  override function set_facing(value:Int):Int
+  {
+    if (exists && facing != value) transformChildren(facingTransform, value);
+    return facing = value;
+  }
+
+=======
+>>>>>>> 3bbe1ef8 (lol2)
   override function set_flipX(value:Bool):Bool
   {
     if (exists && flipX != value) transformChildren(flipXTransform, value);
