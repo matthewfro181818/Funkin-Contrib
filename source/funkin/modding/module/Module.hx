@@ -5,6 +5,7 @@ import funkin.modding.IScriptedClass.IStateChangingScriptedClass;
 import funkin.modding.events.ScriptEvent;
 
 /**
+<<<<<<< HEAD
  * Parameters used to initialize a module.
  */
 typedef ModuleParams =
@@ -21,6 +22,11 @@ typedef ModuleParams =
  * You may have the module active at all times, or only when another script enables it.
  */
 @:nullSafety
+=======
+ * A module is a scripted class which receives all events without requiring a specific context.
+ * You may have the module active at all times, or only when another script enables it.
+ */
+>>>>>>> e11c5f8d (Add files via upload)
 class Module implements IPlayStateScriptedClass implements IStateChangingScriptedClass
 {
   /**
@@ -41,7 +47,11 @@ class Module implements IPlayStateScriptedClass implements IStateChangingScripte
    *
    * Priority 1 is processed before Priority 1000, etc.
    */
+<<<<<<< HEAD
   public var priority(default, set):Int = 1000;
+=======
+  public var priority(default, set):Int;
+>>>>>>> e11c5f8d (Add files via upload)
 
   function set_priority(value:Int):Int
   {
@@ -52,17 +62,21 @@ class Module implements IPlayStateScriptedClass implements IStateChangingScripte
   }
 
   /**
+<<<<<<< HEAD
    * The state this module is associated with.
    * If set, this module will only receive events when the game is in this state.
    */
   public var state:Null<Class<Dynamic>> = null;
 
   /**
+=======
+>>>>>>> e11c5f8d (Add files via upload)
    * Called when the module is initialized.
    * It may not be safe to reference other modules here since they may not be loaded yet.
    *
    * NOTE: To make the module start inactive, call `this.active = false` in the constructor.
    */
+<<<<<<< HEAD
   public function new(moduleId:String, priority:Int = 1000, ?params:ModuleParams):Void
   {
     this.moduleId = moduleId;
@@ -72,6 +86,12 @@ class Module implements IPlayStateScriptedClass implements IStateChangingScripte
     {
       this.state = params.state ?? null;
     }
+=======
+  public function new(moduleId:String, priority:Int = 1000):Void
+  {
+    this.moduleId = moduleId;
+    this.priority = priority;
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   public function toString()
@@ -81,9 +101,12 @@ class Module implements IPlayStateScriptedClass implements IStateChangingScripte
 
   // TODO: Half of these aren't actually being called!!!!!!!
 
+<<<<<<< HEAD
   /**
    * Called when ANY script event is dispatched.
    */
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   public function onScriptEvent(event:ScriptEvent) {}
 
   /**
@@ -98,6 +121,7 @@ class Module implements IPlayStateScriptedClass implements IStateChangingScripte
    */
   public function onDestroy(event:ScriptEvent) {}
 
+<<<<<<< HEAD
   /**
    * Called every frame.
    */
@@ -233,5 +257,57 @@ class Module implements IPlayStateScriptedClass implements IStateChangingScripte
   /**
    * Called when the song has been restarted.
    */
+=======
+  public function onUpdate(event:UpdateScriptEvent) {}
+
+  public function onPause(event:PauseScriptEvent) {}
+
+  public function onResume(event:ScriptEvent) {}
+
+  public function onSongStart(event:ScriptEvent) {}
+
+  public function onSongEnd(event:ScriptEvent) {}
+
+  public function onGameOver(event:ScriptEvent) {}
+
+  public function onNoteIncoming(event:NoteScriptEvent) {}
+
+  public function onNoteHit(event:HitNoteScriptEvent) {}
+
+  public function onNoteMiss(event:NoteScriptEvent) {}
+
+  public function onNoteGhostMiss(event:GhostMissNoteScriptEvent) {}
+
+  public function onStepHit(event:SongTimeScriptEvent) {}
+
+  public function onBeatHit(event:SongTimeScriptEvent) {}
+
+  public function onSongEvent(event:SongEventScriptEvent) {}
+
+  public function onCountdownStart(event:CountdownScriptEvent) {}
+
+  public function onCountdownStep(event:CountdownScriptEvent) {}
+
+  public function onCountdownEnd(event:CountdownScriptEvent) {}
+
+  public function onSongLoaded(event:SongLoadScriptEvent) {}
+
+  public function onStateChangeBegin(event:StateChangeScriptEvent) {}
+
+  public function onStateChangeEnd(event:StateChangeScriptEvent) {}
+
+  public function onFocusGained(event:FocusScriptEvent) {}
+
+  public function onFocusLost(event:FocusScriptEvent) {}
+
+  public function onSubStateOpenBegin(event:SubStateScriptEvent) {}
+
+  public function onSubStateOpenEnd(event:SubStateScriptEvent) {}
+
+  public function onSubStateCloseBegin(event:SubStateScriptEvent) {}
+
+  public function onSubStateCloseEnd(event:SubStateScriptEvent) {}
+
+>>>>>>> e11c5f8d (Add files via upload)
   public function onSongRetry(event:SongRetryEvent) {}
 }

@@ -1,11 +1,19 @@
 package funkin.graphics.shaders;
 
 import flixel.system.FlxAssets.FlxShader;
+<<<<<<< HEAD
+=======
+import flixel.tweens.FlxEase;
+>>>>>>> e11c5f8d (Add files via upload)
 import flixel.tweens.FlxTween;
 
 class BlueFade extends FlxShader
 {
+<<<<<<< HEAD
   public var fadeVal(default, set):Float = 1;
+=======
+  public var fadeVal(default, set):Float;
+>>>>>>> e11c5f8d (Add files via upload)
 
   function set_fadeVal(val:Float):Float
   {

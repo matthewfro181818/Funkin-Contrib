@@ -3,7 +3,10 @@ package funkin.graphics.shaders;
 import flixel.addons.display.FlxRuntimeShader;
 import flixel.math.FlxPoint;
 
+<<<<<<< HEAD
 @:nullSafety
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 class MosaicEffect extends FlxRuntimeShader
 {
   public var blockSize:FlxPoint = FlxPoint.get(1.0, 1.0);

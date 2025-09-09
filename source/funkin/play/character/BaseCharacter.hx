@@ -2,8 +2,13 @@ package funkin.play.character;
 
 import flixel.math.FlxPoint;
 import funkin.modding.events.ScriptEvent;
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterDataParser;
 import funkin.play.character.CharacterData.CharacterRenderType;
+=======
+import funkin.data.character.CharacterRegistry;
+import funkin.data.character.CharacterData;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.play.stage.Bopper;
 import funkin.play.notes.NoteDirection;
 
@@ -148,13 +153,21 @@ class BaseCharacter extends Bopper
 
   public function new(id:String, renderType:CharacterRenderType)
   {
+<<<<<<< HEAD
     super(CharacterDataParser.DEFAULT_DANCEEVERY);
 
+=======
+    super(CharacterRegistry.DEFAULT_DANCEEVERY);
+>>>>>>> e11c5f8d (Add files via upload)
     this.characterId = id;
 
     ignoreExclusionPref = ["sing"];
 
+<<<<<<< HEAD
     _data = CharacterDataParser.fetchCharacterData(this.characterId);
+=======
+    _data = CharacterRegistry.fetchCharacterData(this.characterId);
+>>>>>>> e11c5f8d (Add files via upload)
     if (_data == null)
     {
       throw 'Could not find character data for characterId: $characterId';
@@ -553,16 +566,25 @@ class BaseCharacter extends Bopper
 
     if (event.note.noteData.getMustHitNote() && characterType == BF)
     {
+<<<<<<< HEAD
       // If the note is from the same strumline, play the miss animation.
+=======
+      // If the note is from the same strumline, play the sing animation.
+>>>>>>> e11c5f8d (Add files via upload)
       this.playSingAnimation(event.note.noteData.getDirection(), true);
     }
     else if (!event.note.noteData.getMustHitNote() && characterType == DAD)
     {
+<<<<<<< HEAD
       // If the note is from the same strumline, play the miss animation.
+=======
+      // If the note is from the same strumline, play the sing animation.
+>>>>>>> e11c5f8d (Add files via upload)
       this.playSingAnimation(event.note.noteData.getDirection(), true);
     }
     else if (event.note.noteData.getMustHitNote() && characterType == GF)
     {
+<<<<<<< HEAD
       playComboDropAnimation(event.comboCount);
     }
   }
@@ -587,6 +609,9 @@ class BaseCharacter extends Bopper
     else if (event.holdNote.noteData.getMustHitNote() && event.isComboBreak && characterType == GF)
     {
       playComboDropAnimation(event.comboCount);
+=======
+      playComboDropAnimation(Highscore.tallies.combo);
+>>>>>>> e11c5f8d (Add files via upload)
     }
   }
 
@@ -667,11 +692,14 @@ class BaseCharacter extends Bopper
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
   }
+<<<<<<< HEAD
 
   public function getDeathQuote():Null<String>
   {
     return null;
   }
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 }
 
 /**

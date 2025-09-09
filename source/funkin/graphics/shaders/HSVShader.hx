@@ -2,6 +2,7 @@ package funkin.graphics.shaders;
 
 import flixel.addons.display.FlxRuntimeShader;
 
+<<<<<<< HEAD
 @:nullSafety
 class HSVShader extends FlxRuntimeShader
 {
@@ -16,6 +17,21 @@ class HSVShader extends FlxRuntimeShader
     hue = h;
     saturation = s;
     value = v;
+=======
+class HSVShader extends FlxRuntimeShader
+{
+  public var hue(default, set):Float;
+  public var saturation(default, set):Float;
+  public var value(default, set):Float;
+
+  public function new()
+  {
+    super(Assets.getText(Paths.frag('hsv')));
+    FlxG.debugger.addTrackerProfile(new TrackerProfile(HSVShader, ['hue', 'saturation', 'value']));
+    hue = 1;
+    saturation = 1;
+    value = 1;
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   function set_hue(value:Float):Float

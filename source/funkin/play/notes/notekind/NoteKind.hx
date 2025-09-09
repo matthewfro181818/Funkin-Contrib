@@ -2,6 +2,10 @@ package funkin.play.notes.notekind;
 
 import funkin.modding.IScriptedClass.INoteScriptedClass;
 import funkin.modding.events.ScriptEvent;
+<<<<<<< HEAD
+=======
+import flixel.math.FlxMath;
+>>>>>>> e11c5f8d (Add files via upload)
 
 /**
  * Class for note scripts
@@ -28,6 +32,7 @@ class NoteKind implements INoteScriptedClass
    */
   public var params:Array<NoteKindParam>;
 
+<<<<<<< HEAD
   /**
    * If this note kind is scoreable (ie, counted towards score and accuracy)
    * Only accessible in scripts
@@ -35,6 +40,8 @@ class NoteKind implements INoteScriptedClass
    */
   public var scoreable:Bool = true;
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   public function new(noteKind:String, description:String = "", ?noteStyleId:String, ?params:Array<NoteKindParam>)
   {
     this.noteKind = noteKind;
@@ -73,8 +80,11 @@ class NoteKind implements INoteScriptedClass
   public function onNoteHit(event:HitNoteScriptEvent):Void {}
 
   public function onNoteMiss(event:NoteScriptEvent):Void {}
+<<<<<<< HEAD
 
   public function onNoteHoldDrop(event:HoldNoteScriptEvent) {}
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 }
 
 /**

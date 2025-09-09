@@ -6,7 +6,10 @@ import funkin.modding.IScriptedClass;
 /**
  * Utility functions to assist with handling scripted classes.
  */
+<<<<<<< HEAD
 @:nullSafety
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 class ScriptEventDispatcher
 {
   /**
@@ -91,9 +94,12 @@ class ScriptEventDispatcher
         case NOTE_MISS:
           t.onNoteMiss(cast event);
           return;
+<<<<<<< HEAD
         case NOTE_HOLD_DROP:
           t.onNoteHoldDrop(cast event);
           return;
+=======
+>>>>>>> e11c5f8d (Add files via upload)
         default: // Continue;
       }
     }

@@ -6,10 +6,18 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxSignal;
+<<<<<<< HEAD
 #if html5
 import funkin.graphics.video.FlxVideo;
 #end
 #if hxvlc
+=======
+import flixel.util.FlxTimer;
+#if html5
+import funkin.graphics.video.FlxVideo;
+#end
+#if hxCodec
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.graphics.video.FunkinVideoSprite;
 #end
 
@@ -24,7 +32,11 @@ class VideoCutscene
   #if html5
   static var vid:FlxVideo;
   #end
+<<<<<<< HEAD
   #if hxvlc
+=======
+  #if hxCodec
+>>>>>>> e11c5f8d (Add files via upload)
   static var vid:FunkinVideoSprite;
   #end
 
@@ -66,7 +78,11 @@ class VideoCutscene
     if (!openfl.Assets.exists(filePath))
     {
       // Display a popup.
+<<<<<<< HEAD
       // funkin.util.WindowUtil.showError('Error playing video', 'Video file does not exist: ${filePath}');
+=======
+      // lime.app.Application.current.window.alert('Video file does not exist: ${filePath}', 'Error playing video');
+>>>>>>> e11c5f8d (Add files via upload)
       // return;
 
       // TODO: After moving videos to their own library,
@@ -89,6 +105,7 @@ class VideoCutscene
 
     VideoCutscene.cutsceneType = cutsceneType;
 
+<<<<<<< HEAD
     #if mobile
     if (cutsceneType == ENDING)
     {
@@ -100,6 +117,12 @@ class VideoCutscene
     playVideoHTML5(rawFilePath);
     #elseif hxvlc
     playVideoNative(filePath);
+=======
+    #if html5
+    playVideoHTML5(rawFilePath);
+    #elseif hxCodec
+    playVideoNative(rawFilePath);
+>>>>>>> e11c5f8d (Add files via upload)
     #else
     throw "No video support for this platform!";
     #end
@@ -107,7 +130,11 @@ class VideoCutscene
 
   public static function isPlaying():Bool
   {
+<<<<<<< HEAD
     #if (html5 || hxvlc)
+=======
+    #if (html5 || hxCodec)
+>>>>>>> e11c5f8d (Add files via upload)
     return vid != null;
     #else
     return false;
@@ -140,7 +167,11 @@ class VideoCutscene
   }
   #end
 
+<<<<<<< HEAD
   #if hxvlc
+=======
+  #if hxCodec
+>>>>>>> e11c5f8d (Add files via upload)
   static function playVideoNative(filePath:String):Void
   {
     // Video displays OVER the FlxState.
@@ -149,6 +180,7 @@ class VideoCutscene
     if (vid != null)
     {
       vid.zIndex = 0;
+<<<<<<< HEAD
       vid.active = false;
       vid.bitmap.onEncounteredError.add(function(msg:String):Void {
         trace('[VLC] Encountered an error: $msg');
@@ -156,12 +188,17 @@ class VideoCutscene
         finishVideo(0.5);
       });
       vid.bitmap.onEndReached.add(finishVideo.bind(0.5));
+=======
+      vid.bitmap.onEndReached.add(finishVideo.bind(0.5));
+      vid.autoPause = FlxG.autoPause;
+>>>>>>> e11c5f8d (Add files via upload)
 
       vid.cameras = [PlayState.instance.camCutscene];
 
       PlayState.instance.add(vid);
 
       PlayState.instance.refresh();
+<<<<<<< HEAD
 
       if (vid.load(filePath)) vid.play();
 
@@ -171,6 +208,16 @@ class VideoCutscene
         vid.setGraphicSize(FlxG.initialWidth, FlxG.initialHeight);
         vid.updateHitbox();
         vid.screenCenter();
+=======
+      vid.play(filePath, false);
+
+      // Resize videos bigger or smaller than the screen.
+      vid.bitmap.onTextureSetup.add(() -> {
+        vid.setGraphicSize(FlxG.width, FlxG.height);
+        vid.updateHitbox();
+        vid.x = 0;
+        vid.y = 0;
+>>>>>>> e11c5f8d (Add files via upload)
         // vid.scale.set(0.5, 0.5);
       });
 
@@ -183,7 +230,11 @@ class VideoCutscene
   }
   #end
 
+<<<<<<< HEAD
   public static function restartVideo():Void
+=======
+  public static function restartVideo(resume:Bool = true):Void
+>>>>>>> e11c5f8d (Add files via upload)
   {
     #if html5
     if (vid != null)
@@ -193,11 +244,25 @@ class VideoCutscene
     }
     #end
 
+<<<<<<< HEAD
     #if hxvlc
     if (vid != null)
     {
       vid.bitmap.time = 0;
       vid.resume();
+=======
+    #if hxCodec
+    if (vid != null)
+    {
+      // Seek to the start of the video.
+      vid.bitmap.time = 0;
+      if (resume)
+      {
+        // Resume the video if it was paused.
+        vid.resume();
+      }
+
+>>>>>>> e11c5f8d (Add files via upload)
       onVideoRestarted.dispatch();
     }
     #end
@@ -213,7 +278,11 @@ class VideoCutscene
     }
     #end
 
+<<<<<<< HEAD
     #if hxvlc
+=======
+    #if hxCodec
+>>>>>>> e11c5f8d (Add files via upload)
     if (vid != null)
     {
       vid.pause();
@@ -232,7 +301,11 @@ class VideoCutscene
     }
     #end
 
+<<<<<<< HEAD
     #if hxvlc
+=======
+    #if hxCodec
+>>>>>>> e11c5f8d (Add files via upload)
     if (vid != null)
     {
       vid.visible = false;
@@ -251,7 +324,11 @@ class VideoCutscene
     }
     #end
 
+<<<<<<< HEAD
     #if hxvlc
+=======
+    #if hxCodec
+>>>>>>> e11c5f8d (Add files via upload)
     if (vid != null)
     {
       vid.visible = true;
@@ -270,7 +347,11 @@ class VideoCutscene
     }
     #end
 
+<<<<<<< HEAD
     #if hxvlc
+=======
+    #if hxCodec
+>>>>>>> e11c5f8d (Add files via upload)
     if (vid != null)
     {
       vid.resume();
@@ -297,7 +378,11 @@ class VideoCutscene
     }
     #end
 
+<<<<<<< HEAD
     #if hxvlc
+=======
+    #if hxCodec
+>>>>>>> e11c5f8d (Add files via upload)
     if (vid != null)
     {
       vid.stop();
@@ -305,7 +390,11 @@ class VideoCutscene
     }
     #end
 
+<<<<<<< HEAD
     #if (html5 || hxvlc)
+=======
+    #if (html5 || hxCodec)
+>>>>>>> e11c5f8d (Add files via upload)
     vid.destroy();
     vid = null;
     #end

@@ -3,6 +3,11 @@ package funkin.play.notes;
 import funkin.data.song.SongData.SongNoteData;
 import funkin.data.song.SongData.NoteParamData;
 import funkin.play.notes.notestyle.NoteStyle;
+<<<<<<< HEAD
+=======
+import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.FlxSprite;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.graphics.FunkinSprite;
 import funkin.graphics.shaders.HSVShader;
 
@@ -10,9 +15,12 @@ class NoteSprite extends FunkinSprite
 {
   static final DIRECTION_COLORS:Array<String> = ['purple', 'blue', 'green', 'red'];
 
+<<<<<<< HEAD
   /**
    * The hold note sprite for this note.
    */
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   public var holdNoteSprite:SustainTrail;
 
   var hsvShader:HSVShader;
@@ -98,6 +106,7 @@ class NoteSprite extends FunkinSprite
     return this.direction;
   }
 
+<<<<<<< HEAD
   /**
    * The note data associated with this note sprite.
    * This is used to store the strum time, length, and other properties.
@@ -115,6 +124,10 @@ class NoteSprite extends FunkinSprite
    * Whether this note is a hold note.
    * This is true if the length is greater than 0.
    */
+=======
+  public var noteData:SongNoteData;
+
+>>>>>>> e11c5f8d (Add files via upload)
   public var isHoldNote(get, never):Bool;
 
   function get_isHoldNote():Bool
@@ -123,11 +136,14 @@ class NoteSprite extends FunkinSprite
   }
 
   /**
+<<<<<<< HEAD
    * The Y Offset of the note.
    */
   public var yOffset:Float = 0.0;
 
   /**
+=======
+>>>>>>> e11c5f8d (Add files via upload)
    * Set this flag to true when hitting the note to avoid scoring it multiple times.
    */
   public var hasBeenHit:Bool = false;
@@ -172,8 +188,11 @@ class NoteSprite extends FunkinSprite
 
     this.hsvShader = new HSVShader();
 
+<<<<<<< HEAD
     this.alpha = 1;
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     setupNoteGraphic(noteStyle);
   }
 
@@ -185,6 +204,11 @@ class NoteSprite extends FunkinSprite
   {
     noteStyle.buildNoteSprite(this);
 
+<<<<<<< HEAD
+=======
+    this.shader = hsvShader;
+
+>>>>>>> e11c5f8d (Add files via upload)
     // `false` disables the update() function for performance.
     this.active = noteStyle.isNoteAnimated();
   }
@@ -237,13 +261,19 @@ class NoteSprite extends FunkinSprite
   public function desaturate():Void
   {
     this.hsvShader.saturation = 0.2;
+<<<<<<< HEAD
     this.shader = this.hsvShader;
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   public function setHue(hue:Float):Void
   {
     this.hsvShader.hue = hue;
+<<<<<<< HEAD
     if (hue != 1.0) this.shader = this.hsvShader;
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   public override function revive():Void
@@ -256,12 +286,16 @@ class NoteSprite extends FunkinSprite
     this.hasBeenHit = false;
     this.mayHit = false;
     this.hasMissed = false;
+<<<<<<< HEAD
     this.handledMiss = false;
     this.holdNoteSprite = null;
 
     // The hsvShader should only be applied when it's necessary.
     // Otherwise, it should be turned off to keep note batching.
     this.shader = null;
+=======
+
+>>>>>>> e11c5f8d (Add files via upload)
     this.hsvShader.hue = 1.0;
     this.hsvShader.saturation = 1.0;
     this.hsvShader.value = 1.0;

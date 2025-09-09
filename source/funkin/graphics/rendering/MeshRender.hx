@@ -7,7 +7,10 @@ import flixel.util.FlxColor;
  * Yoinked from AustinEast, thanks hopefully u dont mind me using some of ur good code
  * instead of my dumbass ugly code bro
  */
+<<<<<<< HEAD
 @:nullSafety
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 class MeshRender extends FlxStrip
 {
   public var vertex_count(default, null):Int = 0;

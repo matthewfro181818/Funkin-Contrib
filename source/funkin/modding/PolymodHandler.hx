@@ -1,21 +1,34 @@
 package funkin.modding;
 
 import polymod.fs.ZipFileSystem;
+<<<<<<< HEAD
 import funkin.data.dialogue.ConversationRegistry;
 import funkin.data.dialogue.DialogueBoxRegistry;
 import funkin.data.dialogue.SpeakerRegistry;
+=======
+import funkin.data.dialogue.conversation.ConversationRegistry;
+import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
+import funkin.data.dialogue.speaker.SpeakerRegistry;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.data.event.SongEventRegistry;
 import funkin.data.story.level.LevelRegistry;
 import funkin.data.notestyle.NoteStyleRegistry;
 import funkin.play.notes.notekind.NoteKindManager;
 import funkin.data.song.SongRegistry;
 import funkin.data.freeplay.player.PlayerRegistry;
+<<<<<<< HEAD
 import funkin.data.freeplay.style.FreeplayStyleRegistry;
 import funkin.data.stage.StageRegistry;
 import funkin.data.stickers.StickerRegistry;
 import funkin.data.freeplay.album.AlbumRegistry;
 import funkin.modding.module.ModuleHandler;
 import funkin.play.character.CharacterData.CharacterDataParser;
+=======
+import funkin.data.stage.StageRegistry;
+import funkin.data.freeplay.album.AlbumRegistry;
+import funkin.modding.module.ModuleHandler;
+import funkin.data.character.CharacterRegistry;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.save.Save;
 import funkin.util.FileUtil;
 import funkin.util.macro.ClassMacro;
@@ -26,11 +39,15 @@ import polymod.Polymod;
 /**
  * A class for interacting with Polymod, the atomic modding framework for Haxe.
  */
+<<<<<<< HEAD
 @:nullSafety
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 class PolymodHandler
 {
   /**
    * The API version for the current version of the game. Since 0.5.0, we've just made this the game version!
+<<<<<<< HEAD
    * Minor updates rarely impact mods but major versions sometimes do.
    */
   public static var API_VERSION(get, never):String;
@@ -39,6 +56,11 @@ class PolymodHandler
   {
     return Constants.VERSION;
   }
+=======
+   * Minor updates rarely impact mods but major versions often do.
+   */
+  // static final API_VERSION:String = Constants.VERSION;
+>>>>>>> e11c5f8d (Add files via upload)
 
   /**
    * The Semantic Versioning rule
@@ -46,7 +68,11 @@ class PolymodHandler
    * Using more complex rules allows mods from older compatible versions to stay functioning,
    * while preventing mods made for future versions from being installed.
    */
+<<<<<<< HEAD
   public static final API_VERSION_RULE:String = ">=0.6.3 <0.8.0";
+=======
+  static final API_VERSION_RULE:String = ">=0.5.0 <0.6.0";
+>>>>>>> e11c5f8d (Add files via upload)
 
   /**
    * Where relative to the executable that mods are located.
@@ -71,7 +97,11 @@ class PolymodHandler
 
   public static var loadedModIds:Array<String> = [];
 
+<<<<<<< HEAD
   // Use SysZipFileSystem on native and MemoryZipFilesystem on web.
+=======
+  // Use SysZipFileSystem on desktop and MemoryZipFilesystem on web.
+>>>>>>> e11c5f8d (Add files via upload)
   static var modFileSystem:Null<ZipFileSystem> = null;
 
   /**
@@ -87,10 +117,15 @@ class PolymodHandler
    */
   public static function loadAllMods():Void
   {
+<<<<<<< HEAD
     #if sys
     // Create the mod root if it doesn't exist.
     createModRoot();
     #end
+=======
+    // Create the mod root if it doesn't exist.
+    createModRoot();
+>>>>>>> e11c5f8d (Add files via upload)
     trace('Initializing Polymod (using all mods)...');
     loadModsById(getAllModIds());
   }
@@ -100,10 +135,16 @@ class PolymodHandler
    */
   public static function loadEnabledMods():Void
   {
+<<<<<<< HEAD
     #if sys
     // Create the mod root if it doesn't exist.
     createModRoot();
     #end
+=======
+    // Create the mod root if it doesn't exist.
+    createModRoot();
+
+>>>>>>> e11c5f8d (Add files via upload)
     trace('Initializing Polymod (using configured mods)...');
     loadModsById(Save.instance.enabledModIds);
   }
@@ -113,10 +154,16 @@ class PolymodHandler
    */
   public static function loadNoMods():Void
   {
+<<<<<<< HEAD
     #if sys
     // Create the mod root if it doesn't exist.
     createModRoot();
     #end
+=======
+    // Create the mod root if it doesn't exist.
+    createModRoot();
+
+>>>>>>> e11c5f8d (Add files via upload)
     // We still need to configure the debug print calls etc.
     trace('Initializing Polymod (using no mods)...');
     loadModsById([]);
@@ -163,7 +210,11 @@ class PolymodHandler
         frameworkParams: buildFrameworkParams(),
 
         // List of filenames to ignore in mods. Use the default list to ignore the metadata file, etc.
+<<<<<<< HEAD
         ignoredFiles: buildIgnoreList(),
+=======
+        ignoredFiles: Polymod.getDefaultIgnoreList(),
+>>>>>>> e11c5f8d (Add files via upload)
 
         // Parsing rules for various data formats.
         parseRules: buildParseRules(),
@@ -258,10 +309,16 @@ class PolymodHandler
 
     Polymod.addImportAlias('funkin.data.event.SongEventSchema', funkin.data.event.SongEventSchema.SongEventSchemaRaw);
 
+<<<<<<< HEAD
+=======
+    Polymod.addImportAlias('funkin.play.character.CharacterDataParser', funkin.data.character.CharacterRegistry);
+
+>>>>>>> e11c5f8d (Add files via upload)
     // `lime.utils.Assets` literally just has a private `resolveClass` function for some reason? so we replace it with our own.
     Polymod.addImportAlias('lime.utils.Assets', funkin.Assets);
     Polymod.addImportAlias('openfl.utils.Assets', funkin.Assets);
 
+<<<<<<< HEAD
     // Backward compatibility for certain scripted classes outside `funkin.modding.base`.
     Polymod.addImportAlias('funkin.modding.base.ScriptedFunkinSprite', funkin.graphics.ScriptedFunkinSprite);
     Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatState', funkin.ui.ScriptedMusicBeatState);
@@ -291,6 +348,8 @@ class PolymodHandler
 
     Polymod.addImportAlias('funkin.api.discord.DiscordClient', funkin.api.discord.DiscordClient.DiscordClientSandboxed);
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     // Add blacklisting for prohibited classes and packages.
 
     // `Sys`
@@ -298,17 +357,27 @@ class PolymodHandler
     Polymod.blacklistImport('Sys');
 
     // `Reflect`
+<<<<<<< HEAD
     // Reflect.callMethod() can access blacklisted packages, but some functions are whitelisted
     Polymod.addImportAlias('Reflect', funkin.util.ReflectUtil);
 
     // `Type`
     // Type.createInstance(Type.resolveClass()) can access blacklisted packages, but some functions are whitelisted
     Polymod.addImportAlias('Type', funkin.util.ReflectUtil);
+=======
+    // Reflect.callMethod() can access blacklisted packages
+    Polymod.blacklistImport('Reflect');
+
+    // `Type`
+    // Type.createInstance(Type.resolveClass()) can access blacklisted packages
+    Polymod.blacklistImport('Type');
+>>>>>>> e11c5f8d (Add files via upload)
 
     // `cpp.Lib`
     // Lib.load() can load malicious DLLs
     Polymod.blacklistImport('cpp.Lib');
 
+<<<<<<< HEAD
     // `haxe.Unserializer`
     // Unserializer.DEFAULT_RESOLVER.resolveClass() can access blacklisted packages
     Polymod.blacklistImport('haxe.Unserializer');
@@ -354,6 +423,11 @@ class PolymodHandler
       var className:String = Type.getClassName(cls);
       Polymod.blacklistImport(className);
     }
+=======
+    // `Unserializer`
+    // Unserializer.DEFAULT_RESOLVER.resolveClass() can access blacklisted packages
+    Polymod.blacklistImport('Unserializer');
+>>>>>>> e11c5f8d (Add files via upload)
 
     // `lime.system.CFFI`
     // Can load and execute compiled binaries.
@@ -379,6 +453,7 @@ class PolymodHandler
     // Can load native processes on the host operating system.
     Polymod.blacklistImport('openfl.desktop.NativeProcess');
 
+<<<<<<< HEAD
     // Contains critical private environment variables.
     Polymod.blacklistImport('funkin.util.macro.EnvironmentConfigMacro');
 
@@ -392,6 +467,8 @@ class PolymodHandler
       Polymod.blacklistImport(className);
     }
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     // `polymod.*`
     // Contains functions which may allow for un-blacklisting other modules.
     for (cls in ClassMacro.listClassesInPackage('polymod'))
@@ -401,6 +478,7 @@ class PolymodHandler
       Polymod.blacklistImport(className);
     }
 
+<<<<<<< HEAD
     // `hscript.*
     // Contains functions which may allow for interpreting unsanitized strings.
     for (cls in ClassMacro.listClassesInPackage('hscript'))
@@ -428,6 +506,8 @@ class PolymodHandler
       Polymod.blacklistImport(className);
     }
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     // `sys.*`
     // Access to system utilities such as the file system.
     for (cls in ClassMacro.listClassesInPackage('sys'))
@@ -436,6 +516,7 @@ class PolymodHandler
       var className:String = Type.getClassName(cls);
       Polymod.blacklistImport(className);
     }
+<<<<<<< HEAD
 
     // `funkin.util.macro.*`
     // CompiledClassList's get function allows access to sys and Newgrounds classes
@@ -461,6 +542,8 @@ class PolymodHandler
     result.push('README.md');
 
     return result;
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   static function buildParseRules():polymod.format.ParseRules
@@ -562,10 +645,19 @@ class PolymodHandler
     Polymod.clearScripts();
 
     // Forcibly reload Polymod so it finds any new files.
+<<<<<<< HEAD
     // This will also register all scripts.
     // TODO: Replace this with loadEnabledMods().
     funkin.modding.PolymodHandler.loadAllMods();
 
+=======
+    // TODO: Replace this with loadEnabledMods().
+    funkin.modding.PolymodHandler.loadAllMods();
+
+    // Reload scripted classes so stages and modules will update.
+    Polymod.registerAllScriptClasses();
+
+>>>>>>> e11c5f8d (Add files via upload)
     // Reload everything that is cached.
     // Currently this freezes the game for a second but I guess that's tolerable?
 
@@ -584,10 +676,15 @@ class PolymodHandler
     SpeakerRegistry.instance.loadEntries();
     AlbumRegistry.instance.loadEntries();
     StageRegistry.instance.loadEntries();
+<<<<<<< HEAD
     StickerRegistry.instance.loadEntries();
     FreeplayStyleRegistry.instance.loadEntries();
 
     CharacterDataParser.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
+=======
+
+    CharacterRegistry.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
+>>>>>>> e11c5f8d (Add files via upload)
     NoteKindManager.loadScripts();
     ModuleHandler.loadModuleCache();
   }

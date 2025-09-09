@@ -1,7 +1,13 @@
 package funkin.graphics.video;
 
 import flixel.util.FlxColor;
+<<<<<<< HEAD
 import funkin.audio.FunkinSound;
+=======
+import flixel.util.FlxSignal.FlxTypedSignal;
+import funkin.audio.FunkinSound;
+import openfl.display3D.textures.TextureBase;
+>>>>>>> e11c5f8d (Add files via upload)
 import openfl.events.NetStatusEvent;
 import openfl.media.SoundTransform;
 import openfl.media.Video;
@@ -10,10 +16,16 @@ import openfl.net.NetStream;
 
 /**
  * Plays a video via a NetStream. Only works on HTML5.
+<<<<<<< HEAD
  * This does NOT replace hxvlc, nor does hxvlc replace this.
  * hxvlc only works on native and does not work on HTML5!
  */
 @:nullSafety
+=======
+ * This does NOT replace hxCodec, nor does hxCodec replace this.
+ * hxCodec only works on desktop and does not work on HTML5!
+ */
+>>>>>>> e11c5f8d (Add files via upload)
 class FlxVideo extends FunkinSprite
 {
   var video:Video;
@@ -23,16 +35,24 @@ class FlxVideo extends FunkinSprite
   /**
    * A callback to execute when the video finishes.
    */
+<<<<<<< HEAD
   public var finishCallback:Null<Void->Void> = null;
 
   @:nullSafety(Off)
+=======
+  public var finishCallback:Void->Void;
+
+>>>>>>> e11c5f8d (Add files via upload)
   public function new(videoPath:String)
   {
     super();
 
     this.videoPath = videoPath;
 
+<<<<<<< HEAD
     @:nullSafety(Off) // Why do I to do this here as well for this to build?
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     makeGraphic(2, 2, FlxColor.TRANSPARENT);
 
     video = new Video();
@@ -75,7 +95,11 @@ class FlxVideo extends FunkinSprite
   }
 
   var videoAvailable:Bool = false;
+<<<<<<< HEAD
   var frameTimer:Float = 0;
+=======
+  var frameTimer:Float;
+>>>>>>> e11c5f8d (Add files via upload)
 
   static final FRAME_RATE:Float = 60;
 

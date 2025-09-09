@@ -1,22 +1,41 @@
 package funkin.play.cutscene.dialogue;
 
+<<<<<<< HEAD
+=======
+import flixel.addons.display.FlxPieDial;
+import flixel.FlxSprite;
+>>>>>>> e11c5f8d (Add files via upload)
 import flixel.group.FlxSpriteGroup;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import funkin.audio.FunkinSound;
+<<<<<<< HEAD
 import funkin.data.dialogue.ConversationData;
 import funkin.data.dialogue.ConversationData.DialogueEntryData;
 import funkin.data.dialogue.ConversationRegistry;
 import funkin.data.dialogue.DialogueBoxRegistry;
 import funkin.data.dialogue.SpeakerRegistry;
+=======
+import funkin.data.dialogue.conversation.ConversationData;
+import funkin.data.dialogue.conversation.ConversationData.DialogueEntryData;
+import funkin.data.dialogue.conversation.ConversationRegistry;
+import funkin.data.dialogue.dialoguebox.DialogueBoxData;
+import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
+import funkin.data.dialogue.speaker.SpeakerData;
+import funkin.data.dialogue.speaker.SpeakerRegistry;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.data.IRegistryEntry;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.events.ScriptEvent;
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.IScriptedClass.IDialogueScriptedClass;
 import funkin.modding.IScriptedClass.IEventHandler;
+<<<<<<< HEAD
+=======
+import funkin.play.cutscene.dialogue.DialogueBox;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.util.SortUtil;
 import funkin.util.EaseUtil;
 
@@ -25,15 +44,34 @@ import funkin.util.EaseUtil;
  *
  * This shit is great for modders but it's pretty elaborate for how much it'll actually be used, lolol. -Eric
  */
+<<<<<<< HEAD
 @:nullSafety
 class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass implements IRegistryEntry<ConversationData>
 {
   /**
+=======
+class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass implements IRegistryEntry<ConversationData>
+{
+  /**
+   * The ID of the conversation.
+   */
+  public final id:String;
+
+  /**
+>>>>>>> e11c5f8d (Add files via upload)
    * The current state of the conversation.
    */
   var state:ConversationState = ConversationState.Start;
 
   /**
+<<<<<<< HEAD
+=======
+   * Conversation data as parsed from the JSON file.
+   */
+  public final _data:ConversationData;
+
+  /**
+>>>>>>> e11c5f8d (Add files via upload)
    * The current entry in the dialogue.
    */
   var currentDialogueEntry:Int = 0;
@@ -42,7 +80,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function get_currentDialogueEntryCount():Int
   {
+<<<<<<< HEAD
     return _data?.dialogue?.length ?? 0;
+=======
+    return _data.dialogue.length;
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   /**
@@ -54,12 +96,21 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function get_currentDialogueLineCount():Int
   {
+<<<<<<< HEAD
     return currentDialogueEntryData?.text?.length ?? 0;
   }
 
   var currentDialogueEntryData(get, never):Null<DialogueEntryData>;
 
   function get_currentDialogueEntryData():Null<DialogueEntryData>
+=======
+    return currentDialogueEntryData.text.length;
+  }
+
+  var currentDialogueEntryData(get, never):DialogueEntryData;
+
+  function get_currentDialogueEntryData():DialogueEntryData
+>>>>>>> e11c5f8d (Add files via upload)
   {
     if (_data == null || _data.dialogue == null) return null;
     if (currentDialogueEntry < 0 || currentDialogueEntry >= _data.dialogue.length) return null;
@@ -71,18 +122,27 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function get_currentDialogueLineString():String
   {
+<<<<<<< HEAD
     // TODO: Replace "" with some placeholder text?
     return currentDialogueEntryData?.text[currentDialogueLine] ?? "";
+=======
+    return currentDialogueEntryData?.text[currentDialogueLine];
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   /**
    * AUDIO
    */
+<<<<<<< HEAD
   var music:Null<FunkinSound>;
+=======
+  var music:FunkinSound;
+>>>>>>> e11c5f8d (Add files via upload)
 
   /**
    * GRAPHICS
    */
+<<<<<<< HEAD
   var backdrop:Null<FunkinSprite>;
 
   var currentSpeaker:Null<Speaker>;
@@ -90,6 +150,15 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   var currentDialogueBox:Null<DialogueBox>;
 
   public function new(id:String, ?params:Dynamic)
+=======
+  var backdrop:FunkinSprite;
+
+  var currentSpeaker:Speaker;
+
+  var currentDialogueBox:DialogueBox;
+
+  public function new(id:String)
+>>>>>>> e11c5f8d (Add files via upload)
   {
     super();
 
@@ -115,6 +184,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function setupMusic():Void
   {
+<<<<<<< HEAD
     if (_data == null) return;
 
     if (_data.music == null || (_data.music.asset ?? "") == "") return;
@@ -132,6 +202,19 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
       {
         music.volume = 1.0;
       }
+=======
+    if (_data.music == null) return;
+
+    music = FunkinSound.load(Paths.music(_data.music.asset), 0.0, true, true, true);
+
+    if (_data.music.fadeTime > 0.0)
+    {
+      FlxTween.tween(music, {volume: 1.0}, _data.music.fadeTime, {ease: FlxEase.linear});
+    }
+    else
+    {
+      music.volume = 1.0;
+>>>>>>> e11c5f8d (Add files via upload)
     }
   }
 
@@ -153,8 +236,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function setupBackdrop():Void
   {
+<<<<<<< HEAD
     if (_data == null) return;
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     if (backdrop != null)
     {
       backdrop.destroy();
@@ -170,6 +256,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     switch (_data.backdrop)
     {
       case SOLID(backdropData):
+<<<<<<< HEAD
         var targetColor:Null<FlxColor> = FlxColor.fromString(backdropData.color);
         backdrop.makeSolidColor(Std.int(FlxG.width), Std.int(FlxG.height), targetColor);
         var fadeTime = backdropData.fadeTime ?? 0.0;
@@ -177,6 +264,14 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
         {
           backdrop.alpha = 0.0;
           FlxTween.tween(backdrop, {alpha: 1.0}, fadeTime, {ease: EaseUtil.stepped(10)});
+=======
+        var targetColor:FlxColor = FlxColor.fromString(backdropData.color);
+        backdrop.makeSolidColor(Std.int(FlxG.width), Std.int(FlxG.height), targetColor);
+        if (backdropData.fadeTime > 0.0)
+        {
+          backdrop.alpha = 0.0;
+          FlxTween.tween(backdrop, {alpha: 1.0}, backdropData.fadeTime, {ease: EaseUtil.stepped(10)});
+>>>>>>> e11c5f8d (Add files via upload)
         }
         else
         {
@@ -200,7 +295,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function showCurrentSpeaker():Void
   {
+<<<<<<< HEAD
     var nextSpeakerId:String = currentDialogueEntryData?.speaker ?? "";
+=======
+    var nextSpeakerId:String = currentDialogueEntryData.speaker;
+>>>>>>> e11c5f8d (Add files via upload)
 
     // Skip the next steps if the current speaker is already displayed.
     if ((currentSpeaker != null && currentSpeaker.alive) && nextSpeakerId == currentSpeaker.id) return;
@@ -212,7 +311,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
       currentSpeaker = null;
     }
 
+<<<<<<< HEAD
     var nextSpeaker:Null<Speaker> = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
+=======
+    var nextSpeaker:Speaker = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
+>>>>>>> e11c5f8d (Add files via upload)
 
     if (nextSpeaker == null)
     {
@@ -238,11 +341,19 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function playSpeakerAnimation():Void
   {
+<<<<<<< HEAD
     var nextSpeakerAnimation:Null<String> = currentDialogueEntryData?.speakerAnimation;
 
     if (nextSpeakerAnimation == null) return;
 
     if (currentSpeaker != null) currentSpeaker.playAnimation(nextSpeakerAnimation);
+=======
+    var nextSpeakerAnimation:String = currentDialogueEntryData.speakerAnimation;
+
+    if (nextSpeakerAnimation == null) return;
+
+    currentSpeaker.playAnimation(nextSpeakerAnimation);
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   public function refresh():Void
@@ -252,7 +363,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function showCurrentDialogueBox():Void
   {
+<<<<<<< HEAD
     var nextDialogueBoxId:String = currentDialogueEntryData?.box ?? "";
+=======
+    var nextDialogueBoxId:String = currentDialogueEntryData?.box;
+>>>>>>> e11c5f8d (Add files via upload)
 
     // Skip the next steps if the current dialogue box is already displayed.
     if ((currentDialogueBox != null && currentDialogueBox.alive) && nextDialogueBoxId == currentDialogueBox.id) return;
@@ -264,7 +379,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
       currentDialogueBox = null;
     }
 
+<<<<<<< HEAD
     var nextDialogueBox:Null<DialogueBox> = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
+=======
+    var nextDialogueBox:DialogueBox = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
+>>>>>>> e11c5f8d (Add files via upload)
 
     if (nextDialogueBox == null)
     {
@@ -286,11 +405,19 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function playDialogueBoxAnimation():Void
   {
+<<<<<<< HEAD
     var nextDialogueBoxAnimation:Null<String> = currentDialogueEntryData?.boxAnimation;
 
     if (nextDialogueBoxAnimation == null) return;
 
     if (currentDialogueBox != null) currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
+=======
+    var nextDialogueBoxAnimation:String = currentDialogueEntryData?.boxAnimation;
+
+    if (nextDialogueBoxAnimation == null) return;
+
+    currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   function onTypingComplete():Void
@@ -359,6 +486,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     }
     outroTween = null;
 
+<<<<<<< HEAD
     if (this.music != null)
     {
       this.music.stop();
@@ -385,6 +513,22 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
       remove(backdrop);
       backdrop = null;
     }
+=======
+    if (this.music != null) this.music.stop();
+    this.music = null;
+
+    if (currentSpeaker != null) currentSpeaker.kill();
+    remove(currentSpeaker);
+    currentSpeaker = null;
+
+    if (currentDialogueBox != null) currentDialogueBox.kill();
+    remove(currentDialogueBox);
+    currentDialogueBox = null;
+
+    if (backdrop != null) backdrop.destroy();
+    remove(backdrop);
+    backdrop = null;
+>>>>>>> e11c5f8d (Add files via upload)
 
     startConversation();
   }
@@ -400,7 +544,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     dispatchEvent(new DialogueScriptEvent(DIALOGUE_SKIP, this, true));
   }
 
+<<<<<<< HEAD
   var outroTween:Null<FlxTween> = null;
+=======
+  var outroTween:FlxTween;
+>>>>>>> e11c5f8d (Add files via upload)
 
   public function startOutro():Void
   {
@@ -415,7 +563,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
             ease: EaseUtil.stepped(8)
           });
 
+<<<<<<< HEAD
         if (this.music != null) FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
+=======
+        FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
+>>>>>>> e11c5f8d (Add files via upload)
       case NONE(_):
         // Immediately clean up.
         endOutro();
@@ -425,7 +577,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     }
   }
 
+<<<<<<< HEAD
   public var completeCallback:Null<Void->Void> = null;
+=======
+  public var completeCallback:() -> Void;
+>>>>>>> e11c5f8d (Add files via upload)
 
   public function endOutro():Void
   {
@@ -485,7 +641,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     {
       // Continue the dialog with more lines.
       state = Speaking;
+<<<<<<< HEAD
       if (currentDialogueBox != null) currentDialogueBox.appendText(currentDialogueLineString);
+=======
+      currentDialogueBox.appendText(currentDialogueLineString);
+>>>>>>> e11c5f8d (Add files via upload)
     }
   }
 
@@ -497,7 +657,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     propagateEvent(event);
     if (event.eventCanceled) return;
 
+<<<<<<< HEAD
     if (currentDialogueBox != null) currentDialogueBox.skip();
+=======
+    currentDialogueBox.skip();
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   /**
@@ -572,6 +736,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     if (this.music != null) this.music.stop();
     this.music = null;
 
+<<<<<<< HEAD
     if (currentSpeaker != null)
     {
       currentSpeaker.kill();
@@ -592,6 +757,19 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
       remove(backdrop);
       backdrop = null;
     }
+=======
+    if (currentSpeaker != null) currentSpeaker.kill();
+    remove(currentSpeaker);
+    currentSpeaker = null;
+
+    if (currentDialogueBox != null) currentDialogueBox.kill();
+    remove(currentDialogueBox);
+    currentDialogueBox = null;
+
+    if (backdrop != null) backdrop.destroy();
+    remove(backdrop);
+    backdrop = null;
+>>>>>>> e11c5f8d (Add files via upload)
 
     this.clear();
 
@@ -648,6 +826,19 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
       outroTween = null;
     }
   }
+<<<<<<< HEAD
+=======
+
+  public override function toString():String
+  {
+    return 'Conversation($id)';
+  }
+
+  static function _fetchData(id:String):Null<ConversationData>
+  {
+    return ConversationRegistry.instance.parseEntryDataWithMigration(id, ConversationRegistry.instance.fetchEntryVersion(id));
+  }
+>>>>>>> e11c5f8d (Add files via upload)
 }
 
 // Managing things with a single enum is a lot easier than a multitude of flags.

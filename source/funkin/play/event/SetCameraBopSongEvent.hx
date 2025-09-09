@@ -1,8 +1,19 @@
 package funkin.play.event;
 
+<<<<<<< HEAD
 // Data from the chart
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+=======
+import flixel.tweens.FlxTween;
+import flixel.FlxCamera;
+import flixel.tweens.FlxEase;
+// Data from the chart
+import funkin.data.song.SongData;
+import funkin.data.song.SongData.SongEventData;
+// Data from the event schema
+import funkin.play.event.SongEvent;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -42,15 +53,21 @@ class SetCameraBopSongEvent extends SongEvent
 
     var rate:Null<Int> = data.getInt('rate');
     if (rate == null) rate = Constants.DEFAULT_ZOOM_RATE;
+<<<<<<< HEAD
     var offset:Null<Int> = data.getInt('offset');
     if (rate == null) offset = Constants.DEFAULT_ZOOM_OFFSET;
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     var intensity:Null<Float> = data.getFloat('intensity');
     if (intensity == null) intensity = 1.0;
 
     PlayState.instance.cameraBopIntensity = (Constants.DEFAULT_BOP_INTENSITY - 1.0) * intensity + 1.0;
     PlayState.instance.hudCameraZoomIntensity = (Constants.DEFAULT_BOP_INTENSITY - 1.0) * intensity * 2.0;
     PlayState.instance.cameraZoomRate = rate;
+<<<<<<< HEAD
     PlayState.instance.cameraZoomRateOffset = offset;
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     trace('Set camera zoom rate to ${PlayState.instance.cameraZoomRate}');
   }
 
@@ -75,12 +92,16 @@ class SetCameraBopSongEvent extends SongEvent
         name: 'intensity',
         title: 'Intensity',
         defaultValue: 1.0,
+<<<<<<< HEAD
         min: 0,
+=======
+>>>>>>> e11c5f8d (Add files via upload)
         step: 0.1,
         type: SongEventFieldType.FLOAT,
         units: 'x'
       },
       {
+<<<<<<< HEAD
         name: 'offset',
         title: 'Offset',
         defaultValue: 0,
@@ -93,6 +114,11 @@ class SetCameraBopSongEvent extends SongEvent
         title: 'Rate',
         defaultValue: 4,
         min: 0,
+=======
+        name: 'rate',
+        title: 'Rate',
+        defaultValue: 4,
+>>>>>>> e11c5f8d (Add files via upload)
         step: 1,
         type: SongEventFieldType.INTEGER,
         units: 'beats/zoom'

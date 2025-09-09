@@ -1,5 +1,9 @@
 package funkin.play.event;
 
+<<<<<<< HEAD
+=======
+import funkin.play.song.Song;
+>>>>>>> e11c5f8d (Add files via upload)
 import polymod.hscript.HScriptedClass;
 
 /**

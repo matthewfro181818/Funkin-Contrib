@@ -1,5 +1,9 @@
 package funkin.graphics.shaders;
 
+<<<<<<< HEAD
+=======
+import flixel.system.FlxAssets.FlxShader;
+>>>>>>> e11c5f8d (Add files via upload)
 import openfl.display.BitmapData;
 import openfl.display.ShaderParameter;
 import openfl.display.ShaderParameterType;

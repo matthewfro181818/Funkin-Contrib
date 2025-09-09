@@ -1,6 +1,10 @@
 package funkin.graphics.shaders;
 
 import flixel.system.FlxAssets.FlxShader;
+<<<<<<< HEAD
+=======
+import flixel.util.FlxColor;
+>>>>>>> e11c5f8d (Add files via upload)
 import openfl.display.BitmapData;
 
 class TextureSwap extends FlxShader
@@ -8,6 +12,7 @@ class TextureSwap extends FlxShader
   public var swappedImage(default, set):BitmapData;
   public var amount(default, set):Float;
 
+<<<<<<< HEAD
   public function loadSwapImage(path:String)
   {
     #if html5
@@ -19,6 +24,8 @@ class TextureSwap extends FlxShader
     #end
   }
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   function set_swappedImage(_bitmapData:BitmapData):BitmapData
   {
     image.input = _bitmapData;

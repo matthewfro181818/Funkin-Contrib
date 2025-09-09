@@ -8,13 +8,20 @@ typedef BlendModeShader =
   var uBlendColor:ShaderParameter<Float>;
 }
 
+<<<<<<< HEAD
 @:nullSafety
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 class BlendModeEffect
 {
   public var shader(default, null):BlendModeShader;
 
   @:isVar
+<<<<<<< HEAD
   public var color(default, set):FlxColor = new FlxColor();
+=======
+  public var color(default, set):FlxColor;
+>>>>>>> e11c5f8d (Add files via upload)
 
   public function new(shader:BlendModeShader, color:FlxColor):Void
   {

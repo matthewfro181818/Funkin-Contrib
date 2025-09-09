@@ -6,9 +6,14 @@ import funkin.modding.events.ScriptEvent;
 import flixel.graphics.frames.FlxFramesCollection;
 import funkin.util.assets.FlxAnimationUtil;
 import funkin.modding.IScriptedClass.IDialogueScriptedClass;
+<<<<<<< HEAD
 import funkin.data.dialogue.SpeakerData;
 import funkin.data.dialogue.SpeakerRegistry;
 import funkin.ui.FullScreenScaleMode;
+=======
+import funkin.data.dialogue.speaker.SpeakerData;
+import funkin.data.dialogue.speaker.SpeakerRegistry;
+>>>>>>> e11c5f8d (Add files via upload)
 
 /**
  * The character sprite which displays during dialogue.
@@ -18,6 +23,19 @@ import funkin.ui.FullScreenScaleMode;
 class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRegistryEntry<SpeakerData>
 {
   /**
+<<<<<<< HEAD
+=======
+   * The internal ID for this speaker.
+   */
+  public final id:String;
+
+  /**
+   * The full data for a speaker.
+   */
+  public final _data:SpeakerData;
+
+  /**
+>>>>>>> e11c5f8d (Add files via upload)
    * A readable name for this speaker.
    */
   public var speakerName(get, never):String;
@@ -66,6 +84,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
     this.x += xDiff;
     this.y += yDiff;
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -87,6 +106,12 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
   }
 
   public function new(id:String, ?params:Dynamic)
+=======
+    return globalOffsets = value;
+  }
+
+  public function new(id:String)
+>>>>>>> e11c5f8d (Add files via upload)
   {
     super();
 
@@ -169,12 +194,15 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
   public function setScale(scale:Null<Float>):Void
   {
     if (scale == null) scale = 1.0;
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
       scale *= fullscreenScale;
     }
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     this.scale.x = scale;
     this.scale.y = scale;
     this.updateHitbox();
@@ -312,4 +340,17 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
   }
 
   public function onScriptEvent(event:ScriptEvent):Void {}
+<<<<<<< HEAD
+=======
+
+  public override function toString():String
+  {
+    return 'Speaker($id)';
+  }
+
+  static function _fetchData(id:String):Null<SpeakerData>
+  {
+    return SpeakerRegistry.instance.parseEntryDataWithMigration(id, SpeakerRegistry.instance.fetchEntryVersion(id));
+  }
+>>>>>>> e11c5f8d (Add files via upload)
 }

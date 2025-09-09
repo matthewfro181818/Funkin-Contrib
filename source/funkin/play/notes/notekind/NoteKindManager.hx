@@ -1,6 +1,9 @@
 package funkin.play.notes.notekind;
 
+<<<<<<< HEAD
 import funkin.data.song.SongData.SongNoteData;
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.events.ScriptEvent;
 import funkin.ui.debug.charting.util.ChartEditorDropdowns;
@@ -11,6 +14,7 @@ import funkin.play.notes.notekind.NoteKind.NoteKindParam;
 
 class NoteKindManager
 {
+<<<<<<< HEAD
   /**
    * A map of all note kinds, keyed by their name.
    * This is used to retrieve note kinds by their name.
@@ -26,6 +30,9 @@ class NoteKindManager
   {
     return noteKinds.get(noteKind);
   }
+=======
+  static var noteKinds:Map<String, NoteKind> = [];
+>>>>>>> e11c5f8d (Add files via upload)
 
   public static function loadScripts():Void
   {
@@ -63,7 +70,11 @@ class NoteKindManager
     {
       var noteEvent:NoteScriptEvent = cast(event, NoteScriptEvent);
 
+<<<<<<< HEAD
       var noteKind:NoteKind = noteKinds.get(noteEvent?.note?.kind);
+=======
+      var noteKind:NoteKind = noteKinds.get(noteEvent.note.kind);
+>>>>>>> e11c5f8d (Add files via upload)
 
       if (noteKind != null)
       {
@@ -97,6 +108,7 @@ class NoteKindManager
     return NoteStyleRegistry.instance.fetchEntry(noteStyleId);
   }
 
+<<<<<<< HEAD
   public static function listNoteStyles(songNoteDatas:Array<SongNoteData>):Array<NoteStyle>
   {
     var results:Array<NoteStyle> = [];
@@ -107,6 +119,8 @@ class NoteKindManager
     return results;
   }
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   /**
    * Retrieve the note style id from the given note kind
    * @param noteKind Note kind name

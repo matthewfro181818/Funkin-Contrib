@@ -5,17 +5,27 @@ import funkin.data.song.SongData.SongEventData;
 import flixel.FlxState;
 import flixel.FlxSubState;
 import funkin.play.notes.NoteSprite;
+<<<<<<< HEAD
 import funkin.play.notes.SustainTrail;
 import funkin.play.cutscene.dialogue.Conversation;
 import funkin.play.Countdown.CountdownStep;
 import funkin.play.notes.NoteDirection;
+=======
+import funkin.play.cutscene.dialogue.Conversation;
+import funkin.play.Countdown.CountdownStep;
+import funkin.play.notes.NoteDirection;
+import openfl.events.EventType;
+>>>>>>> e11c5f8d (Add files via upload)
 import openfl.events.KeyboardEvent;
 
 /**
  * This is a base class for all events that are issued to scripted classes.
  * It can be used to identify the type of event called, store data, and cancel event propagation.
  */
+<<<<<<< HEAD
 @:nullSafety
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 class ScriptEvent
 {
   /**
@@ -228,6 +238,7 @@ class GhostMissNoteScriptEvent extends ScriptEvent
   }
 }
 
+<<<<<<< HEAD
 class HoldNoteScriptEvent extends NoteScriptEvent
 {
   /**
@@ -271,6 +282,8 @@ class HoldNoteScriptEvent extends NoteScriptEvent
   }
 }
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 /**
  * An event that is fired when the song reaches an event.
  */

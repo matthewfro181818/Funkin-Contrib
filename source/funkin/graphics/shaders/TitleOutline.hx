@@ -1,5 +1,9 @@
 package funkin.graphics.shaders;
 
+<<<<<<< HEAD
+=======
+import flixel.math.FlxPoint;
+>>>>>>> e11c5f8d (Add files via upload)
 import flixel.system.FlxAssets.FlxShader;
 
 class TitleOutline extends FlxShader

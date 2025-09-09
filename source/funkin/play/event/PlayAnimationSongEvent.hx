@@ -3,8 +3,15 @@ package funkin.play.event;
 import flixel.FlxSprite;
 import funkin.play.character.BaseCharacter;
 // Data from the chart
+<<<<<<< HEAD
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+=======
+import funkin.data.song.SongData;
+import funkin.data.song.SongData.SongEventData;
+// Data from the event schema
+import funkin.play.event.SongEvent;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 

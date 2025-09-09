@@ -9,22 +9,45 @@ import funkin.graphics.framebuffer.FixedBitmapData;
 import openfl.display.BitmapData;
 import flixel.math.FlxRect;
 import flixel.math.FlxPoint;
+<<<<<<< HEAD
 import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
 import flixel.FlxCamera;
 import openfl.system.System;
 import funkin.FunkinMemory;
 
 using StringTools;
+=======
+import flixel.graphics.frames.FlxFrame;
+import flixel.FlxCamera;
+>>>>>>> e11c5f8d (Add files via upload)
 
 /**
  * An FlxSprite with additional functionality.
  * - A more efficient method for creating solid color sprites.
  * - TODO: Better cache handling for textures.
  */
+<<<<<<< HEAD
 @:nullSafety
 class FunkinSprite extends FlxSprite
 {
   /**
+=======
+class FunkinSprite extends FlxSprite
+{
+  /**
+   * An internal list of all the textures cached with `cacheTexture`.
+   * This excludes any temporary textures like those from `FlxText` or `makeSolidColor`.
+   */
+  static var currentCachedTextures:Map<String, FlxGraphic> = [];
+
+  /**
+   * An internal list of textures that were cached in the previous state.
+   * We don't know whether we want to keep them cached or not.
+   */
+  static var previousCachedTextures:Map<String, FlxGraphic> = [];
+
+  /**
+>>>>>>> e11c5f8d (Add files via upload)
    * @param x Starting X position
    * @param y Starting Y position
    */
@@ -90,6 +113,7 @@ class FunkinSprite extends FlxSprite
     return this;
   }
 
+<<<<<<< HEAD
   public function loadTextureAsync(key:String, fade:Bool = false):Void
   {
     var fadeTween:Null<FlxTween> = null;
@@ -125,11 +149,14 @@ class FunkinSprite extends FlxSprite
       });
   }
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   /**
    * Apply an OpenFL `BitmapData` to this sprite.
    * @param input The OpenFL `BitmapData` to apply
    * @return This sprite, for chaining
    */
+<<<<<<< HEAD
   public function loadBitmapData(input:BitmapData, cache:Bool = true):FunkinSprite
   {
     if (cache)
@@ -142,6 +169,11 @@ class FunkinSprite extends FlxSprite
       this.graphic = graphic;
       this.frames = this.graphic.imageFrame;
     }
+=======
+  public function loadBitmapData(input:BitmapData):FunkinSprite
+  {
+    loadGraphic(input);
+>>>>>>> e11c5f8d (Add files via upload)
 
     return this;
   }
@@ -151,6 +183,7 @@ class FunkinSprite extends FlxSprite
    * @param input The OpenFL `TextureBase` to apply
    * @return This sprite, for chaining
    */
+<<<<<<< HEAD
   public function loadTextureBase(input:TextureBase):Null<FunkinSprite>
   {
     var inputBitmap:Null<FixedBitmapData> = FixedBitmapData.fromTexture(input);
@@ -159,6 +192,11 @@ class FunkinSprite extends FlxSprite
       FlxG.log.warn('loadTextureBase - input resulted in null bitmap! $input');
       return null;
     }
+=======
+  public function loadTextureBase(input:TextureBase):FunkinSprite
+  {
+    var inputBitmap:FixedBitmapData = FixedBitmapData.fromTexture(input);
+>>>>>>> e11c5f8d (Add files via upload)
 
     return loadBitmapData(inputBitmap);
   }
@@ -203,6 +241,7 @@ class FunkinSprite extends FlxSprite
     return FlxG.bitmap.get(key) != null;
   }
 
+<<<<<<< HEAD
   @:deprecated("Use FunkinMemory.cacheTexture() instead")
   public static function cacheTexture(key:String):Void
   {
@@ -237,13 +276,82 @@ class FunkinSprite extends FlxSprite
   public static function purgeCache():Void
   {
     FunkinMemory.purgeCache();
+=======
+  /**
+   * Ensure the texture with the given key is cached.
+   * @param key The key of the texture to cache.
+   */
+  public static function cacheTexture(key:String):Void
+  {
+    // We don't want to cache the same texture twice.
+    if (currentCachedTextures.exists(key)) return;
+
+    if (previousCachedTextures.exists(key))
+    {
+      // Move the graphic from the previous cache to the current cache.
+      var graphic = previousCachedTextures.get(key);
+      previousCachedTextures.remove(key);
+      currentCachedTextures.set(key, graphic);
+      return;
+    }
+
+    // Else, texture is currently uncached.
+    var graphic:FlxGraphic = FlxGraphic.fromAssetKey(key, false, null, true);
+    if (graphic == null)
+    {
+      FlxG.log.warn('Failed to cache graphic: $key');
+    }
+    else
+    {
+      trace('Successfully cached graphic: $key');
+      graphic.persist = true;
+      currentCachedTextures.set(key, graphic);
+    }
+  }
+
+  public static function cacheSparrow(key:String):Void
+  {
+    cacheTexture(Paths.image(key));
+  }
+
+  public static function cachePacker(key:String):Void
+  {
+    cacheTexture(Paths.image(key));
+  }
+
+  /**
+   * Call this, then `cacheTexture` to keep the textures we still need, then `purgeCache` to remove the textures that we won't be using anymore.
+   */
+  public static function preparePurgeCache():Void
+  {
+    previousCachedTextures = currentCachedTextures;
+    currentCachedTextures = [];
+  }
+
+  public static function purgeCache():Void
+  {
+    // Everything that is in previousCachedTextures but not in currentCachedTextures should be destroyed.
+    for (graphicKey in previousCachedTextures.keys())
+    {
+      var graphic = previousCachedTextures.get(graphicKey);
+      if (graphic == null) continue;
+      FlxG.bitmap.remove(graphic);
+      graphic.destroy();
+      previousCachedTextures.remove(graphicKey);
+    }
+>>>>>>> e11c5f8d (Add files via upload)
   }
 
   static function isGraphicCached(graphic:FlxGraphic):Bool
   {
+<<<<<<< HEAD
     var result = null;
     if (graphic == null) return false;
     result = FlxG.bitmap.get(graphic.key);
+=======
+    if (graphic == null) return false;
+    var result = FlxG.bitmap.get(graphic.key);
+>>>>>>> e11c5f8d (Add files via upload)
     if (result == null) return false;
     if (result != graphic)
     {
@@ -259,9 +367,14 @@ class FunkinSprite extends FlxSprite
    */
   public function isAnimationDynamic(id:String):Bool
   {
+<<<<<<< HEAD
     var animData = null;
     if (this.animation == null) return false;
     animData = this.animation.getByName(id);
+=======
+    if (this.animation == null) return false;
+    var animData = this.animation.getByName(id);
+>>>>>>> e11c5f8d (Add files via upload)
     if (animData == null) return false;
     return animData.numFrames > 1;
   }
@@ -400,7 +513,10 @@ class FunkinSprite extends FlxSprite
 
   public override function destroy():Void
   {
+<<<<<<< HEAD
     @:nullSafety(Off) // TODO: Remove when flixel.FlxSprite is null safed.
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     frames = null;
     // Cancel all tweens so they don't continue to run on a destroyed sprite.
     // This prevents crashes.

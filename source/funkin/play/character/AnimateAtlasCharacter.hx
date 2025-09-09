@@ -15,8 +15,12 @@ import flixel.util.FlxColor;
 import flixel.util.FlxDestroyUtil;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.modding.events.ScriptEvent;
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterRenderType;
 import flixel.util.FlxDirectionFlags;
+=======
+import funkin.data.character.CharacterData.CharacterRenderType;
+>>>>>>> e11c5f8d (Add files via upload)
 import openfl.display.BitmapData;
 import openfl.display.BlendMode;
 
@@ -75,6 +79,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 
   override function onCreate(event:ScriptEvent):Void
   {
+<<<<<<< HEAD
     // Display a custom scope for debugging purposes.
     #if FEATURE_DEBUG_TRACY
     cpp.vm.tracy.TracyProfiler.zoneScoped('AnimateAtlasCharacter.create(${this.characterId})');
@@ -83,6 +88,12 @@ class AnimateAtlasCharacter extends BaseCharacter
     try
     {
       trace('Loading assets for Animate Atlas character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+=======
+    trace('Creating Animate Atlas character: ' + this.characterId);
+
+    try
+    {
+>>>>>>> e11c5f8d (Add files via upload)
       var atlasSprite:FlxAtlasSprite = loadAtlasSprite();
       setSprite(atlasSprite);
 
@@ -98,10 +109,19 @@ class AnimateAtlasCharacter extends BaseCharacter
 
   public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reverse:Bool = false):Void
   {
+<<<<<<< HEAD
     var correctName = correctAnimationName(name);
     if (correctName == null)
     {
       trace('$characterName Could not find Atlas animation: ' + name);
+=======
+    if ((!canPlayOtherAnims && !ignoreOther)) return;
+
+    var correctName = correctAnimationName(name);
+    if (correctName == null)
+    {
+      trace('Could not find Atlas animation: ' + name);
+>>>>>>> e11c5f8d (Add files via upload)
       return;
     }
 
@@ -132,8 +152,13 @@ class AnimateAtlasCharacter extends BaseCharacter
   {
     trace('[ATLASCHAR] Loading sprite atlas for ${characterId}.');
 
+<<<<<<< HEAD
     var animLibrary:String = Paths.getLibrary(_data.assetPath);
     var animPath:String = Paths.stripLibrary(_data.assetPath);
+=======
+    var animLibrary:String = Paths.getLibrary(_data.assetPaths[0]);
+    var animPath:String = Paths.stripLibrary(_data.assetPaths[0]);
+>>>>>>> e11c5f8d (Add files via upload)
     var assetPath:String = Paths.animateAtlas(animPath, animLibrary);
 
     var sprite:FlxAtlasSprite = new FlxAtlasSprite(0, 0, assetPath);
@@ -148,6 +173,7 @@ class AnimateAtlasCharacter extends BaseCharacter
   {
     super.onAnimationFinished(prefix);
 
+<<<<<<< HEAD
     if (!getCurrentAnimation().endsWith(Constants.ANIMATION_HOLD_SUFFIX)
       && hasAnimation(getCurrentAnimation() + Constants.ANIMATION_HOLD_SUFFIX))
     {
@@ -158,6 +184,11 @@ class AnimateAtlasCharacter extends BaseCharacter
     {
       if (StringTools.endsWith(prefix, "-hold")) trace(prefix);
       playAnimation(prefix, true, false);
+=======
+    if (getAnimationData() != null && getAnimationData().looped)
+    {
+      playAnimation(currentAnimName, true, false);
+>>>>>>> e11c5f8d (Add files via upload)
     }
     else
     {
@@ -209,8 +240,13 @@ class AnimateAtlasCharacter extends BaseCharacter
       var prefix = anim.prefix;
       if (!this.mainSprite.hasAnimation(prefix))
       {
+<<<<<<< HEAD
         FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
         trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
+=======
+        FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
+        trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
+>>>>>>> e11c5f8d (Add files via upload)
         continue;
       }
       animations.set(anim.name, anim);
@@ -390,7 +426,11 @@ class AnimateAtlasCharacter extends BaseCharacter
   inline function directAlphaTransform(sprite:FlxSprite, alpha:Float):Void
     sprite.alpha = alpha; // direct set
 
+<<<<<<< HEAD
   inline function facingTransform(sprite:FlxSprite, facing:FlxDirectionFlags):Void
+=======
+  inline function facingTransform(sprite:FlxSprite, facing:Int):Void
+>>>>>>> e11c5f8d (Add files via upload)
     sprite.facing = facing;
 
   inline function flipXTransform(sprite:FlxSprite, flipX:Bool):Void
@@ -459,6 +499,7 @@ class AnimateAtlasCharacter extends BaseCharacter
     }
   }
 
+<<<<<<< HEAD
   var resS:FlxPoint = new FlxPoint();
 
   /**
@@ -510,6 +551,8 @@ class AnimateAtlasCharacter extends BaseCharacter
     if (resetCamera) this.resetCameraFocusPoint();
   }
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   inline function offsetCallback(offset:FlxPoint):Void
     transformChildren(offsetTransform, offset);
 
@@ -580,7 +623,11 @@ class AnimateAtlasCharacter extends BaseCharacter
 
   override function set_alpha(value:Float):Float
   {
+<<<<<<< HEAD
     value = value.clamp(0, 1);
+=======
+    value = FlxMath.bound(value, 0, 1);
+>>>>>>> e11c5f8d (Add files via upload)
 
     if (exists && alpha != value)
     {
@@ -589,7 +636,11 @@ class AnimateAtlasCharacter extends BaseCharacter
     return alpha = value;
   }
 
+<<<<<<< HEAD
   override function set_facing(value:FlxDirectionFlags):FlxDirectionFlags
+=======
+  override function set_facing(value:Int):Int
+>>>>>>> e11c5f8d (Add files via upload)
   {
     if (exists && facing != value) transformChildren(facingTransform, value);
     return facing = value;

@@ -2,7 +2,10 @@ package funkin.graphics.shaders;
 
 import flixel.system.FlxAssets.FlxShader;
 
+<<<<<<< HEAD
 @:nullSafety
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 class WaveShader extends FlxShader
 {
   @:glFragmentSource('

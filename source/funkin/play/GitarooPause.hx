@@ -1,15 +1,23 @@
 package funkin.play;
 
 import flixel.FlxSprite;
+<<<<<<< HEAD
 import funkin.play.PlayState.PlayStateParams;
+=======
+import flixel.graphics.frames.FlxAtlasFrames;
+import funkin.play.PlayState;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.graphics.FunkinSprite;
 import funkin.ui.MusicBeatState;
 import flixel.addons.transition.FlxTransitionableState;
 import funkin.ui.mainmenu.MainMenuState;
+<<<<<<< HEAD
 #if mobile
 import funkin.util.TouchUtil;
 import funkin.util.SwipeUtil;
 #end
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 
 class GitarooPause extends MusicBeatState
 {
@@ -18,9 +26,15 @@ class GitarooPause extends MusicBeatState
 
   var replaySelect:Bool = false;
 
+<<<<<<< HEAD
   var previousParams:Null<PlayStateParams>;
 
   public function new(?previousParams:PlayStateParams):Void
+=======
+  var previousParams:PlayStateParams;
+
+  public function new(previousParams:PlayStateParams):Void
+>>>>>>> e11c5f8d (Add files via upload)
   {
     super();
 
@@ -36,18 +50,28 @@ class GitarooPause extends MusicBeatState
     }
 
     var bg:FunkinSprite = FunkinSprite.create('pauseAlt/pauseBG');
+<<<<<<< HEAD
     bg.setGraphicSize(Std.int(FlxG.width));
     bg.updateHitbox();
     bg.screenCenter();
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     add(bg);
 
     var bf:FunkinSprite = FunkinSprite.createSparrow(0, 30, 'pauseAlt/bfLol');
     bf.animation.addByPrefix('lol', "funnyThing", 13);
     bf.animation.play('lol');
+<<<<<<< HEAD
     bf.screenCenter(X);
     add(bf);
 
     replayButton = FunkinSprite.createSparrow(FlxG.width * 0.25, FlxG.height * 0.7, 'pauseAlt/pauseUI');
+=======
+    add(bf);
+    bf.screenCenter(X);
+
+    replayButton = FunkinSprite.createSparrow(FlxG.width * 0.28, FlxG.height * 0.7, 'pauseAlt/pauseUI');
+>>>>>>> e11c5f8d (Add files via upload)
     replayButton.animation.addByPrefix('selected', 'bluereplay', 0, false);
     replayButton.animation.appendByPrefix('selected', 'yellowreplay');
     replayButton.animation.play('selected');
@@ -64,6 +88,7 @@ class GitarooPause extends MusicBeatState
     super.create();
   }
 
+<<<<<<< HEAD
   #if mobile
   function checkSelectionPress():Bool
   {
@@ -77,6 +102,13 @@ class GitarooPause extends MusicBeatState
     if (controls.UI_LEFT_P || controls.UI_RIGHT_P #if mobile || SwipeUtil.justSwipedLeft || SwipeUtil.justSwipedRight #end) changeThing();
 
     if (controls.ACCEPT #if mobile || checkSelectionPress() #end)
+=======
+  override function update(elapsed:Float):Void
+  {
+    if (controls.UI_LEFT_P || controls.UI_RIGHT_P) changeThing();
+
+    if (controls.ACCEPT)
+>>>>>>> e11c5f8d (Add files via upload)
     {
       if (replaySelect)
       {

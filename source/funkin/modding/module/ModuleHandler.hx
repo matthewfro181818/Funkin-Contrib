@@ -6,12 +6,18 @@ import funkin.modding.events.ScriptEvent;
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.module.Module;
 import funkin.modding.module.ScriptedModule;
+<<<<<<< HEAD
 import flixel.FlxG;
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 
 /**
  * Utility functions for loading and manipulating active modules.
  */
+<<<<<<< HEAD
 @:nullSafety
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 class ModuleHandler
 {
   static final moduleCache:Map<String, Module> = new Map<String, Module>();
@@ -76,6 +82,7 @@ class ModuleHandler
    * Given two module IDs, sort them by priority.
    * @return 1 or -1 depending on which module has a higher priority.
    */
+<<<<<<< HEAD
   static function sortByPriority(a:String, b:String):Int
   {
     var aModule:Null<Module> = getModule(a);
@@ -85,6 +92,13 @@ class ModuleHandler
     {
       return 0;
     }
+=======
+  static function sortByPriority(a:String, b:String)
+  {
+    var aModule:Module = moduleCache.get(a);
+    var bModule:Module = moduleCache.get(b);
+
+>>>>>>> e11c5f8d (Add files via upload)
     if (aModule.priority != bModule.priority)
     {
       return aModule.priority - bModule.priority;
@@ -95,14 +109,22 @@ class ModuleHandler
     }
   }
 
+<<<<<<< HEAD
   public static function getModule(moduleId:String):Null<Module>
+=======
+  public static function getModule(moduleId:String):Module
+>>>>>>> e11c5f8d (Add files via upload)
   {
     return moduleCache.get(moduleId);
   }
 
   public static function activateModule(moduleId:String):Void
   {
+<<<<<<< HEAD
     var module:Null<Module> = getModule(moduleId);
+=======
+    var module:Module = getModule(moduleId);
+>>>>>>> e11c5f8d (Add files via upload)
     if (module != null)
     {
       module.active = true;
@@ -111,7 +133,11 @@ class ModuleHandler
 
   public static function deactivateModule(moduleId:String):Void
   {
+<<<<<<< HEAD
     var module:Null<Module> = getModule(moduleId);
+=======
+    var module:Module = getModule(moduleId);
+>>>>>>> e11c5f8d (Add files via upload)
     if (module != null)
     {
       module.active = false;
@@ -142,6 +168,7 @@ class ModuleHandler
   {
     for (moduleId in modulePriorityOrder)
     {
+<<<<<<< HEAD
       var module:Null<Module> = moduleCache.get(moduleId);
       // The module needs to be active to receive events.
       if (module != null && module.active)
@@ -154,6 +181,12 @@ class ModuleHandler
             continue;
           }
         }
+=======
+      var module:Module = moduleCache.get(moduleId);
+      // The module needs to be active to receive events.
+      if (module != null && module.active)
+      {
+>>>>>>> e11c5f8d (Add files via upload)
         ScriptEventDispatcher.callEvent(module, event);
       }
     }

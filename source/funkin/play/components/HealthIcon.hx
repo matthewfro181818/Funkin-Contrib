@@ -1,10 +1,17 @@
 package funkin.play.components;
 
+<<<<<<< HEAD
 import funkin.play.character.CharacterData;
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import funkin.play.character.CharacterData.CharacterDataParser;
+=======
+import flixel.FlxSprite;
+import flixel.math.FlxMath;
+import flixel.math.FlxPoint;
+import funkin.data.character.CharacterData;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.graphics.FunkinSprite;
 import funkin.util.MathUtil;
 
@@ -115,8 +122,11 @@ class HealthIcon extends FunkinSprite
    */
   static final POSITION_OFFSET:Int = 26;
 
+<<<<<<< HEAD
   public var iconOffset:FlxPoint = FlxPoint.get();
 
+=======
+>>>>>>> e11c5f8d (Add files via upload)
   public function new(char:Null<String>, playerId:Int = 0)
   {
     super(0, 0);
@@ -153,12 +163,19 @@ class HealthIcon extends FunkinSprite
    */
   public function toggleOldIcon():Void
   {
+<<<<<<< HEAD
     final playState:Null<PlayState> = PlayState.instance;
     if (playState == null || playState.currentStage == null) return;
     if (characterId == 'bf-old')
     {
       isPixel = playState.currentStage.getBoyfriend()?.isPixel ?? false;
       playState.currentStage.getBoyfriend()?.initHealthIcon(false);
+=======
+    if (characterId == 'bf-old')
+    {
+      isPixel = PlayState.instance.currentStage.getBoyfriend().isPixel;
+      PlayState.instance.currentStage.getBoyfriend().initHealthIcon(false);
+>>>>>>> e11c5f8d (Add files via upload)
     }
     else
     {
@@ -184,7 +201,12 @@ class HealthIcon extends FunkinSprite
       loadCharacter(characterId);
 
       this.size.set(1.0, 1.0);
+<<<<<<< HEAD
       this.iconOffset.set();
+=======
+      this.offset.x = 0.0;
+      this.offset.y = 0.0;
+>>>>>>> e11c5f8d (Add files via upload)
       this.flipX = false;
     }
     else
@@ -195,6 +217,7 @@ class HealthIcon extends FunkinSprite
       loadCharacter(characterId);
 
       this.size.set(data.scale ?? 1.0, data.scale ?? 1.0);
+<<<<<<< HEAD
       if (data.offsets != null && data.offsets.length == 2)
       {
         this.iconOffset.set(data.offsets[0], data.offsets[1]);
@@ -204,6 +227,10 @@ class HealthIcon extends FunkinSprite
         this.iconOffset.set(0, 0);
       }
 
+=======
+      this.offset.x = (data.offsets != null) ? data.offsets[0] : 0.0;
+      this.offset.y = (data.offsets != null) ? data.offsets[1] : 0.0;
+>>>>>>> e11c5f8d (Add files via upload)
       this.flipX = data.flipX ?? false; // Face the OTHER way by default, since that is more common.
     }
   }
@@ -220,7 +247,11 @@ class HealthIcon extends FunkinSprite
       lerpIconSize();
 
       // Lerp the health icon back to its normal angle.
+<<<<<<< HEAD
       this.angle = MathUtil.smoothLerpPrecision(this.angle, 0, elapsed, 0.512);
+=======
+      this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
+>>>>>>> e11c5f8d (Add files via upload)
     }
 
     this.updatePosition();
@@ -238,7 +269,11 @@ class HealthIcon extends FunkinSprite
     if (this.width > this.height)
     {
       // Apply linear interpolation while accounting for frame rate.
+<<<<<<< HEAD
       var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.width, HEALTH_ICON_SIZE * this.size.x, FlxG.elapsed, 0.512));
+=======
+      var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
+>>>>>>> e11c5f8d (Add files via upload)
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.x);
 
@@ -246,7 +281,11 @@ class HealthIcon extends FunkinSprite
     }
     else
     {
+<<<<<<< HEAD
       var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.height, HEALTH_ICON_SIZE * this.size.y, FlxG.elapsed, 0.512));
+=======
+      var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
+>>>>>>> e11c5f8d (Add files via upload)
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.y);
 
@@ -299,8 +338,11 @@ class HealthIcon extends FunkinSprite
 
       // Keep the icon centered vertically on the health bar.
       this.y = PlayState.instance.healthBar.y - (this.height / 2); // - (PlayState.instance.healthBar.height / 2)
+<<<<<<< HEAD
 
       offset += iconOffset;
+=======
+>>>>>>> e11c5f8d (Add files via upload)
     }
   }
 

@@ -2,7 +2,10 @@ package funkin.graphics.shaders;
 
 import flixel.addons.display.FlxRuntimeShader;
 
+<<<<<<< HEAD
 @:nullSafety
+=======
+>>>>>>> e11c5f8d (Add files via upload)
 class Grayscale extends FlxRuntimeShader
 {
   public var amount:Float = 1;

@@ -1,9 +1,21 @@
 package funkin.play.components;
 
+<<<<<<< HEAD
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tweens.FlxTween;
 import funkin.graphics.FunkinSprite;
 import funkin.util.EaseUtil;
+=======
+import flixel.FlxSprite;
+import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxDirection;
+import funkin.graphics.FunkinSprite;
+import funkin.play.PlayState;
+import funkin.util.TimerUtil;
+import funkin.util.EaseUtil;
+import funkin.data.notestyle.NoteStyleRegistry;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.play.notes.notestyle.NoteStyle;
 
 @:nullSafety

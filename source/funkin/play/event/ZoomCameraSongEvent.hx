@@ -1,9 +1,20 @@
 package funkin.play.event;
 
+<<<<<<< HEAD
 import flixel.tweens.FlxEase;
 // Data from the chart
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+=======
+import flixel.tweens.FlxTween;
+import flixel.FlxCamera;
+import flixel.tweens.FlxEase;
+// Data from the chart
+import funkin.data.song.SongData;
+import funkin.data.song.SongData.SongEventData;
+// Data from the event schema
+import funkin.play.event.SongEvent;
+>>>>>>> e11c5f8d (Add files via upload)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -110,7 +121,10 @@ class ZoomCameraSongEvent extends SongEvent
         name: 'zoom',
         title: 'Zoom Level',
         defaultValue: 1.0,
+<<<<<<< HEAD
         min: 0,
+=======
+>>>>>>> e11c5f8d (Add files via upload)
         step: 0.05,
         type: SongEventFieldType.FLOAT,
         units: 'x'
@@ -119,7 +133,10 @@ class ZoomCameraSongEvent extends SongEvent
         name: 'duration',
         title: 'Duration',
         defaultValue: 4.0,
+<<<<<<< HEAD
         min: 0,
+=======
+>>>>>>> e11c5f8d (Add files via upload)
         step: 0.5,
         type: SongEventFieldType.FLOAT,
         units: 'steps'
@@ -160,6 +177,7 @@ class ZoomCameraSongEvent extends SongEvent
           'Smooth Step In' => 'smoothStepIn',
           'Smooth Step Out' => 'smoothStepOut',
           'Smooth Step In/Out' => 'smoothStepInOut',
+<<<<<<< HEAD
           'Smoother Step In' => 'smootherStepIn',
           'Smoother Step Out' => 'smootherStepOut',
           'Smoother Step In/Out' => 'smootherStepInOut',
@@ -175,6 +193,11 @@ class ZoomCameraSongEvent extends SongEvent
           'Circ In' => 'circIn',
           'Circ Out' => 'circOut',
           'Circ In/Out' => 'circInOut'
+=======
+          'Elastic In' => 'elasticIn',
+          'Elastic Out' => 'elasticOut',
+          'Elastic In/Out' => 'elasticInOut'
+>>>>>>> e11c5f8d (Add files via upload)
         ]
       }
     ]);

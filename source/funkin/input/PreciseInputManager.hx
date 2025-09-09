@@ -294,7 +294,11 @@ class PreciseInputManager extends FlxKeyManager<FlxKey, PreciseInputList>
     // TODO: Remove this line with SDL3 when timestamps change meaning.
     // This is because SDL3's timestamps are measured in nanoseconds, not milliseconds.
     timestamp *= Constants.NS_PER_MS; // 18126000000 38367000000
+<<<<<<< HEAD
     // timestamp -= globalOffset * Constants.NS_PER_MS;
+=======
+    timestamp -= Conductor.instance.inputOffset * Constants.NS_PER_MS;
+>>>>>>> e11c5f8d (Add files via upload)
     // trace(timestamp);
     updateKeyStates(key, true);
 
