@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package funkin.ui;
 
 import flixel.FlxSprite;
@@ -300,3 +301,7 @@ class AlphaCharacter extends FlxSprite
     updateHitbox();
   }
 }
+||||||| parent of 608a0ee7 (Create Alphabet.hx)
+=======
+
+>>>>>>> 608a0ee7 (Create Alphabet.hx)
