@@ -1,17 +1,49 @@
 package funkin.ui.debug.char.components.dialogs.freeplay;
 
-import funkin.ui.debug.char.components.dialogs.DefaultPageDialog;
-import funkin.ui.debug.char.components.common.TextField;
-import funkin.ui.debug.char.components.common.NumberField;
-import funkin.ui.debug.char.components.common.BoolField;
-import funkin.ui.debug.char.components.common.Dropdown;
+import funkin.data.animation.AnimationData;
 
-class FreeplayDJAnimsDialog extends DefaultPageDialog {
-    public var djAnimList:Dropdown = new Dropdown();
-    public var djAnimName:TextField = new TextField();
-    public var djAnimPrefix:TextField = new TextField();
-    public var djAnimLooped:BoolField = new BoolField(false);
-    public var djAnimOffsetX:NumberField = new NumberField(0);
-    public var djAnimOffsetY:NumberField = new NumberField(0);
-    public function new() { super(); }
+@:build(haxe.ui.macros.ComponentMacros.build("assets/exclude/data/ui/char-creator/dialogs/freeplay/dj-anims-dialog.xml"))
+@:access(funkin.ui.debug.char.pages.CharCreatorFreeplayPage)
+class FreeplayDJAnimsDialog extends DefaultPageDialog
+{
+  override public function new(daPage:CharCreatorFreeplayPage)
+  {
+    super(daPage);
+
+    djAnimList.onChange = function(_) {
+      daPage.changeDJAnimation(djAnimList.selectedIndex - daPage.currentDJAnimation);
+    }
+
+    djAnimSave.onClick = function(_) {
+      if (!daPage.dj.hasAnimation(djAnimPrefix.text))
+      {
+        return;
+      }
+
+      if ((djAnimList.safeSelectedItem?.text ?? "") == djAnimName.text) // update instead of add
+      {
+        var animData = daPage.djAnims[daPage.currentDJAnimation];
+
+        animData.prefix = djAnimPrefix.text;
+        animData.looped = djAnimLooped.selected;
+        animData.offsets = [djAnimOffsetX.pos, djAnimOffsetY.pos];
+
+        daPage.changeDJAnimation();
+      }
+      else
+      {
+        daPage.djAnims.push(
+          {
+            name: djAnimName.text,
+            prefix: djAnimPrefix.text,
+            looped: djAnimLooped.selected,
+            offsets: [djAnimOffsetX.pos, djAnimOffsetY.pos]
+          });
+
+        djAnimList.dataSource.add({text: djAnimName.text});
+        djAnimList.selectedIndex = daPage.djAnims.length - 1;
+        daPage.changeDJAnimation(djAnimList.selectedIndex - daPage.currentDJAnimation);
+      }
+    }
+  }
 }
