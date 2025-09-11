@@ -1,19 +1,15 @@
 package funkin.ui.charSelect;
 
+import flixel.FlxSprite;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import flxanimate.animate.FlxKeyFrame;
 import funkin.modding.IScriptedClass.IBPMSyncedScriptedClass;
 import funkin.modding.events.ScriptEvent;
 
 class CharSelectPlayer extends FlxAtlasSprite implements IBPMSyncedScriptedClass
 {
-  var initialX:Float = 0;
-  var initialY:Float = 0;
-
   public function new(x:Float, y:Float)
   {
-    initialX = x;
-    initialY = y;
-
     super(x, y, Paths.animateAtlas("charSelect/bfChill"));
 
     onAnimationComplete.add(function(animLabel:String) {
@@ -59,9 +55,13 @@ class CharSelectPlayer extends FlxAtlasSprite implements IBPMSyncedScriptedClass
   {
     switch (str)
     {
-      case "bf" | 'pico' | "random":
-        x = initialX;
-        y = initialY;
+      case "bf":
+        x = 0;
+        y = 0;
+      case "pico":
+        x = 0;
+        y = 0;
+      case "random":
     }
   }
 

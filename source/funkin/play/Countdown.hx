@@ -2,6 +2,10 @@ package funkin.play;
 
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.modding.module.ModuleHandler;
 import funkin.modding.events.ScriptEvent;
 import funkin.modding.events.ScriptEvent.CountdownScriptEvent;
 import flixel.util.FlxTimer;
@@ -255,7 +259,7 @@ class Countdown
     var path = noteStyle.getCountdownSoundPath(step);
     if (path == null) return null;
 
-    return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME, null, null, true);
+    return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME);
   }
 
   public static function decrement(step:CountdownStep):CountdownStep

@@ -2,7 +2,7 @@ package funkin.play.character;
 
 import flixel.graphics.frames.FlxFramesCollection;
 import funkin.modding.events.ScriptEvent;
-import funkin.play.character.CharacterData.CharacterRenderType;
+import funkin.data.character.CharacterData.CharacterRenderType;
 import funkin.util.assets.FlxAnimationUtil;
 
 /**
@@ -18,10 +18,7 @@ class PackerCharacter extends BaseCharacter
 
   override function onCreate(event:ScriptEvent):Void
   {
-    // Display a custom scope for debugging purposes.
-    #if FEATURE_DEBUG_TRACY
-    cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
-    #end
+    trace('Creating Packer character: ' + this.characterId);
 
     loadSpritesheet();
     loadAnimations();
@@ -31,12 +28,12 @@ class PackerCharacter extends BaseCharacter
 
   function loadSpritesheet():Void
   {
-    trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+    trace('[PACKERCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
 
-    var tex:FlxFramesCollection = Paths.getPackerAtlas(_data.assetPath);
+    var tex:FlxFramesCollection = Paths.getPackerAtlas(_data.assetPaths[0]);
     if (tex == null)
     {
-      trace('Could not load Packer sprite: ${_data.assetPath}');
+      trace('Could not load Packer sprite: ${_data.assetPaths[0]}');
       return;
     }
 
@@ -46,8 +43,8 @@ class PackerCharacter extends BaseCharacter
     {
       this.isPixel = true;
       this.antialiasing = false;
-      // pixelPerfectRender = true;
-      // pixelPerfectPosition = true;
+      pixelPerfectRender = true;
+      pixelPerfectPosition = true;
     }
     else
     {

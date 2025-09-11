@@ -1,14 +1,12 @@
 package funkin.ui.debug.charting.contextmenus;
 
+import haxe.ui.containers.menus.Menu;
 import haxe.ui.containers.menus.MenuItem;
+import haxe.ui.core.Screen;
 import funkin.ui.debug.charting.commands.CutItemsCommand;
 import funkin.ui.debug.charting.commands.RemoveEventsCommand;
 import funkin.ui.debug.charting.commands.RemoveItemsCommand;
 import funkin.ui.debug.charting.commands.RemoveNotesCommand;
-import funkin.ui.debug.charting.commands.FlipNotesCommand;
-import funkin.ui.debug.charting.commands.SelectAllItemsCommand;
-import funkin.ui.debug.charting.commands.InvertSelectedItemsCommand;
-import funkin.ui.debug.charting.commands.DeselectAllItemsCommand;
 
 @:access(funkin.ui.debug.charting.ChartEditorState)
 @:build(haxe.ui.ComponentBuilder.build("assets/exclude/data/ui/chart-editor/context-menus/selection.xml"))
@@ -30,7 +28,7 @@ class ChartEditorSelectionContextMenu extends ChartEditorBaseContextMenu
     initialize();
   }
 
-  public function initialize():Void
+  function initialize():Void
   {
     contextmenuCut.onClick = (_) -> {
       chartEditorState.performCommand(new CutItemsCommand(chartEditorState.currentNoteSelection, chartEditorState.currentEventSelection));
@@ -38,7 +36,7 @@ class ChartEditorSelectionContextMenu extends ChartEditorBaseContextMenu
     contextmenuCopy.onClick = (_) -> {
       chartEditorState.copySelection();
     };
-    contextmenuDelete.onClick = (_) -> {
+    contextmenuFlip.onClick = (_) -> {
       if (chartEditorState.currentNoteSelection.length > 0 && chartEditorState.currentEventSelection.length > 0)
       {
         chartEditorState.performCommand(new RemoveItemsCommand(chartEditorState.currentNoteSelection, chartEditorState.currentEventSelection));
@@ -56,19 +54,5 @@ class ChartEditorSelectionContextMenu extends ChartEditorBaseContextMenu
         // Do nothing???
       }
     };
-
-    contextmenuFlip.onClick = function(_) {
-      chartEditorState.performCommand(new FlipNotesCommand(chartEditorState.currentNoteSelection));
-    }
-
-    contextmenuSelectAll.onClick = function(_) {
-      chartEditorState.performCommand(new SelectAllItemsCommand(true, false));
-    }
-    contextmenuSelectInverse.onClick = function(_) {
-      chartEditorState.performCommand(new InvertSelectedItemsCommand());
-    }
-    contextmenuSelectNone.onClick = function(_) {
-      chartEditorState.performCommand(new DeselectAllItemsCommand());
-    }
   }
 }

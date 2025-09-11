@@ -13,7 +13,6 @@ import funkin.input.Controls.Action;
  *
  * Example: Pressing Ctrl+Z will undo, while holding Ctrl+Z will start to undo repeatedly.
  */
-@:nullSafety
 class TurboActionHandler extends FlxBasic
 {
   /**

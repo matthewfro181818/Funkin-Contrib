@@ -1,6 +1,9 @@
 package funkin.audio;
 
 import flash.media.Sound;
+#if flash11
+import flash.utils.ByteArray;
+#end
 import flixel.sound.FlxSound;
 import flixel.system.FlxAssets.FlxSoundAsset;
 import openfl.Assets;
@@ -11,7 +14,6 @@ import openfl.utils.AssetType;
 /**
  * a FlxSound that just overrides loadEmbedded to allow for "streamed" sounds to load with better performance!
  */
-@:nullSafety
 class FlxStreamSound extends FlxSound
 {
   public function new()
@@ -19,7 +21,7 @@ class FlxStreamSound extends FlxSound
     super();
   }
 
-  override public function loadEmbedded(EmbeddedSound:Null<FlxSoundAsset>, Looped:Bool = false, AutoDestroy:Bool = false, ?OnComplete:Void->Void):FlxSound
+  override public function loadEmbedded(EmbeddedSound:FlxSoundAsset, Looped:Bool = false, AutoDestroy:Bool = false, ?OnComplete:Void->Void):FlxSound
   {
     if (EmbeddedSound == null) return this;
 

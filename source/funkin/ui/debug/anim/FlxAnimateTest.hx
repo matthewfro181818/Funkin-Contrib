@@ -22,9 +22,9 @@ class FlxAnimateTest extends MusicBeatState
   {
     super.create();
 
-    sprite = new FlxAtlasSprite(-100, 0, 'week3:assets/week3/images/philly/erect/picoFlowers');
+    sprite = new FlxAtlasSprite(0, 0, 'assets/images/charSelect/maskTest');
     add(sprite);
-    sprite.playAnimation(sprite.anim.stageInstance.symbol.name, false, false, true);
+    sprite.playAnimation(null, false, false, true);
   }
 
   public override function update(elapsed:Float):Void

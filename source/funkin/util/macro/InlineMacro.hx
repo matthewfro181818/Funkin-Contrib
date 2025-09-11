@@ -7,7 +7,6 @@ using funkin.util.tools.ArrayTools;
 /**
  * A macro to make fields inline.
  */
-@:nullSafety
 class InlineMacro
 {
   /**

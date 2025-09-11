@@ -1,14 +1,12 @@
 package funkin.data.animation;
 
-@:nullSafety
 class AnimationDataUtil
 {
-  public static function toNamed(data:UnnamedAnimationData, name:String = ""):AnimationData
+  public static function toNamed(data:UnnamedAnimationData, ?name:String = ""):AnimationData
   {
     return {
       name: name,
       prefix: data.prefix,
-      assetPath: data.assetPath,
       offsets: data.offsets,
       looped: data.looped,
       flipX: data.flipX,
@@ -16,23 +14,12 @@ class AnimationDataUtil
       frameRate: data.frameRate,
       frameIndices: data.frameIndices
     };
-  }
-
-  /**
-   * @param data
-   * @param name (adds index to name)
-   * @return Array<AnimationData>
-   */
-  public static function toNamedArray(data:Array<UnnamedAnimationData>, name:String = ""):Array<AnimationData>
-  {
-    return data.mapi(function(animItem, ind) return toNamed(animItem, '$name$ind'));
   }
 
   public static function toUnnamed(data:AnimationData):UnnamedAnimationData
   {
     return {
       prefix: data.prefix,
-      assetPath: data.assetPath,
       offsets: data.offsets,
       looped: data.looped,
       flipX: data.flipX,
@@ -40,11 +27,6 @@ class AnimationDataUtil
       frameRate: data.frameRate,
       frameIndices: data.frameIndices
     };
-  }
-
-  public static function toUnnamedArray(data:Array<AnimationData>):Array<UnnamedAnimationData>
-  {
-    return data.map(toUnnamed);
   }
 }
 
@@ -80,14 +62,6 @@ typedef UnnamedAnimationData =
    */
   @:optional
   var prefix:String;
-
-  /**
-   * Optionally specify an asset path to use for this specific animation.
-   * ONLY for use by MultiSparrow characters.
-   * @default The assetPath of the parent sprite
-   */
-  @:optional
-  var assetPath:Null<String>;
 
   /**
    * Offset the character's position by this amount when playing this animation.

@@ -1,8 +1,10 @@
 package funkin.ui.debug.stageeditor.handlers;
 
+import funkin.ui.debug.stageeditor.handlers.AssetDataHandler;
 import haxe.io.Bytes;
 import funkin.util.FileUtil;
 import openfl.display.BitmapData;
+import haxe.Json;
 import haxe.zip.Entry;
 import funkin.play.character.BaseCharacter.CharacterType;
 import funkin.play.character.BaseCharacter;
@@ -47,14 +49,12 @@ class StageDataHandler
           animations: data.animations,
           startingAnimation: data.startingAnimation,
           animType: data.animType,
-          flipX: data.flipX,
-          flipY: data.flipY,
           angle: data.angle,
           blend: data.blend,
           color: data.assetPath.startsWith("#") ? "#FFFFFF" : data.color
         });
 
-      if (!xmlMap.exists(data.assetPath) && data.animData != "") xmlMap.set(data.assetPath, data.animData);
+      if (!xmlMap.exists(data.assetPath) && data.xmlData != "") xmlMap.set(data.assetPath, data.xmlData);
     }
 
     // step 1 phase 2: character data
@@ -69,18 +69,6 @@ class StageDataHandler
     endData.characters.bf.cameraOffsets = state.charCamOffsets[CharacterType.BF].copy();
     endData.characters.gf.cameraOffsets = state.charCamOffsets[CharacterType.GF].copy();
     endData.characters.dad.cameraOffsets = state.charCamOffsets[CharacterType.DAD].copy();
-
-    endData.characters.bf.alpha = state.bf.alpha;
-    endData.characters.gf.alpha = state.gf.alpha;
-    endData.characters.dad.alpha = state.dad.alpha;
-
-    endData.characters.bf.angle = state.bf.angle;
-    endData.characters.gf.angle = state.gf.angle;
-    endData.characters.dad.angle = state.dad.angle;
-
-    endData.characters.bf.scroll = [state.bf.scrollFactor.x, state.bf.scrollFactor.y];
-    endData.characters.gf.scroll = [state.gf.scrollFactor.x, state.gf.scrollFactor.y];
-    endData.characters.dad.scroll = [state.dad.scrollFactor.x, state.dad.scrollFactor.y];
 
     endData.characters.bf.position = [
       state.bf.feetPosition.x - state.bf.globalOffsets[0],
@@ -122,13 +110,15 @@ class StageDataHandler
     }
 
     // step 2 phase 2: xmls
-    for (path => xml in xmlMap)
+    for (obj in endData.props)
     {
-      var bytes = Bytes.ofString(xml);
+      if (!xmlMap.exists(obj.assetPath)) continue; // damn
+
+      var bytes = Bytes.ofString(xmlMap[obj.assetPath]);
 
       var entry:Entry =
         {
-          fileName: path + ".xml",
+          fileName: obj.assetPath + ".xml",
           fileSize: bytes.length,
           fileTime: Date.now(),
           compressed: false,
@@ -220,10 +210,8 @@ class StageDataHandler
           scroll: objData.scroll.copy(),
           color: objData.color,
           blend: objData.blend,
-          flipX: objData.flipX,
-          flipY: objData.flipY,
           startingAnimation: objData.startingAnimation,
-          animData: xmls[objData.assetPath] ?? ""
+          xmlData: xmls[objData.assetPath] ?? ""
         });
 
       state.add(spr);
@@ -263,10 +251,6 @@ class StageDataHandler
       char.setScale(char.getBaseScale() * charData.scale);
       char.cameraFocusPoint.x += charData.cameraOffsets[0];
       char.cameraFocusPoint.y += charData.cameraOffsets[1];
-
-      char.alpha = charData.alpha;
-      char.angle = charData.angle;
-      char.scrollFactor.set(charData.scroll[0], charData.scroll[1]);
 
       state.charCamOffsets[char.characterType] = charData.cameraOffsets.copy();
     }
@@ -310,10 +294,6 @@ class StageDataHandler
       var spr = new StageEditorObject();
       if (!objData.assetPath.startsWith("#")) state.bitmaps.set(objData.assetPath, Assets.getBitmapData(Paths.image(objData.assetPath)));
 
-      var usePacker:Bool = objData.animType == "packer";
-      var animPath:String = Paths.file("images/" + objData.assetPath + (usePacker ? ".txt" : ".xml"));
-      var animText:String = Assets.exists(animPath) ? Assets.getText(animPath) : "";
-
       spr.fromData(
         {
           name: objData.name ?? "Unnamed",
@@ -329,16 +309,15 @@ class StageDataHandler
           scroll: objData.scroll.copy(),
           color: objData.color,
           blend: objData.blend,
-          flipX: objData.flipX,
-          flipY: objData.flipY,
           startingAnimation: objData.startingAnimation,
-          animData: animText
+          xmlData: Assets.exists(Paths.file("images/" + objData.assetPath + ".xml")) ? Assets.getText(Paths.file("images/" + objData.assetPath + ".xml")) : ""
         });
 
       state.add(spr);
     }
 
     state.updateArray();
+    state.sortAssets();
     state.updateMarkerPos();
   }
 

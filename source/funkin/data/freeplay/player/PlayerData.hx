@@ -32,15 +32,6 @@ class PlayerData
   public var showUnownedChars:Bool = false;
 
   /**
-   * The default sticker pack to use for songs featuring this playable character.
-   * Can be overridden by specific songs.
-   * @default `default`
-   */
-  @:optional
-  @:default(funkin.util.Constants.DEFAULT_STICKER_PACK)
-  public var stickerPack:String = Constants.DEFAULT_STICKER_PACK;
-
-  /**
    * Which freeplay style to use for this character.
    */
   @:optional
@@ -279,6 +270,12 @@ class PlayerCharSelectData
    */
   @:optional
   public var gf:PlayerCharSelectGFData;
+
+  public function new(?position:Int, ?gf:PlayerCharSelectGFData)
+  {
+    this.position = position;
+    this.gf = gf;
+  }
 }
 
 typedef PlayerCharSelectGFData =
@@ -334,19 +331,11 @@ typedef PlayerResultsAnimationData =
    */
   var renderType:String;
 
-  @:optional
-  var assetPath:Null<String>;
-
-  @:optional
-  var scriptClass:Null<String>;
+  var assetPath:String;
 
   @:optional
   @:default([0, 0])
   var offsets:Array<Float>;
-
-  @:optional
-  @:default("both")
-  var filter:String;
 
   @:optional
   @:default(500)
@@ -363,10 +352,6 @@ typedef PlayerResultsAnimationData =
   @:optional
   @:default('')
   var startFrameLabel:Null<String>;
-
-  @:optional
-  @:default('')
-  var sound:Null<String>;
 
   @:optional
   @:default(true)

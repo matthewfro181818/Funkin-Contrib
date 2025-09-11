@@ -24,7 +24,6 @@ import openfl.filters.ShaderFilter;
  *   - NOTE: Several other blend modes work without FunkinCamera. Some still do not work.
  * - NOTE: Framerate-independent camera tweening is fixed in Flixel 6.x. Rest in peace, SwagCamera.
  */
-@:nullSafety
 @:access(openfl.display.DisplayObject)
 @:access(openfl.display.BitmapData)
 @:access(openfl.display3D.Context3D)
@@ -51,12 +50,11 @@ class FunkinCamera extends FlxCamera
   // Used to identify the camera during debugging.
   final id:String = 'unknown';
 
-  @:nullSafety(Off)
   public function new(id:String = 'unknown', x:Int = 0, y:Int = 0, width:Int = 0, height:Int = 0, zoom:Float = 0)
   {
     super(x, y, width, height, zoom);
     this.id = id;
-    bgTexture = @:nullSafety(Off) pickTexture(width, height);
+    bgTexture = pickTexture(width, height);
     bgBitmap = FixedBitmapData.fromTexture(bgTexture);
     bgFrame = new FlxFrame(new FlxGraphic('', null));
     bgFrame.parent.bitmap = bgBitmap;
@@ -76,15 +74,12 @@ class FunkinCamera extends FlxCamera
    * and the grabbed bitmap will not include any previously rendered sprites
    * @return the grabbed bitmap data
    */
-  public function grabScreen(applyFilters:Bool, isolate:Bool = false):Null<BitmapData>
+  public function grabScreen(applyFilters:Bool, isolate:Bool = false):BitmapData
   {
     final texture = pickTexture(width, height);
     final bitmap = FixedBitmapData.fromTexture(texture);
-    if (bitmap != null)
-    {
-      squashTo(bitmap, applyFilters, isolate);
-      grabbed.push(bitmap);
-    }
+    squashTo(bitmap, applyFilters, isolate);
+    grabbed.push(bitmap);
     return bitmap;
   }
 
@@ -131,14 +126,12 @@ class FunkinCamera extends FlxCamera
     if (applyFilters)
     {
       bitmap.draw(flashSprite, matrix);
-      @:nullSafety(Off) // TODO: Remove this once openfl.display.Sprite has been null safed.
       flashSprite.filters = null;
       filtersApplied = true;
     }
     else
     {
       final tmp = flashSprite.filters;
-      @:nullSafety(Off)
       flashSprite.filters = null;
       bitmap.draw(flashSprite, matrix);
       flashSprite.filters = tmp;
@@ -204,7 +197,6 @@ class FunkinCamera extends FlxCamera
       final isolated = grabScreen(false, true);
       // apply fullscreen blend
       customBlendShader.blendSwag = blend;
-      @:nullSafety(Off) // I hope this doesn't cause issues
       customBlendShader.sourceSwag = isolated;
       customBlendShader.updateViewInfo(FlxG.width, FlxG.height, this);
       applyFilter(customBlendFilter);
@@ -236,7 +228,7 @@ class FunkinCamera extends FlxCamera
     bgItemCount = 0;
   }
 
-  function pickTexture(width:Int, height:Int):Null<TextureBase>
+  function pickTexture(width:Int, height:Int):TextureBase
   {
     // zero-sized textures will be problematic
     width = width < 1 ? 1 : width;
@@ -244,9 +236,7 @@ class FunkinCamera extends FlxCamera
     if (texturePool.length > 0)
     {
       final res = texturePool.pop();
-      if (res != null) BitmapDataUtil.resizeTexture(res, width, height);
-      else
-        trace('huh? why is this null? $texturePool');
+      BitmapDataUtil.resizeTexture(res, width, height);
       return res;
     }
     return Lib.current.stage.context3D.createTexture(width, height, BGRA, true);

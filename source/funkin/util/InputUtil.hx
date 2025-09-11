@@ -1,6 +1,6 @@
 package funkin.util;
 
-import funkin.input.Controls.Device;
+import funkin.input.Controls;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
@@ -10,7 +10,6 @@ using flixel.util.FlxStringUtil;
 /**
  * Utilities for working with inputs.
  */
-@:nullSafety
 class InputUtil
 {
   public static function format(id:Int, device:Device):String
@@ -20,38 +19,6 @@ class InputUtil
       case Keys: getKeyName(id);
       case Gamepad(gamepadID): getButtonName(id, FlxG.gamepads.getByID(gamepadID));
     }
-  }
-
-  /**
-   * Returns true if all of the keys in keyArray are being pressed,
-   * but also only fires once on the last key in the array being justPressed
-   * @param keyArray An array of FlxKeys
-   * @return Bool True if all of the keys in keyArray are being pressed, with at least one of them being in a JUST_PRESSED state
-   */
-  public static function allPressedWithDebounce(keyArray:Array<FlxKey>):Bool
-  {
-    return allPressed(keyArray) && FlxG.keys.anyJustPressed(keyArray);
-  }
-
-  /**
-   * Returns true if all of the keys in keyArray are being pressed
-   * @param keyArray An array of FlxKeys
-   * @return Bool True if all keys in keyArray are being pressed
-   */
-  public static function allPressed(keyArray:Array<FlxKey>):Bool
-  {
-    return !anyNotPressed(keyArray);
-  }
-
-  /**
-   * Returns if any key is not being pressed (or just pressed)
-   * @param keyArray An array of FlxKeys
-   * @return Bool True if there's any key in keyArray that isn't being pressed
-   */
-  public static function anyNotPressed(keyArray:Array<FlxKey>):Bool
-  {
-    var isKeyNotPressed:FlxKey->Bool = key -> return FlxG.keys.checkStatus(key, RELEASED) || FlxG.keys.checkStatus(key, JUST_RELEASED);
-    return keyArray.exists(isKeyNotPressed);
   }
 
   public static function getKeyName(id:Int):String
@@ -113,7 +80,7 @@ class InputUtil
       case NUMPADPLUS: "#+";
       case NUMPADPERIOD: "#.";
       case NUMPADMULTIPLY: "#*";
-      default: titleCase(FlxKey.toStringMap[id] ?? '?');
+      default: titleCase(FlxKey.toStringMap[id]);
     }
   }
 
@@ -123,12 +90,12 @@ class InputUtil
   {
     return switch (gamepad.getInputLabel(id))
     {
-      case null, "": shortenButtonName(FlxGamepadInputID.toStringMap[id]);
+      // case null | "": shortenButtonName(FlxGamepadInputID.toStringMap[id]);
       case label: shortenButtonName(label);
     }
   }
 
-  static function shortenButtonName(name:Null<String>)
+  static function shortenButtonName(name:String)
   {
     return switch (name == null ? "" : name.toLowerCase())
     {
@@ -179,7 +146,6 @@ class InputUtil
   }
 }
 
-@:nullSafety
 @:forward
 enum abstract ControllerName(String) from String to String
 {
@@ -205,7 +171,7 @@ enum abstract ControllerName(String) from String to String
     }
   }
 
-  static public function getAsset(gamepad:Null<FlxGamepad>):String
+  static public function getAsset(gamepad:FlxGamepad):String
   {
     if (gamepad == null) return 'assets/images/ui/devices/Keys.png';
 

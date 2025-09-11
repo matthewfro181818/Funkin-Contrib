@@ -1,7 +1,9 @@
 package funkin.graphics.video;
 
 import flixel.util.FlxColor;
+import flixel.util.FlxSignal.FlxTypedSignal;
 import funkin.audio.FunkinSound;
+import openfl.display3D.textures.TextureBase;
 import openfl.events.NetStatusEvent;
 import openfl.media.SoundTransform;
 import openfl.media.Video;
@@ -10,10 +12,9 @@ import openfl.net.NetStream;
 
 /**
  * Plays a video via a NetStream. Only works on HTML5.
- * This does NOT replace hxvlc, nor does hxvlc replace this.
- * hxvlc only works on native and does not work on HTML5!
+ * This does NOT replace hxCodec, nor does hxCodec replace this.
+ * hxCodec only works on desktop and does not work on HTML5!
  */
-@:nullSafety
 class FlxVideo extends FunkinSprite
 {
   var video:Video;
@@ -23,16 +24,14 @@ class FlxVideo extends FunkinSprite
   /**
    * A callback to execute when the video finishes.
    */
-  public var finishCallback:Null<Void->Void> = null;
+  public var finishCallback:Void->Void;
 
-  @:nullSafety(Off)
   public function new(videoPath:String)
   {
     super();
 
     this.videoPath = videoPath;
 
-    @:nullSafety(Off) // Why do I to do this here as well for this to build?
     makeGraphic(2, 2, FlxColor.TRANSPARENT);
 
     video = new Video();
@@ -75,7 +74,7 @@ class FlxVideo extends FunkinSprite
   }
 
   var videoAvailable:Bool = false;
-  var frameTimer:Float = 0;
+  var frameTimer:Float;
 
   static final FRAME_RATE:Float = 60;
 

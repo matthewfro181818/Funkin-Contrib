@@ -1,6 +1,5 @@
 package funkin.util;
 
-@:nullSafety
 class EaseUtil
 {
   /**

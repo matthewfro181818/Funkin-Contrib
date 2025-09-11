@@ -9,7 +9,6 @@ import flixel.system.debug.interaction.tools.Tool;
  * FlxDebugger Interaction window, which when pressed will open a
  * tracking window corresponding to whatever currently selected objects are
  */
-@:nullSafety
 class TrackerToolButtonUtil extends Tool
 {
   override function init(brain:Interaction):Tool

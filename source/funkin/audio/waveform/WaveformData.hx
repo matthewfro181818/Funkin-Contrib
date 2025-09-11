@@ -243,10 +243,9 @@ class WaveformDataChannel
   }
 
   /**
-   * @param i Index
-   * @return minimum point at an index.
+   * Retrieve a given minimum point at an index.
    */
-  public function minSample(i:Int):Int
+  public function minSample(i:Int)
   {
     var offset = (i * parent.channels + this.channelId) * 2;
     return inline parent.get(offset);

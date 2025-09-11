@@ -4,9 +4,7 @@ import haxe.ui.components.NumberStepper;
 import haxe.ui.components.TextField;
 import haxe.ui.components.DropDown;
 import funkin.util.SortUtil;
-import haxe.ui.events.UIEvent;
 
-@:access(funkin.ui.debug.stageeditor.StageEditorState)
 @:build(haxe.ui.macros.ComponentMacros.build("assets/exclude/data/ui/stage-editor/toolboxes/stage-settings.xml"))
 class StageEditorStageToolbox extends StageEditorDefaultToolbox
 {
@@ -29,7 +27,7 @@ class StageEditorStageToolbox extends StageEditorDefaultToolbox
       state.saved = false;
     }
 
-    final EXCLUDE_LIBS = ["art", "default", "vlc", "videos", "songs", "libvlc"];
+    final EXCLUDE_LIBS = ["art", "default", "vlc", "videos", "songs"];
     var allLibs = [];
 
     @:privateAccess
@@ -51,13 +49,6 @@ class StageEditorStageToolbox extends StageEditorDefaultToolbox
     }
 
     refresh();
-
-    this.onDialogClosed = onClose;
-  }
-
-  function onClose(event:UIEvent)
-  {
-    stageEditorState.menubarItemWindowStage.selected = false;
   }
 
   override public function refresh()
