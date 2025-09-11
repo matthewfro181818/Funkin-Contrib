@@ -8,6 +8,7 @@ import funkin.modding.module.Module;
 import funkin.modding.module.ScriptedModule;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.FlxG;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -15,12 +16,17 @@ import flixel.FlxG;
 =======
 import flixel.FlxG;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+import flixel.FlxG;
+=======
+>>>>>>> 8a1f54ca (lol8)
 
 /**
  * Utility functions for loading and manipulating active modules.
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -28,6 +34,10 @@ import flixel.FlxG;
 =======
 @:nullSafety
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+@:nullSafety
+=======
+>>>>>>> 8a1f54ca (lol8)
 class ModuleHandler
 {
   static final moduleCache:Map<String, Module> = new Map<String, Module>();
@@ -94,11 +104,18 @@ class ModuleHandler
    */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   static function sortByPriority(a:String, b:String):Int
+||||||| parent of 8a1f54ca (lol8)
+  static function sortByPriority(a:String, b:String):Int
+=======
+  static function sortByPriority(a:String, b:String)
+>>>>>>> 8a1f54ca (lol8)
   {
-    var aModule:Null<Module> = getModule(a);
-    var bModule:Null<Module> = getModule(b);
+    var aModule:Module = moduleCache.get(a);
+    var bModule:Module = moduleCache.get(b);
 
+<<<<<<< HEAD
     if (aModule == null || bModule == null)
     {
       return 0;
@@ -123,6 +140,13 @@ class ModuleHandler
       return 0;
     }
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    if (aModule == null || bModule == null)
+    {
+      return 0;
+    }
+=======
+>>>>>>> 8a1f54ca (lol8)
     if (aModule.priority != bModule.priority)
     {
       return aModule.priority - bModule.priority;
@@ -135,6 +159,7 @@ class ModuleHandler
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public static function getModule(moduleId:String):Null<Module>
 =======
   public static function getModule(moduleId:String):Module
@@ -144,6 +169,11 @@ class ModuleHandler
 =======
   public static function getModule(moduleId:String):Null<Module>
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  public static function getModule(moduleId:String):Null<Module>
+=======
+  public static function getModule(moduleId:String):Module
+>>>>>>> 8a1f54ca (lol8)
   {
     return moduleCache.get(moduleId);
   }
@@ -152,6 +182,7 @@ class ModuleHandler
   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var module:Null<Module> = getModule(moduleId);
 =======
     var module:Module = getModule(moduleId);
@@ -161,6 +192,11 @@ class ModuleHandler
 =======
     var module:Null<Module> = getModule(moduleId);
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    var module:Null<Module> = getModule(moduleId);
+=======
+    var module:Module = getModule(moduleId);
+>>>>>>> 8a1f54ca (lol8)
     if (module != null)
     {
       module.active = true;
@@ -171,6 +207,7 @@ class ModuleHandler
   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var module:Null<Module> = getModule(moduleId);
 =======
     var module:Module = getModule(moduleId);
@@ -180,6 +217,11 @@ class ModuleHandler
 =======
     var module:Null<Module> = getModule(moduleId);
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    var module:Null<Module> = getModule(moduleId);
+=======
+    var module:Module = getModule(moduleId);
+>>>>>>> 8a1f54ca (lol8)
     if (module != null)
     {
       module.active = false;
@@ -212,10 +254,17 @@ class ModuleHandler
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       var module:Null<Module> = moduleCache.get(moduleId);
+||||||| parent of 8a1f54ca (lol8)
+      var module:Null<Module> = moduleCache.get(moduleId);
+=======
+      var module:Module = moduleCache.get(moduleId);
+>>>>>>> 8a1f54ca (lol8)
       // The module needs to be active to receive events.
       if (module != null && module.active)
       {
+<<<<<<< HEAD
         if (module.state != null)
         {
           // Only call the event if the current state is what the module's state is.
@@ -247,6 +296,17 @@ class ModuleHandler
           }
         }
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+        if (module.state != null)
+        {
+          // Only call the event if the current state is what the module's state is.
+          if (!(Type.getClass(FlxG.state) == module.state) && !(Type.getClass(FlxG.state?.subState) == module.state))
+          {
+            continue;
+          }
+        }
+=======
+>>>>>>> 8a1f54ca (lol8)
         ScriptEventDispatcher.callEvent(module, event);
       }
     }

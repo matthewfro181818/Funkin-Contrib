@@ -2,10 +2,18 @@ package funkin.play.event;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| parent of 8a1f54ca (lol8)
+=======
+import flixel.tweens.FlxTween;
+import flixel.FlxCamera;
+>>>>>>> 8a1f54ca (lol8)
 import flixel.tweens.FlxEase;
 // Data from the chart
+import funkin.data.song.SongData;
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 =======
 import flixel.tweens.FlxTween;
 import flixel.FlxCamera;
@@ -25,6 +33,10 @@ import funkin.play.event.SongEvent;
 import funkin.play.event.SongEvent;
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+import funkin.play.event.SongEvent;
+>>>>>>> 8a1f54ca (lol8)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -131,6 +143,7 @@ class ScrollSpeedEvent extends SongEvent
         defaultValue: 1.0,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0.1,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -138,6 +151,10 @@ class ScrollSpeedEvent extends SongEvent
 =======
         min: 0.1,
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+        min: 0.1,
+=======
+>>>>>>> 8a1f54ca (lol8)
         step: 0.1,
         type: SongEventFieldType.FLOAT,
         units: 'x'
@@ -148,6 +165,7 @@ class ScrollSpeedEvent extends SongEvent
         defaultValue: 4.0,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -155,6 +173,10 @@ class ScrollSpeedEvent extends SongEvent
 =======
         min: 0,
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+        min: 0,
+=======
+>>>>>>> 8a1f54ca (lol8)
         step: 0.5,
         type: SongEventFieldType.FLOAT,
         units: 'steps'
@@ -190,11 +212,19 @@ class ScrollSpeedEvent extends SongEvent
           'Smooth Step In/Out' => 'smoothStepInOut',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           'Smoother Step In' => 'smootherStepIn',
           'Smoother Step Out' => 'smootherStepOut',
           'Smoother Step In/Out' => 'smootherStepInOut',
+||||||| parent of 8a1f54ca (lol8)
+          'Smoother Step In' => 'smootherStepIn',
+          'Smoother Step Out' => 'smootherStepOut',
+          'Smoother Step In/Out' => 'smootherStepInOut',
+=======
+>>>>>>> 8a1f54ca (lol8)
           'Elastic In' => 'elasticIn',
           'Elastic Out' => 'elasticOut',
+<<<<<<< HEAD
           'Elastic In/Out' => 'elasticInOut',
           'Back In' => 'backIn',
           'Back Out' => 'backOut',
@@ -231,6 +261,20 @@ class ScrollSpeedEvent extends SongEvent
           'Circ Out' => 'circOut',
           'Circ In/Out' => 'circInOut'
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+          'Elastic In/Out' => 'elasticInOut',
+          'Back In' => 'backIn',
+          'Back Out' => 'backOut',
+          'Back In/Out' => 'backInOut',
+          'Bounce In' => 'bounceIn',
+          'Bounce Out' => 'bounceOut',
+          'Bounce In/Out' => 'bounceInOut',
+          'Circ In' => 'circIn',
+          'Circ Out' => 'circOut',
+          'Circ In/Out' => 'circInOut'
+=======
+          'Elastic In/Out' => 'elasticInOut'
+>>>>>>> 8a1f54ca (lol8)
         ]
       },
       {

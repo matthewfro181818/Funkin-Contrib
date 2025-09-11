@@ -3,7 +3,7 @@ package funkin.ui.story;
 
 import funkin.play.stage.Bopper;
 import funkin.util.assets.FlxAnimationUtil;
-import funkin.data.story.level.LevelData.LevelPropData;
+import funkin.data.story.level.LevelData;
 
 class LevelProp extends Bopper
 {

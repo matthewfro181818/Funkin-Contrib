@@ -4,12 +4,11 @@ package funkin.audio.visualize;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.sound.FlxSound;
 
-@:nullSafety
 class PolygonVisGroup extends FlxTypedGroup<PolygonSpectogram>
 {
-  public var playerVis:Null<PolygonSpectogram>;
-  public var opponentVis:Null<PolygonSpectogram>;
-  public var instVis:Null<PolygonSpectogram>;
+  public var playerVis:PolygonSpectogram;
+  public var opponentVis:PolygonSpectogram;
+  public var instVis:PolygonSpectogram;
 
   public function new()
   {
@@ -101,14 +100,8 @@ class PolygonVisGroup extends FlxTypedGroup<PolygonSpectogram>
 
   public override function destroy():Void
   {
-    if (playerVis != null)
-    {
-      playerVis.destroy();
-    }
-    if (opponentVis != null)
-    {
-      opponentVis.destroy();
-    }
+    playerVis.destroy();
+    opponentVis.destroy();
     super.destroy();
   }
 }

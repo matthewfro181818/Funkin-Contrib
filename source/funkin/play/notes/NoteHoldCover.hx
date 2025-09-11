@@ -3,9 +3,17 @@ package funkin.play.notes;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| parent of 8a1f54ca (lol8)
+=======
+import funkin.play.notes.NoteDirection;
+>>>>>>> 8a1f54ca (lol8)
 import flixel.graphics.frames.FlxFramesCollection;
 import funkin.util.assets.FlxAnimationUtil;
+import flixel.FlxG;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.FlxSprite;
+<<<<<<< HEAD
 import funkin.play.notes.notestyle.NoteStyle;
 =======
 import funkin.play.notes.NoteDirection;
@@ -22,6 +30,10 @@ import flixel.FlxSprite;
 =======
 import funkin.play.notes.notestyle.NoteStyle;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+import funkin.play.notes.notestyle.NoteStyle;
+=======
+>>>>>>> 8a1f54ca (lol8)
 
 class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 {
@@ -29,16 +41,22 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| parent of 8a1f54ca (lol8)
+=======
+  static var glowFrames:FlxFramesCollection;
+
+>>>>>>> 8a1f54ca (lol8)
   public var holdNote:SustainTrail;
 
-  public var glow:FlxSprite;
-
+  var glow:FlxSprite;
   var sparks:FlxSprite;
 
-  public function new(noteStyle:NoteStyle)
+  public function new()
   {
     super(0, 0);
 
+<<<<<<< HEAD
     setupHoldNoteCover(noteStyle);
 =======
   static var glowFrames:FlxFramesCollection;
@@ -108,6 +126,32 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 =======
     setupHoldNoteCover(noteStyle);
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    setupHoldNoteCover(noteStyle);
+=======
+    setup();
+  }
+
+  public static function preloadFrames():Void
+  {
+    glowFrames = null;
+    for (direction in Strumline.DIRECTIONS)
+    {
+      var directionName = direction.colorName.toTitleCase();
+
+      var atlas:FlxFramesCollection = Paths.getSparrowAtlas('holdCover${directionName}');
+      atlas.parent.persist = true;
+
+      if (glowFrames != null)
+      {
+        glowFrames = FlxAnimationUtil.combineFramesCollections(glowFrames, atlas);
+      }
+      else
+      {
+        glowFrames = atlas;
+      }
+    }
+>>>>>>> 8a1f54ca (lol8)
   }
 
   /**
@@ -115,14 +159,24 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
    */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   function setupHoldNoteCover(noteStyle:NoteStyle):Void
+||||||| parent of 8a1f54ca (lol8)
+  function setupHoldNoteCover(noteStyle:NoteStyle):Void
+=======
+  function setup():Void
+>>>>>>> 8a1f54ca (lol8)
   {
     glow = new FlxSprite();
     add(glow);
+    if (glowFrames == null) preloadFrames();
+    glow.frames = glowFrames;
 
-    // TODO: null check here like how NoteSplash does
-    noteStyle.buildHoldCoverSprite(this);
+    for (direction in Strumline.DIRECTIONS)
+    {
+      var directionName = direction.colorName.toTitleCase();
 
+<<<<<<< HEAD
     glow.animation.onFinish.add(this.onAnimationFinished);
 =======
   function setup():Void
@@ -156,6 +210,16 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 =======
     glow.animation.onFinish.add(this.onAnimationFinished);
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    glow.animation.onFinish.add(this.onAnimationFinished);
+=======
+      glow.animation.addByPrefix('holdCoverStart$directionName', 'holdCoverStart${directionName}0', FRAMERATE_DEFAULT, false, false, false);
+      glow.animation.addByPrefix('holdCover$directionName', 'holdCover${directionName}0', FRAMERATE_DEFAULT, true, false, false);
+      glow.animation.addByPrefix('holdCoverEnd$directionName', 'holdCoverEnd${directionName}0', FRAMERATE_DEFAULT, false, false, false);
+    }
+
+    glow.animation.finishCallback = this.onAnimationFinished;
+>>>>>>> 8a1f54ca (lol8)
 
     if (glow.animation.getAnimationList().length < 3 * 4)
     {
@@ -194,6 +258,7 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     holdNote.cover = null;
 
 =======
@@ -203,6 +268,11 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
     holdNote.cover = null;
 
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    holdNote.cover = null;
+
+=======
+>>>>>>> 8a1f54ca (lol8)
     if (glow != null) glow.visible = false;
     if (sparks != null) sparks.visible = false;
   }

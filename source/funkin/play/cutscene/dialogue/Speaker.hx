@@ -8,6 +8,7 @@ import funkin.util.assets.FlxAnimationUtil;
 import funkin.modding.IScriptedClass.IDialogueScriptedClass;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.data.dialogue.SpeakerData;
 import funkin.data.dialogue.SpeakerRegistry;
 import funkin.ui.FullScreenScaleMode;
@@ -23,6 +24,14 @@ import funkin.data.dialogue.SpeakerData;
 import funkin.data.dialogue.SpeakerRegistry;
 import funkin.ui.FullScreenScaleMode;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+import funkin.data.dialogue.SpeakerData;
+import funkin.data.dialogue.SpeakerRegistry;
+import funkin.ui.FullScreenScaleMode;
+=======
+import funkin.data.dialogue.speaker.SpeakerData;
+import funkin.data.dialogue.speaker.SpeakerRegistry;
+>>>>>>> 8a1f54ca (lol8)
 
 /**
  * The character sprite which displays during dialogue.
@@ -34,6 +43,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
   /**
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    * The internal ID for this speaker.
    */
@@ -59,6 +69,19 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
   /**
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+   * The internal ID for this speaker.
+   */
+  public final id:String;
+
+  /**
+   * The full data for a speaker.
+   */
+  public final _data:SpeakerData;
+
+  /**
+>>>>>>> 8a1f54ca (lol8)
    * A readable name for this speaker.
    */
   public var speakerName(get, never):String;
@@ -109,6 +132,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
     this.y += yDiff;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -116,9 +140,20 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
       this.y = this.y * fullscreenScale + (-100 * fullscreenScale);
     }
 
+||||||| parent of 8a1f54ca (lol8)
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      this.x *= fullscreenScale;
+      this.y = this.y * fullscreenScale + (-100 * fullscreenScale);
+    }
+
+=======
+>>>>>>> 8a1f54ca (lol8)
     return globalOffsets = value;
   }
 
+<<<<<<< HEAD
   /**
    * A value used for scaling object's parameters on mobile.
    */
@@ -162,6 +197,21 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
   public function new(id:String, ?params:Dynamic)
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  /**
+   * A value used for scaling object's parameters on mobile.
+   */
+  var fullscreenScale(get, never):Float;
+
+  function get_fullscreenScale():Float
+  {
+    return FullScreenScaleMode.wideScale.x - 0.05;
+  }
+
+  public function new(id:String, ?params:Dynamic)
+=======
+  public function new(id:String)
+>>>>>>> 8a1f54ca (lol8)
   {
     super();
 
@@ -246,6 +296,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
     if (scale == null) scale = 1.0;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -263,6 +314,15 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
     }
 
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      scale *= fullscreenScale;
+    }
+
+=======
+>>>>>>> 8a1f54ca (lol8)
     this.scale.x = scale;
     this.scale.y = scale;
     this.updateHitbox();
@@ -402,6 +462,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
   public function onScriptEvent(event:ScriptEvent):Void {}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   public override function toString():String
@@ -427,4 +488,17 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
   }
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+
+  public override function toString():String
+  {
+    return 'Speaker($id)';
+  }
+
+  static function _fetchData(id:String):Null<SpeakerData>
+  {
+    return SpeakerRegistry.instance.parseEntryDataWithMigration(id, SpeakerRegistry.instance.fetchEntryVersion(id));
+  }
+>>>>>>> 8a1f54ca (lol8)
 }

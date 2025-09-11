@@ -3,6 +3,7 @@ package funkin.play;
 import flixel.FlxSprite;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.PlayState.PlayStateParams;
 =======
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -14,12 +15,19 @@ import funkin.play.PlayState;
 =======
 import funkin.play.PlayState.PlayStateParams;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+import funkin.play.PlayState.PlayStateParams;
+=======
+import flixel.graphics.frames.FlxAtlasFrames;
+import funkin.play.PlayState;
+>>>>>>> 8a1f54ca (lol8)
 import funkin.graphics.FunkinSprite;
 import funkin.ui.MusicBeatState;
 import flixel.addons.transition.FlxTransitionableState;
 import funkin.ui.mainmenu.MainMenuState;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if mobile
 import funkin.util.TouchUtil;
 import funkin.util.SwipeUtil;
@@ -33,6 +41,13 @@ import funkin.util.TouchUtil;
 import funkin.util.SwipeUtil;
 #end
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+#if mobile
+import funkin.util.TouchUtil;
+import funkin.util.SwipeUtil;
+#end
+=======
+>>>>>>> 8a1f54ca (lol8)
 
 class GitarooPause extends MusicBeatState
 {
@@ -43,8 +58,15 @@ class GitarooPause extends MusicBeatState
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   var previousParams:Null<PlayStateParams>;
+||||||| parent of 8a1f54ca (lol8)
+  var previousParams:Null<PlayStateParams>;
+=======
+  var previousParams:PlayStateParams;
+>>>>>>> 8a1f54ca (lol8)
 
+<<<<<<< HEAD
   public function new(?previousParams:PlayStateParams):Void
 =======
   var previousParams:PlayStateParams;
@@ -62,6 +84,11 @@ class GitarooPause extends MusicBeatState
 =======
   public function new(?previousParams:PlayStateParams):Void
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  public function new(?previousParams:PlayStateParams):Void
+=======
+  public function new(previousParams:PlayStateParams):Void
+>>>>>>> 8a1f54ca (lol8)
   {
     super();
 
@@ -79,6 +106,7 @@ class GitarooPause extends MusicBeatState
     var bg:FunkinSprite = FunkinSprite.create('pauseAlt/pauseBG');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     bg.setGraphicSize(Std.int(FlxG.width));
     bg.updateHitbox();
     bg.screenCenter();
@@ -90,6 +118,12 @@ class GitarooPause extends MusicBeatState
     bg.updateHitbox();
     bg.screenCenter();
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    bg.setGraphicSize(Std.int(FlxG.width));
+    bg.updateHitbox();
+    bg.screenCenter();
+=======
+>>>>>>> 8a1f54ca (lol8)
     add(bg);
 
     var bf:FunkinSprite = FunkinSprite.createSparrow(0, 30, 'pauseAlt/bfLol');
@@ -97,9 +131,16 @@ class GitarooPause extends MusicBeatState
     bf.animation.play('lol');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     bf.screenCenter(X);
+||||||| parent of 8a1f54ca (lol8)
+    bf.screenCenter(X);
+=======
+>>>>>>> 8a1f54ca (lol8)
     add(bf);
+    bf.screenCenter(X);
 
+<<<<<<< HEAD
     replayButton = FunkinSprite.createSparrow(FlxG.width * 0.25, FlxG.height * 0.7, 'pauseAlt/pauseUI');
 =======
     add(bf);
@@ -118,6 +159,11 @@ class GitarooPause extends MusicBeatState
 =======
     replayButton = FunkinSprite.createSparrow(FlxG.width * 0.25, FlxG.height * 0.7, 'pauseAlt/pauseUI');
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    replayButton = FunkinSprite.createSparrow(FlxG.width * 0.25, FlxG.height * 0.7, 'pauseAlt/pauseUI');
+=======
+    replayButton = FunkinSprite.createSparrow(FlxG.width * 0.28, FlxG.height * 0.7, 'pauseAlt/pauseUI');
+>>>>>>> 8a1f54ca (lol8)
     replayButton.animation.addByPrefix('selected', 'bluereplay', 0, false);
     replayButton.animation.appendByPrefix('selected', 'yellowreplay');
     replayButton.animation.play('selected');
@@ -136,6 +182,7 @@ class GitarooPause extends MusicBeatState
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if mobile
   function checkSelectionPress():Bool
   {
@@ -144,10 +191,22 @@ class GitarooPause extends MusicBeatState
   }
   #end
 
+||||||| parent of 8a1f54ca (lol8)
+  #if mobile
+  function checkSelectionPress():Bool
+  {
+    var buttonAcceptCheck:Bool = replaySelect ? TouchUtil.pressAction(replayButton) : TouchUtil.pressAction(cancelButton);
+    return buttonAcceptCheck && !SwipeUtil.swipeAny;
+  }
+  #end
+
+=======
+>>>>>>> 8a1f54ca (lol8)
   override function update(elapsed:Float):Void
   {
-    if (controls.UI_LEFT_P || controls.UI_RIGHT_P #if mobile || SwipeUtil.justSwipedLeft || SwipeUtil.justSwipedRight #end) changeThing();
+    if (controls.UI_LEFT_P || controls.UI_RIGHT_P) changeThing();
 
+<<<<<<< HEAD
     if (controls.ACCEPT #if mobile || checkSelectionPress() #end)
 =======
 ||||||| parent of b150c43d (lol4)
@@ -173,6 +232,11 @@ class GitarooPause extends MusicBeatState
 =======
     if (controls.ACCEPT #if mobile || checkSelectionPress() #end)
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    if (controls.ACCEPT #if mobile || checkSelectionPress() #end)
+=======
+    if (controls.ACCEPT)
+>>>>>>> 8a1f54ca (lol8)
     {
       if (replaySelect)
       {

@@ -3,6 +3,7 @@ package funkin.graphics.shaders;
 import flixel.system.FlxAssets.FlxShader;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.tweens.FlxEase;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -10,12 +11,17 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxEase;
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+import flixel.tweens.FlxEase;
+>>>>>>> 8a1f54ca (lol8)
 import flixel.tweens.FlxTween;
 
 class BlueFade extends FlxShader
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var fadeVal(default, set):Float = 1;
 =======
   public var fadeVal(default, set):Float;
@@ -25,6 +31,11 @@ class BlueFade extends FlxShader
 =======
   public var fadeVal(default, set):Float = 1;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  public var fadeVal(default, set):Float = 1;
+=======
+  public var fadeVal(default, set):Float;
+>>>>>>> 8a1f54ca (lol8)
 
   function set_fadeVal(val:Float):Float
   {

@@ -12,7 +12,6 @@ package funkin.util.logging;
  * perf.print();
  * ```
  */
-@:nullSafety
 class Perf
 {
   final startTime:Float;

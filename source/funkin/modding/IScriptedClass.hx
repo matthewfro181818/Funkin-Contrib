@@ -76,6 +76,7 @@ interface INoteScriptedClass extends IScriptedClass
   public function onNoteMiss(event:NoteScriptEvent):Void;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   /**
    * Called when EITHER player (usually the player) drops a hold note.
@@ -91,6 +92,14 @@ interface INoteScriptedClass extends IScriptedClass
    */
   public function onNoteHoldDrop(event:HoldNoteScriptEvent):Void;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+
+  /**
+   * Called when EITHER player (usually the player) drops a hold note.
+   */
+  public function onNoteHoldDrop(event:HoldNoteScriptEvent):Void;
+=======
+>>>>>>> 8a1f54ca (lol8)
 }
 
 /**

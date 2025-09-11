@@ -5,7 +5,13 @@ import funkin.graphics.shaders.PureColor;
 import flixel.FlxSprite;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| parent of 8a1f54ca (lol8)
+=======
+import flixel.group.FlxGroup.FlxTypedGroup;
+>>>>>>> 8a1f54ca (lol8)
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+<<<<<<< HEAD
 =======
 import flixel.group.FlxGroup.FlxTypedGroup;
 ||||||| parent of b150c43d (lol4)
@@ -28,6 +34,14 @@ import flixel.text.FlxText.FlxTextAlign;
 import funkin.util.MathUtil;
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+import flixel.math.FlxMath;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.text.FlxText.FlxTextAlign;
+import funkin.util.MathUtil;
+>>>>>>> 8a1f54ca (lol8)
 import flixel.util.FlxColor;
 
 /**
@@ -91,6 +105,7 @@ class ClearPercentCounter extends FlxTypedSpriteGroup<FlxSprite>
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     while (tempCombo > 0 && tempCombo != 0)
 =======
     while (tempCombo != 0)
@@ -100,6 +115,11 @@ class ClearPercentCounter extends FlxTypedSpriteGroup<FlxSprite>
 =======
     while (tempCombo > 0 && tempCombo != 0)
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    while (tempCombo > 0 && tempCombo != 0)
+=======
+    while (tempCombo != 0)
+>>>>>>> 8a1f54ca (lol8)
     {
       seperatedScore.push(tempCombo % 10);
       tempCombo = Math.floor(tempCombo / 10);

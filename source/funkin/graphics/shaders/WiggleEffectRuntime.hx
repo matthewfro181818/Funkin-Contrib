@@ -20,9 +20,15 @@ enum WiggleEffectType
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
+||||||| parent of 8a1f54ca (lol8)
+@:nullSafety
+=======
+>>>>>>> 8a1f54ca (lol8)
 class WiggleEffectRuntime extends FlxRuntimeShader
 {
+<<<<<<< HEAD
   public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
 =======
 ||||||| parent of b150c43d (lol4)
@@ -39,14 +45,26 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
+=======
+  public static function getEffectTypeId(v:WiggleEffectType):Int
+>>>>>>> 8a1f54ca (lol8)
   {
     return WiggleEffectType.getConstructors().indexOf(Std.string(v));
   }
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
+||||||| parent of 8a1f54ca (lol8)
+  public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
+=======
+  public var effectType(default, set):WiggleEffectType = DREAMY;
+>>>>>>> 8a1f54ca (lol8)
 
+<<<<<<< HEAD
   function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
 =======
   public var effectType(default, set):WiggleEffectType = DREAMY;
@@ -64,6 +82,11 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
+=======
+  function set_effectType(v:WiggleEffectType):WiggleEffectType
+>>>>>>> 8a1f54ca (lol8)
   {
     this.setInt('effectType', getEffectTypeId(v));
     return effectType = v;

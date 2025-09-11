@@ -15,6 +15,7 @@ import funkin.input.Controls.Action;
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -22,6 +23,10 @@ import funkin.input.Controls.Action;
 =======
 @:nullSafety
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+@:nullSafety
+=======
+>>>>>>> 8a1f54ca (lol8)
 class TurboActionHandler extends FlxBasic
 {
   /**

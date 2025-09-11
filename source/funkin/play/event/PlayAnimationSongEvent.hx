@@ -5,8 +5,14 @@ import funkin.play.character.BaseCharacter;
 // Data from the chart
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| parent of 8a1f54ca (lol8)
+=======
+import funkin.data.song.SongData;
+>>>>>>> 8a1f54ca (lol8)
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 =======
 import funkin.data.song.SongData;
 ||||||| parent of b150c43d (lol4)
@@ -22,6 +28,10 @@ import funkin.play.event.SongEvent;
 import funkin.play.event.SongEvent;
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+import funkin.play.event.SongEvent;
+>>>>>>> 8a1f54ca (lol8)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 

@@ -2,6 +2,7 @@ package funkin.play.notes.notekind;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.data.song.SongData.SongNoteData;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -9,6 +10,10 @@ import funkin.data.song.SongData.SongNoteData;
 =======
 import funkin.data.song.SongData.SongNoteData;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+import funkin.data.song.SongData.SongNoteData;
+=======
+>>>>>>> 8a1f54ca (lol8)
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.events.ScriptEvent;
 import funkin.ui.debug.charting.util.ChartEditorDropdowns;
@@ -21,6 +26,7 @@ class NoteKindManager
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * A map of all note kinds, keyed by their name.
    * This is used to retrieve note kinds by their name.
@@ -58,6 +64,25 @@ class NoteKindManager
     return noteKinds.get(noteKind);
   }
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  /**
+   * A map of all note kinds, keyed by their name.
+   * This is used to retrieve note kinds by their name.
+   */
+  public static var noteKinds:Map<String, NoteKind> = [];
+
+  /**
+   * Retrieve a note kind by its name.
+   * @param noteKind The name of the note kind.
+   * @return The note kind, or null if it doesn't exist.
+   */
+  public static function getNoteKind(noteKind:String):Null<NoteKind>
+  {
+    return noteKinds.get(noteKind);
+  }
+=======
+  static var noteKinds:Map<String, NoteKind> = [];
+>>>>>>> 8a1f54ca (lol8)
 
   public static function loadScripts():Void
   {
@@ -97,6 +122,7 @@ class NoteKindManager
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       var noteKind:NoteKind = noteKinds.get(noteEvent?.note?.kind);
 =======
       var noteKind:NoteKind = noteKinds.get(noteEvent.note.kind);
@@ -106,6 +132,11 @@ class NoteKindManager
 =======
       var noteKind:NoteKind = noteKinds.get(noteEvent?.note?.kind);
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+      var noteKind:NoteKind = noteKinds.get(noteEvent?.note?.kind);
+=======
+      var noteKind:NoteKind = noteKinds.get(noteEvent.note.kind);
+>>>>>>> 8a1f54ca (lol8)
 
       if (noteKind != null)
       {
@@ -141,6 +172,7 @@ class NoteKindManager
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public static function listNoteStyles(songNoteDatas:Array<SongNoteData>):Array<NoteStyle>
   {
     var results:Array<NoteStyle> = [];
@@ -166,6 +198,19 @@ class NoteKindManager
   }
 
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  public static function listNoteStyles(songNoteDatas:Array<SongNoteData>):Array<NoteStyle>
+  {
+    var results:Array<NoteStyle> = [];
+    for (songNoteData in songNoteDatas)
+    {
+      var noteStyle:NoteStyle = getNoteStyle(songNoteData.kind, null);
+    }
+    return results;
+  }
+
+=======
+>>>>>>> 8a1f54ca (lol8)
   /**
    * Retrieve the note style id from the given note kind
    * @param noteKind Note kind name

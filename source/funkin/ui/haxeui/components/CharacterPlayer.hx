@@ -3,12 +3,12 @@ package funkin.ui.haxeui.components;
 
 import funkin.modding.events.ScriptEvent.GhostMissNoteScriptEvent;
 import funkin.modding.events.ScriptEvent.NoteScriptEvent;
-import funkin.modding.events.ScriptEvent.HoldNoteScriptEvent;
 import funkin.modding.events.ScriptEvent.HitNoteScriptEvent;
 import funkin.modding.events.ScriptEvent.SongTimeScriptEvent;
 import funkin.modding.events.ScriptEvent.UpdateScriptEvent;
+import haxe.ui.core.IDataComponent;
 import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterData.CharacterDataParser;
+import funkin.data.character.CharacterRegistry;
 import haxe.ui.containers.Box;
 import haxe.ui.core.Component;
 import haxe.ui.events.AnimationEvent;
@@ -87,7 +87,7 @@ class CharacterPlayer extends Box
     }
 
     // Prevent script issues by fetching with debug=true.
-    var newCharacter:BaseCharacter = CharacterDataParser.fetchCharacter(id, true);
+    var newCharacter:BaseCharacter = CharacterRegistry.fetchCharacter(id, true);
     if (newCharacter == null)
     {
       character = null;
@@ -102,12 +102,16 @@ class CharacterPlayer extends Box
     if (flip) character.flipX = !character.flipX;
     if (targetScale != 1.0) character.setScale(targetScale);
 
-    character.animation.onFrameChange.add(function(name:String = '', frameNumber:Int = -1, frameIndex:Int = -1) {
+    character.animation.callback = function(name:String = '', frameNumber:Int = -1, frameIndex:Int = -1) {
+      @:privateAccess
+      character.onAnimationFrame(name, frameNumber, frameIndex);
       dispatch(new AnimationEvent(AnimationEvent.FRAME));
-    });
-    character.animation.onFinish.add(function(name:String = '') {
+    };
+    character.animation.finishCallback = function(name:String = '') {
+      @:privateAccess
+      character.onAnimationFinished(name);
       dispatch(new AnimationEvent(AnimationEvent.END));
-    });
+    };
     add(character);
 
     invalidateComponentLayout();
@@ -174,8 +178,8 @@ class CharacterPlayer extends Box
   override function repositionChildren():Void
   {
     super.repositionChildren();
-    character.x = this.cachedScreenX;
-    character.y = this.cachedScreenY;
+    character.x = this.screenX;
+    character.y = this.screenY;
 
     // Apply animation offsets, so the character is positioned correctly based on the animation.
     @:privateAccess var animOffsets:Array<Float> = character.animOffsets;
@@ -237,16 +241,6 @@ class CharacterPlayer extends Box
   public function onNoteMiss(event:NoteScriptEvent):Void
   {
     if (character != null) character.onNoteMiss(event);
-  }
-
-  /**
-   * Called when a hold note is dropped in the song
-   * Used to play character animations.
-   * @param event The event.
-   */
-  public function onNoteHoldDrop(event:HoldNoteScriptEvent):Void
-  {
-    if (character != null) character.onNoteHoldDrop(event);
   }
 
   /**

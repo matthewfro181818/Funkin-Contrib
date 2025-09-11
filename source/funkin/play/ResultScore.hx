@@ -20,8 +20,6 @@ class ResultScore extends FlxTypedSpriteGroup<ScoreNum>
     var dumbNumb = Std.parseInt(Std.string(val));
     var prevNum:ScoreNum;
 
-    dumbNumb = Std.int(Math.min(dumbNumb, Math.pow(10, group.members.length) - 1));
-
     while (dumbNumb > 0)
     {
       scoreStart += 1;

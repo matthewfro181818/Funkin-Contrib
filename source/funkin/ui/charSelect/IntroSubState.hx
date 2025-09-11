@@ -4,10 +4,11 @@ package funkin.ui.charSelect;
 #if html5
 import funkin.graphics.video.FlxVideo;
 #end
-#if hxvlc
+#if hxCodec
 import funkin.graphics.video.FunkinVideoSprite;
 #end
 import funkin.ui.MusicBeatSubState;
+import funkin.audio.FunkinSound;
 import funkin.save.Save;
 
 /**
@@ -15,13 +16,7 @@ import funkin.save.Save;
  */
 class IntroSubState extends MusicBeatSubState
 {
-  #if html5
   static final LIGHTS_VIDEO_PATH:String = Paths.stripLibrary(Paths.videos('introSelect'));
-  #end
-
-  #if hxvlc
-  static final LIGHTS_VIDEO_PATH:String = Paths.videos('introSelect');
-  #end
 
   public override function create():Void
   {
@@ -42,7 +37,7 @@ class IntroSubState extends MusicBeatSubState
     playVideoHTML5(LIGHTS_VIDEO_PATH);
     #end
 
-    #if hxvlc
+    #if hxCodec
     trace('Playing native video ${LIGHTS_VIDEO_PATH}');
     playVideoNative(LIGHTS_VIDEO_PATH);
     #end
@@ -77,7 +72,7 @@ class IntroSubState extends MusicBeatSubState
   }
   #end
 
-  #if hxvlc
+  #if hxCodec
   var vid:FunkinVideoSprite;
 
   function playVideoNative(filePath:String):Void
@@ -90,21 +85,10 @@ class IntroSubState extends MusicBeatSubState
     if (vid != null)
     {
       vid.zIndex = 0;
-      vid.active = false;
-      vid.bitmap.onEncounteredError.add(function(msg:String):Void {
-        trace('[VLC] Encountered an error: $msg');
-
-        onLightsEnd();
-      });
       vid.bitmap.onEndReached.add(onLightsEnd);
-      vid.bitmap.onFormatSetup.add(() -> {
-        vid.setGraphicSize(FlxG.initialWidth, FlxG.initialHeight);
-        vid.updateHitbox();
-        vid.screenCenter();
-      });
 
       add(vid);
-      if (vid.load(filePath)) vid.play();
+      vid.play(filePath, false);
     }
     else
     {
@@ -122,7 +106,7 @@ class IntroSubState extends MusicBeatSubState
     //   #if html5
     //   @:privateAccess
     //   vid.netStream.seek(introSound.time);
-    //   #elseif hxvlc
+    //   #elseif hxCodec
     //   vid.bitmap.time = Std.int(introSound.time);
     //   #end
     // }
@@ -133,17 +117,15 @@ class IntroSubState extends MusicBeatSubState
    */
   function onLightsEnd():Void
   {
-    #if (html5 || hxvlc)
     if (vid != null)
     {
-      #if hxvlc
+      #if hxCodec
       vid.stop();
       #end
       remove(vid);
       vid.destroy();
       vid = null;
     }
-    #end
 
     FlxG.camera.zoom = 1;
 

@@ -5,11 +5,9 @@ import haxe.rtti.Meta;
 /**
  * A complement to `ClassMacro`. See `ClassMacro` for more information.
  */
-@:nullSafety
 class CompiledClassList
 {
-  static var classLists:Map<String, List<Class<Dynamic>>> = [];
-  static var initialized:Bool = false;
+  static var classLists:Map<String, List<Class<Dynamic>>>;
 
   /**
    * Class lists are injected into this class's metadata during the typing phase.
@@ -17,7 +15,7 @@ class CompiledClassList
    */
   static function init():Void
   {
-    initialized = true;
+    classLists = [];
 
     // Meta.getType returns Dynamic<Array<Dynamic>>.
     var metaData = Meta.getType(CompiledClassList);
@@ -52,7 +50,7 @@ class CompiledClassList
 
   public static function get(request:String):List<Class<Dynamic>>
   {
-    if (!initialized) init();
+    if (classLists == null) init();
 
     if (!classLists.exists(request))
     {
@@ -60,8 +58,6 @@ class CompiledClassList
       classLists.set(request, new List()); // Make the error only appear once.
     }
 
-    // A faulty request sets the value to an empty list above so this will never be null
-    @:nullSafety(Off)
     return classLists.get(request);
   }
 

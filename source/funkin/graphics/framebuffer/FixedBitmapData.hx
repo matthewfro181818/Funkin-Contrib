@@ -12,6 +12,7 @@ import openfl.display3D.textures.TextureBase;
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -19,6 +20,10 @@ import openfl.display3D.textures.TextureBase;
 =======
 @:nullSafety
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+@:nullSafety
+=======
+>>>>>>> 8a1f54ca (lol8)
 @:access(openfl.display3D.textures.TextureBase)
 @:access(openfl.display.OpenGLRenderer)
 class FixedBitmapData extends BitmapData
@@ -40,6 +45,7 @@ class FixedBitmapData extends BitmapData
    */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public static function fromTexture(texture:Null<TextureBase>):Null<FixedBitmapData>
 =======
   public static function fromTexture(texture:TextureBase):FixedBitmapData
@@ -49,6 +55,11 @@ class FixedBitmapData extends BitmapData
 =======
   public static function fromTexture(texture:Null<TextureBase>):Null<FixedBitmapData>
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  public static function fromTexture(texture:Null<TextureBase>):Null<FixedBitmapData>
+=======
+  public static function fromTexture(texture:TextureBase):FixedBitmapData
+>>>>>>> 8a1f54ca (lol8)
   {
     if (texture == null) return null;
     final bitmapData:FixedBitmapData = new FixedBitmapData(texture.__width, texture.__height, true, 0);

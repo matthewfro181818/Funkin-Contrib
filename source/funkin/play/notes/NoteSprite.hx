@@ -5,6 +5,7 @@ import funkin.data.song.SongData.NoteParamData;
 import funkin.play.notes.notestyle.NoteStyle;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.FlxSprite;
@@ -14,6 +15,11 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.FlxSprite;
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.FlxSprite;
+>>>>>>> 8a1f54ca (lol8)
 import funkin.graphics.FunkinSprite;
 import funkin.graphics.shaders.HSVShader;
 
@@ -23,6 +29,7 @@ class NoteSprite extends FunkinSprite
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * The hold note sprite for this note.
    */
@@ -34,6 +41,12 @@ class NoteSprite extends FunkinSprite
    * The hold note sprite for this note.
    */
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  /**
+   * The hold note sprite for this note.
+   */
+=======
+>>>>>>> 8a1f54ca (lol8)
   public var holdNoteSprite:SustainTrail;
 
   var hsvShader:HSVShader;
@@ -121,6 +134,7 @@ class NoteSprite extends FunkinSprite
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * The note data associated with this note sprite.
    * This is used to store the strum time, length, and other properties.
@@ -132,8 +146,16 @@ class NoteSprite extends FunkinSprite
    * This is used to store the strum time, length, and other properties.
    */
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  /**
+   * The note data associated with this note sprite.
+   * This is used to store the strum time, length, and other properties.
+   */
+=======
+>>>>>>> 8a1f54ca (lol8)
   public var noteData:SongNoteData;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   /**
    * If this note kind is scoreable (i.e., counted towards score and accuracy)
@@ -164,6 +186,20 @@ class NoteSprite extends FunkinSprite
    * This is true if the length is greater than 0.
    */
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  /**
+   * If this note kind is scoreable (i.e., counted towards score and accuracy)
+   * Only accessible in scripts
+   * Defaults to true
+   */
+  public var scoreable:Bool = true;
+
+  /**
+   * Whether this note is a hold note.
+   * This is true if the length is greater than 0.
+   */
+=======
+>>>>>>> 8a1f54ca (lol8)
   public var isHoldNote(get, never):Bool;
 
   function get_isHoldNote():Bool
@@ -174,6 +210,7 @@ class NoteSprite extends FunkinSprite
   /**
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    * The Y Offset of the note.
    */
   public var yOffset:Float = 0.0;
@@ -189,6 +226,14 @@ class NoteSprite extends FunkinSprite
 
   /**
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+   * The Y Offset of the note.
+   */
+  public var yOffset:Float = 0.0;
+
+  /**
+=======
+>>>>>>> 8a1f54ca (lol8)
    * Set this flag to true when hitting the note to avoid scoring it multiple times.
    */
   public var hasBeenHit:Bool = false;
@@ -235,6 +280,7 @@ class NoteSprite extends FunkinSprite
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.alpha = 1;
 
 =======
@@ -244,6 +290,11 @@ class NoteSprite extends FunkinSprite
     this.alpha = 1;
 
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    this.alpha = 1;
+
+=======
+>>>>>>> 8a1f54ca (lol8)
     setupNoteGraphic(noteStyle);
   }
 
@@ -257,6 +308,7 @@ class NoteSprite extends FunkinSprite
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     this.shader = hsvShader;
 
@@ -266,6 +318,11 @@ class NoteSprite extends FunkinSprite
 
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+    this.shader = hsvShader;
+
+>>>>>>> 8a1f54ca (lol8)
     // `false` disables the update() function for performance.
     this.active = noteStyle.isNoteAnimated();
   }
@@ -320,6 +377,7 @@ class NoteSprite extends FunkinSprite
     this.hsvShader.saturation = 0.2;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.shader = this.hsvShader;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -327,6 +385,10 @@ class NoteSprite extends FunkinSprite
 =======
     this.shader = this.hsvShader;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    this.shader = this.hsvShader;
+=======
+>>>>>>> 8a1f54ca (lol8)
   }
 
   public function setHue(hue:Float):Void
@@ -334,6 +396,7 @@ class NoteSprite extends FunkinSprite
     this.hsvShader.hue = hue;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (hue != 1.0) this.shader = this.hsvShader;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -341,6 +404,10 @@ class NoteSprite extends FunkinSprite
 =======
     if (hue != 1.0) this.shader = this.hsvShader;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    if (hue != 1.0) this.shader = this.hsvShader;
+=======
+>>>>>>> 8a1f54ca (lol8)
   }
 
   public override function revive():Void
@@ -355,6 +422,7 @@ class NoteSprite extends FunkinSprite
     this.hasMissed = false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.handledMiss = false;
     this.holdNoteSprite = null;
 ||||||| parent of b150c43d (lol4)
@@ -362,7 +430,13 @@ class NoteSprite extends FunkinSprite
     this.handledMiss = false;
     this.holdNoteSprite = null;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    this.handledMiss = false;
+    this.holdNoteSprite = null;
+=======
+>>>>>>> 8a1f54ca (lol8)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // The hsvShader should only be applied when it's necessary.
     // Otherwise, it should be turned off to keep note batching.
@@ -376,6 +450,12 @@ class NoteSprite extends FunkinSprite
     // Otherwise, it should be turned off to keep note batching.
     this.shader = null;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    // The hsvShader should only be applied when it's necessary.
+    // Otherwise, it should be turned off to keep note batching.
+    this.shader = null;
+=======
+>>>>>>> 8a1f54ca (lol8)
     this.hsvShader.hue = 1.0;
     this.hsvShader.saturation = 1.0;
     this.hsvShader.value = 1.0;

@@ -5,6 +5,7 @@ import funkin.util.assets.FlxAnimationUtil;
 import flixel.graphics.frames.FlxFramesCollection;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterRenderType;
 =======
 import funkin.data.character.CharacterData.CharacterRenderType;
@@ -14,6 +15,11 @@ import funkin.data.character.CharacterData.CharacterRenderType;
 =======
 import funkin.play.character.CharacterData.CharacterRenderType;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+import funkin.play.character.CharacterData.CharacterRenderType;
+=======
+import funkin.data.character.CharacterData.CharacterRenderType;
+>>>>>>> 8a1f54ca (lol8)
 
 /**
  * A SparrowCharacter is a Character which is rendered by
@@ -33,6 +39,7 @@ class SparrowCharacter extends BaseCharacter
   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Display a custom scope for debugging purposes.
     #if FEATURE_DEBUG_TRACY
     cpp.vm.tracy.TracyProfiler.zoneScoped('SparrowCharacter.create(${this.characterId})');
@@ -48,6 +55,14 @@ class SparrowCharacter extends BaseCharacter
     cpp.vm.tracy.TracyProfiler.zoneScoped('SparrowCharacter.create(${this.characterId})');
     #end
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    // Display a custom scope for debugging purposes.
+    #if FEATURE_DEBUG_TRACY
+    cpp.vm.tracy.TracyProfiler.zoneScoped('SparrowCharacter.create(${this.characterId})');
+    #end
+=======
+    trace('Creating Sparrow character: ' + this.characterId);
+>>>>>>> 8a1f54ca (lol8)
 
     loadSpritesheet();
     loadAnimations();
@@ -59,11 +74,18 @@ class SparrowCharacter extends BaseCharacter
   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     trace('Loading assets for Sparrow character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+||||||| parent of 8a1f54ca (lol8)
+    trace('Loading assets for Sparrow character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+=======
+    trace('[SPARROWCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
+>>>>>>> 8a1f54ca (lol8)
 
-    var tex:FlxFramesCollection = Paths.getSparrowAtlas(_data.assetPath);
+    var tex:FlxFramesCollection = Paths.getSparrowAtlas(_data.assetPaths[0]);
     if (tex == null)
     {
+<<<<<<< HEAD
       trace('Could not load Sparrow sprite: ${_data.assetPath}');
 =======
     trace('[SPARROWCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
@@ -84,6 +106,11 @@ class SparrowCharacter extends BaseCharacter
 =======
       trace('Could not load Sparrow sprite: ${_data.assetPath}');
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+      trace('Could not load Sparrow sprite: ${_data.assetPath}');
+=======
+      trace('Could not load Sparrow sprite: ${_data.assetPaths[0]}');
+>>>>>>> 8a1f54ca (lol8)
       return;
     }
 
@@ -95,6 +122,7 @@ class SparrowCharacter extends BaseCharacter
       this.antialiasing = false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // pixelPerfectRender = true;
       // pixelPerfectPosition = true;
 =======
@@ -108,6 +136,13 @@ class SparrowCharacter extends BaseCharacter
       // pixelPerfectRender = true;
       // pixelPerfectPosition = true;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+      // pixelPerfectRender = true;
+      // pixelPerfectPosition = true;
+=======
+      pixelPerfectRender = true;
+      pixelPerfectPosition = true;
+>>>>>>> 8a1f54ca (lol8)
     }
     else
     {

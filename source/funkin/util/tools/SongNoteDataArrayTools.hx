@@ -5,7 +5,6 @@ import funkin.data.song.SongData.SongNoteData;
 /**
  * A static extension which provides utility functions for `Array<SongNoteData>`s.
  */
-@:nullSafety
 class SongNoteDataArrayTools
 {
   /**
@@ -56,25 +55,8 @@ class SongNoteDataArrayTools
       }
       else
       {
-        // Notes might have same time but not same data, do scans towards both sides
-        // Scan left from midIndex
-        var i = midIndex;
-        while (i >= 0 && input[i].time == note.time)
-        {
-          if (input[i] == note) return i;
-          i--;
-        }
-
-        // Scan right from midIndex + 1
-        i = midIndex + 1;
-        while (i < input.length && input[i].time == note.time)
-        {
-          if (input[i] == note) return i;
-          i++;
-        }
-
-        // No matching note found, despite time match
-        break;
+        // We may be close, so constrain the range (but only a little) and try again.
+        highIndex -= 1;
       }
     }
     return -1;

@@ -1,19 +1,15 @@
 package funkin.util.logging;
 
-@:nullSafety
 class AnsiTrace
 {
-  /**
-   * Output a message to the log.
-   * Called when using `trace()`, and modified from the default to support ANSI colors.
-   * @param v The value to print.
-   */
+  // mostly a copy of haxe.Log.trace()
+  // but adds nice cute ANSI things
   public static function trace(v:Dynamic, ?info:haxe.PosInfos)
   {
-    var str = formatOutput(v, info);
-    #if FEATURE_DEBUG_TRACY
-    cpp.vm.tracy.TracyProfiler.message(str, flixel.util.FlxColor.WHITE);
+    #if NO_FEATURE_LOG_TRACE
+    return;
     #end
+    var str = formatOutput(v, info);
     #if js
     if (js.Syntax.typeof(untyped console) != "undefined" && (untyped console).log != null) (untyped console).log(str);
     #elseif lua
@@ -25,8 +21,7 @@ class AnsiTrace
     #end
   }
 
-  public static var colorSupported:Bool = #if sys (Sys.getEnv("TERM")?.startsWith('xterm')
-    || Sys.getEnv("ANSICON") != null) #else false #end;
+  public static var colorSupported:Bool = #if sys (Sys.getEnv("TERM") == "xterm" || Sys.getEnv("ANSICON") != null) #else false #end;
 
   // ansi stuff
   public static inline var RED = "\x1b[31m";
@@ -36,11 +31,8 @@ class AnsiTrace
   public static inline var BOLD = "\x1b[1m";
   public static inline var ITALIC = "\x1b[3m";
 
-  /**
-   * Format the output to use ANSI colors.
-   * Edited from the standard `trace()` implementation.
-   */
-  public static function formatOutput(v:Dynamic, ?infos:haxe.PosInfos):String
+  // where the real mf magic happens with ansi stuff!
+  public static function formatOutput(v:Dynamic, infos:haxe.PosInfos):String
   {
     var str = Std.string(v);
     if (infos == null) return str;
@@ -60,9 +52,6 @@ class AnsiTrace
     return pstr + ": " + str;
   }
 
-  /**
-   * Print color pixel art of BF in ANSI format.
-   */
   public static function traceBF()
   {
     #if (sys && debug)
@@ -85,10 +74,7 @@ class AnsiTrace
     return (colorSupported ? ansiCol : "");
   }
 
-  /**
-   * Color pixel art of BF in ANSI format.
-   * Generated using https://dom111.github.io/image-to-ansi/
-   */
+  // generated using https://dom111.github.io/image-to-ansi/
   public static var ansiBF:Array<String> = [
     "\x1b[39m\x1b[49m                                  \x1b[48;2;154;23;70m            \x1b[49m                                                \x1b[m",
     "\x1b[39m\x1b[49m                              \x1b[48;2;154;23;70m    \x1b[48;2;184;46;83m  \x1b[48;2;246;87;102m        \x1b[48;2;239;83;100m  \x1b[48;2;154;23;70m          \x1b[48;2;154;23;69m  \x1b[49m                                    \x1b[m",

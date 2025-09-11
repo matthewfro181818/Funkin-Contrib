@@ -3,7 +3,6 @@ package funkin.util.tools;
 /**
  * A static extension which provides utility functions for Strings.
  */
-@:nullSafety
 class StringTools
 {
   /**

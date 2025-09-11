@@ -7,9 +7,15 @@ import flixel.addons.display.FlxRuntimeShader;
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
+||||||| parent of 8a1f54ca (lol8)
+@:nullSafety
+=======
+>>>>>>> 8a1f54ca (lol8)
 class GaussianBlurShader extends FlxRuntimeShader
 {
+<<<<<<< HEAD
   public var amount:Float = 1;
 =======
 ||||||| parent of b150c43d (lol4)
@@ -26,6 +32,11 @@ class GaussianBlurShader extends FlxRuntimeShader
 =======
   public var amount:Float = 1;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  public var amount:Float = 1;
+=======
+  public var amount:Float;
+>>>>>>> 8a1f54ca (lol8)
 
   public function new(amount:Float = 1.0)
   {

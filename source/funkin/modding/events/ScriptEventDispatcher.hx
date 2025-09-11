@@ -8,6 +8,7 @@ import funkin.modding.IScriptedClass;
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -15,6 +16,10 @@ import funkin.modding.IScriptedClass;
 =======
 @:nullSafety
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+@:nullSafety
+=======
+>>>>>>> 8a1f54ca (lol8)
 class ScriptEventDispatcher
 {
   /**
@@ -101,6 +106,7 @@ class ScriptEventDispatcher
           return;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         case NOTE_HOLD_DROP:
           t.onNoteHoldDrop(cast event);
           return;
@@ -112,6 +118,12 @@ class ScriptEventDispatcher
           t.onNoteHoldDrop(cast event);
           return;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+        case NOTE_HOLD_DROP:
+          t.onNoteHoldDrop(cast event);
+          return;
+=======
+>>>>>>> 8a1f54ca (lol8)
         default: // Continue;
       }
     }

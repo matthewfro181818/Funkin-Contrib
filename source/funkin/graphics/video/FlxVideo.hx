@@ -3,7 +3,13 @@ package funkin.graphics.video;
 import flixel.util.FlxColor;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| parent of 8a1f54ca (lol8)
+=======
+import flixel.util.FlxSignal.FlxTypedSignal;
+>>>>>>> 8a1f54ca (lol8)
 import funkin.audio.FunkinSound;
+<<<<<<< HEAD
 =======
 import flixel.util.FlxSignal.FlxTypedSignal;
 ||||||| parent of b150c43d (lol4)
@@ -18,6 +24,10 @@ import openfl.display3D.textures.TextureBase;
 import openfl.display3D.textures.TextureBase;
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+import openfl.display3D.textures.TextureBase;
+>>>>>>> 8a1f54ca (lol8)
 import openfl.events.NetStatusEvent;
 import openfl.media.SoundTransform;
 import openfl.media.Video;
@@ -28,9 +38,18 @@ import openfl.net.NetStream;
  * Plays a video via a NetStream. Only works on HTML5.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * This does NOT replace hxvlc, nor does hxvlc replace this.
  * hxvlc only works on native and does not work on HTML5!
+||||||| parent of 8a1f54ca (lol8)
+ * This does NOT replace hxvlc, nor does hxvlc replace this.
+ * hxvlc only works on native and does not work on HTML5!
+=======
+ * This does NOT replace hxCodec, nor does hxCodec replace this.
+ * hxCodec only works on desktop and does not work on HTML5!
+>>>>>>> 8a1f54ca (lol8)
  */
+<<<<<<< HEAD
 @:nullSafety
 =======
  * This does NOT replace hxCodec, nor does hxCodec replace this.
@@ -49,6 +68,10 @@ import openfl.net.NetStream;
 =======
 @:nullSafety
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+@:nullSafety
+=======
+>>>>>>> 8a1f54ca (lol8)
 class FlxVideo extends FunkinSprite
 {
   var video:Video;
@@ -60,8 +83,15 @@ class FlxVideo extends FunkinSprite
    */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var finishCallback:Null<Void->Void> = null;
+||||||| parent of 8a1f54ca (lol8)
+  public var finishCallback:Null<Void->Void> = null;
+=======
+  public var finishCallback:Void->Void;
+>>>>>>> 8a1f54ca (lol8)
 
+<<<<<<< HEAD
   @:nullSafety(Off)
 =======
   public var finishCallback:Void->Void;
@@ -77,6 +107,10 @@ class FlxVideo extends FunkinSprite
 =======
   @:nullSafety(Off)
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  @:nullSafety(Off)
+=======
+>>>>>>> 8a1f54ca (lol8)
   public function new(videoPath:String)
   {
     super();
@@ -85,6 +119,7 @@ class FlxVideo extends FunkinSprite
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     @:nullSafety(Off) // Why do I to do this here as well for this to build?
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -92,6 +127,10 @@ class FlxVideo extends FunkinSprite
 =======
     @:nullSafety(Off) // Why do I to do this here as well for this to build?
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    @:nullSafety(Off) // Why do I to do this here as well for this to build?
+=======
+>>>>>>> 8a1f54ca (lol8)
     makeGraphic(2, 2, FlxColor.TRANSPARENT);
 
     video = new Video();
@@ -136,6 +175,7 @@ class FlxVideo extends FunkinSprite
   var videoAvailable:Bool = false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   var frameTimer:Float = 0;
 =======
   var frameTimer:Float;
@@ -145,6 +185,11 @@ class FlxVideo extends FunkinSprite
 =======
   var frameTimer:Float = 0;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  var frameTimer:Float = 0;
+=======
+  var frameTimer:Float;
+>>>>>>> 8a1f54ca (lol8)
 
   static final FRAME_RATE:Float = 60;
 

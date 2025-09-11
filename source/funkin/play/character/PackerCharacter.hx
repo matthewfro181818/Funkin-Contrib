@@ -4,6 +4,7 @@ import flixel.graphics.frames.FlxFramesCollection;
 import funkin.modding.events.ScriptEvent;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterRenderType;
 =======
 import funkin.data.character.CharacterData.CharacterRenderType;
@@ -13,6 +14,11 @@ import funkin.data.character.CharacterData.CharacterRenderType;
 =======
 import funkin.play.character.CharacterData.CharacterRenderType;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+import funkin.play.character.CharacterData.CharacterRenderType;
+=======
+import funkin.data.character.CharacterData.CharacterRenderType;
+>>>>>>> 8a1f54ca (lol8)
 import funkin.util.assets.FlxAnimationUtil;
 
 /**
@@ -30,6 +36,7 @@ class PackerCharacter extends BaseCharacter
   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Display a custom scope for debugging purposes.
     #if FEATURE_DEBUG_TRACY
     cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
@@ -45,6 +52,14 @@ class PackerCharacter extends BaseCharacter
     cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
     #end
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+    // Display a custom scope for debugging purposes.
+    #if FEATURE_DEBUG_TRACY
+    cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
+    #end
+=======
+    trace('Creating Packer character: ' + this.characterId);
+>>>>>>> 8a1f54ca (lol8)
 
     loadSpritesheet();
     loadAnimations();
@@ -56,11 +71,18 @@ class PackerCharacter extends BaseCharacter
   {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+||||||| parent of 8a1f54ca (lol8)
+    trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+=======
+    trace('[PACKERCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
+>>>>>>> 8a1f54ca (lol8)
 
-    var tex:FlxFramesCollection = Paths.getPackerAtlas(_data.assetPath);
+    var tex:FlxFramesCollection = Paths.getPackerAtlas(_data.assetPaths[0]);
     if (tex == null)
     {
+<<<<<<< HEAD
       trace('Could not load Packer sprite: ${_data.assetPath}');
 =======
     trace('[PACKERCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
@@ -81,6 +103,11 @@ class PackerCharacter extends BaseCharacter
 =======
       trace('Could not load Packer sprite: ${_data.assetPath}');
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+      trace('Could not load Packer sprite: ${_data.assetPath}');
+=======
+      trace('Could not load Packer sprite: ${_data.assetPaths[0]}');
+>>>>>>> 8a1f54ca (lol8)
       return;
     }
 
@@ -92,6 +119,7 @@ class PackerCharacter extends BaseCharacter
       this.antialiasing = false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // pixelPerfectRender = true;
       // pixelPerfectPosition = true;
 =======
@@ -105,6 +133,13 @@ class PackerCharacter extends BaseCharacter
       // pixelPerfectRender = true;
       // pixelPerfectPosition = true;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+      // pixelPerfectRender = true;
+      // pixelPerfectPosition = true;
+=======
+      pixelPerfectRender = true;
+      pixelPerfectPosition = true;
+>>>>>>> 8a1f54ca (lol8)
     }
     else
     {

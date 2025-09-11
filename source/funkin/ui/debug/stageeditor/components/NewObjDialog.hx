@@ -2,10 +2,16 @@
 package funkin.ui.debug.stageeditor.components;
 
 import haxe.ui.containers.dialogs.Dialog;
+import haxe.ui.components.Link;
 import funkin.ui.debug.stageeditor.handlers.AssetDataHandler;
+import funkin.save.Save;
+import funkin.util.FileUtil;
+import lime.ui.FileDialog;
+import flixel.FlxG;
 import openfl.display.BitmapData;
 import haxe.ui.notifications.NotificationType;
 import haxe.ui.notifications.NotificationManager;
+import funkin.play.stage.StageProp;
 
 @:build(haxe.ui.macros.ComponentMacros.build("assets/exclude/data/ui/stage-editor/dialogs/new-object.xml"))
 class NewObjDialog extends Dialog
@@ -63,9 +69,7 @@ class NewObjDialog extends Dialog
 
         spr.name = field.text;
         spr.screenCenter();
-
-        var sprArray = stageEditorState.spriteArray;
-        spr.zIndex = sprArray.length == 0 ? 0 : (sprArray[sprArray.length - 1].zIndex + 1);
+        spr.zIndex = 0;
 
         stageEditorState.selectedSprite = spr;
         stageEditorState.createAndPushAction(OBJECT_CREATED);

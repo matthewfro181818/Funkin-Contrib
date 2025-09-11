@@ -4,9 +4,15 @@ import flixel.addons.display.FlxRuntimeShader;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
+||||||| parent of 8a1f54ca (lol8)
+@:nullSafety
+=======
+>>>>>>> 8a1f54ca (lol8)
 class AdjustColorShader extends FlxRuntimeShader
 {
+<<<<<<< HEAD
   public var hue(default, set):Float = 0;
   public var saturation(default, set):Float = 0;
   public var brightness(default, set):Float = 0;
@@ -35,6 +41,17 @@ class AdjustColorShader extends FlxRuntimeShader
   public var brightness(default, set):Float = 0;
   public var contrast(default, set):Float = 0;
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+  public var hue(default, set):Float = 0;
+  public var saturation(default, set):Float = 0;
+  public var brightness(default, set):Float = 0;
+  public var contrast(default, set):Float = 0;
+=======
+  public var hue(default, set):Float;
+  public var saturation(default, set):Float;
+  public var brightness(default, set):Float;
+  public var contrast(default, set):Float;
+>>>>>>> 8a1f54ca (lol8)
 
   public function new()
   {

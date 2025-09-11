@@ -7,7 +7,6 @@ import flixel.FlxG;
 /**
  * Utility class that helps manage adding profiles to the flixel debugger tracker
  */
-@:nullSafety
 class TrackerUtil
 {
   /**

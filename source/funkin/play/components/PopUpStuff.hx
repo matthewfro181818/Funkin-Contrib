@@ -2,10 +2,19 @@ package funkin.play.components;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| parent of 8a1f54ca (lol8)
+=======
+import flixel.FlxSprite;
+>>>>>>> 8a1f54ca (lol8)
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tweens.FlxTween;
+import flixel.util.FlxDirection;
 import funkin.graphics.FunkinSprite;
+import funkin.play.PlayState;
+import funkin.util.TimerUtil;
 import funkin.util.EaseUtil;
+<<<<<<< HEAD
 =======
 import flixel.FlxSprite;
 ||||||| parent of b150c43d (lol4)
@@ -23,6 +32,10 @@ import funkin.data.notestyle.NoteStyleRegistry;
 import funkin.data.notestyle.NoteStyleRegistry;
 =======
 >>>>>>> b150c43d (lol4)
+||||||| parent of 8a1f54ca (lol8)
+=======
+import funkin.data.notestyle.NoteStyleRegistry;
+>>>>>>> 8a1f54ca (lol8)
 import funkin.play.notes.notestyle.NoteStyle;
 
 @:nullSafety
