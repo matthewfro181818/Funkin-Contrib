@@ -4,10 +4,8 @@ package funkin.ui.options;
 import funkin.api.newgrounds.NewgroundsClient;
 #end
 import funkin.save.Save;
-import funkin.ui.options.OptionsState.OptionsPage;
 
-class SaveDataMenu extends Page<OptionsPage>
-
+class SaveDataMenu extends Page<OptionsState.OptionsMenuPageName>
 {
   var items:TextMenuList;
 
