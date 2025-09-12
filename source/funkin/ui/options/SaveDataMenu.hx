@@ -7,7 +7,7 @@ import funkin.save.Save;
 
 import funkin.ui.options.OptionsState;
 
-class SaveDataMenu extends Page<OptionsState.OptionsMenuPageName>
+class SaveDataMenu
 {
   var items:TextMenuList;
 
