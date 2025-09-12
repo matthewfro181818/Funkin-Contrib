@@ -13,8 +13,8 @@ import io.newgrounds.objects.Medal;
 import io.newgrounds.objects.Score;
 import io.newgrounds.objects.ScoreBoard;
 import io.newgrounds.objects.events.Response;
-import io.newgrounds.objects.events.Result.GetCurrentVersionResult;
-import io.newgrounds.objects.events.Result.GetVersionResult;
+import io.newgrounds.objects.events.Outcome;
+import io.newgrounds.objects.Error;
 #end
 
 /**
@@ -126,30 +126,19 @@ class NGUtil
    * a user input event or the popup blocker will block it.
    * @param onComplete A callback with the result of the connection.
    */
-  static public function login(?popupLauncher:(Void->Void)->Void, onComplete:ConnectionResult->Void)
+static public function login(?popupLauncher:(Void->Void)->Void, onComplete:Outcome<Error>->Void)
+{
+  if (popupLauncher != null)
   {
-    trace("Logging in manually");
-    var onPending:Void->Void = null;
-    if (popupLauncher != null)
-    {
-      onPending = function() popupLauncher(NG.core.openPassportUrl);
-    }
-
-    var onSuccess:Void->Void = onNGLogin;
-    var onFail:Error->Void = null;
-    var onCancel:Void->Void = null;
-    if (onComplete != null)
-    {
-      onSuccess = function() {
-        onNGLogin();
-        onComplete(Success);
-      }
-      onFail = function(e) onComplete(Fail(e.message));
-      onCancel = function() onComplete(Cancelled);
-    }
-
-    NG.core.requestLogin(onSuccess, onPending, onFail, onCancel);
+    popupLauncher(function() {
+      NG.core.requestLogin(onComplete, null, null, null);
+    });
   }
+  else
+  {
+    NG.core.requestLogin(onComplete, null, null, null);
+  }
+}
 
   inline static public function cancelLogin():Void
   {
