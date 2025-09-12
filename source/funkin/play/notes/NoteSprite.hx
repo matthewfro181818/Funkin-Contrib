@@ -8,6 +8,7 @@ import funkin.play.notes.notestyle.NoteStyle;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.FlxSprite;
@@ -32,6 +33,11 @@ import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.FlxSprite;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.FlxSprite;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import funkin.graphics.FunkinSprite;
 import funkin.graphics.shaders.HSVShader;
 
@@ -285,6 +291,7 @@ class NoteSprite extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    * The Y Offset of the note.
    */
   public var yOffset:Float = 0.0;
@@ -324,6 +331,14 @@ class NoteSprite extends FunkinSprite
   /**
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+   * The Y Offset of the note.
+   */
+  public var yOffset:Float = 0.0;
+
+  /**
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
    * Set this flag to true when hitting the note to avoid scoring it multiple times.
    */
   public var hasBeenHit:Bool = false;
@@ -373,6 +388,7 @@ class NoteSprite extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.alpha = 1;
 
 =======
@@ -397,6 +413,11 @@ class NoteSprite extends FunkinSprite
 
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    this.alpha = 1;
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     setupNoteGraphic(noteStyle);
   }
 

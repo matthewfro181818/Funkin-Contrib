@@ -8,6 +8,7 @@ import flixel.graphics.frames.FlxFramesCollection;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterRenderType;
 =======
 import funkin.data.character.CharacterData.CharacterRenderType;
@@ -32,6 +33,11 @@ import funkin.play.character.CharacterData.CharacterRenderType;
 =======
 import funkin.data.character.CharacterData.CharacterRenderType;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+import funkin.play.character.CharacterData.CharacterRenderType;
+=======
+import funkin.data.character.CharacterData.CharacterRenderType;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
 /**
  * A SparrowCharacter is a Character which is rendered by
@@ -54,6 +60,7 @@ class SparrowCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Display a custom scope for debugging purposes.
     #if FEATURE_DEBUG_TRACY
     cpp.vm.tracy.TracyProfiler.zoneScoped('SparrowCharacter.create(${this.characterId})');
@@ -93,6 +100,14 @@ class SparrowCharacter extends BaseCharacter
 =======
     trace('Creating Sparrow character: ' + this.characterId);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    // Display a custom scope for debugging purposes.
+    #if FEATURE_DEBUG_TRACY
+    cpp.vm.tracy.TracyProfiler.zoneScoped('SparrowCharacter.create(${this.characterId})');
+    #end
+=======
+    trace('Creating Sparrow character: ' + this.characterId);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     loadSpritesheet();
     loadAnimations();
@@ -102,6 +117,7 @@ class SparrowCharacter extends BaseCharacter
 
   function loadSpritesheet()
   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -138,10 +154,16 @@ class SparrowCharacter extends BaseCharacter
 =======
     trace('Loading assets for Sparrow character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
 >>>>>>> b150c43d (lol4)
+||||||| cf89d672
+    trace('Loading assets for Sparrow character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+=======
+    trace('[SPARROWCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
-    var tex:FlxFramesCollection = Paths.getSparrowAtlas(_data.assetPath);
+    var tex:FlxFramesCollection = Paths.getSparrowAtlas(_data.assetPaths[0]);
     if (tex == null)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       trace('Could not load Sparrow sprite: ${_data.assetPaths[0]}');
 >>>>>>> e11c5f8d (Add files via upload)
@@ -165,6 +187,11 @@ class SparrowCharacter extends BaseCharacter
 =======
       trace('Could not load Sparrow sprite: ${_data.assetPaths[0]}');
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      trace('Could not load Sparrow sprite: ${_data.assetPath}');
+=======
+      trace('Could not load Sparrow sprite: ${_data.assetPaths[0]}');
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       return;
     }
 
@@ -179,6 +206,7 @@ class SparrowCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // pixelPerfectRender = true;
       // pixelPerfectPosition = true;
 =======
@@ -213,6 +241,13 @@ class SparrowCharacter extends BaseCharacter
       pixelPerfectRender = true;
       pixelPerfectPosition = true;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      // pixelPerfectRender = true;
+      // pixelPerfectPosition = true;
+=======
+      pixelPerfectRender = true;
+      pixelPerfectPosition = true;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     }
     else
     {

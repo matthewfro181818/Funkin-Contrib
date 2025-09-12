@@ -17,6 +17,7 @@ import funkin.ui.FullScreenScaleMode;
 =======
 import funkin.data.dialogue.speaker.SpeakerData;
 import funkin.data.dialogue.speaker.SpeakerRegistry;
+<<<<<<< HEAD
 >>>>>>> e11c5f8d (Add files via upload)
 ||||||| parent of b150c43d (lol4)
 import funkin.data.dialogue.speaker.SpeakerData;
@@ -50,6 +51,10 @@ import funkin.ui.FullScreenScaleMode;
 import funkin.data.dialogue.speaker.SpeakerData;
 import funkin.data.dialogue.speaker.SpeakerRegistry;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+import funkin.ui.FullScreenScaleMode;
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
 /**
  * The character sprite which displays during dialogue.
@@ -64,6 +69,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    * The internal ID for this speaker.
    */
@@ -128,6 +134,19 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
   /**
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+   * The internal ID for this speaker.
+   */
+  public final id:String;
+
+  /**
+   * The full data for a speaker.
+   */
+  public final _data:SpeakerData;
+
+  /**
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
    * A readable name for this speaker.
    */
   public var speakerName(get, never):String;
@@ -181,6 +200,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -218,9 +238,20 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      this.x *= fullscreenScale;
+      this.y = this.y * fullscreenScale + (-100 * fullscreenScale);
+    }
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     return globalOffsets = value;
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -250,6 +281,19 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
   }
 
 <<<<<<< HEAD
+||||||| cf89d672
+  /**
+   * A value used for scaling object's parameters on mobile.
+   */
+  var fullscreenScale(get, never):Float;
+
+  function get_fullscreenScale():Float
+  {
+    return FullScreenScaleMode.wideScale.x - 0.05;
+  }
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   public function new(id:String)
 >>>>>>> e11c5f8d (Add files via upload)
 ||||||| parent of b150c43d (lol4)
@@ -399,6 +443,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -443,6 +488,15 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      scale *= fullscreenScale;
+    }
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     this.scale.x = scale;
     this.scale.y = scale;
     this.updateHitbox();
@@ -585,6 +639,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   public override function toString():String
@@ -649,4 +704,17 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
     return SpeakerRegistry.instance.parseEntryDataWithMigration(id, SpeakerRegistry.instance.fetchEntryVersion(id));
   }
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+
+  public override function toString():String
+  {
+    return 'Speaker($id)';
+  }
+
+  static function _fetchData(id:String):Null<SpeakerData>
+  {
+    return SpeakerRegistry.instance.parseEntryDataWithMigration(id, SpeakerRegistry.instance.fetchEntryVersion(id));
+  }
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 }

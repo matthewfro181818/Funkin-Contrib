@@ -120,10 +120,25 @@ import flixel.graphics.FlxGraphic;
 /**
  * A class representing the data for an album as displayed in Freeplay.
  */
-@:nullSafety
 class Album implements IRegistryEntry<AlbumData>
 {
+<<<<<<< HEAD
   public function new(id:String, ?params:Dynamic)
+||||||| cf89d672
+  public function new(id:String)
+=======
+  /**
+   * The internal ID for this album.
+   */
+  public final id:String;
+
+  /**
+   * The full data for an album.
+   */
+  public final _data:AlbumData;
+
+  public function new(id:String)
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   {
     this.id = id;
     this._data = _fetchData(id);
@@ -140,7 +155,7 @@ class Album implements IRegistryEntry<AlbumData>
    */
   public function getAlbumName():String
   {
-    return _data?.name ?? "Unknown";
+    return _data.name;
   }
 
   /**
@@ -149,7 +164,7 @@ class Album implements IRegistryEntry<AlbumData>
    */
   public function getAlbumArtists():Array<String>
   {
-    return _data?.artists ?? ["None"];
+    return _data.artists;
   }
 
   /**
@@ -158,7 +173,7 @@ class Album implements IRegistryEntry<AlbumData>
    */
   public function getAlbumArtAssetKey():String
   {
-    return _data?.albumArtAsset ?? 'freeplay/albumRoll/volume1"';
+    return _data.albumArtAsset;
   }
 
   /**
@@ -175,7 +190,7 @@ class Album implements IRegistryEntry<AlbumData>
    */
   public function getAlbumTitleAssetKey():String
   {
-    return _data?.albumTitleAsset ?? "freeplay/albumRoll/volume1-text";
+    return _data.albumTitleAsset;
   }
 
   /**
@@ -183,18 +198,29 @@ class Album implements IRegistryEntry<AlbumData>
    */
   public function getAlbumTitleOffsets():Null<Array<Float>>
   {
-    return _data?.albumTitleOffsets ?? [0, 0];
+    return _data.albumTitleOffsets;
   }
 
-  public function hasAlbumTitleAnimations():Bool
+  public function hasAlbumTitleAnimations()
   {
-    if (_data == null || _data.albumTitleAnimations == null) return false;
     return _data.albumTitleAnimations.length > 0;
   }
 
   public function getAlbumTitleAnimations():Array<AnimationData>
   {
-    return _data?.albumTitleAnimations ?? [];
+    return _data.albumTitleAnimations;
+  }
+
+  public function toString():String
+  {
+    return 'Album($id)';
+  }
+
+  public function destroy():Void {}
+
+  static function _fetchData(id:String):Null<AlbumData>
+  {
+    return AlbumRegistry.instance.parseEntryDataWithMigration(id, AlbumRegistry.instance.fetchEntryVersion(id));
   }
 }
 >>>>>>> 13e3b504 (Add files via upload)

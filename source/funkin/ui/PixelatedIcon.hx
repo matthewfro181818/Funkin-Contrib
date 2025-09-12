@@ -87,6 +87,7 @@ class PixelatedIcon extends FlxFilteredSprite
       this.animation.addByPrefix('confirm', 'confirm0', 10, false);
       this.animation.addByPrefix('confirm-hold', 'confirm-hold0', 10, true);
 
+<<<<<<< HEAD
       this.animation.finishCallback = function(name:String):Void {
         trace('Finish pixel animation: ${name}');
         if (name == 'confirm') this.animation.play('confirm-hold');
@@ -178,9 +179,14 @@ class PixelatedIcon extends FlxFilteredSprite
       this.animation.addByPrefix('confirm-hold', 'confirm-hold0', 10, true);
 
       this.animation.onFinish.add(function(name:String):Void {
+||||||| cf89d672
+      this.animation.onFinish.add(function(name:String):Void {
+=======
+      this.animation.finishCallback = function(name:String):Void {
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
         trace('Finish pixel animation: ${name}');
         if (name == 'confirm') this.animation.play('confirm-hold');
-      });
+      };
 
       this.animation.play('idle');
     }

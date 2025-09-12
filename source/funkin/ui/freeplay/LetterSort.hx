@@ -250,24 +250,19 @@ class FreeplayLetter extends FlxAtlasSprite
 package funkin.ui.freeplay;
 
 import flixel.FlxSprite;
-import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxGroup;
-import flixel.group.FlxSpriteGroup;
+import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import funkin.input.Controls;
-import funkin.util.SwipeUtil;
-import funkin.util.TouchUtil;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.audio.FunkinSound;
 
-class LetterSort extends FlxSpriteGroup
+class LetterSort extends FlxTypedSpriteGroup<FlxSprite>
 {
   public var letters:Array<FreeplayLetter> = [];
-  public var letterHitboxes:Array<FlxObject> = [];
 
   // starts at 2, cuz that's the middle letter on start (accounting for fav and #, it should begin at ALL filter)
   var curSelection:Int = 2;
@@ -279,10 +274,6 @@ class LetterSort extends FlxSpriteGroup
   var grpSeperators:FlxSpriteGroup;
 
   public var inputEnabled:Bool = true;
-
-  public var instance(default, set):FreeplayState;
-
-  var swipeBounds:FlxObject;
 
   public function new(x, y)
   {
@@ -308,11 +299,6 @@ class LetterSort extends FlxSpriteGroup
       // letter.visible = false;
       add(letter);
 
-      var letterHitbox:FlxObject = new FlxObject(letter.x - 50, letter.y - 50, 50, 50);
-      letterHitbox.cameras = cameras;
-      letterHitbox.active = false;
-      letterHitboxes.push(letterHitbox);
-
       letters.push(letter);
 
       if (i != 2) letter.scale.x = letter.scale.y = 0.8;
@@ -330,6 +316,7 @@ class LetterSort extends FlxSpriteGroup
       grpSeperators.add(sep);
     }
 
+<<<<<<< HEAD
     var letterHitbox:FlxObject = new FlxObject(0, 0, 1, 1);
     letterHitbox.cameras = cameras;
     letterHitbox.active = false;
@@ -339,6 +326,27 @@ class LetterSort extends FlxSpriteGroup
     swipeBounds.cameras = cameras;
     swipeBounds.active = false;
 
+||||||| cf89d672
+    var letterHitbox:FlxObject = new FlxObject(0, 0, 1, 1);
+    letterHitbox.cameras = cameras;
+    letterHitbox.active = false;
+    letterHitboxes.push(letterHitbox);
+
+    rightArrow = new FlxSprite(380, 15).loadGraphic(Paths.image("freeplay/miniArrow"));
+    // rightArrow.animation.play("arrow");
+    add(rightArrow);
+
+    swipeBounds = new FlxObject(440, 60, 460, 80);
+    swipeBounds.cameras = cameras;
+    swipeBounds.active = false;
+
+=======
+    rightArrow = new FlxSprite(380, 15).loadGraphic(Paths.image("freeplay/miniArrow"));
+
+    // rightArrow.animation.play("arrow");
+    add(rightArrow);
+
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     changeSelection(0);
   }
 
@@ -350,53 +358,15 @@ class LetterSort extends FlxSpriteGroup
   override function update(elapsed:Float):Void
   {
     super.update(elapsed);
-    #if FEATURE_TOUCH_CONTROLS
-    @:privateAccess
-    if (TouchUtil.justPressed) inputEnabled = instance != null && TouchUtil.overlaps(swipeBounds, instance.funnyCam);
-    #end
 
     if (inputEnabled)
     {
-      #if FEATURE_TOUCH_CONTROLS
-      if (TouchUtil.pressAction())
-      {
-        for (index => letter in letterHitboxes)
-        {
-          @:privateAccess
-          if (!TouchUtil.overlaps(letter, instance.funnyCam)) continue;
-
-          if (index == 2 || index == 5) continue;
-
-          var selectionChanges:Array<Int> = [-1, -1, 0, 1, 1];
-          var changeValue = selectionChanges[index];
-
-          if (changeValue != 0)
-          {
-            changeSelection(changeValue);
-
-            if (index == 0 || index == 4)
-            {
-              changeSelection(changeValue, false);
-            }
-          }
-
-          break;
-        }
-      }
-      #end
-
-      @:privateAccess
-      {
-        if (controls.FREEPLAY_LEFT #if FEATURE_TOUCH_CONTROLS
-          || (TouchUtil.overlaps(swipeBounds, instance.funnyCam) && SwipeUtil.swipeLeft) #end) changeSelection(-1);
-
-        if (controls.FREEPLAY_RIGHT #if FEATURE_TOUCH_CONTROLS
-          || (TouchUtil.overlaps(swipeBounds, instance.funnyCam) && SwipeUtil.swipeRight) #end) changeSelection(1);
-      }
+      if (controls.FREEPLAY_LEFT) changeSelection(-1);
+      if (controls.FREEPLAY_RIGHT) changeSelection(1);
     }
   }
 
-  public function changeSelection(diff:Int = 0, playSound:Bool = true):Void
+  public function changeSelection(diff:Int = 0):Void
   {
     @:privateAccess
     if (instance.controls.active)
@@ -409,11 +379,22 @@ class LetterSort extends FlxSpriteGroup
       var arrowToMove:FlxSprite = diff < 0 ? leftArrow : rightArrow;
       arrowToMove.offset.x = 3 * multiPosOrNeg;
 
+<<<<<<< HEAD
       new FlxTimer().start(2 / 24, function(_) {
         arrowToMove.offset.x = 0;
       });
       if (playSound && diff != 0) FunkinSound.playOnce(Paths.sound('scrollMenu'), 0.4);
     }
+||||||| cf89d672
+    new FlxTimer().start(2 / 24, function(_) {
+      arrowToMove.offset.x = 0;
+    });
+    if (playSound && diff != 0) FunkinSound.playOnce(Paths.sound('scrollMenu'), 0.4);
+=======
+    new FlxTimer().start(2 / 24, function(_) {
+      arrowToMove.offset.x = 0;
+    });
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   }
 
   /**
@@ -475,24 +456,6 @@ class LetterSort extends FlxSpriteGroup
 
     if (changeSelectionCallback != null) changeSelectionCallback(letters[2].regexLetters[letters[2].curLetter]); // bullshit and long lol!
   }
-
-  @:noCompletion
-  private function set_instance(value:FreeplayState):FreeplayState
-  {
-    instance = value;
-
-    if (value != null)
-    {
-      @:privateAccess
-      swipeBounds.cameras = [value.funnyCam];
-    }
-    else
-    {
-      swipeBounds.cameras = cameras;
-    }
-
-    return instance;
-  }
 }
 
 /**
@@ -542,9 +505,6 @@ class FreeplayLetter extends FlxAtlasSprite
       this.anim.play(animLetters[letterInd] + " move");
       this.anim.pause();
       curLetter = letterInd;
-      this.anim.onComplete.add(function() {
-        this.anim.play(animLetters[curLetter] + " move");
-      });
     }
   }
 
@@ -572,7 +532,7 @@ class FreeplayLetter extends FlxAtlasSprite
         animName = "T move";
     }
 
-    this.anim.play(animName, true);
+    this.anim.play(animName);
     if (curSelection != curLetter)
     {
       this.anim.pause();

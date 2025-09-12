@@ -1264,6 +1264,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     value = value.clamp(0, 1);
 =======
     value = FlxMath.bound(value, 0, 1);
@@ -1293,6 +1294,11 @@ class AnimateAtlasCharacter extends BaseCharacter
 =======
     value = value.clamp(0, 1);
 >>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+||||||| cf89d672
+    value = FlxMath.bound(value, 0, 1);
+=======
+    value = value.clamp(0, 1);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     if (exists && alpha != value)
     {

@@ -188,6 +188,7 @@ typedef NoteStyleAssetData<T> =
   @:optional
   var isPixel:Bool;
 
+<<<<<<< HEAD
   /**
    * If true, animations will be played on the graphic.
    * @default `false` to save performance.
@@ -479,6 +480,13 @@ typedef NoteStyleAssetData<T> =
   @:optional
   var alpha:Float;
 
+||||||| cf89d672
+  @:default(1.0)
+  @:optional
+  var alpha:Float;
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   /**
    * If true, animations will be played on the graphic.
    * @default `false` to save performance.
@@ -543,30 +551,6 @@ typedef NoteStyleData_NoteSplash =
   @:optional
   @:default(true)
   var enabled:Bool;
-
-  @:optional
-  @:default(24)
-  var framerateDefault:Int;
-
-  @:optional
-  @:default(2)
-  var framerateVariance:Int;
-
-  @:optional
-  @:default("normal")
-  var blendMode:String;
-
-  @:optional
-  var leftSplashes:Array<UnnamedAnimationData>;
-
-  @:optional
-  var downSplashes:Array<UnnamedAnimationData>;
-
-  @:optional
-  var upSplashes:Array<UnnamedAnimationData>;
-
-  @:optional
-  var rightSplashes:Array<UnnamedAnimationData>;
 };
 
 typedef NoteStyleData_HoldNoteCover =
@@ -578,19 +562,8 @@ typedef NoteStyleData_HoldNoteCover =
   @:optional
   @:default(true)
   var enabled:Bool;
-
-  @:optional
-  var left:NoteStyleData_HoldNoteCoverDirectionData;
-
-  @:optional
-  var down:NoteStyleData_HoldNoteCoverDirectionData;
-
-  @:optional
-  var up:NoteStyleData_HoldNoteCoverDirectionData;
-
-  @:optional
-  var right:NoteStyleData_HoldNoteCoverDirectionData;
 };
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 76e5592a (Add files via upload)
 ||||||| parent of b150c43d (lol4)
@@ -673,3 +646,23 @@ typedef NoteStyleData_HoldNoteCoverDirectionData =
 }
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+
+typedef NoteStyleData_HoldNoteCoverDirectionData =
+{
+  /**
+   * Optionally specify an asset path to use for this specific animation.
+   * @:default The assetPath of the main holdNoteCover asset
+   */
+  @:optional
+  var assetPath:String;
+
+  @:optional
+  var start:UnnamedAnimationData;
+  @:optional
+  var hold:UnnamedAnimationData;
+  @:optional
+  var end:UnnamedAnimationData;
+}
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef

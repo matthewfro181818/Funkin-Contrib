@@ -70,6 +70,7 @@ class Scoring
     }
   }
 
+<<<<<<< HEAD
   /**
    * The maximum score a note can receive.
    */
@@ -707,6 +708,22 @@ class Scoring
     }
   }
 
+||||||| cf89d672
+  public static function getMissScore(scoringSystem:ScoringSystem = PBOT1):Int
+  {
+    return switch (scoringSystem)
+    {
+      case LEGACY: LEGACY_MISS_SCORE;
+      case WEEK7: WEEK7_MISS_SCORE;
+      case PBOT1: PBOT1_MISS_SCORE;
+      default:
+        FlxG.log.error('Unknown scoring system: ${scoringSystem}');
+        0;
+    }
+  }
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   /**
    * The maximum score a note can receive.
    */
@@ -730,7 +747,7 @@ class Scoring
   /**
    * The score a note receives when it is missed.
    */
-  public static final PBOT1_MISS_SCORE:Int = -100;
+  public static final PBOT1_MISS_SCORE:Int = 0;
 
   /**
    * The threshold at which a note hit is considered perfect and always given the max score.
@@ -866,11 +883,6 @@ class Scoring
    */
   public static final LEGACY_SHIT_SCORE:Int = 50;
 
-  /**
-   * The score a note receives when missed.
-   */
-  public static final LEGACY_MISS_SCORE:Int = -10;
-
   static function scoreNoteLEGACY(msTiming:Float):Int
   {
     var absTiming:Float = Math.abs(msTiming);
@@ -919,7 +931,6 @@ class Scoring
   public static final WEEK7_BAD_THRESHOLD:Float = 0.8; // 80% of the hit window, or ~125ms
   public static final WEEK7_GOOD_THRESHOLD:Float = 0.55; // 55% of the hit window, or ~91ms
   public static final WEEK7_SICK_THRESHOLD:Float = 0.2; // 20% of the hit window, or ~33ms
-  public static final WEEK7_MISS_SCORE:Int = -10;
   public static final WEEK7_SHIT_SCORE:Int = 50;
   public static final WEEK7_BAD_SCORE:Int = 100;
   public static final WEEK7_GOOD_SCORE:Int = 200;
@@ -1006,9 +1017,20 @@ class Scoring
 
     // Else, use the standard grades
 
+<<<<<<< HEAD
     // Final Grade = (Sick + Good - Miss) / (Total Notes)
 
     var completionAmount:Float = Scoring.tallyCompletion(scoreData.tallies);
+||||||| cf89d672
+    // Final Grade = (Sick + Good - Miss) / (Total Notes)
+
+    var grade = (scoreData.tallies.sick + scoreData.tallies.good - scoreData.tallies.missed) / scoreData.tallies.totalNotes;
+=======
+    // Grade % (only good and sick), 1.00 is a full combo
+    var grade = (scoreData.tallies.sick + scoreData.tallies.good) / scoreData.tallies.totalNotes;
+    // Clear % (including bad and shit). 1.00 is a full clear but not a full combo
+    var clear = (scoreData.tallies.totalNotesHit) / scoreData.tallies.totalNotes;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     if (completionAmount == Constants.RANK_PERFECT_THRESHOLD)
     {
@@ -1095,7 +1117,6 @@ enum abstract ScoringRank(String)
     return temp1 > temp2;
   }
 
-  // Greater than or equal to comparison
   @:op(A >= B) static function compareGTEQ(a:Null<ScoringRank>, b:Null<ScoringRank>):Bool
   {
     if (a != null && b == null) return true;
@@ -1107,7 +1128,6 @@ enum abstract ScoringRank(String)
     return temp1 >= temp2;
   }
 
-  // Less than comparison
   @:op(A < B) static function compareLT(a:Null<ScoringRank>, b:Null<ScoringRank>):Bool
   {
     if (a != null && b == null) return true;
@@ -1119,7 +1139,6 @@ enum abstract ScoringRank(String)
     return temp1 < temp2;
   }
 
-  // Less than or equal to comparison
   @:op(A <= B) static function compareLTEQ(a:Null<ScoringRank>, b:Null<ScoringRank>):Bool
   {
     if (a != null && b == null) return true;
@@ -1277,30 +1296,6 @@ enum abstract ScoringRank(String)
       default:
         return 'resultScreen/rankText/rankTextGOOD';
     }
-  }
-
-  public function getRankingFreeplayColor()
-  {
-    return switch (abstract)
-    {
-      case SHIT:
-        0xFF6044FF;
-      case GOOD:
-        0xFFEF8764;
-      case GREAT:
-        0xFFEAF6FF;
-      case EXCELLENT:
-        0xFFFDCB42;
-      case PERFECT:
-        0xFFFF58B4;
-      case PERFECT_GOLD:
-        0xFFFFB619;
-    }
-  }
-
-  public function toString():String
-  {
-    return this;
   }
 }
 >>>>>>> d27d731a (Add files via upload)

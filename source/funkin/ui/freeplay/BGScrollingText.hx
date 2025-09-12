@@ -78,6 +78,7 @@ class BGScrollingText extends FlxSpriteGroup
   {
     for (txt in grpTexts.group)
     {
+<<<<<<< HEAD
       txt.x -= 1 * (speed * (elapsed / (1 / 60)));
 
       if (speed > 0)
@@ -199,6 +200,10 @@ class BGScrollingText extends FlxSpriteGroup
     for (txt in grpTexts.group)
     {
       if (txt == null) continue;
+||||||| cf89d672
+      if (txt == null) continue;
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       txt.x -= 1 * (speed * (elapsed / (1 / 60)));
 
       if (speed > 0)
@@ -212,7 +217,7 @@ class BGScrollingText extends FlxSpriteGroup
       }
       else
       {
-        if (txt.x > txt.frameWidth * 2)
+        if (txt.x > widthShit)
         {
           txt.x = grpTexts.group.members[0].x - grpTexts.group.members[0].frameWidth - placementOffset;
 

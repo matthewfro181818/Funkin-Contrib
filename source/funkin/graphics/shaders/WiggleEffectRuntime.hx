@@ -23,6 +23,7 @@ enum WiggleEffectType
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
@@ -36,8 +37,13 @@ enum WiggleEffectType
 @:nullSafety
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+@:nullSafety
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 class WiggleEffectRuntime extends FlxRuntimeShader
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -72,6 +78,11 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   public static function getEffectTypeId(v:WiggleEffectType):Int
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
+=======
+  public static function getEffectTypeId(v:WiggleEffectType):Int
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   {
     return WiggleEffectType.getConstructors().indexOf(Std.string(v));
   }
@@ -81,6 +92,7 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
 ||||||| parent of 8a1f54ca (lol8)
   public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
@@ -97,7 +109,13 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   public var effectType(default, set):WiggleEffectType = DREAMY;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
+=======
+  public var effectType(default, set):WiggleEffectType = DREAMY;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -133,6 +151,11 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   function set_effectType(v:WiggleEffectType):WiggleEffectType
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
+=======
+  function set_effectType(v:WiggleEffectType):WiggleEffectType
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   {
     this.setInt('effectType', getEffectTypeId(v));
     return effectType = v;

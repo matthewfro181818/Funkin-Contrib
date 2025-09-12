@@ -5,6 +5,7 @@ package funkin.graphics.video;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if hxvlc
 import hxvlc.flixel.FlxVideoSprite;
 import funkin.Preferences;
@@ -65,17 +66,27 @@ import hxcodec.flixel.FlxVideoSprite;
 import hxvlc.flixel.FlxVideoSprite;
 import funkin.Preferences;
 >>>>>>> b150c43d (lol4)
+||||||| cf89d672
+#if hxvlc
+import hxvlc.flixel.FlxVideoSprite;
+import funkin.Preferences;
+=======
+#if hxCodec
+import hxcodec.flixel.FlxVideoSprite;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
 /**
- * Not to be confused with FlxVideo, this is a hxvlc based video class
+ * Not to be confused with FlxVideo, this is a hxcodec based video class
  * We override it simply to correct/control our volume easier.
  */
-@:nullSafety
 class FunkinVideoSprite extends FlxVideoSprite
 {
+  public var volume(default, set):Float = 1;
+
   public function new(x:Float = 0, y:Float = 0)
   {
     super(x, y);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     set_volume(1);
@@ -193,6 +204,31 @@ class FunkinVideoSprite extends FlxVideoSprite
     bitmap.volume = Std.int((FlxG.sound.muted ? 0 : 1) * (FlxG.sound.logToLinear(FlxG.sound.volume) * 100) * volume);
     return volume;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    // null safety fucking SUCKS
+    if (bitmap != null)
+    {
+      bitmap.onOpening.add(function():Void {
+        if (bitmap != null) bitmap.audioDelay = Preferences.globalOffset * 1000; // Microseconds
+      });
+    }
+=======
+
+    set_volume(1);
+  }
+
+  override public function update(elapsed:Float):Void
+  {
+    super.update(elapsed);
+    set_volume(volume);
+  }
+
+  function set_volume(value:Float):Float
+  {
+    volume = value;
+    bitmap.volume = Std.int((FlxG.sound.muted ? 0 : 1) * (FlxG.sound.logToLinear(FlxG.sound.volume) * 100) * volume);
+    return volume;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   }
 }
 #end

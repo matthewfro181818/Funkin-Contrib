@@ -5,6 +5,7 @@ package funkin.play.components;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData;
 ||||||| parent of 8a1f54ca (lol8)
 import funkin.play.character.CharacterData;
@@ -18,9 +19,14 @@ import funkin.play.character.CharacterData;
 import funkin.play.character.CharacterData;
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+import funkin.play.character.CharacterData;
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -56,6 +62,11 @@ import funkin.play.character.CharacterData.CharacterDataParser;
 =======
 import funkin.data.character.CharacterData;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+import funkin.play.character.CharacterData.CharacterDataParser;
+=======
+import funkin.data.character.CharacterData;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import funkin.graphics.FunkinSprite;
 import funkin.util.MathUtil;
 
@@ -464,6 +475,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       this.angle = MathUtil.smoothLerpPrecision(this.angle, 0, elapsed, 0.512);
 =======
       this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
@@ -488,6 +500,11 @@ class HealthIcon extends FunkinSprite
 =======
       this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      this.angle = MathUtil.smoothLerpPrecision(this.angle, 0, elapsed, 0.512);
+=======
+      this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     }
 
     this.updatePosition();
@@ -510,6 +527,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.width, HEALTH_ICON_SIZE * this.size.x, FlxG.elapsed, 0.512));
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
@@ -534,6 +552,11 @@ class HealthIcon extends FunkinSprite
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.width, HEALTH_ICON_SIZE * this.size.x, FlxG.elapsed, 0.512));
+=======
+      var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.x);
 
@@ -546,6 +569,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.height, HEALTH_ICON_SIZE * this.size.y, FlxG.elapsed, 0.512));
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
@@ -570,6 +594,11 @@ class HealthIcon extends FunkinSprite
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.height, HEALTH_ICON_SIZE * this.size.y, FlxG.elapsed, 0.512));
+=======
+      var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.y);
 

@@ -38,6 +38,7 @@ class AttractState extends MusicBeatState
     trace('Playing native video ${ATTRACT_VIDEO_PATH}');
     playVideoNative(ATTRACT_VIDEO_PATH);
     #end
+<<<<<<< HEAD
   }
 
   #if html5
@@ -201,6 +202,16 @@ class AttractState extends MusicBeatState
     pie.amount = 0;
     pie.replaceColor(FlxColor.BLACK, 0x8AC5C4C4);
     add(pie);
+||||||| cf89d672
+
+    pie = new FlxPieDial(0, 0, 40, FlxColor.WHITE, 45, CIRCLE, true, 20);
+    pie.x = FlxG.width - ((pie.width * 1.5) + FullScreenScaleMode.gameNotchSize.x);
+    pie.y = FlxG.height - (pie.height * 1.5);
+    pie.amount = 0;
+    pie.replaceColor(FlxColor.BLACK, 0x8AC5C4C4);
+    add(pie);
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   }
 
   /**
@@ -242,7 +253,7 @@ class AttractState extends MusicBeatState
   }
   #end
 
-  #if hxvlc
+  #if hxCodec
   var vid:FunkinVideoSprite;
 
   function playVideoNative(filePath:String):Void
@@ -253,22 +264,10 @@ class AttractState extends MusicBeatState
     if (vid != null)
     {
       vid.zIndex = 0;
-      vid.active = false;
-      vid.bitmap.onEncounteredError.add(function(msg:String):Void {
-        trace('[VLC] Encountered an error: $msg');
-
-        onAttractEnd();
-      });
       vid.bitmap.onEndReached.add(onAttractEnd);
-      vid.bitmap.onFormatSetup.add(() -> {
-        vid.setGraphicSize(FlxG.initialWidth, FlxG.initialHeight);
-        vid.updateHitbox();
-        vid.screenCenter();
-      });
 
       add(vid);
-
-      if (vid.load(filePath)) vid.play();
+      vid.play(filePath, false);
     }
     else
     {
@@ -281,15 +280,22 @@ class AttractState extends MusicBeatState
   {
     super.update(elapsed);
 
-    // If the user presses any button or hold their screen for 1.5 seconds, skip the video.
-    if ((FlxG.keys.pressed.ANY && !controls.VOLUME_MUTE && !controls.VOLUME_UP && !controls.VOLUME_DOWN) #if FEATURE_TOUCH_CONTROLS
-      || TouchUtil.touch != null && TouchUtil.touch.pressed #end)
+    // If the user presses any button, skip the video.
+    if (FlxG.keys.justPressed.ANY && !controls.VOLUME_MUTE && !controls.VOLUME_UP && !controls.VOLUME_DOWN)
     {
+<<<<<<< HEAD
       holdDelta += elapsed;
       holdDelta = holdDelta.clamp(0, HOLD_TIME);
 
       pie.scale.x = pie.scale.y = FlxMath.lerp(pie.scale.x, 1.3, Math.exp(-elapsed * 140.0));
+||||||| cf89d672
+      holdDelta = Math.max(0, Math.min(holdTime, elapsed + holdDelta));
+      pie.scale.x = pie.scale.y = FlxMath.lerp(pie.scale.x, 1.3, Math.exp(-elapsed * 140.0));
+=======
+      onAttractEnd();
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     }
+<<<<<<< HEAD
     else
     {
       holdDelta = FlxMath.lerp(holdDelta, -0.1, (elapsed * 3).clamp(0, 1));
@@ -302,6 +308,19 @@ class AttractState extends MusicBeatState
 
     // If the dial is full, skip the video.
     if (pie.amount >= 1) onAttractEnd();
+||||||| cf89d672
+    else
+    {
+      holdDelta = Math.max(0, FlxMath.lerp(holdDelta, -0.1, FlxMath.bound(elapsed * 3, 0, 1)));
+      pie.scale.x = pie.scale.y = FlxMath.lerp(pie.scale.x, 1, Math.exp(-elapsed * 160.0));
+    }
+
+    pie.amount = Math.min(1, Math.max(0, (holdDelta / holdTime) * 1.025));
+    pie.alpha = FlxMath.remapToRange(pie.amount, 0.025, 1, 0, 1);
+
+    if (pie.amount >= 1) onAttractEnd();
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   }
 
   /**
@@ -317,7 +336,7 @@ class AttractState extends MusicBeatState
     }
     #end
 
-    #if hxvlc
+    #if hxCodec
     if (vid != null)
     {
       vid.stop();
@@ -325,7 +344,7 @@ class AttractState extends MusicBeatState
     }
     #end
 
-    #if (html5 || hxvlc)
+    #if (html5 || hxCodec)
     vid.destroy();
     vid = null;
     #end

@@ -8,6 +8,7 @@ import flxanimate.FlxAnimate.Settings;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flxanimate.frames.FlxAnimateFrames;
@@ -20,8 +21,13 @@ import flxanimate.frames.FlxAnimateFrames;
 =======
 import flxanimate.frames.FlxAnimateFrames;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import flxanimate.frames.FlxAnimateFrames;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import flixel.graphics.frames.FlxFrame;
 import flixel.system.FlxAssets.FlxGraphicAsset;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -52,6 +58,10 @@ import openfl.display.BitmapData;
 =======
 import openfl.display.BitmapData;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import openfl.display.BitmapData;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import flixel.math.FlxPoint;
 import flxanimate.animate.FlxKeyFrame;
 
@@ -63,6 +73,7 @@ import flxanimate.animate.FlxKeyFrame;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -82,6 +93,10 @@ import flxanimate.animate.FlxKeyFrame;
 @:nullSafety
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+@:nullSafety
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 class FlxAtlasSprite extends FlxAnimate
 {
   static final SETTINGS:Settings =
@@ -111,6 +126,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Signal dispatched when a looping animation finishes playing.
    */
@@ -147,9 +163,20 @@ class FlxAtlasSprite extends FlxAnimate
 =======
   var currentAnimation:String;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  /**
+   * Signal dispatched when a looping animation finishes playing.
+   */
+  public var onAnimationLoop:FlxTypedSignal<String->Void> = new FlxTypedSignal();
+
+  var currentAnimation:String = '';
+=======
+  var currentAnimation:String;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
   var canPlayOtherAnims:Bool = true;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -187,6 +214,10 @@ class FlxAtlasSprite extends FlxAnimate
   @:nullSafety(Off) // null safety HATES new classes atm, it'll be fixed in haxe 4.0.0?
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  @:nullSafety(Off) // null safety HATES new classes atm, it'll be fixed in haxe 4.0.0?
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   public function new(x:Float, y:Float, ?path:String, ?settings:Settings)
   {
     if (settings == null) settings = SETTINGS;
@@ -286,6 +317,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   var fr:Null<FlxKeyFrame> = null;
 =======
   var fr:FlxKeyFrame = null;
@@ -310,6 +342,11 @@ class FlxAtlasSprite extends FlxAnimate
 =======
   var fr:FlxKeyFrame = null;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  var fr:Null<FlxKeyFrame> = null;
+=======
+  var fr:FlxKeyFrame = null;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
   var looping:Bool = false;
 
@@ -399,6 +436,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var frameLabelNames = getFrameLabelNames();
 ||||||| parent of 8a1f54ca (lol8)
     var frameLabelNames = getFrameLabelNames();
@@ -412,7 +450,12 @@ class FlxAtlasSprite extends FlxAnimate
     var frameLabelNames = getFrameLabelNames();
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    var frameLabelNames = getFrameLabelNames();
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     // Only call goToFrameLabel if there is a frame label with that name. This prevents annoying warnings!
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -446,6 +489,11 @@ class FlxAtlasSprite extends FlxAnimate
 =======
     if (getFrameLabelNames().indexOf(id) != -1)
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    if (frameLabelNames != null && frameLabelNames.indexOf(id) != -1)
+=======
+    if (getFrameLabelNames().indexOf(id) != -1)
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     {
       goToFrameLabel(id);
       fr = anim.getFrameLabel(id);
@@ -455,6 +503,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // Resume animation if it's paused.
       anim.resume();
 ||||||| parent of 8a1f54ca (lol8)
@@ -472,9 +521,15 @@ class FlxAtlasSprite extends FlxAnimate
       anim.resume();
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      // Resume animation if it's paused.
+      anim.resume();
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     }
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -511,6 +566,11 @@ class FlxAtlasSprite extends FlxAnimate
 =======
   override public function update(elapsed:Float)
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  override public function update(elapsed:Float):Void
+=======
+  override public function update(elapsed:Float)
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   {
     super.update(elapsed);
   }
@@ -522,6 +582,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    * @return Whether the animation has finished playing.
 ||||||| parent of 8a1f54ca (lol8)
    * @return Whether the animation has finished playing.
@@ -538,9 +599,15 @@ class FlxAtlasSprite extends FlxAnimate
 =======
    * Never true if animation is configured to loop.
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+   * @return Whether the animation has finished playing.
+=======
+   * Never true if animation is configured to loop.
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
    */
   public function isAnimationFinished():Bool
   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -578,6 +645,11 @@ class FlxAtlasSprite extends FlxAnimate
 =======
     return this.anim.finished;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    return isLoopComplete();
+=======
+    return this.anim.finished;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   }
 
   /**
@@ -588,6 +660,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    * @return Whether the animation has reached the last frame.
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -607,6 +680,10 @@ class FlxAtlasSprite extends FlxAnimate
    * @return Whether the animation has reached the last frame.
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+   * @return Whether the animation has reached the last frame.
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
    */
   public function isLoopComplete():Bool
   {
@@ -618,6 +695,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (fr != null)
     {
       var curFrame = anim.curFrame;
@@ -682,6 +760,19 @@ class FlxAtlasSprite extends FlxAnimate
 =======
     if (fr != null) return (anim.reversed && anim.curFrame < fr.index || !anim.reversed && anim.curFrame >= (fr.index + fr.duration));
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    if (fr != null)
+    {
+      var curFrame = anim.curFrame;
+
+      var startFrame = fr.index;
+      var endFrame = (fr.index + fr.duration);
+
+      return (anim.reversed) ? (curFrame < startFrame) : (curFrame >= endFrame);
+    }
+=======
+    if (fr != null) return (anim.reversed && anim.curFrame < fr.index || !anim.reversed && anim.curFrame >= (fr.index + fr.duration));
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     return (anim.reversed && anim.curFrame == 0 || !(anim.reversed) && (anim.curFrame) >= (anim.length - 1));
   }
@@ -714,6 +805,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   function getFrameLabelNames(?layer:haxe.extern.EitherType<Int, String>):Null<Array<String>>
 =======
   function getFrameLabelNames(?layer:haxe.extern.EitherType<Int, String> = null)
@@ -738,6 +830,11 @@ class FlxAtlasSprite extends FlxAnimate
 =======
   function getFrameLabelNames(?layer:haxe.extern.EitherType<Int, String> = null)
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  function getFrameLabelNames(?layer:haxe.extern.EitherType<Int, String>):Null<Array<String>>
+=======
+  function getFrameLabelNames(?layer:haxe.extern.EitherType<Int, String> = null)
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   {
     var labels = this.anim.getFrameLabels(layer);
     var array = [];
@@ -785,6 +882,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         _onAnimationComplete();
 >>>>>>> e11c5f8d (Add files via upload)
@@ -804,6 +902,10 @@ class FlxAtlasSprite extends FlxAnimate
 =======
         _onAnimationComplete();
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+        _onAnimationComplete();
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
         if (looping)
         {
@@ -814,6 +916,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           _onAnimationLoop();
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -833,6 +936,10 @@ class FlxAtlasSprite extends FlxAnimate
           _onAnimationLoop();
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+          _onAnimationLoop();
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
         }
         else if (fr != null && anim.curFrame != anim.length - 1)
         {
@@ -842,6 +949,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           _onAnimationComplete();
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -861,6 +969,10 @@ class FlxAtlasSprite extends FlxAnimate
           _onAnimationComplete();
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+          _onAnimationComplete();
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
         }
       }
     }
@@ -883,6 +995,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   function _onAnimationLoop():Void
   {
     if (currentAnimation != null)
@@ -957,6 +1070,21 @@ class FlxAtlasSprite extends FlxAnimate
 
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  function _onAnimationLoop():Void
+  {
+    if (currentAnimation != null)
+    {
+      onAnimationLoop.dispatch(currentAnimation);
+    }
+    else
+    {
+      onAnimationLoop.dispatch('');
+    }
+  }
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   var prevFrames:Map<Int, FlxFrame> = [];
 
   public function replaceFrameGraphic(index:Int, ?graphic:FlxGraphicAsset):Void
@@ -966,6 +1094,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var cond = false;
 
     if (graphic == null) cond = true;
@@ -1035,6 +1164,20 @@ class FlxAtlasSprite extends FlxAnimate
 =======
     if (graphic == null || !Assets.exists(graphic))
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    var cond = false;
+
+    if (graphic == null) cond = true;
+    else
+    {
+      if ((graphic is String)) cond = !Assets.exists(graphic)
+      else
+        cond = false;
+    }
+    if (cond)
+=======
+    if (graphic == null || !Assets.exists(graphic))
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     {
       var prevFrame:Null<FlxFrame> = prevFrames.get(index);
       if (prevFrame == null) return;
@@ -1051,6 +1194,7 @@ class FlxAtlasSprite extends FlxAnimate
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     @:nullSafety(Off) // TODO: Remove this once flixel.system.frontEnds.BitmapFrontEnd has been null safed
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -1070,6 +1214,10 @@ class FlxAtlasSprite extends FlxAnimate
     @:nullSafety(Off) // TODO: Remove this once flixel.system.frontEnds.BitmapFrontEnd has been null safed
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    @:nullSafety(Off) // TODO: Remove this once flixel.system.frontEnds.BitmapFrontEnd has been null safed
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     var frame = FlxG.bitmap.add(graphic).imageFrame.frame;
     frame.copyTo(frames.getByIndex(index));
 

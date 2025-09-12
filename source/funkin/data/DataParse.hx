@@ -311,6 +311,7 @@ class DataParse
         var length:Null<Float> = values[2] == null ? null : Tools.getValue(values[2]);
         var alt:Null<Bool> = values[3] == null ? null : Tools.getValue(values[3]);
 
+<<<<<<< HEAD
         return new LegacyNote(time, data, length, alt);
       // return null;
       default:
@@ -633,6 +634,10 @@ class DataParse
         var alt:Null<Bool> = values[3] == null ? null : Tools.getValue(values[3]);
 
         if (time == null || data == null) throw 'Property $name note is missing time and/or data values.';
+||||||| cf89d672
+        if (time == null || data == null) throw 'Property $name note is missing time and/or data values.';
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
         return new LegacyNote(time, data, length, alt);
       // return null;
       default:

@@ -9,6 +9,7 @@ import openfl.display.ShaderInput;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
@@ -22,8 +23,13 @@ import openfl.display.ShaderInput;
 @:nullSafety
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+@:nullSafety
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 class BlendModesShader extends FlxRuntimeShader
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -68,6 +74,13 @@ class BlendModesShader extends FlxRuntimeShader
   public var camera:ShaderInput<BitmapData>;
   public var cameraData:BitmapData;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  public var camera:Null<ShaderInput<BitmapData>>;
+  public var cameraData:Null<BitmapData>;
+=======
+  public var camera:ShaderInput<BitmapData>;
+  public var cameraData:BitmapData;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
   public function new()
   {

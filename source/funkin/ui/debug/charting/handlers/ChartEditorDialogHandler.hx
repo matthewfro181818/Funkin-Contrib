@@ -1386,7 +1386,9 @@ import funkin.data.song.SongData.SongMetadata;
 import funkin.data.song.SongData.SongTimeChange;
 import funkin.data.song.SongRegistry;
 import funkin.input.Cursor;
-import funkin.play.character.BaseCharacter.CharacterType;
+import funkin.play.character.BaseCharacter;
+import funkin.play.song.Song;
+import funkin.data.stage.StageData;
 import funkin.ui.debug.charting.dialogs.ChartEditorAboutDialog;
 import funkin.ui.debug.charting.dialogs.ChartEditorBaseDialog.DialogDropTarget;
 import funkin.ui.debug.charting.dialogs.ChartEditorCharacterIconSelectorMenu;
@@ -1397,11 +1399,15 @@ import funkin.ui.debug.charting.util.ChartEditorDropdowns;
 import funkin.util.Constants;
 import funkin.util.DateUtil;
 import funkin.util.FileUtil;
+import funkin.util.SerializerUtil;
+import funkin.util.SortUtil;
 import funkin.util.VersionUtil;
+import funkin.util.WindowUtil;
 import haxe.io.Path;
 import haxe.ui.components.Button;
 import haxe.ui.components.DropDown;
 import haxe.ui.components.Label;
+import haxe.ui.components.Link;
 import haxe.ui.components.NumberStepper;
 import haxe.ui.components.Slider;
 import haxe.ui.components.TextField;
@@ -1412,8 +1418,11 @@ import haxe.ui.containers.dialogs.Dialogs;
 import haxe.ui.containers.dialogs.MessageBox.MessageBoxType;
 import haxe.ui.containers.Form;
 import haxe.ui.containers.menus.Menu;
+import haxe.ui.containers.VBox;
 import haxe.ui.core.Component;
 import haxe.ui.events.UIEvent;
+import haxe.ui.notifications.NotificationManager;
+import haxe.ui.notifications.NotificationType;
 import haxe.ui.RuntimeComponentBuilder;
 import thx.semver.Version;
 
@@ -1958,7 +1967,7 @@ class ChartEditorDialogHandler
       dialog.hideDialog(DialogButton.CANCEL);
     }
 
-    var newSongMetadata:SongMetadata = new SongMetadata('', '', '', Constants.DEFAULT_VARIATION);
+    var newSongMetadata:SongMetadata = new SongMetadata('', '', Constants.DEFAULT_VARIATION);
 
     newSongMetadata.variation = targetVariation;
     newSongMetadata.playData.difficulties = (erect) ? ['erect', 'nightmare'] : ['easy', 'normal', 'hard'];
@@ -2017,7 +2026,7 @@ class ChartEditorDialogHandler
     var inputStage:Null<DropDown> = dialog.findComponent('inputStage', DropDown);
     if (inputStage == null) throw 'Could not locate inputStage DropDown in Song Metadata dialog';
     inputStage.onChange = function(event:UIEvent) {
-      if (event.data == null || event.data?.id == null) return;
+      if (event.data == null && event.data.id == null) return;
       newSongMetadata.playData.stage = event.data.id;
     };
     var startingValueStage = ChartEditorDropdowns.populateDropdownWithStages(inputStage, newSongMetadata.playData.stage);
@@ -2026,7 +2035,7 @@ class ChartEditorDialogHandler
     var inputNoteStyle:Null<DropDown> = dialog.findComponent('inputNoteStyle', DropDown);
     if (inputNoteStyle == null) throw 'Could not locate inputNoteStyle DropDown in Song Metadata dialog';
     inputNoteStyle.onChange = function(event:UIEvent) {
-      if (event.data?.id == null) return;
+      if (event.data.id == null) return;
       newSongMetadata.playData.noteStyle = event.data.id;
     };
     var startingValueNoteStyle = ChartEditorDropdowns.populateDropdownWithNoteStyles(inputNoteStyle, newSongMetadata.playData.noteStyle);
@@ -2439,14 +2448,7 @@ class ChartEditorDialogHandler
 
     var fileFilter = switch (format)
     {
-      case 'legacy':
-        // TODO / BUG: File filtering not working on mac finder dialog, so we don't use it for now
-        #if !mac
-        [
-          {label: 'JSON Data File (.json)', extension: 'json'}];
-        #else
-        [];
-        #end
+      case 'legacy': {label: 'JSON Data File (.json)', extension: 'json'};
       default: null;
     }
 
@@ -2476,7 +2478,7 @@ class ChartEditorDialogHandler
     var onDropFile:String->Void;
 
     importBox.onClick = function(_) {
-      Dialogs.openBinaryFile('Import Chart - ${prettyFormat}', fileFilter ?? [], function(selectedFile:SelectedFileInfo) {
+      Dialogs.openBinaryFile('Import Chart - ${prettyFormat}', fileFilter != null ? [fileFilter] : [], function(selectedFile:SelectedFileInfo) {
         if (selectedFile != null && selectedFile.bytes != null)
         {
           trace('Selected file: ' + selectedFile.fullPath);
@@ -2503,14 +2505,7 @@ class ChartEditorDialogHandler
     onDropFile = function(pathStr:String) {
       var path:Path = new Path(pathStr);
       var selectedFileText:String = FileUtil.readStringFromPath(path.toString());
-      var selectedFileData:Null<FNFLegacyData> = FNFLegacyImporter.parseLegacyDataRaw(selectedFileText, path.toString());
-
-      if (selectedFileData == null)
-      {
-        state.error('Failure', 'Failed to parse FNF chart file (${path.file}.${path.ext})');
-        return;
-      }
-
+      var selectedFileData:FNFLegacyData = FNFLegacyImporter.parseLegacyDataRaw(selectedFileText, path.toString());
       var songMetadata:SongMetadata = FNFLegacyImporter.migrateMetadata(selectedFileData);
       var songChartData:SongChartData = FNFLegacyImporter.migrateChartData(selectedFileData);
 
@@ -2571,10 +2566,6 @@ class ChartEditorDialogHandler
     if (dialogSongArtist == null) throw 'Could not locate dialogSongArtist TextField in Add Variation dialog';
     dialogSongArtist.value = state.currentSongMetadata.artist;
 
-    var dialogSongCharter:Null<TextField> = dialog.findComponent('dialogSongCharter', TextField);
-    if (dialogSongCharter == null) throw 'Could not locate dialogSongCharter TextField in Add Variation dialog';
-    dialogSongCharter.value = state.currentSongMetadata.charter;
-
     var dialogStage:Null<DropDown> = dialog.findComponent('dialogStage', DropDown);
     if (dialogStage == null) throw 'Could not locate dialogStage DropDown in Add Variation dialog';
     var startingValueStage = ChartEditorDropdowns.populateDropdownWithStages(dialogStage, state.currentSongMetadata.playData.stage);
@@ -2582,8 +2573,7 @@ class ChartEditorDialogHandler
 
     var dialogNoteStyle:Null<DropDown> = dialog.findComponent('dialogNoteStyle', DropDown);
     if (dialogNoteStyle == null) throw 'Could not locate dialogNoteStyle DropDown in Add Variation dialog';
-    var startingValueNoteStyle = ChartEditorDropdowns.populateDropdownWithNoteStyles(dialogNoteStyle, state.currentSongMetadata.playData.noteStyle);
-    dialogNoteStyle.value = startingValueNoteStyle;
+    dialogNoteStyle.value = state.currentSongMetadata.playData.noteStyle;
 
     var dialogCharacterPlayer:Null<DropDown> = dialog.findComponent('dialogCharacterPlayer', DropDown);
     if (dialogCharacterPlayer == null) throw 'Could not locate dialogCharacterPlayer DropDown in Add Variation dialog';
@@ -2615,11 +2605,10 @@ class ChartEditorDialogHandler
       var dialogVariationName:Null<TextField> = dialog.findComponent('dialogVariationName', TextField);
       if (dialogVariationName == null) throw 'Could not locate dialogVariationName TextField in Add Variation dialog';
 
-      var pendingVariation:SongMetadata = new SongMetadata(dialogSongName.text, dialogSongArtist.text, dialogSongCharter.text,
-        dialogVariationName.text.toLowerCase());
+      var pendingVariation:SongMetadata = new SongMetadata(dialogSongName.text, dialogSongArtist.text, dialogVariationName.text.toLowerCase());
 
       pendingVariation.playData.stage = dialogStage.value.id;
-      pendingVariation.playData.noteStyle = dialogNoteStyle.value.id;
+      pendingVariation.playData.noteStyle = dialogNoteStyle.value;
       pendingVariation.timeChanges[0].bpm = dialogBPM.value;
 
       state.songMetadata.set(pendingVariation.variation, pendingVariation);
@@ -2801,7 +2790,7 @@ class ChartEditorDialogHandler
     new FlxTimer().start(EPSILON, function(_) {
       for (handler in dropHandlers)
       {
-        if (handler.component.hitTest(FlxG.mouse.viewX, FlxG.mouse.viewY))
+        if (handler.component.hitTest(FlxG.mouse.screenX, FlxG.mouse.screenY))
         {
           handler.handler(path);
           return;

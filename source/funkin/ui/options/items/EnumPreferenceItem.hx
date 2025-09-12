@@ -89,17 +89,16 @@ class EnumPreferenceItem extends TextMenuItem
 =======
 package funkin.ui.options.items;
 
-import funkin.ui.TextMenuList.TextMenuItem;
+import funkin.ui.TextMenuList;
 import funkin.ui.AtlasText;
 import funkin.input.Controls;
-#if mobile
-import funkin.util.SwipeUtil;
-#end
+import funkin.ui.options.MenuItemEnums;
+import haxe.EnumTools;
 
 /**
  * Preference item that allows the player to pick a value from an enum (list of values)
  */
-class EnumPreferenceItem<T> extends TextMenuItem
+class EnumPreferenceItem extends TextMenuItem
 {
   function controls():Controls
   {
@@ -108,37 +107,34 @@ class EnumPreferenceItem<T> extends TextMenuItem
 
   public var lefthandText:AtlasText;
 
-  public var currentKey:String;
-  public var onChangeCallback:Null<String->T->Void>;
-  public var map:Map<String, T>;
+  public var currentValue:String;
+  public var onChangeCallback:Null<String->Void>;
+  public var map:Map<String, String>;
   public var keys:Array<String> = [];
 
   var index = 0;
 
-  public function new(x:Float, y:Float, name:String, map:Map<String, T>, defaultKey:String, ?callback:String->T->Void)
+  public function new(x:Float, y:Float, name:String, map:Map<String, String>, defaultValue:String, ?callback:String->Void)
   {
     super(x, y, name, function() {
-      var value = map.get(this.currentKey);
-      callback(this.currentKey, value);
+      callback(this.currentValue);
     });
 
     updateHitbox();
 
     this.map = map;
-    this.currentKey = defaultKey;
+    this.currentValue = defaultValue;
     this.onChangeCallback = callback;
 
     var i:Int = 0;
     for (key in map.keys())
     {
-      var value:T = map[key];
-
       this.keys.push(key);
-      if (this.currentKey == key) index = i;
+      if (this.currentValue == key) index = i;
       i += 1;
     }
 
-    lefthandText = new AtlasText(x + 15, y, formatted(defaultKey), AtlasFont.DEFAULT);
+    lefthandText = new AtlasText(15, y, formatted(defaultValue), AtlasFont.DEFAULT);
 
     this.fireInstantly = true;
   }
@@ -150,8 +146,8 @@ class EnumPreferenceItem<T> extends TextMenuItem
     // var fancyTextFancyColor:Color;
     if (selected)
     {
-      var shouldDecrease:Bool = controls().UI_LEFT_P #if mobile || SwipeUtil.justSwipedLeft #end;
-      var shouldIncrease:Bool = controls().UI_RIGHT_P #if mobile || SwipeUtil.justSwipedRight #end;
+      var shouldDecrease:Bool = controls().UI_LEFT_P;
+      var shouldIncrease:Bool = controls().UI_RIGHT_P;
 
       if (shouldDecrease) index -= 1;
       if (shouldIncrease) index += 1;
@@ -159,23 +155,22 @@ class EnumPreferenceItem<T> extends TextMenuItem
       if (index > keys.length - 1) index = 0;
       if (index < 0) index = keys.length - 1;
 
-      currentKey = keys[index];
+      currentValue = keys[index];
       if (onChangeCallback != null && (shouldIncrease || shouldDecrease))
       {
-        var value = map.get(currentKey);
-        onChangeCallback(currentKey, value);
+        onChangeCallback(currentValue);
       }
     }
 
-    lefthandText.text = formatted(currentKey);
+    lefthandText.text = formatted(currentValue);
   }
 
-  function formatted(key:String):String
+  function formatted(value:String):String
   {
     // FIXME: Can't add arrows around the text because the font doesn't support < >
     // var leftArrow:String = selected ? '<' : '';
     // var rightArrow:String = selected ? '>' : '';
-    return '${key}';
+    return '${map.get(value) ?? value}';
   }
 }
 >>>>>>> 13e3b504 (Add files via upload)

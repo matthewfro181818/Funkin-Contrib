@@ -7,6 +7,7 @@ import polymod.Polymod;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
@@ -20,6 +21,10 @@ import polymod.Polymod;
 @:nullSafety
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+@:nullSafety
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 class PolymodErrorHandler
 {
 <<<<<<< HEAD
@@ -202,6 +207,7 @@ class PolymodErrorHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         var className:Null<String> = error.message.split(' ').pop();
 =======
         var className:String = error.message.split(' ').pop();
@@ -226,6 +232,11 @@ class PolymodErrorHandler
 =======
         var className:String = error.message.split(' ').pop();
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+        var className:Null<String> = error.message.split(' ').pop();
+=======
+        var className:String = error.message.split(' ').pop();
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
         var msg:String = 'Import error in ${error.origin}';
         msg += '\nCould not import unknown class ${className}';
         msg += '\nCheck to ensure the class exists and is spelled correctly.';

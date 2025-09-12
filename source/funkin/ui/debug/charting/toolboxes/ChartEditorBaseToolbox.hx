@@ -31,7 +31,10 @@ class ChartEditorBaseToolbox extends CollapsibleDialog
 =======
 package funkin.ui.debug.charting.toolboxes;
 
+import haxe.ui.containers.dialogs.Dialog;
 import haxe.ui.containers.dialogs.CollapsibleDialog;
+import haxe.ui.containers.dialogs.Dialog.DialogEvent;
+import haxe.ui.core.Component;
 
 /**
  * The base class for the Toolboxes (manipulatable, arrangeable control windows) in the Chart Editor.

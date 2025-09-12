@@ -7,6 +7,7 @@ import funkin.modding.events.ScriptEvent;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterDataParser;
 import funkin.play.character.CharacterData.CharacterRenderType;
 =======
@@ -41,6 +42,13 @@ import funkin.play.character.CharacterData.CharacterRenderType;
 import funkin.data.character.CharacterRegistry;
 import funkin.data.character.CharacterData;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+import funkin.play.character.CharacterData.CharacterDataParser;
+import funkin.play.character.CharacterData.CharacterRenderType;
+=======
+import funkin.data.character.CharacterRegistry;
+import funkin.data.character.CharacterData;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import funkin.play.stage.Bopper;
 import funkin.play.notes.NoteDirection;
 
@@ -190,6 +198,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     super(CharacterDataParser.DEFAULT_DANCEEVERY);
 
 =======
@@ -219,6 +228,12 @@ class BaseCharacter extends Bopper
 =======
     super(CharacterRegistry.DEFAULT_DANCEEVERY);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    super(CharacterDataParser.DEFAULT_DANCEEVERY);
+
+=======
+    super(CharacterRegistry.DEFAULT_DANCEEVERY);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     this.characterId = id;
 
     ignoreExclusionPref = ["sing"];
@@ -228,6 +243,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     _data = CharacterDataParser.fetchCharacterData(this.characterId);
 =======
     _data = CharacterRegistry.fetchCharacterData(this.characterId);
@@ -252,6 +268,11 @@ class BaseCharacter extends Bopper
 =======
     _data = CharacterRegistry.fetchCharacterData(this.characterId);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    _data = CharacterDataParser.fetchCharacterData(this.characterId);
+=======
+    _data = CharacterRegistry.fetchCharacterData(this.characterId);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     if (_data == null)
     {
       throw 'Could not find character data for characterId: $characterId';
@@ -655,6 +676,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // If the note is from the same strumline, play the miss animation.
 =======
       // If the note is from the same strumline, play the sing animation.
@@ -679,6 +701,11 @@ class BaseCharacter extends Bopper
 =======
       // If the note is from the same strumline, play the sing animation.
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      // If the note is from the same strumline, play the miss animation.
+=======
+      // If the note is from the same strumline, play the sing animation.
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       this.playSingAnimation(event.note.noteData.getDirection(), true);
     }
     else if (!event.note.noteData.getMustHitNote() && characterType == DAD)
@@ -688,6 +715,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // If the note is from the same strumline, play the miss animation.
 =======
       // If the note is from the same strumline, play the sing animation.
@@ -712,6 +740,11 @@ class BaseCharacter extends Bopper
 =======
       // If the note is from the same strumline, play the sing animation.
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      // If the note is from the same strumline, play the miss animation.
+=======
+      // If the note is from the same strumline, play the sing animation.
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       this.playSingAnimation(event.note.noteData.getDirection(), true);
     }
     else if (event.note.noteData.getMustHitNote() && characterType == GF)
@@ -721,6 +754,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       playComboDropAnimation(event.comboCount);
     }
   }
@@ -860,6 +894,34 @@ class BaseCharacter extends Bopper
 =======
       playComboDropAnimation(Highscore.tallies.combo);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      playComboDropAnimation(event.comboCount);
+    }
+  }
+
+  public override function onNoteHoldDrop(event:HoldNoteScriptEvent)
+  {
+    super.onNoteHoldDrop(event);
+
+    // If another script cancelled the event, don't do anything.
+    if (event.eventCanceled) return;
+
+    if (event.holdNote.noteData.getMustHitNote() && characterType == BF)
+    {
+      // If the note is from the same strumline, play the miss animation.
+      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
+    }
+    else if (!event.holdNote.noteData.getMustHitNote() && characterType == DAD)
+    {
+      // If the note is from the same strumline, play the miss animation.
+      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
+    }
+    else if (event.holdNote.noteData.getMustHitNote() && event.isComboBreak && characterType == GF)
+    {
+      playComboDropAnimation(event.comboCount);
+=======
+      playComboDropAnimation(Highscore.tallies.combo);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     }
   }
 
@@ -945,6 +1007,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   public function getDeathQuote():Null<String>
   {
@@ -984,6 +1047,14 @@ class BaseCharacter extends Bopper
   }
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+
+  public function getDeathQuote():Null<String>
+  {
+    return null;
+  }
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 }
 
 /**

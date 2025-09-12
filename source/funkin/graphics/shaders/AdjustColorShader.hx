@@ -7,6 +7,7 @@ import flixel.addons.display.FlxRuntimeShader;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
@@ -20,8 +21,13 @@ import flixel.addons.display.FlxRuntimeShader;
 @:nullSafety
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+@:nullSafety
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 class AdjustColorShader extends FlxRuntimeShader
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -86,6 +92,17 @@ class AdjustColorShader extends FlxRuntimeShader
   public var brightness(default, set):Float;
   public var contrast(default, set):Float;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  public var hue(default, set):Float = 0;
+  public var saturation(default, set):Float = 0;
+  public var brightness(default, set):Float = 0;
+  public var contrast(default, set):Float = 0;
+=======
+  public var hue(default, set):Float;
+  public var saturation(default, set):Float;
+  public var brightness(default, set):Float;
+  public var contrast(default, set):Float;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
   public function new()
   {

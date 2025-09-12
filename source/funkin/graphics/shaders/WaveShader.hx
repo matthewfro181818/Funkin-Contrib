@@ -7,6 +7,7 @@ import flixel.system.FlxAssets.FlxShader;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -26,6 +27,10 @@ import flixel.system.FlxAssets.FlxShader;
 @:nullSafety
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+@:nullSafety
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 class WaveShader extends FlxShader
 {
   @:glFragmentSource('

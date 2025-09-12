@@ -231,14 +231,13 @@ import flixel.tweens.FlxTween;
 import openfl.display.BlendMode;
 import flixel.util.FlxColor;
 
-@:nullSafety
 class CapsuleText extends FlxSpriteGroup
 {
   public var blurredText:FlxText;
 
   var whiteText:FlxText;
 
-  public var text(default, set):Null<String>;
+  public var text(default, set):String;
 
   var maskShaderSongName:LeftMaskShader = new LeftMaskShader();
 
@@ -255,9 +254,9 @@ class CapsuleText extends FlxSpriteGroup
   {
     super(x, y);
 
-    blurredText = CapsuleText.initText(songTitle, size);
+    blurredText = initText(songTitle, size);
     blurredText.shader = new GaussianBlurShader(1);
-    whiteText = CapsuleText.initText(songTitle, size);
+    whiteText = initText(songTitle, size);
     // whiteText.shader = new GaussianBlurShader(0.3);
     text = songTitle;
 
@@ -267,7 +266,7 @@ class CapsuleText extends FlxSpriteGroup
     add(whiteText);
   }
 
-  static function initText(songTitle:String, size:Float):FlxText
+  function initText(songTitle, size:Float):FlxText
   {
     var text:FlxText = new FlxText(0, 0, 0, songTitle, Std.int(size));
     text.font = "5by7";
@@ -302,7 +301,6 @@ class CapsuleText extends FlxSpriteGroup
   function checkClipWidth(?wid:Int):Void
   {
     if (wid == null) wid = clipWidth;
-    if (whiteText == null || blurredText == null) return;
 
     if (whiteText.width > wid)
     {
@@ -315,9 +313,7 @@ class CapsuleText extends FlxSpriteGroup
     {
       tooLong = false;
 
-      @:nullSafety(Off)
       blurredText.clipRect = null;
-      @:nullSafety(Off)
       whiteText.clipRect = null;
     }
   }
@@ -343,7 +339,7 @@ class CapsuleText extends FlxSpriteGroup
   }
 
   var moveTimer:FlxTimer = new FlxTimer();
-  var moveTween:Null<FlxTween>;
+  var moveTween:FlxTween;
 
   public function initMove():Void
   {
@@ -391,8 +387,6 @@ class CapsuleText extends FlxSpriteGroup
 
   public function resetText():Void
   {
-    scale.x = 1;
-    scale.y = 1;
     if (moveTween != null) moveTween.cancel();
     if (moveTimer != null) moveTimer.cancel();
     whiteText.offset.x = 0;
@@ -401,7 +395,7 @@ class CapsuleText extends FlxSpriteGroup
   }
 
   var flickerState:Bool = false;
-  var flickerTimer:Null<FlxTimer>;
+  var flickerTimer:FlxTimer;
 
   public function flickerText():Void
   {

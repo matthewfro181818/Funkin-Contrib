@@ -3471,6 +3471,7 @@ class PlayState extends MusicBeatSubState
     scrollSpeedTweens = [];
   }
 
+<<<<<<< HEAD
   #if FEATURE_DEBUG_FUNCTIONS
   /**
      * Jumps forward or backward a number of sections in the song.
@@ -7370,6 +7371,18 @@ class PlayState extends MusicBeatSubState
     soundsPausedBySubState.clear();
   }
 
+||||||| cf89d672
+  function forEachPausedSound(f:FlxSound->Void):Void
+  {
+    for (sound in soundsPausedBySubState)
+    {
+      f(sound);
+    }
+    soundsPausedBySubState.clear();
+  }
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   #if FEATURE_DEBUG_FUNCTIONS
   /**
      * Jumps forward or backward a number of sections in the song.

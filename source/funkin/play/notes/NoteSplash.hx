@@ -5,6 +5,7 @@ package funkin.play.notes;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.notes.notestyle.NoteStyle;
 ||||||| parent of 8a1f54ca (lol8)
 import funkin.play.notes.notestyle.NoteStyle;
@@ -21,8 +22,14 @@ import funkin.play.notes.notestyle.NoteStyle;
 =======
 import funkin.play.notes.NoteDirection;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+import funkin.play.notes.notestyle.NoteStyle;
+=======
+import funkin.play.notes.NoteDirection;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import flixel.graphics.frames.FlxFramesCollection;
 import flixel.FlxG;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -54,10 +61,15 @@ import flixel.graphics.frames.FlxAtlasFrames;
 =======
 import flixel.graphics.frames.FlxAtlasFrames;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import flixel.graphics.frames.FlxAtlasFrames;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import flixel.FlxSprite;
 
 class NoteSplash extends FlxSprite
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -120,15 +132,30 @@ class NoteSplash extends FlxSprite
   public var splashFramerate:Int = 24;
   public var splashFramerateVariance:Int = 2;
 >>>>>>> b150c43d (lol4)
+||||||| cf89d672
+  public var splashFramerate:Int = 24;
+  public var splashFramerateVariance:Int = 2;
+=======
+  static final ALPHA:Float = 0.6;
+  static final FRAMERATE_DEFAULT:Int = 24;
+  static final FRAMERATE_VARIANCE:Int = 2;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
   static var frameCollection:FlxFramesCollection;
 
-  public function new(noteStyle:NoteStyle)
+  public static function preloadFrames():Void
+  {
+    frameCollection = Paths.getSparrowAtlas('noteSplashes');
+    frameCollection.parent.persist = true;
+  }
+
+  public function new()
   {
     super(0, 0);
 
-    setupSplashGraphic(noteStyle);
+    setup();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     this.alpha = ALPHA;
     this.animation.finishCallback = this.onAnimationFinished;
@@ -157,6 +184,12 @@ class NoteSplash extends FlxSprite
     this.alpha = ALPHA;
     this.animation.finishCallback = this.onAnimationFinished;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    this.animation.onFinish.add(this.onAnimationFinished);
+=======
+    this.alpha = ALPHA;
+    this.animation.finishCallback = this.onAnimationFinished;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   }
 
   /**
@@ -167,6 +200,7 @@ class NoteSplash extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   function setupSplashGraphic(noteStyle:NoteStyle):Void
 ||||||| parent of 8a1f54ca (lol8)
   function setupSplashGraphic(noteStyle:NoteStyle):Void
@@ -183,7 +217,13 @@ class NoteSplash extends FlxSprite
 =======
   function setup():Void
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  function setupSplashGraphic(noteStyle:NoteStyle):Void
+=======
+  function setup():Void
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -279,6 +319,23 @@ class NoteSplash extends FlxSprite
     this.animation.addByPrefix('splash2Up', 'note impact 2 green0', FRAMERATE_DEFAULT, false, false, false);
     this.animation.addByPrefix('splash2Right', 'note impact 2 red0', FRAMERATE_DEFAULT, false, false, false);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    if (frames == null) noteStyle.buildSplashSprite(this);
+=======
+    if (frameCollection?.parent?.isDestroyed ?? false) frameCollection = null;
+    if (frameCollection == null) preloadFrames();
+
+    this.frames = frameCollection;
+
+    this.animation.addByPrefix('splash1Left', 'note impact 1 purple0', FRAMERATE_DEFAULT, false, false, false);
+    this.animation.addByPrefix('splash1Down', 'note impact 1  blue0', FRAMERATE_DEFAULT, false, false, false);
+    this.animation.addByPrefix('splash1Up', 'note impact 1 green0', FRAMERATE_DEFAULT, false, false, false);
+    this.animation.addByPrefix('splash1Right', 'note impact 1 red0', FRAMERATE_DEFAULT, false, false, false);
+    this.animation.addByPrefix('splash2Left', 'note impact 2 purple0', FRAMERATE_DEFAULT, false, false, false);
+    this.animation.addByPrefix('splash2Down', 'note impact 2 blue0', FRAMERATE_DEFAULT, false, false, false);
+    this.animation.addByPrefix('splash2Up', 'note impact 2 green0', FRAMERATE_DEFAULT, false, false, false);
+    this.animation.addByPrefix('splash2Right', 'note impact 2 red0', FRAMERATE_DEFAULT, false, false, false);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     if (this.animation.getAnimationList().length < 8)
     {
@@ -293,6 +350,7 @@ class NoteSplash extends FlxSprite
 
   public function play(direction:NoteDirection, variant:Int = null):Void
   {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -336,7 +394,18 @@ class NoteSplash extends FlxSprite
       variant = FlxG.random.int(0, animationAmount);
     }
 >>>>>>> e11c5f8d (Add files via upload)
+||||||| cf89d672
+    if (variant == null)
+    {
+      var animationAmount:Int = this.animation.getAnimationList().filter(function(anim) return anim.name.startsWith('splash${direction.nameUpper}')).length
+        - 1;
+      variant = FlxG.random.int(0, animationAmount);
+    }
+=======
+    if (variant == null) variant = FlxG.random.int(1, 2);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
+<<<<<<< HEAD
     // splashUP0, splashUP1, splashRIGHT0, etc.
     // the animations are processed via `NoteStyle.fetchSplashAnimationData()` in this format
     this.playAnimation('splash${direction.nameUpper}${variant}');
@@ -381,10 +450,28 @@ class NoteSplash extends FlxSprite
       case NoteDirection.RIGHT:
         this.playAnimation('splash${variant}Right');
     }
+||||||| cf89d672
+    // splashUP0, splashUP1, splashRIGHT0, etc.
+    // the animations are processed via `NoteStyle.fetchSplashAnimationData()` in this format
+    this.playAnimation('splash${direction.nameUpper}${variant}');
+=======
+    switch (direction)
+    {
+      case NoteDirection.LEFT:
+        this.playAnimation('splash${variant}Left');
+      case NoteDirection.DOWN:
+        this.playAnimation('splash${variant}Down');
+      case NoteDirection.UP:
+        this.playAnimation('splash${variant}Up');
+      case NoteDirection.RIGHT:
+        this.playAnimation('splash${variant}Right');
+    }
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     if (animation.curAnim == null) return;
 
     // Vary the speed of the animation a bit.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -414,6 +501,11 @@ class NoteSplash extends FlxSprite
 =======
     animation.curAnim.frameRate = FRAMERATE_DEFAULT + FlxG.random.int(-FRAMERATE_VARIANCE, FRAMERATE_VARIANCE);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    animation.curAnim.frameRate = splashFramerate + FlxG.random.int(-splashFramerateVariance, splashFramerateVariance);
+=======
+    animation.curAnim.frameRate = FRAMERATE_DEFAULT + FlxG.random.int(-FRAMERATE_VARIANCE, FRAMERATE_VARIANCE);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     // Center the animation on the note splash.
     offset.set(width * 0.3, height * 0.3);

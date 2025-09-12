@@ -41,6 +41,7 @@ class CreditsDataMacro
   #if macro
   static function fetchJSON():Null<String>
   {
+<<<<<<< HEAD
     return sys.io.File.getContent(CreditsDataHandler.CREDITS_DATA_PATH);
   }
 
@@ -111,6 +112,11 @@ class CreditsDataMacro
   static function fetchJSON():Null<String>
   {
     return sys.io.File.getContent(#if ios '../../../../../' + #end CreditsDataHandler.CREDITS_DATA_PATH);
+||||||| cf89d672
+    return sys.io.File.getContent(#if ios '../../../../../' + #end CreditsDataHandler.CREDITS_DATA_PATH);
+=======
+    return sys.io.File.getContent(CreditsDataHandler.CREDITS_DATA_PATH);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   }
 
   /**

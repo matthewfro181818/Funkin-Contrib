@@ -121,6 +121,7 @@ class ChangeStartingBPMCommand implements ChartEditorCommand
     state.noteDisplayDirty = true;
     state.notePreviewDirty = true;
     state.notePreviewViewportBoundsDirty = true;
+    state.scrollPositionInPixels = 0;
 
     Conductor.instance.mapTimeChanges(state.currentSongMetadata.timeChanges);
 
@@ -144,6 +145,7 @@ class ChangeStartingBPMCommand implements ChartEditorCommand
     state.noteDisplayDirty = true;
     state.notePreviewDirty = true;
     state.notePreviewViewportBoundsDirty = true;
+    state.scrollPositionInPixels = 0;
 
     Conductor.instance.mapTimeChanges(state.currentSongMetadata.timeChanges);
 

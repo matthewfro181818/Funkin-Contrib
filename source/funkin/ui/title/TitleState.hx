@@ -227,6 +227,7 @@ class TitleState extends MusicBeatState
     #end
 
     #if desktop
+<<<<<<< HEAD
     if (FlxG.keys.justPressed.ESCAPE)
     {
       openfl.Lib.application.window.close();
@@ -734,14 +735,20 @@ class TitleState extends MusicBeatState
     // This lets you exit without leaving fullscreen mode.
     // Only applicable on desktop and Android.
     if (#if android FlxG.android.justReleased.BACK || #end controls.BACK)
+||||||| cf89d672
+    // Pressing BACK on the title screen should close the game.
+    // This lets you exit without leaving fullscreen mode.
+    // Only applicable on desktop.
+    if (controls.BACK)
+=======
+    if (FlxG.keys.justPressed.ESCAPE)
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     {
       openfl.Lib.application.window.close();
     }
     #end
 
     Conductor.instance.update();
-
-    funkin.input.Cursor.hide();
 
     /* if (FlxG.onMobile)
           {
@@ -752,20 +759,12 @@ class TitleState extends MusicBeatState
       }
           }
      */
-    if (outlineShaderShit != null)
+    if (FlxG.keys.justPressed.I)
     {
-      if (FlxG.keys.justPressed.I)
-      {
-        FlxTween.tween(outlineShaderShit, {funnyX: 50, funnyY: 50}, 0.6, {ease: FlxEase.quartOut});
-      }
-
-      if (FlxG.keys.pressed.D)
-      {
-        outlineShaderShit.funnyX += 1;
-      }
-
-      // outlineShaderShit.xPos.value[0] += 1;
+      FlxTween.tween(outlineShaderShit, {funnyX: 50, funnyY: 50}, 0.6, {ease: FlxEase.quartOut});
     }
+    if (FlxG.keys.pressed.D) outlineShaderShit.funnyX += 1;
+    // outlineShaderShit.xPos.value[0] += 1;
 
     if (FlxG.keys.justPressed.Y)
     {
@@ -777,44 +776,102 @@ class TitleState extends MusicBeatState
     if (FlxG.sound.music != null) Conductor.instance.update(FlxG.sound.music.time);
 
     // do controls.PAUSE | controls.ACCEPT instead?
-    var pressedEnter:Bool = FlxG.keys.justPressed.ENTER #if mobile || (TouchUtil.justReleased && !SwipeUtil.justSwipedAny) #end;
+    var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
     var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
     if (gamepad != null)
     {
+<<<<<<< HEAD
       if (gamepad.justPressed.START || gamepad.justPressed.ACCEPT) pressedEnter = true;
+||||||| cf89d672
+      if (gamepad.justPressed.START) pressedEnter = true;
+=======
+      if (gamepad.justPressed.START) pressedEnter = true;
+      #if switch
+      if (gamepad.justPressed.B) pressedEnter = true;
+      #end
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     }
 
     // If you spam Enter, we should skip the transition.
     if (pressedEnter && transitioning && skippedIntro)
     {
+<<<<<<< HEAD
       moveToMainMenu();
+||||||| cf89d672
+      funkin.FunkinMemory.purgeCache();
+      FlxG.switchState(() -> new MainMenuState());
+=======
+      FlxG.switchState(() -> new MainMenuState());
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     }
 
     if (pressedEnter && !transitioning && skippedIntro)
     {
       if (FlxG.sound.music != null) FlxG.sound.music.onComplete = null;
+<<<<<<< HEAD
+||||||| cf89d672
+      // netStream.play(Paths.file('music/kickstarterTrailer.mp4'));
+=======
+      NGio.unlockMedal(60960);
+      // If it's Friday according to da clock
+      if (Date.now().getDay() == 5) NGio.unlockMedal(61034);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       titleText.animation.play('press');
       FlxG.camera.flash(FlxColor.WHITE, 1);
       FunkinSound.playOnce(Paths.sound('confirmMenu'), 0.7);
       transitioning = true;
 
+<<<<<<< HEAD
       #if FEATURE_NEWGROUNDS
       // Award the "Start Game" medal.
       Medals.award(Medal.StartGame);
       funkin.api.newgrounds.Events.logStartGame();
       #end
 
+||||||| cf89d672
+      #if FEATURE_NEWGROUNDS
+      // Award the "Start Game" medal.
+      Medals.award(Medal.StartGame);
+      funkin.api.newgrounds.Events.logStartGame();
+      #end
+
+      var targetState:NextState = () -> new MainMenuState();
+
+=======
+      var targetState:NextState = () -> new MainMenuState();
+
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       new FlxTimer().start(2, function(tmr:FlxTimer) {
+<<<<<<< HEAD
         moveToMainMenu();
+||||||| cf89d672
+        // These assets are very unlikely to be used for the rest of gameplay, so it unloads them from cache/memory
+        // Saves about 50mb of RAM or so???
+        // TODO: This BREAKS the title screen if you return back to it! Figure out how to fix that.
+        // Assets.cache.clear(Paths.image('gfDanceTitle'));
+        // Assets.cache.clear(Paths.image('logoBumpin'));
+        // Assets.cache.clear(Paths.image('titleEnter'));
+        // ngSpr??
+        funkin.FunkinMemory.purgeCache();
+        FlxG.switchState(targetState);
+=======
+        // These assets are very unlikely to be used for the rest of gameplay, so it unloads them from cache/memory
+        // Saves about 50mb of RAM or so???
+        // TODO: This BREAKS the title screen if you return back to it! Figure out how to fix that.
+        // Assets.cache.clear(Paths.image('gfDanceTitle'));
+        // Assets.cache.clear(Paths.image('logoBumpin'));
+        // Assets.cache.clear(Paths.image('titleEnter'));
+        // ngSpr??
+        FlxG.switchState(targetState);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       });
     }
     if (pressedEnter && !skippedIntro && initialized) skipIntro();
 
-    // TODO: Maybe use the dxdy method for swiping instead.
-    if (controls.UI_LEFT #if mobile || SwipeUtil.justSwipedLeft #end) swagShader.update(-elapsed * 0.1);
-    if (controls.UI_RIGHT #if mobile || SwipeUtil.justSwipedRight #end) swagShader.update(elapsed * 0.1);
+    if (controls.UI_LEFT) swagShader.update(-elapsed * 0.1);
+    if (controls.UI_RIGHT) swagShader.update(elapsed * 0.1);
     if (!cheatActive && skippedIntro) cheatCodeShit();
     super.update(elapsed);
   }
@@ -842,10 +899,13 @@ class TitleState extends MusicBeatState
 
   function cheatCodeShit():Void
   {
-    if (controls.NOTE_DOWN_P || controls.UI_DOWN_P #if mobile || SwipeUtil.justSwipedUp #end) codePress(FlxDirectionFlags.DOWN.toInt());
-    if (controls.NOTE_UP_P || controls.UI_UP_P #if mobile || SwipeUtil.justSwipedDown #end) codePress(FlxDirectionFlags.UP.toInt());
-    if (controls.NOTE_LEFT_P || controls.UI_LEFT_P #if mobile || SwipeUtil.justSwipedLeft #end) codePress(FlxDirectionFlags.LEFT.toInt());
-    if (controls.NOTE_RIGHT_P || controls.UI_RIGHT_P #if mobile || SwipeUtil.justSwipedRight #end) codePress(FlxDirectionFlags.RIGHT.toInt());
+    if (FlxG.keys.justPressed.ANY)
+    {
+      if (controls.NOTE_DOWN_P || controls.UI_DOWN_P) codePress(FlxDirectionFlags.DOWN);
+      if (controls.NOTE_UP_P || controls.UI_UP_P) codePress(FlxDirectionFlags.UP);
+      if (controls.NOTE_LEFT_P || controls.UI_LEFT_P) codePress(FlxDirectionFlags.LEFT);
+      if (controls.NOTE_RIGHT_P || controls.UI_RIGHT_P) codePress(FlxDirectionFlags.RIGHT);
+    }
   }
 
   function codePress(input:Int)
@@ -898,7 +958,7 @@ class TitleState extends MusicBeatState
   {
     if (credGroup == null || textGroup == null) return;
 
-    HapticUtil.vibrate();
+    lime.ui.Haptic.vibrate(100, 100);
 
     var coolText:AtlasText = new AtlasText(0, 0, text.trim(), AtlasFont.BOLD);
     coolText.screenCenter(X);

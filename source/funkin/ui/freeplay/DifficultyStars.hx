@@ -118,7 +118,6 @@ import flixel.group.FlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.shaders.HSVShader;
 
-@:nullSafety
 class DifficultyStars extends FlxSpriteGroup
 {
   /**
@@ -145,11 +144,10 @@ class DifficultyStars extends FlxSpriteGroup
     hsvShader = new HSVShader();
 
     flames = new FreeplayFlames(0, 0);
+    add(flames);
 
     stars = new FlxAtlasSprite(0, 0, Paths.animateAtlas("freeplay/freeplayStars"));
     stars.anim.play("diff stars");
-
-    add(flames);
     add(stars);
 
     stars.shader = hsvShader;

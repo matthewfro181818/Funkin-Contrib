@@ -19,9 +19,18 @@ class Prebuild
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+||||||| cf89d672
+
+    buildCredsFile();
+
+=======
+
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     var end:Float = Sys.time();
     var duration:Float = end - start;
+<<<<<<< HEAD
     // Sys.println('[INFO] Finished pre-build tasks in $duration seconds.');
 ||||||| parent of 3bbe1ef8 (lol2)
     trace('Building...');
@@ -50,6 +59,11 @@ class Prebuild
     var duration:Float = end - start;
     // Sys.println('[INFO] Finished pre-build tasks in $duration seconds.');
 >>>>>>> 905084b8 (idk2)
+||||||| cf89d672
+    trace('[PREBUILD] Finished pre-build tasks in $duration seconds.');
+=======
+    // Sys.println('[INFO] Finished pre-build tasks in $duration seconds.');
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   }
 
   static function saveBuildTime():Void

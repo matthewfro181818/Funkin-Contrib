@@ -6,6 +6,7 @@ import flixel.util.FlxColor;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.util.FlxSignal.FlxTypedSignal;
@@ -18,7 +19,12 @@ import flixel.util.FlxSignal.FlxTypedSignal;
 =======
 import flixel.util.FlxSignal.FlxTypedSignal;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import flixel.util.FlxSignal.FlxTypedSignal;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import funkin.audio.FunkinSound;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -48,6 +54,10 @@ import openfl.display3D.textures.TextureBase;
 =======
 import openfl.display3D.textures.TextureBase;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import openfl.display3D.textures.TextureBase;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import openfl.events.NetStatusEvent;
 import openfl.media.SoundTransform;
 import openfl.media.Video;
@@ -61,6 +71,7 @@ import openfl.net.NetStream;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * This does NOT replace hxvlc, nor does hxvlc replace this.
  * hxvlc only works on native and does not work on HTML5!
 ||||||| parent of 8a1f54ca (lol8)
@@ -84,7 +95,15 @@ import openfl.net.NetStream;
  * This does NOT replace hxCodec, nor does hxCodec replace this.
  * hxCodec only works on desktop and does not work on HTML5!
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+ * This does NOT replace hxvlc, nor does hxvlc replace this.
+ * hxvlc only works on native and does not work on HTML5!
+=======
+ * This does NOT replace hxCodec, nor does hxCodec replace this.
+ * hxCodec only works on desktop and does not work on HTML5!
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -118,6 +137,10 @@ import openfl.net.NetStream;
 @:nullSafety
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+@:nullSafety
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 class FlxVideo extends FunkinSprite
 {
   var video:Video;
@@ -132,6 +155,7 @@ class FlxVideo extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var finishCallback:Null<Void->Void> = null;
 ||||||| parent of 8a1f54ca (lol8)
   public var finishCallback:Null<Void->Void> = null;
@@ -148,7 +172,13 @@ class FlxVideo extends FunkinSprite
 =======
   public var finishCallback:Void->Void;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  public var finishCallback:Null<Void->Void> = null;
+=======
+  public var finishCallback:Void->Void;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -179,6 +209,10 @@ class FlxVideo extends FunkinSprite
   @:nullSafety(Off)
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  @:nullSafety(Off)
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   public function new(videoPath:String)
   {
     super();
@@ -190,6 +224,7 @@ class FlxVideo extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     @:nullSafety(Off) // Why do I to do this here as well for this to build?
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -209,6 +244,10 @@ class FlxVideo extends FunkinSprite
     @:nullSafety(Off) // Why do I to do this here as well for this to build?
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    @:nullSafety(Off) // Why do I to do this here as well for this to build?
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     makeGraphic(2, 2, FlxColor.TRANSPARENT);
 
     video = new Video();
@@ -256,6 +295,7 @@ class FlxVideo extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   var frameTimer:Float = 0;
 =======
   var frameTimer:Float;
@@ -280,6 +320,11 @@ class FlxVideo extends FunkinSprite
 =======
   var frameTimer:Float;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  var frameTimer:Float = 0;
+=======
+  var frameTimer:Float;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
   static final FRAME_RATE:Float = 60;
 

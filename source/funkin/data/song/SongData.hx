@@ -1331,12 +1331,11 @@ class SongMetadata implements ICloneable<SongMetadata>
   @:jignored
   public var variation:String;
 
-  public function new(songName:String, artist:String, ?charter:String, ?variation:String)
+  public function new(songName:String, artist:String, ?variation:String)
   {
     this.version = SongRegistry.SONG_METADATA_VERSION;
     this.songName = songName;
     this.artist = artist;
-    this.charter = (charter == null) ? null : charter;
     this.timeFormat = 'ms';
     this.divisions = null;
     this.offsets = new SongOffsets();
@@ -1360,7 +1359,7 @@ class SongMetadata implements ICloneable<SongMetadata>
    */
   public function clone():SongMetadata
   {
-    var result:SongMetadata = new SongMetadata(this.songName, this.artist, this.charter, this.variation);
+    var result:SongMetadata = new SongMetadata(this.songName, this.artist, this.variation);
     result.version = this.version;
     result.timeFormat = this.timeFormat;
     result.divisions = this.divisions;
@@ -1403,7 +1402,7 @@ class SongMetadata implements ICloneable<SongMetadata>
    */
   public function toString():String
   {
-    return 'SongMetadata(${this.songName} by ${this.artist}, charted by ${this.charter}, variation ${this.variation})';
+    return 'SongMetadata(${this.songName} by ${this.artist}, variation ${this.variation})';
   }
 }
 
@@ -1734,13 +1733,6 @@ class SongPlayData implements ICloneable<SongPlayData>
    */
   @:optional
   public var album:Null<String>;
-
-  /**
-   * The sticker pack for the song to use during transitions.
-   * If `null`, display the character's sticker pack.
-   */
-  @:optional
-  public var stickerPack:Null<String>;
 
   /**
    * The start time for the audio preview in Freeplay.

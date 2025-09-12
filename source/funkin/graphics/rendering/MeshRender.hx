@@ -12,6 +12,7 @@ import flixel.util.FlxColor;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -31,6 +32,10 @@ import flixel.util.FlxColor;
 @:nullSafety
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+@:nullSafety
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 class MeshRender extends FlxStrip
 {
   public var vertex_count(default, null):Int = 0;

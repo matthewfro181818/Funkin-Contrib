@@ -6,6 +6,7 @@ import flixel.system.FlxAssets.FlxShader;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.tweens.FlxEase;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -25,6 +26,10 @@ import flixel.tweens.FlxEase;
 =======
 import flixel.tweens.FlxEase;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import flixel.tweens.FlxEase;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import flixel.tweens.FlxTween;
 
 class BlueFade extends FlxShader
@@ -34,6 +39,7 @@ class BlueFade extends FlxShader
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var fadeVal(default, set):Float = 1;
 =======
   public var fadeVal(default, set):Float;
@@ -58,6 +64,11 @@ class BlueFade extends FlxShader
 =======
   public var fadeVal(default, set):Float;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  public var fadeVal(default, set):Float = 1;
+=======
+  public var fadeVal(default, set):Float;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
   function set_fadeVal(val:Float):Float
   {

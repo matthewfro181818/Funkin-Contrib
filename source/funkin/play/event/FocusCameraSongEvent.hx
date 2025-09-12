@@ -7,6 +7,7 @@ import flixel.tweens.FlxEase;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import funkin.data.song.SongData;
@@ -19,8 +20,13 @@ import funkin.data.song.SongData;
 =======
 import funkin.data.song.SongData;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import funkin.data.song.SongData;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -51,6 +57,10 @@ import funkin.play.event.SongEvent;
 =======
 import funkin.play.event.SongEvent;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import funkin.play.event.SongEvent;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -294,6 +304,7 @@ class FocusCameraSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           'Smoother Step In' => 'smootherStepIn',
           'Smoother Step Out' => 'smootherStepOut',
           'Smoother Step In/Out' => 'smootherStepInOut',
@@ -321,9 +332,16 @@ class FocusCameraSongEvent extends SongEvent
           'Smoother Step In/Out' => 'smootherStepInOut',
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+          'Smoother Step In' => 'smootherStepIn',
+          'Smoother Step Out' => 'smootherStepOut',
+          'Smoother Step In/Out' => 'smootherStepInOut',
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
           'Elastic In' => 'elasticIn',
           'Elastic Out' => 'elasticOut',
           'Elastic In/Out' => 'elasticInOut',
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -390,6 +408,18 @@ class FocusCameraSongEvent extends SongEvent
           'Circ In/Out' => 'circInOut',
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+          'Back In' => 'backIn',
+          'Back Out' => 'backOut',
+          'Back In/Out' => 'backInOut',
+          'Bounce In' => 'bounceIn',
+          'Bounce Out' => 'bounceOut',
+          'Bounce In/Out' => 'bounceInOut',
+          'Circ In' => 'circIn',
+          'Circ Out' => 'circOut',
+          'Circ In/Out' => 'circInOut',
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
           'Instant (Ignores duration)' => 'INSTANT',
           'Classic (Ignores duration)' => 'CLASSIC'
         ]

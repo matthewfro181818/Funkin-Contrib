@@ -635,8 +635,8 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import funkin.input.Cursor;
 import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterData;
-import funkin.play.character.CharacterData.CharacterDataParser;
+import funkin.data.character.CharacterData;
+import funkin.data.character.CharacterRegistry;
 import funkin.ui.mainmenu.MainMenuState;
 import funkin.util.MouseUtil;
 import funkin.util.SerializerUtil;
@@ -653,6 +653,13 @@ import openfl.geom.Rectangle;
 import openfl.net.FileReference;
 
 using flixel.util.FlxSpriteUtil;
+
+#if web
+import js.html.FileList;
+#end
+#if sys
+import sys.io.File;
+#end
 
 class DebugBoundingState extends FlxState
 {
@@ -691,11 +698,11 @@ class DebugBoundingState extends FlxState
   function get_haxeUIFocused():Bool
   {
     // get the screen position, according to the HUD camera, temp default to FlxG.camera juuust in case?
-    var hudMousePos:FlxPoint = FlxG.mouse.getViewPosition(hudCam ?? FlxG.camera);
+    var hudMousePos:FlxPoint = FlxG.mouse.getScreenPosition(hudCam ?? FlxG.camera);
     return Screen.instance.hasSolidComponentUnderPoint(hudMousePos.x, hudMousePos.y);
   }
 
-  override function create():Void
+  override function create()
   {
     Paths.setCurrentLevel('week1');
 
@@ -809,9 +816,9 @@ class DebugBoundingState extends FlxState
     txtOffsetShit.y = FlxG.height - 20 - txtOffsetShit.height;
     offsetView.add(txtOffsetShit);
 
-    var characters:Array<String> = CharacterDataParser.listCharacterIds();
+    var characters:Array<String> = CharacterRegistry.listCharacterIds();
     characters = characters.filter(function(charId:String) {
-      var char = CharacterDataParser.fetchCharacterData(charId);
+      var char = CharacterRegistry.fetchCharacterData(charId);
       return char.renderType != AnimateAtlas;
     });
     characters.sort(SortUtil.alphabetically);
@@ -1111,7 +1118,7 @@ class DebugBoundingState extends FlxState
       swagChar.destroy();
     }
 
-    swagChar = CharacterDataParser.fetchCharacter(char);
+    swagChar = CharacterRegistry.fetchCharacter(char);
     swagChar.x = 100;
     swagChar.y = 100;
     swagChar.debug = true;
@@ -1126,7 +1133,7 @@ class DebugBoundingState extends FlxState
     bf.pixels = swagChar.pixels;
 
     clearInfo();
-    addInfo(swagChar._data.assetPath, "");
+    addInfo(swagChar._data.assetPaths[0], "");
     addInfo('Width', bf.width);
     addInfo('Height', bf.height);
 
@@ -1152,11 +1159,8 @@ class DebugBoundingState extends FlxState
     trace('Added ${offsetAnimationDropdown.dataSource.size} to HaxeUI dropdown');
 
     offsetAnimationDropdown.onChange = function(event:UIEvent) {
-      if (event.data != null)
-      {
-        trace('Selected animation ${event.data.id}');
-        playCharacterAnimation(event.data.id, true);
-      }
+      trace('Selected animation ${event?.data?.id}');
+      playCharacterAnimation(event.data.id, true);
     }
 
     txtOffsetShit.text = 'Offset: ' + swagChar.animOffsets;
@@ -1196,7 +1200,7 @@ class DebugBoundingState extends FlxState
       _file.addEventListener(Event.COMPLETE, onSaveComplete);
       _file.addEventListener(Event.CANCEL, onSaveCancel);
       _file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
-      _file.save(saveString, fileName);
+      _file.save(saveString,);
     }
   }
 

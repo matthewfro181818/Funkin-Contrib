@@ -9,6 +9,7 @@ import funkin.util.assets.FlxAnimationUtil;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterRenderType;
 =======
 import funkin.data.character.CharacterData.CharacterRenderType;
@@ -33,6 +34,11 @@ import funkin.play.character.CharacterData.CharacterRenderType;
 =======
 import funkin.data.character.CharacterData.CharacterRenderType;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+import funkin.play.character.CharacterData.CharacterRenderType;
+=======
+import funkin.data.character.CharacterData.CharacterRenderType;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
 /**
  * For some characters which use Sparrow atlases, the spritesheets need to be split
@@ -59,6 +65,7 @@ class MultiSparrowCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Display a custom scope for debugging purposes.
     #if FEATURE_DEBUG_TRACY
     cpp.vm.tracy.TracyProfiler.zoneScoped('MultiSparrowCharacter.create(${this.characterId})');
@@ -98,6 +105,14 @@ class MultiSparrowCharacter extends BaseCharacter
 =======
     trace('Creating Multi-Sparrow character: ' + this.characterId);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    // Display a custom scope for debugging purposes.
+    #if FEATURE_DEBUG_TRACY
+    cpp.vm.tracy.TracyProfiler.zoneScoped('MultiSparrowCharacter.create(${this.characterId})');
+    #end
+=======
+    trace('Creating Multi-Sparrow character: ' + this.characterId);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     buildSprites();
     super.onCreate(event);
@@ -117,6 +132,7 @@ class MultiSparrowCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // pixelPerfectRender = true;
       // pixelPerfectPosition = true;
 =======
@@ -151,6 +167,13 @@ class MultiSparrowCharacter extends BaseCharacter
       pixelPerfectRender = true;
       pixelPerfectPosition = true;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      // pixelPerfectRender = true;
+      // pixelPerfectPosition = true;
+=======
+      pixelPerfectRender = true;
+      pixelPerfectPosition = true;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     }
     else
     {
@@ -166,6 +189,7 @@ class MultiSparrowCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     trace('Loading assets for Multi-Sparrow character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
 
     var assetList = [];
@@ -226,9 +250,26 @@ class MultiSparrowCharacter extends BaseCharacter
 =======
     var texture:FlxAtlasFrames = Paths.getSparrowAtlas(_data.assetPaths[0]);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    trace('Loading assets for Multi-Sparrow character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+
+    var assetList = [];
+    for (anim in _data.animations)
+    {
+      if (anim.assetPath != null && !assetList.contains(anim.assetPath))
+      {
+        assetList.push(anim.assetPath);
+      }
+    }
+
+    var texture:FlxAtlasFrames = Paths.getSparrowAtlas(_data.assetPath);
+=======
+    var texture:FlxAtlasFrames = Paths.getSparrowAtlas(_data.assetPaths[0]);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     if (texture == null)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -287,10 +328,18 @@ class MultiSparrowCharacter extends BaseCharacter
       trace('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPaths[0]}');
       FlxG.log.error('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPaths[0]}');
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      trace('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPath}');
+      FlxG.log.error('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPath}');
+=======
+      trace('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPaths[0]}');
+      FlxG.log.error('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPaths[0]}');
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       return;
     }
     else
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -327,11 +376,17 @@ class MultiSparrowCharacter extends BaseCharacter
 =======
       trace('Creating multi-sparrow atlas: ${_data.assetPath}');
 >>>>>>> b150c43d (lol4)
+||||||| cf89d672
+      trace('Creating multi-sparrow atlas: ${_data.assetPath}');
+=======
+      trace('Creating multi-sparrow atlas: ${_data.assetPaths[0]}');
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       texture.parent.destroyOnNoUse = false;
     }
 
-    for (asset in assetList)
+    for (i => asset in _data.assetPaths)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       if (i == 0)
       {
@@ -371,6 +426,14 @@ class MultiSparrowCharacter extends BaseCharacter
       }
 
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+      if (i == 0)
+      {
+        continue;
+      }
+
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       var subTexture:FlxAtlasFrames = Paths.getSparrowAtlas(asset);
       // If we don't do this, the unused textures will be removed as soon as they're loaded.
 
@@ -382,6 +445,7 @@ class MultiSparrowCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         continue;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -401,6 +465,10 @@ class MultiSparrowCharacter extends BaseCharacter
 =======
         continue;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+        continue;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       }
       else
       {
@@ -410,6 +478,7 @@ class MultiSparrowCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         subTexture.parent.destroyOnNoUse = false;
         FunkinMemory.cacheTexture(Paths.image(asset));
 =======
@@ -434,6 +503,10 @@ class MultiSparrowCharacter extends BaseCharacter
         FunkinMemory.cacheTexture(Paths.image(asset));
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+        subTexture.parent.destroyOnNoUse = false;
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
       }
 
       texture.addAtlas(subTexture);
@@ -473,6 +546,7 @@ class MultiSparrowCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     // Make sure we ignore other animations if we're currently playing a forced one,
     // unless we're forcing a new animation.
@@ -507,6 +581,13 @@ class MultiSparrowCharacter extends BaseCharacter
     if (!this.canPlayOtherAnims && !ignoreOther) return;
 
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+    // Make sure we ignore other animations if we're currently playing a forced one,
+    // unless we're forcing a new animation.
+    if (!this.canPlayOtherAnims && !ignoreOther) return;
+
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     super.playAnimation(name, restart, ignoreOther, reverse);
   }
 }

@@ -43,6 +43,7 @@ class DiscordClient
     createDaemon();
   }
 
+<<<<<<< HEAD
   var daemon:Thread = null;
 
   function createDaemon():Void
@@ -271,6 +272,11 @@ class DiscordClient
   }
 
   var daemon:Null<Thread> = null;
+||||||| cf89d672
+  var daemon:Null<Thread> = null;
+=======
+  var daemon:Thread = null;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
   function createDaemon():Void
   {
@@ -281,6 +287,8 @@ class DiscordClient
   {
     while (true)
     {
+      trace('[DISCORD] Performing client update...');
+
       #if DISCORD_DISABLE_IO_THREAD
       Discord.updateConnection();
       #end
@@ -299,6 +307,8 @@ class DiscordClient
 
   public function setPresence(params:DiscordClientPresenceParams):Void
   {
+    trace('[DISCORD] Updating presence... (${params})');
+
     Discord.updatePresence(buildPresence(params));
   }
 
@@ -313,14 +323,16 @@ class DiscordClient
     presence.largeImageText = "Friday Night Funkin'";
 
     // State should be generally what the person is doing, like "In the Menus" or "Pico (Pico Mix) [Freeplay Hard]"
-    presence.state = cast(params.state, Null<String>) ?? "";
+    presence.state = cast(params.state, Null<String>);
     // Details should be what the person is specifically doing, including stuff like timestamps (maybe something like "03:24 elapsed").
-    presence.details = cast(params.details, Null<String>) ?? "";
+    presence.details = cast(params.details, Null<String>);
 
     // The large image displaying what the user is doing.
     // This should probably be album art.
     // IMPORTANT NOTE: This can be an asset key uploaded to Discord's developer panel OR any URL you like.
     presence.largeImageKey = cast(params.largeImageKey, Null<String>) ?? "album-volume1";
+
+    trace('[DISCORD] largeImageKey: ${presence.largeImageKey}');
 
     // TODO: Make this use the song's album art.
     // presence.largeImageKey = "icon";
@@ -329,7 +341,7 @@ class DiscordClient
     // The small inset image for what the user is doing.
     // This can be the opponent's health icon?
     // NOTE: Like largeImageKey, this can be a URL, or an asset key.
-    presence.smallImageKey = cast(params.smallImageKey, Null<String>) ?? "";
+    presence.smallImageKey = cast(params.smallImageKey, Null<String>);
 
     // NOTE: In previous versions, this showed as "Elapsed", but now shows as playtime and doesn't look good
     // presence.startTimestamp = time - 10;
@@ -355,9 +367,9 @@ class DiscordClient
 
     final username:String = request[0].username;
     final globalName:String = request[0].username;
-    final discriminator:Null<Int> = Std.parseInt(request[0].discriminator);
+    final discriminator:Int = Std.parseInt(request[0].discriminator);
 
-    if (discriminator != null && discriminator != 0)
+    if (discriminator != 0)
     {
       trace('[DISCORD] User: ${username}#${discriminator} (${globalName})');
     }
@@ -422,32 +434,6 @@ typedef DiscordClientPresenceParams =
    * A small, inset image to the bottom right of `largeImageKey`.
    */
   var ?smallImageKey:String;
-}
-
-class DiscordClientSandboxed
-{
-  public static function setPresence(params:DiscordClientPresenceParams):Void
-  {
-    DiscordClient.instance.setPresence(params);
-  }
-
-  public static function shutdown():Void
-  {
-    DiscordClient.instance.shutdown();
-  }
-}
-#else
-class DiscordClientSandboxed
-{
-  public static function setPresence(params:Dynamic):Void
-  {
-    // Do nothing.
-  }
-
-  public static function shutdown():Void
-  {
-    // Do nothing.
-  }
 }
 #end
 >>>>>>> d27d731a (Add files via upload)

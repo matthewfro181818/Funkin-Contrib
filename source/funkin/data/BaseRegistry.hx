@@ -16,6 +16,7 @@ typedef EntryConstructorFunction = String->Void;
  * @param T The type to construct. Must implement `IRegistryEntry`.
  * @param J The type of the JSON data used when constructing.
  */
+<<<<<<< HEAD
 @:generic
 abstract class BaseRegistry<T:(IRegistryEntry<J> & Constructible<EntryConstructorFunction>), J>
 {
@@ -347,9 +348,20 @@ typedef EntryConstructorFunction = (String, ?Dynamic) -> Void;
  * @param P The type of the parameters used for `fetchEntry()`.
  */
 @:nullSafety
+||||||| cf89d672
+@:nullSafety
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 @:generic
+<<<<<<< HEAD
 @:autoBuild(funkin.util.macro.DataRegistryMacro.buildRegistry())
 abstract class BaseRegistry<T:(IRegistryEntry<J> & Constructible<EntryConstructorFunction>), J, P>
+||||||| cf89d672
+@:autoBuild(funkin.util.macro.DataRegistryMacro.buildRegistry())
+abstract class BaseRegistry<T:(IRegistryEntry<J> & Constructible<EntryConstructorFunction>), J>
+=======
+abstract class BaseRegistry<T:(IRegistryEntry<J> & Constructible<EntryConstructorFunction>), J>
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 {
   /**
    * The ID of the registry. Used when logging.
@@ -447,7 +459,7 @@ abstract class BaseRegistry<T:(IRegistryEntry<J> & Constructible<EntryConstructo
     {
       try
       {
-        var entry:Null<T> = createEntry(entryId);
+        var entry:T = createEntry(entryId);
         if (entry != null)
         {
           trace('  Loaded entry data: ${entry}');
@@ -497,7 +509,7 @@ abstract class BaseRegistry<T:(IRegistryEntry<J> & Constructible<EntryConstructo
    * @param id The ID of the entry.
    * @return The class name, or `null` if it does not exist.
    */
-  public function getScriptedEntryClassName(id:String):Null<String>
+  public function getScriptedEntryClassName(id:String):String
   {
     return scriptedEntryIds.get(id);
   }
@@ -522,19 +534,6 @@ abstract class BaseRegistry<T:(IRegistryEntry<J> & Constructible<EntryConstructo
     return entries.get(id);
   }
 
-  /**
-   * A list of all entries included in the base game.
-   * The actual function exists and is auto-generated on each registry at build time.
-   * @return Array<String>
-   */
-  // public function listBaseGameEntryIds():Array<String> {}
-
-  /**
-   * A list of all entries that are not included in the base game.
-   * @return Array<String>
-   */
-  // public function listModdedEntryIds():Array<String> {}
-
   public function toString():String
   {
     return 'Registry(' + registryId + ', ${countEntries()} entries)';
@@ -548,7 +547,7 @@ abstract class BaseRegistry<T:(IRegistryEntry<J> & Constructible<EntryConstructo
   public function fetchEntryVersion(id:String):Null<thx.semver.Version>
   {
     var entryStr:String = loadEntryFile(id).contents;
-    var entryVersion:Null<thx.semver.Version> = VersionUtil.getVersionFromJSON(entryStr);
+    var entryVersion:thx.semver.Version = VersionUtil.getVersionFromJSON(entryStr);
     return entryVersion;
   }
 

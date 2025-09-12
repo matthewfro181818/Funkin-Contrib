@@ -299,6 +299,7 @@ class PreciseInputManager extends FlxKeyManager<FlxKey, PreciseInputList>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // timestamp -= globalOffset * Constants.NS_PER_MS;
 =======
     timestamp -= Conductor.instance.inputOffset * Constants.NS_PER_MS;
@@ -323,6 +324,11 @@ class PreciseInputManager extends FlxKeyManager<FlxKey, PreciseInputList>
 =======
     timestamp -= Conductor.instance.inputOffset * Constants.NS_PER_MS;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    // timestamp -= globalOffset * Constants.NS_PER_MS;
+=======
+    timestamp -= Conductor.instance.inputOffset * Constants.NS_PER_MS;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     // trace(timestamp);
     updateKeyStates(key, true);
 

@@ -6,6 +6,7 @@ import flixel.FlxSprite;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.PlayState.PlayStateParams;
 =======
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -35,6 +36,12 @@ import funkin.play.PlayState.PlayStateParams;
 import flixel.graphics.frames.FlxAtlasFrames;
 import funkin.play.PlayState;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+import funkin.play.PlayState.PlayStateParams;
+=======
+import flixel.graphics.frames.FlxAtlasFrames;
+import funkin.play.PlayState;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import funkin.graphics.FunkinSprite;
 import funkin.ui.MusicBeatState;
 import flixel.addons.transition.FlxTransitionableState;
@@ -44,6 +51,7 @@ import funkin.ui.mainmenu.MainMenuState;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if mobile
 import funkin.util.TouchUtil;
 import funkin.util.SwipeUtil;
@@ -78,6 +86,13 @@ import funkin.util.SwipeUtil;
 #end
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+#if mobile
+import funkin.util.TouchUtil;
+import funkin.util.SwipeUtil;
+#end
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
 class GitarooPause extends MusicBeatState
 {
@@ -163,6 +178,7 @@ class GitarooPause extends MusicBeatState
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     bg.setGraphicSize(Std.int(FlxG.width));
     bg.updateHitbox();
     bg.screenCenter();
@@ -192,6 +208,12 @@ class GitarooPause extends MusicBeatState
     bg.screenCenter();
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    bg.setGraphicSize(Std.int(FlxG.width));
+    bg.updateHitbox();
+    bg.screenCenter();
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     add(bg);
 
     var bf:FunkinSprite = FunkinSprite.createSparrow(0, 30, 'pauseAlt/bfLol');
@@ -202,6 +224,7 @@ class GitarooPause extends MusicBeatState
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     bf.screenCenter(X);
 ||||||| parent of 8a1f54ca (lol8)
     bf.screenCenter(X);
@@ -231,8 +254,14 @@ class GitarooPause extends MusicBeatState
 =======
 >>>>>>> b150c43d (lol4)
     bf.screenCenter(X);
+||||||| cf89d672
+    bf.screenCenter(X);
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     add(bf);
+    bf.screenCenter(X);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     replayButton = FunkinSprite.createSparrow(FlxG.width * 0.28, FlxG.height * 0.7, 'pauseAlt/pauseUI');
 >>>>>>> e11c5f8d (Add files via upload)
@@ -256,6 +285,11 @@ class GitarooPause extends MusicBeatState
 =======
     replayButton = FunkinSprite.createSparrow(FlxG.width * 0.28, FlxG.height * 0.7, 'pauseAlt/pauseUI');
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    replayButton = FunkinSprite.createSparrow(FlxG.width * 0.25, FlxG.height * 0.7, 'pauseAlt/pauseUI');
+=======
+    replayButton = FunkinSprite.createSparrow(FlxG.width * 0.28, FlxG.height * 0.7, 'pauseAlt/pauseUI');
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     replayButton.animation.addByPrefix('selected', 'bluereplay', 0, false);
     replayButton.animation.appendByPrefix('selected', 'yellowreplay');
     replayButton.animation.play('selected');
@@ -272,6 +306,7 @@ class GitarooPause extends MusicBeatState
     super.create();
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -338,10 +373,22 @@ class GitarooPause extends MusicBeatState
   #end
 
 >>>>>>> b150c43d (lol4)
+||||||| cf89d672
+  #if mobile
+  function checkSelectionPress():Bool
+  {
+    var buttonAcceptCheck:Bool = replaySelect ? TouchUtil.pressAction(replayButton) : TouchUtil.pressAction(cancelButton);
+    return buttonAcceptCheck && !SwipeUtil.swipeAny;
+  }
+  #end
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   override function update(elapsed:Float):Void
   {
-    if (controls.UI_LEFT_P || controls.UI_RIGHT_P #if mobile || SwipeUtil.justSwipedLeft || SwipeUtil.justSwipedRight #end) changeThing();
+    if (controls.UI_LEFT_P || controls.UI_RIGHT_P) changeThing();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (controls.ACCEPT)
 >>>>>>> e11c5f8d (Add files via upload)
@@ -365,6 +412,11 @@ class GitarooPause extends MusicBeatState
 =======
     if (controls.ACCEPT)
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+    if (controls.ACCEPT #if mobile || checkSelectionPress() #end)
+=======
+    if (controls.ACCEPT)
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     {
       if (replaySelect)
       {

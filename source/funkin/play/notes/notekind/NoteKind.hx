@@ -7,6 +7,7 @@ import funkin.modding.events.ScriptEvent;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.math.FlxMath;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -26,6 +27,10 @@ import flixel.math.FlxMath;
 =======
 import flixel.math.FlxMath;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import flixel.math.FlxMath;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
 /**
  * Class for note scripts
@@ -149,6 +154,7 @@ class NoteKind implements INoteScriptedClass
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   public function onNoteHoldDrop(event:HoldNoteScriptEvent) {}
 =======
@@ -173,6 +179,11 @@ class NoteKind implements INoteScriptedClass
   public function onNoteHoldDrop(event:HoldNoteScriptEvent) {}
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+
+  public function onNoteHoldDrop(event:HoldNoteScriptEvent) {}
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 }
 
 /**

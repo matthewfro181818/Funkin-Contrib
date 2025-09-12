@@ -241,19 +241,21 @@ class ChartEditorDifficultyToolbox extends ChartEditorBaseToolbox
 =======
 package funkin.ui.debug.charting.toolboxes;
 
-import funkin.data.song.SongData.SongChartData;
-import funkin.data.song.SongData.SongMetadata;
-import funkin.data.song.SongRegistry;
+import funkin.play.character.BaseCharacter.CharacterType;
+import funkin.data.stage.StageData;
+import funkin.data.stage.StageRegistry;
+import funkin.ui.debug.charting.commands.ChangeStartingBPMCommand;
+import funkin.ui.debug.charting.util.ChartEditorDropdowns;
 import haxe.ui.components.Button;
+import haxe.ui.components.CheckBox;
 import haxe.ui.containers.dialogs.Dialogs;
 import haxe.ui.containers.dialogs.Dialog.DialogButton;
 import funkin.data.song.SongData.SongMetadata;
 import haxe.ui.components.DropDown;
 import haxe.ui.components.HorizontalSlider;
-import funkin.util.VersionUtil;
 import funkin.util.FileUtil;
-import openfl.net.FileReference;
 import haxe.ui.containers.dialogs.MessageBox.MessageBoxType;
+import funkin.play.song.SongSerializer;
 import haxe.ui.components.Label;
 import haxe.ui.components.NumberStepper;
 import haxe.ui.components.Slider;
@@ -262,6 +264,7 @@ import funkin.play.stage.Stage;
 import haxe.ui.containers.Box;
 import haxe.ui.containers.TreeView;
 import haxe.ui.containers.TreeViewNode;
+import haxe.ui.containers.Frame;
 import haxe.ui.events.UIEvent;
 
 /**
@@ -334,96 +337,26 @@ class ChartEditorDifficultyToolbox extends ChartEditorBaseToolbox
 
     difficultyToolboxSaveMetadata.onClick = function(_:UIEvent) {
       var vari:String = chartEditorState.selectedVariation != Constants.DEFAULT_VARIATION ? '-${chartEditorState.selectedVariation}' : '';
-      FileUtil.writeFileReference('${chartEditorState.currentSongId}$vari-metadata.json', chartEditorState.currentSongMetadata.serialize(),
-        function(notification:String) {
-          switch (notification)
-          {
-            case "success":
-              chartEditorState.success("Saved Metadata", 'Successfully wrote file (${chartEditorState.currentSongId}$vari-metadata.json).');
-            case "info":
-              chartEditorState.info("Canceled Save Metadata", '(${chartEditorState.currentSongId}$vari-metadata.json)');
-            case "error":
-              chartEditorState.error("Failure", 'Failed to write file (${chartEditorState.currentSongId}$vari-metadata.json).');
-          }
-        });
+      FileUtil.writeFileReference('${chartEditorState.currentSongId}$vari-metadata.json', chartEditorState.currentSongMetadata.serialize());
     };
 
     difficultyToolboxSaveChart.onClick = function(_:UIEvent) {
       var vari:String = chartEditorState.selectedVariation != Constants.DEFAULT_VARIATION ? '-${chartEditorState.selectedVariation}' : '';
-      FileUtil.writeFileReference('${chartEditorState.currentSongId}$vari-chart.json', chartEditorState.currentSongChartData.serialize(),
-        function(notification:String) {
-          switch (notification)
-          {
-            case "success":
-              chartEditorState.success("Saved Chart Data", 'Successfully wrote file (${chartEditorState.currentSongId}$vari-chart.json).');
-            case "info":
-              chartEditorState.info("Canceled Save Chart Data", '(${chartEditorState.currentSongId}$vari-chart.json)');
-            case "error":
-              chartEditorState.error("Failure", 'Failed to write file (${chartEditorState.currentSongId}$vari-chart.json).');
-          }
-        });
+      FileUtil.writeFileReference('${chartEditorState.currentSongId}$vari-chart.json', chartEditorState.currentSongChartData.serialize());
     };
 
     difficultyToolboxLoadMetadata.onClick = function(_:UIEvent) {
       // Replace metadata for current variation.
-      FileUtil.browseFileReference(function(fileReference:FileReference) {
-        var data = fileReference.data.toString();
-
-        if (data == null) return;
-
-        var songMetadataVersion:Null<thx.semver.Version> = VersionUtil.getVersionFromJSON(data);
-
-        var songMetadata:Null<SongMetadata> = null;
-        if (VersionUtil.validateVersion(songMetadataVersion,
-          SongRegistry.SONG_METADATA_VERSION_RULE)) songMetadata = SongRegistry.instance.parseEntryMetadataRawWithMigration(data, fileReference.name,
-            songMetadataVersion);
-
-        if (songMetadata != null)
-        {
-          chartEditorState.currentSongMetadata = songMetadata;
-          chartEditorState.healthIconsDirty = true;
-          chartEditorState.refreshToolbox(ChartEditorState.CHART_EDITOR_TOOLBOX_METADATA_LAYOUT);
-          chartEditorState.success('Replaced Metadata', 'Replaced metadata with file (${fileReference.name})');
-        }
-        else
-        {
-          chartEditorState.error('Failure', 'Failed to load metadata file (${fileReference.name})');
-        }
+      SongSerializer.importSongMetadataAsync(function(songMetadata) {
+        chartEditorState.currentSongMetadata = songMetadata;
       });
     };
 
     difficultyToolboxLoadChart.onClick = function(_:UIEvent) {
       // Replace chart data for current variation.
-      FileUtil.browseFileReference(function(fileReference:FileReference) {
-        var data = fileReference.data.toString();
-
-        if (data == null) return;
-
-        var songChartDataVersion:Null<thx.semver.Version> = VersionUtil.getVersionFromJSON(data);
-
-        var songChartData:Null<SongChartData> = null;
-        if (VersionUtil.validateVersion(songChartDataVersion,
-          SongRegistry.SONG_CHART_DATA_VERSION_RULE)) songChartData = SongRegistry.instance.parseEntryChartDataRawWithMigration(data, fileReference.name,
-            songChartDataVersion);
-
-        if (songChartData != null)
-        {
-          chartEditorState.currentSongChartData = songChartData;
-          chartEditorState.refreshToolbox(ChartEditorState.CHART_EDITOR_TOOLBOX_METADATA_LAYOUT);
-          updateTree();
-          refresh();
-          chartEditorState.success('Loaded Chart Data', 'Loaded chart data file (${fileReference.name})');
-          if (chartEditorState.currentNoteSelection != []) chartEditorState.currentNoteSelection = [];
-          if (chartEditorState.currentEventSelection != []) chartEditorState.currentEventSelection = [];
-          chartEditorState.noteDisplayDirty = true;
-          chartEditorState.notePreviewDirty = true;
-          chartEditorState.noteTooltipsDirty = true;
-          chartEditorState.notePreviewViewportBoundsDirty = true;
-        }
-        else
-        {
-          chartEditorState.error('Failure', 'Failed to load chart data file (${fileReference.name})');
-        }
+      SongSerializer.importSongChartDataAsync(function(songChartData) {
+        chartEditorState.currentSongChartData = songChartData;
+        chartEditorState.noteDisplayDirty = true;
       });
     };
 

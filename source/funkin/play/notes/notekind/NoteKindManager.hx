@@ -5,6 +5,7 @@ package funkin.play.notes.notekind;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.data.song.SongData.SongNoteData;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -24,6 +25,10 @@ import funkin.data.song.SongData.SongNoteData;
 import funkin.data.song.SongData.SongNoteData;
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+import funkin.data.song.SongData.SongNoteData;
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.events.ScriptEvent;
 import funkin.ui.debug.charting.util.ChartEditorDropdowns;
@@ -175,6 +180,7 @@ class NoteKindManager
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       var noteKind:NoteKind = noteKinds.get(noteEvent?.note?.kind);
 =======
       var noteKind:NoteKind = noteKinds.get(noteEvent.note.kind);
@@ -199,6 +205,11 @@ class NoteKindManager
 =======
       var noteKind:NoteKind = noteKinds.get(noteEvent.note.kind);
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+      var noteKind:NoteKind = noteKinds.get(noteEvent?.note?.kind);
+=======
+      var noteKind:NoteKind = noteKinds.get(noteEvent.note.kind);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
       if (noteKind != null)
       {
@@ -237,6 +248,7 @@ class NoteKindManager
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public static function listNoteStyles(songNoteDatas:Array<SongNoteData>):Array<NoteStyle>
   {
     var results:Array<NoteStyle> = [];
@@ -301,6 +313,19 @@ class NoteKindManager
 
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+  public static function listNoteStyles(songNoteDatas:Array<SongNoteData>):Array<NoteStyle>
+  {
+    var results:Array<NoteStyle> = [];
+    for (songNoteData in songNoteDatas)
+    {
+      var noteStyle:NoteStyle = getNoteStyle(songNoteData.kind, null);
+    }
+    return results;
+  }
+
+=======
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   /**
    * Retrieve the note style id from the given note kind
    * @param noteKind Note kind name

@@ -144,6 +144,7 @@ class SongMenuItem extends FlxSpriteGroup
     // doesn't get added, simply is here to help with visibility of things for the pop in!
     grpHide = new FlxGroup();
 
+<<<<<<< HEAD
     fakeRanking = new FreeplayRank(420, 41);
     add(fakeRanking);
 
@@ -1018,12 +1019,26 @@ class SongMenuItem extends FlxSpriteGroup
     grpHide = new FlxGroup();
 
     fakeRanking = new FreeplayRank(400, 15);
+||||||| cf89d672
+    fakeRanking = new FreeplayRank(400, 15);
+=======
+    fakeRanking = new FreeplayRank(420, 41);
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     add(fakeRanking);
 
-    fakeRanking.visible = false;
+    fakeBlurredRanking = new FreeplayRank(fakeRanking.x, fakeRanking.y);
+    fakeBlurredRanking.shader = new GaussianBlurShader(1);
+    add(fakeBlurredRanking);
 
-    ranking = new FreeplayRank(400, 15);
+    fakeRanking.visible = false;
+    fakeBlurredRanking.visible = false;
+
+    ranking = new FreeplayRank(420, 41);
     add(ranking);
+
+    blurredRanking = new FreeplayRank(ranking.x, ranking.y);
+    blurredRanking.shader = new GaussianBlurShader(1);
+    add(blurredRanking);
 
     sparkle = new FlxSprite(ranking.x, ranking.y);
     sparkle.frames = Paths.getSparrowAtlas('freeplay/sparkle');
@@ -1097,10 +1112,6 @@ class SongMenuItem extends FlxSpriteGroup
     weekNumbers.push(weekNumber);
 
     setVisibleGrp(false);
-
-    theActualHitbox = new FlxObject(capsule.x + 160, capsule.y - 20, Math.round(capsule.width / 1.4), Math.round(capsule.height / 1.4));
-    theActualHitbox.cameras = cameras;
-    theActualHitbox.active = false;
   }
 
   function sparkleEffect(timer:FlxTimer):Void
@@ -1170,7 +1181,7 @@ class SongMenuItem extends FlxSpriteGroup
     var clipSize:Int = 290;
     var clipType:Int = 0;
 
-    if (ranking.visible || fakeRanking.visible)
+    if (ranking.visible)
     {
       favIconBlurred.x = this.x + 370;
       favIcon.x = favIconBlurred.x;
@@ -1269,7 +1280,21 @@ class SongMenuItem extends FlxSpriteGroup
       });
     add(evilTrail);
 
-    evilTrail.color = ranking.rank.getRankingFreeplayColor();
+    switch (ranking.rank)
+    {
+      case SHIT:
+        evilTrail.color = 0xFF6044FF;
+      case GOOD:
+        evilTrail.color = 0xFFEF8764;
+      case GREAT:
+        evilTrail.color = 0xFFEAF6FF;
+      case EXCELLENT:
+        evilTrail.color = 0xFFFDCB42;
+      case PERFECT:
+        evilTrail.color = 0xFFFF58B4;
+      case PERFECT_GOLD:
+        evilTrail.color = 0xFFFFB619;
+    }
   }
 
   public function getTrailColor():FlxColor
@@ -1277,13 +1302,14 @@ class SongMenuItem extends FlxSpriteGroup
     return evilTrail.color;
   }
 
-  public function refreshDisplay(updateRank:Bool = true):Void
+  public function refreshDisplay():Void
   {
     if (freeplayData == null)
     {
       songText.text = 'Random';
       pixelIcon.visible = false;
       ranking.visible = false;
+      blurredRanking.visible = false;
       favIcon.visible = false;
       favIconBlurred.visible = false;
       newText.visible = false;
@@ -1295,7 +1321,7 @@ class SongMenuItem extends FlxSpriteGroup
       pixelIcon.visible = true;
       updateBPM(Std.int(freeplayData.songStartingBpm) ?? 0);
       updateDifficultyRating(freeplayData.difficultyRating ?? 0);
-      if (updateRank) updateScoringRank(freeplayData.scoringRank);
+      updateScoringRank(freeplayData.scoringRank);
       newText.visible = freeplayData.isNew;
       favIcon.visible = freeplayData.isFav;
       favIconBlurred.visible = freeplayData.isFav;
@@ -1337,6 +1363,7 @@ class SongMenuItem extends FlxSpriteGroup
     sparkle.visible = false;
 
     this.ranking.rank = newRank;
+    this.blurredRanking.rank = newRank;
 
     if (newRank == PERFECT_GOLD)
     {
@@ -1376,20 +1403,16 @@ class SongMenuItem extends FlxSpriteGroup
       spr.visible = value;
     }
 
+    if (value) textAppear();
+
     updateSelected();
   }
 
-  public function initPosition(x:Float, y:Float):Void
+  public function init(?x:Float, ?y:Float, freeplayData:Null<FreeplaySongData>, ?styleData:FreeplayStyle = null):Void
   {
-    this.x = x;
-    this.y = y;
-  }
-
-  public function initData(freeplayData:Null<FreeplaySongData>, ?styleData:FreeplayStyle = null, index:Int = null):Void
-  {
+    if (x != null) this.x = x;
+    if (y != null) this.y = y;
     this.freeplayData = freeplayData;
-
-    if (index != null) this.index = index;
 
     // im so mad i have to do this but im pretty sure with the capsules recycling i cant call the new function properly :/
     // if thats possible someone Please change the new function to be something like
@@ -1411,19 +1434,6 @@ class SongMenuItem extends FlxSpriteGroup
     checkWeek(freeplayData?.data.id);
   }
 
-  public function initRandom(?styleData:FreeplayStyle = null):Void
-  {
-    initPosition(FlxG.width, 0);
-    initData(null, styleData, 1);
-    y = intendedY(0) + 10;
-    targetPos.x = x;
-    alpha = 0.5;
-    songText.visible = false;
-    favIcon.visible = false;
-    favIconBlurred.visible = false;
-    ranking.visible = false;
-  }
-
   var frameInTicker:Float = 0;
   var frameInTypeBeat:Int = 0;
 
@@ -1431,7 +1441,7 @@ class SongMenuItem extends FlxSpriteGroup
   var frameOutTypeBeat:Int = 0;
 
   var xFrames:Array<Float> = [1.7, 1.8, 0.85, 0.85, 0.97, 0.97, 1];
-  var xPosLerpLol:Array<Float> = [0, 0, 0.16, 0.16, 0.22, 0.22, 0.245]; // NUMBERS ARE JANK CUZ THE SCALING OR WHATEVER
+  var xPosLerpLol:Array<Float> = [0.9, 0.4, 0.16, 0.16, 0.22, 0.22, 0.245]; // NUMBERS ARE JANK CUZ THE SCALING OR WHATEVER
   var xPosOutLerpLol:Array<Float> = [0.245, 0.75, 0.98, 0.98, 1.2]; // NUMBERS ARE JANK CUZ THE SCALING OR WHATEVER
 
   public var realScaled:Float = 0.8;
@@ -1442,6 +1452,9 @@ class SongMenuItem extends FlxSpriteGroup
 
     new FlxTimer().start((1 / 24) * maxTimer, function(doShit) {
       doJumpIn = true;
+    });
+
+    new FlxTimer().start((0.09 * maxTimer) + 0.85, function(lerpTmr) {
       doLerp = true;
     });
 
@@ -1492,6 +1505,26 @@ class SongMenuItem extends FlxSpriteGroup
   {
     if (impactThing != null) impactThing.angle = capsule.angle;
 
+    // if (FlxG.keys.justPressed.I)
+    // {
+    //   newText.y -= 1;
+    //   trace(this.x - newText.x, this.y - newText.y);
+    // }
+    // if (FlxG.keys.justPressed.J)
+    // {
+    //   newText.x -= 1;
+    //   trace(this.x - newText.x, this.y - newText.y);
+    // }
+    // if (FlxG.keys.justPressed.L)
+    // {
+    //   newText.x += 1;
+    //   trace(this.x - newText.x, this.y - newText.y);
+    // }
+    // if (FlxG.keys.justPressed.K)
+    // {
+    //   newText.y += 1;
+    //   trace(this.x - newText.x, this.y - newText.y);
+    // }
     if (doJumpIn)
     {
       frameInTicker += elapsed;
@@ -1502,20 +1535,12 @@ class SongMenuItem extends FlxSpriteGroup
 
         capsule.scale.x = xFrames[frameInTypeBeat];
         capsule.scale.y = 1 / xFrames[frameInTypeBeat];
-        targetPos.x = FlxG.width * xPosLerpLol[Std.int(Math.min(frameInTypeBeat, xPosLerpLol.length - 1))];
+        x = FlxG.width * xPosLerpLol[Std.int(Math.min(frameInTypeBeat, xPosLerpLol.length - 1))];
+
         capsule.scale.x *= realScaled;
         capsule.scale.y *= realScaled;
 
         frameInTypeBeat += 1;
-        final shiftx:Float = FullScreenScaleMode.wideScale.x * 320;
-        final widescreenMult:Float = (FullScreenScaleMode.gameCutoutSize.x / 1.5) * 0.75;
-        // Move the targetPos set to the if statement below if you want them to shift to their target positions after jumping in instead
-        // I have no idea why this if instead of frameInTypeBeat == xFrames.length works even though they're the same thing
-        if (targetPos.x <= shiftx) targetPos.x = intendedX(index - curSelected) + widescreenMult;
-      }
-      else if (frameInTypeBeat == xFrames.length)
-      {
-        doJumpIn = false;
       }
     }
 
@@ -1529,27 +1554,20 @@ class SongMenuItem extends FlxSpriteGroup
 
         capsule.scale.x = xFrames[frameOutTypeBeat];
         capsule.scale.y = 1 / xFrames[frameOutTypeBeat];
-        this.x = FlxG.width * xPosOutLerpLol[Std.int(Math.min(frameOutTypeBeat, xPosOutLerpLol.length - 1))];
+        x = FlxG.width * xPosOutLerpLol[Std.int(Math.min(frameOutTypeBeat, xPosOutLerpLol.length - 1))];
 
         capsule.scale.x *= realScaled;
         capsule.scale.y *= realScaled;
 
         frameOutTypeBeat += 1;
       }
-      else if (frameOutTypeBeat == xFrames.length)
-      {
-        doJumpOut = false;
-      }
     }
 
     if (doLerp)
     {
-      x = MathUtil.smoothLerpPrecision(x, targetPos.x, elapsed, 0.256);
-      y = MathUtil.smoothLerpPrecision(y, targetPos.y, elapsed, 0.192);
+      x = MathUtil.coolLerp(x, targetPos.x, 0.3);
+      y = MathUtil.coolLerp(y, targetPos.y, 0.4);
     }
-
-    theActualHitbox.x = x + 100;
-    theActualHitbox.y = y + 20;
 
     super.update(elapsed);
   }
@@ -1559,23 +1577,30 @@ class SongMenuItem extends FlxSpriteGroup
    */
   public function confirm():Void
   {
-    if (songText != null)
-    {
-      textAppear();
-      songText.flickerText();
-    }
+    if (songText != null) songText.flickerText();
     if (pixelIcon != null && pixelIcon.visible)
     {
       pixelIcon.animation.play('confirm');
     }
   }
 
+<<<<<<< HEAD
   public function intendedX(index:Float):Float
   {
     return 270 + (60 * (FlxMath.fastSin(index)));
   }
 
   public function intendedY(index:Float):Float
+||||||| cf89d672
+  public function intendedX(index:Float):Float
+  {
+    return 270 + (60 * (Math.sin(index)));
+  }
+
+  public function intendedY(index:Float):Float
+=======
+  public function intendedY(index:Int):Float
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
   {
     return (index * ((height * realScaled) + 10)) + 120;
   }
@@ -1588,16 +1613,9 @@ class SongMenuItem extends FlxSpriteGroup
     return selected;
   }
 
-  function set_forceHighlight(value:Bool):Bool
-  {
-    // cute one liners, lol!
-    forceHighlight = value;
-    updateSelected();
-    return forceHighlight;
-  }
-
   function updateSelected():Void
   {
+<<<<<<< HEAD
     final isSelected:Bool = (this.selected || this.forceHighlight);
 
     grayscaleShader.setAmount(isSelected ? 0 : 0.8);
@@ -1609,33 +1627,37 @@ class SongMenuItem extends FlxSpriteGroup
     favIcon.alpha = isSelected ? 1 : 0.6;
     favIconBlurred.alpha = isSelected ? 1 : 0;
     ranking.color = isSelected ? 0xFFFFFFFF : 0xFFAAAAAA;
+||||||| cf89d672
+    grayscaleShader.setAmount((this.selected || this.forceHighlight) ? 0 : 0.8);
+    songText.alpha = (this.selected || this.forceHighlight) ? 1 : 0.6;
+    songText.blurredText.visible = (this.selected || this.forceHighlight) ? true : false;
+    capsule.offset.x = (this.selected || this.forceHighlight) ? 0 : -5;
+    capsule.animation.play((this.selected || this.forceHighlight) ? "selected" : "unselected");
+    ranking.alpha = (this.selected || this.forceHighlight) ? 1 : 0.7;
+    favIcon.alpha = (this.selected || this.forceHighlight) ? 1 : 0.6;
+    favIconBlurred.alpha = (this.selected || this.forceHighlight) ? 1 : 0;
+    ranking.color = (this.selected || this.forceHighlight) ? 0xFFFFFFFF : 0xFFAAAAAA;
+=======
+    grayscaleShader.setAmount(this.selected ? 0 : 0.8);
+    songText.alpha = this.selected ? 1 : 0.6;
+    songText.blurredText.visible = this.selected ? true : false;
+    capsule.offset.x = this.selected ? 0 : -5;
+    capsule.animation.play(this.selected ? "selected" : "unselected");
+    ranking.alpha = this.selected ? 1 : 0.7;
+    favIcon.alpha = this.selected ? 1 : 0.6;
+    favIconBlurred.alpha = this.selected ? 1 : 0;
+    ranking.color = this.selected ? 0xFFFFFFFF : 0xFFAAAAAA;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     if (songText.tooLong) songText.resetText();
 
     if (selected && songText.tooLong) songText.initMove();
   }
-
-  public override function kill():Void
-  {
-    super.kill();
-
-    visible = true;
-    capsule.alpha = 1;
-    doLerp = false;
-    doJumpIn = false;
-    doJumpOut = false;
-  }
 }
 
-/**
- * Holds blurred and unblurred versions of the rank icon
- */
-class FreeplayRank extends FlxSpriteGroup
+class FreeplayRank extends FlxSprite
 {
   public var rank(default, set):Null<ScoringRank> = null;
-
-  var spr:FlxSprite;
-  var blur:FlxSprite;
 
   function set_rank(val:Null<ScoringRank>):Null<ScoringRank>
   {
@@ -1649,8 +1671,7 @@ class FreeplayRank extends FlxSpriteGroup
     {
       this.visible = true;
 
-      spr.animation.play(val.getFreeplayRankIconAsset(), true, false);
-      blur.animation.play(val.getFreeplayRankIconAsset(), true, false);
+      animation.play(val.getFreeplayRankIconAsset(), true, false);
 
       centerOffsets(false);
 
@@ -1687,24 +1708,14 @@ class FreeplayRank extends FlxSpriteGroup
   {
     super(x, y);
 
-    blur = new FlxSprite();
-    blur.frames = Paths.getSparrowAtlas('freeplay/rankbadges');
-    blur.shader = new GaussianBlurShader(1);
-    add(blur);
+    frames = Paths.getSparrowAtlas('freeplay/rankbadges');
 
-    spr = new FlxSprite();
-    spr.frames = Paths.getSparrowAtlas('freeplay/rankbadges');
-    add(spr);
-
-    for (i in members)
-    {
-      i.animation.addByPrefix('PERFECT', 'PERFECT rank0', 24, false);
-      i.animation.addByPrefix('EXCELLENT', 'EXCELLENT rank0', 24, false);
-      i.animation.addByPrefix('GOOD', 'GOOD rank0', 24, false);
-      i.animation.addByPrefix('PERFECTSICK', 'PERFECT rank GOLD', 24, false);
-      i.animation.addByPrefix('GREAT', 'GREAT rank0', 24, false);
-      i.animation.addByPrefix('LOSS', 'LOSS rank0', 24, false);
-    }
+    animation.addByPrefix('PERFECT', 'PERFECT rank0', 24, false);
+    animation.addByPrefix('EXCELLENT', 'EXCELLENT rank0', 24, false);
+    animation.addByPrefix('GOOD', 'GOOD rank0', 24, false);
+    animation.addByPrefix('PERFECTSICK', 'PERFECT rank GOLD', 24, false);
+    animation.addByPrefix('GREAT', 'GREAT rank0', 24, false);
+    animation.addByPrefix('LOSS', 'LOSS rank0', 24, false);
 
     blend = BlendMode.ADD;
 
@@ -1713,22 +1724,6 @@ class FreeplayRank extends FlxSpriteGroup
     // setGraphicSize(Std.int(width * 0.9));
     scale.set(0.9, 0.9);
     updateHitbox();
-  }
-
-  /**
-   * Plays an animation for each member of the group
-   * Just passes the arguments to `animation.play`, since that's not available in FlxGroups
-   * @param animName The name of the animation to play
-   * @param force false
-   * @param reversed false
-   * @param frame 0
-   */
-  public function playAnimationEach(animName:String, force = false, reversed = false, frame = 0):Void
-  {
-    for (i in members)
-    {
-      i.animation.play(animName, force, reversed, frame);
-    }
   }
 }
 

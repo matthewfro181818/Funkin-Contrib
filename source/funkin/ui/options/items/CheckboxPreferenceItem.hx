@@ -58,7 +58,7 @@ class CheckboxPreferenceItem extends FlxSprite
 {
   public var currentValue(default, set):Bool;
 
-  public function new(x:Float, y:Float, defaultValue:Bool = false, available:Bool = true)
+  public function new(x:Float, y:Float, defaultValue:Bool = false)
   {
     super(x, y);
 
@@ -69,12 +69,10 @@ class CheckboxPreferenceItem extends FlxSprite
     setGraphicSize(Std.int(width * 0.7));
     updateHitbox();
 
-    if (!available) this.alpha = 0.5;
-
     this.currentValue = defaultValue;
   }
 
-  override function update(elapsed:Float):Void
+  override function update(elapsed:Float)
   {
     super.update(elapsed);
 

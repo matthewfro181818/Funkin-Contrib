@@ -5,6 +5,7 @@ package funkin.play.event;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.tweens.FlxTween;
@@ -40,9 +41,17 @@ import flixel.FlxCamera;
 import flixel.tweens.FlxEase;
 =======
 >>>>>>> b150c43d (lol4)
+||||||| cf89d672
+=======
+import flixel.tweens.FlxTween;
+import flixel.FlxCamera;
+import flixel.tweens.FlxEase;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 // Data from the chart
+import funkin.data.song.SongData;
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 <<<<<<< HEAD
 import funkin.play.event.SongEvent;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -62,6 +71,10 @@ import funkin.play.event.SongEvent;
 =======
 import funkin.play.event.SongEvent;
 >>>>>>> cd960b0a (idk7)
+||||||| cf89d672
+=======
+import funkin.play.event.SongEvent;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 

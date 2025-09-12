@@ -118,6 +118,7 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
     inputStage.value = startingValueStage;
 
     inputNoteStyle.onChange = function(event:UIEvent) {
+<<<<<<< HEAD
       if (event.data?.id == null) return;
       chartEditorState.currentSongNoteStyle = event.data.id;
     };
@@ -402,6 +403,17 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
       {
         chartEditorState.currentSongNoteStyle = event.data.id;
       }
+||||||| cf89d672
+      var valid:Bool = event.data != null && event.data.id != null;
+
+      if (valid)
+      {
+        chartEditorState.currentSongNoteStyle = event.data.id;
+      }
+=======
+      if (event.data?.id == null) return;
+      chartEditorState.currentSongNoteStyle = event.data.id;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
     };
     var startingValueNoteStyle = ChartEditorDropdowns.populateDropdownWithNoteStyles(inputNoteStyle, chartEditorState.currentSongMetadata.playData.noteStyle);
     inputNoteStyle.value = startingValueNoteStyle;
@@ -410,7 +422,8 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
       if (event.value == null || event.value <= 0) return;
 
       // Use a command so we can undo/redo this action.
-      if (event.value != Conductor.instance.bpm)
+      var startingBPM = chartEditorState.currentSongMetadata.timeChanges[0].bpm;
+      if (event.value != startingBPM)
       {
         chartEditorState.performCommand(new ChangeStartingBPMCommand(event.value));
       }
@@ -479,18 +492,13 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
     inputSongArtist.value = chartEditorState.currentSongMetadata.artist;
     inputSongCharter.value = chartEditorState.currentSongMetadata.charter;
     inputStage.value = chartEditorState.currentSongMetadata.playData.stage;
-    inputNoteStyle.value = chartEditorState.currentSongNoteStyle;
+    inputNoteStyle.value = chartEditorState.currentSongMetadata.playData.noteStyle;
     inputBPM.value = chartEditorState.currentSongMetadata.timeChanges[0].bpm;
     inputDifficultyRating.value = chartEditorState.currentSongChartDifficultyRating;
     inputScrollSpeed.value = chartEditorState.currentSongChartScrollSpeed;
     labelScrollSpeed.text = 'Scroll Speed: ${chartEditorState.currentSongChartScrollSpeed}x';
     frameVariation.text = 'Variation: ${chartEditorState.selectedVariation.toTitleCase()}';
     frameDifficulty.text = 'Difficulty: ${chartEditorState.selectedDifficulty.toTitleCase()}';
-
-    if (chartEditorState.currentSongMetadata.timeChanges[0].bpm != Conductor.instance.bpm)
-    {
-      chartEditorState.performCommand(new ChangeStartingBPMCommand(chartEditorState.currentSongMetadata.timeChanges[0].bpm));
-    }
 
     var currentTimeSignature = '${chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureNum}/${chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureDen}';
     trace('Setting time signature to ${currentTimeSignature}');
@@ -505,21 +513,12 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
           {id: "mainStage", text: "Main Stage"};
     }
 
-    var noteStyleId:String = chartEditorState.currentSongNoteStyle;
-    var noteStyle:Null<NoteStyle> = NoteStyleRegistry.instance.fetchEntry(noteStyleId);
-    if (inputNoteStyle != null)
-    {
-      inputNoteStyle.value = (noteStyle != null) ?
-        {id: noteStyle.id, text: noteStyle.getName()} :
-          {id: "Funkin", text: "Funkin'"};
-    }
-
     var LIMIT = 6;
 
-    var charDataOpponent:Null<CharacterData> = CharacterDataParser.fetchCharacterData(chartEditorState.currentSongMetadata.playData.characters.opponent);
+    var charDataOpponent:Null<CharacterData> = CharacterRegistry.fetchCharacterData(chartEditorState.currentSongMetadata.playData.characters.opponent);
     if (charDataOpponent != null)
     {
-      buttonCharacterOpponent.icon = haxe.ui.util.Variant.fromImageData(CharacterDataParser.getCharPixelIconAsset(chartEditorState.currentSongMetadata.playData.characters.opponent));
+      buttonCharacterOpponent.icon = haxe.ui.util.Variant.fromImageData(CharacterRegistry.getCharPixelIconAsset(chartEditorState.currentSongMetadata.playData.characters.opponent));
       buttonCharacterOpponent.text = charDataOpponent.name.length > LIMIT ? '${charDataOpponent.name.substr(0, LIMIT)}.' : '${charDataOpponent.name}';
     }
     else
@@ -528,10 +527,10 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
       buttonCharacterOpponent.text = "None";
     }
 
-    var charDataGirlfriend:Null<CharacterData> = CharacterDataParser.fetchCharacterData(chartEditorState.currentSongMetadata.playData.characters.girlfriend);
+    var charDataGirlfriend:Null<CharacterData> = CharacterRegistry.fetchCharacterData(chartEditorState.currentSongMetadata.playData.characters.girlfriend);
     if (charDataGirlfriend != null)
     {
-      buttonCharacterGirlfriend.icon = haxe.ui.util.Variant.fromImageData(CharacterDataParser.getCharPixelIconAsset(chartEditorState.currentSongMetadata.playData.characters.girlfriend));
+      buttonCharacterGirlfriend.icon = haxe.ui.util.Variant.fromImageData(CharacterRegistry.getCharPixelIconAsset(chartEditorState.currentSongMetadata.playData.characters.girlfriend));
       buttonCharacterGirlfriend.text = charDataGirlfriend.name.length > LIMIT ? '${charDataGirlfriend.name.substr(0, LIMIT)}.' : '${charDataGirlfriend.name}';
     }
     else
@@ -540,10 +539,10 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
       buttonCharacterGirlfriend.text = "None";
     }
 
-    var charDataPlayer:Null<CharacterData> = CharacterDataParser.fetchCharacterData(chartEditorState.currentSongMetadata.playData.characters.player);
+    var charDataPlayer:Null<CharacterData> = CharacterRegistry.fetchCharacterData(chartEditorState.currentSongMetadata.playData.characters.player);
     if (charDataPlayer != null)
     {
-      buttonCharacterPlayer.icon = haxe.ui.util.Variant.fromImageData(CharacterDataParser.getCharPixelIconAsset(chartEditorState.currentSongMetadata.playData.characters.player));
+      buttonCharacterPlayer.icon = haxe.ui.util.Variant.fromImageData(CharacterRegistry.getCharPixelIconAsset(chartEditorState.currentSongMetadata.playData.characters.player));
       buttonCharacterPlayer.text = charDataPlayer.name.length > LIMIT ? '${charDataPlayer.name.substr(0, LIMIT)}.' : '${charDataPlayer.name}';
     }
     else

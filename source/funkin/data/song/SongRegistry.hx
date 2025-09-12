@@ -172,6 +172,7 @@ class SongRegistry extends BaseRegistry<Song, SongMetadata>
 
   public function parseEntryMetadataWithMigration(id:String, variation:String, version:thx.semver.Version):Null<SongMetadata>
   {
+<<<<<<< HEAD
     variation = variation == null ? Constants.DEFAULT_VARIATION : variation;
 
     // If a version rule is not specified, do not check against it.
@@ -756,6 +757,11 @@ using funkin.data.song.migrator.SongDataMigrator;
   public function parseEntryMetadataWithMigration(id:String, variation:String, version:thx.semver.Version):Null<SongMetadata>
   {
     variation = variation ?? Constants.DEFAULT_VARIATION;
+||||||| cf89d672
+    variation = variation ?? Constants.DEFAULT_VARIATION;
+=======
+    variation = variation == null ? Constants.DEFAULT_VARIATION : variation;
+>>>>>>> 7b9efaf2151191d45bbe7857c54f3a06b5380fef
 
     // If a version rule is not specified, do not check against it.
     if (SONG_METADATA_VERSION_RULE == null || VersionUtil.validateVersion(version, SONG_METADATA_VERSION_RULE))
@@ -776,13 +782,12 @@ using funkin.data.song.migrator.SongDataMigrator;
     }
   }
 
-  public function parseEntryMetadataRawWithMigration(contents:String, ?fileName:String = 'raw', version:thx.semver.Version,
-      ?variation:String):Null<SongMetadata>
+  public function parseEntryMetadataRawWithMigration(contents:String, ?fileName:String = 'raw', version:thx.semver.Version):Null<SongMetadata>
   {
     // If a version rule is not specified, do not check against it.
     if (SONG_METADATA_VERSION_RULE == null || VersionUtil.validateVersion(version, SONG_METADATA_VERSION_RULE))
     {
-      return parseEntryMetadataRaw(contents, fileName, variation);
+      return parseEntryMetadataRaw(contents, fileName);
     }
     else if (VersionUtil.validateVersion(version, "2.1.x"))
     {
@@ -918,7 +923,7 @@ using funkin.data.song.migrator.SongDataMigrator;
     }
     else
     {
-      throw '[${registryId}] Chart entry ${id}:${variation} does not support migration to version ${SONG_MUSIC_DATA_VERSION_RULE}.';
+      throw '[${registryId}] Chart entry ${id}:${variation} does not support migration to version ${SONG_CHART_DATA_VERSION_RULE}.';
     }
   }
 
@@ -931,7 +936,7 @@ using funkin.data.song.migrator.SongDataMigrator;
     }
     else
     {
-      throw '[${registryId}] Chart entry "$fileName" does not support migration to version ${SONG_MUSIC_DATA_VERSION_RULE}.';
+      throw '[${registryId}] Chart entry "$fileName" does not support migration to version ${SONG_CHART_DATA_VERSION_RULE}.';
     }
   }
 
@@ -1000,6 +1005,16 @@ using funkin.data.song.migrator.SongDataMigrator;
     {
       throw '[${registryId}] Chart entry "${fileName}" does not support migration to version ${SONG_CHART_DATA_VERSION_RULE}.';
     }
+  }
+
+  function createScriptedEntry(clsName:String):Song
+  {
+    return ScriptedSong.init(clsName, "unknown");
+  }
+
+  function getScriptedClassNames():Array<String>
+  {
+    return ScriptedSong.listScriptClasses();
   }
 
   function loadEntryMetadataFile(id:String, ?variation:String):Null<JsonFile>
@@ -1077,38 +1092,49 @@ using funkin.data.song.migrator.SongDataMigrator;
   }
 
   /**
-   * A list of all difficulties for a specific character.
+   * A list of all the story weeks from the base game, in order.
+   * TODO: Should this be hardcoded?
    */
-  public function listAllDifficulties(characterId:String):Array<String>
+  public function listBaseGameSongIds():Array<String>
   {
-    var allDifficulties:Array<String> = Constants.DEFAULT_DIFFICULTY_LIST.copy();
-    var character = PlayerRegistry.instance.fetchEntry(characterId);
+    return [
+      "tutorial",
+      "bopeebo",
+      "fresh",
+      "dadbattle",
+      "spookeez",
+      "south",
+      "monster",
+      "pico",
+      "philly-nice",
+      "blammed",
+      "satin-panties",
+      "high",
+      "milf",
+      "cocoa",
+      "eggnog",
+      "winter-horrorland",
+      "senpai",
+      "roses",
+      "thorns",
+      "ugh",
+      "guns",
+      "stress",
+      "darnell",
+      "lit-up",
+      "2hot",
+      "blazin"
+    ];
+  }
 
-    if (character == null)
-    {
-      trace('  [WARN] Could not locate character $characterId');
-      return allDifficulties;
-    }
-
-    allDifficulties = [];
-    for (songId in listEntryIds())
-    {
-      var song = fetchEntry(songId);
-      if (song == null) continue;
-
-      for (diff in song.listDifficulties(null, song.getVariationsByCharacter(character)))
-      {
-        if (!allDifficulties.contains(diff)) allDifficulties.push(diff);
-      }
-    }
-
-    if (allDifficulties.length == 0)
-    {
-      trace('  [WARN] No difficulties found. Returning default difficulty list.');
-      allDifficulties = Constants.DEFAULT_DIFFICULTY_LIST.copy();
-    }
-
-    return allDifficulties;
+  /**
+   * A list of all installed story weeks that are not from the base game.
+   */
+  public function listModdedSongIds():Array<String>
+  {
+    return listEntryIds().filter(function(id:String):Bool {
+      return listBaseGameSongIds().indexOf(id) == -1;
+    });
   }
 }
 <<<<<<< HEAD
