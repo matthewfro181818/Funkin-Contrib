@@ -6,7 +6,7 @@ import funkin.util.tools.ISingleton;
 import funkin.data.DefaultRegistryImpl;
 
 @:nullSafety
-class SpeakerRegistry extends BaseRegistry<Speaker, SpeakerData, SpeakerEntryParams> implements ISingleton implements DefaultRegistryImpl
+class SpeakerRegistry extends BaseRegistry<Speaker, SpeakerData> implements ISingleton implements DefaultRegistryImpl
 {
   /**
    * The current version string for the speaker data format.
