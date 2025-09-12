@@ -1,118 +1,19 @@
 package funkin.modding;
 
 import polymod.fs.ZipFileSystem;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import funkin.data.dialogue.ConversationRegistry;
-import funkin.data.dialogue.DialogueBoxRegistry;
-import funkin.data.dialogue.SpeakerRegistry;
-=======
 import funkin.data.dialogue.conversation.ConversationRegistry;
 import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
 import funkin.data.dialogue.speaker.SpeakerRegistry;
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-import funkin.data.dialogue.conversation.ConversationRegistry;
-import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
-import funkin.data.dialogue.speaker.SpeakerRegistry;
-=======
-import funkin.data.dialogue.ConversationRegistry;
-import funkin.data.dialogue.DialogueBoxRegistry;
-import funkin.data.dialogue.SpeakerRegistry;
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-import funkin.data.dialogue.ConversationRegistry;
-import funkin.data.dialogue.DialogueBoxRegistry;
-import funkin.data.dialogue.SpeakerRegistry;
-=======
-import funkin.data.dialogue.conversation.ConversationRegistry;
-import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
-import funkin.data.dialogue.speaker.SpeakerRegistry;
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-import funkin.data.dialogue.conversation.ConversationRegistry;
-import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
-import funkin.data.dialogue.speaker.SpeakerRegistry;
-=======
-import funkin.data.dialogue.ConversationRegistry;
-import funkin.data.dialogue.DialogueBoxRegistry;
-import funkin.data.dialogue.SpeakerRegistry;
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-import funkin.data.dialogue.ConversationRegistry;
-import funkin.data.dialogue.DialogueBoxRegistry;
-import funkin.data.dialogue.SpeakerRegistry;
-=======
-import funkin.data.dialogue.conversation.ConversationRegistry;
-import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
-import funkin.data.dialogue.speaker.SpeakerRegistry;
->>>>>>> cd960b0a (idk7)
 import funkin.data.event.SongEventRegistry;
 import funkin.data.story.level.LevelRegistry;
 import funkin.data.notestyle.NoteStyleRegistry;
 import funkin.play.notes.notekind.NoteKindManager;
 import funkin.data.song.SongRegistry;
 import funkin.data.freeplay.player.PlayerRegistry;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import funkin.data.freeplay.style.FreeplayStyleRegistry;
-||||||| parent of 8a1f54ca (lol8)
-import funkin.data.freeplay.style.FreeplayStyleRegistry;
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-import funkin.data.freeplay.style.FreeplayStyleRegistry;
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-import funkin.data.freeplay.style.FreeplayStyleRegistry;
-=======
->>>>>>> cd960b0a (idk7)
 import funkin.data.stage.StageRegistry;
 import funkin.data.freeplay.album.AlbumRegistry;
 import funkin.modding.module.ModuleHandler;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import funkin.play.character.CharacterData.CharacterDataParser;
-=======
-||||||| parent of b150c43d (lol4)
-=======
-import funkin.data.freeplay.style.FreeplayStyleRegistry;
->>>>>>> b150c43d (lol4)
-import funkin.data.stage.StageRegistry;
-import funkin.data.stickers.StickerRegistry;
-import funkin.data.freeplay.album.AlbumRegistry;
-import funkin.modding.module.ModuleHandler;
-<<<<<<< HEAD
 import funkin.data.character.CharacterRegistry;
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-import funkin.data.character.CharacterRegistry;
-=======
-import funkin.play.character.CharacterData.CharacterDataParser;
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-import funkin.play.character.CharacterData.CharacterDataParser;
-=======
-import funkin.data.character.CharacterRegistry;
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-import funkin.data.character.CharacterRegistry;
-=======
-import funkin.play.character.CharacterData.CharacterDataParser;
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-import funkin.play.character.CharacterData.CharacterDataParser;
-=======
-import funkin.data.character.CharacterRegistry;
->>>>>>> cd960b0a (idk7)
 import funkin.save.Save;
 import funkin.util.FileUtil;
 import funkin.util.macro.ClassMacro;
@@ -123,116 +24,13 @@ import polymod.Polymod;
 /**
  * A class for interacting with Polymod, the atomic modding framework for Haxe.
  */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-@:nullSafety
-=======
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-=======
-@:nullSafety
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-@:nullSafety
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-@:nullSafety
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-@:nullSafety
-=======
->>>>>>> cd960b0a (idk7)
 class PolymodHandler
 {
   /**
    * The API version for the current version of the game. Since 0.5.0, we've just made this the game version!
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-   * Minor updates rarely impact mods but major versions sometimes do.
-||||||| parent of 8a1f54ca (lol8)
-   * Minor updates rarely impact mods but major versions sometimes do.
-=======
    * Minor updates rarely impact mods but major versions often do.
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-   * Minor updates rarely impact mods but major versions often do.
-=======
-   * Minor updates rarely impact mods but major versions sometimes do.
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-   * Minor updates rarely impact mods but major versions sometimes do.
-=======
-   * Minor updates rarely impact mods but major versions often do.
->>>>>>> cd960b0a (idk7)
    */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  public static var API_VERSION(get, never):String;
-
-  static function get_API_VERSION():String
-  {
-    return Constants.VERSION;
-  }
-=======
-   * Minor updates rarely impact mods but major versions often do.
-||||||| parent of b150c43d (lol4)
-   * Minor updates rarely impact mods but major versions often do.
-=======
-   * Minor updates rarely impact mods but major versions sometimes do.
->>>>>>> b150c43d (lol4)
-   */
-<<<<<<< HEAD
   // static final API_VERSION:String = Constants.VERSION;
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-  // static final API_VERSION:String = Constants.VERSION;
-=======
-  public static var API_VERSION(get, never):String;
-
-  static function get_API_VERSION():String
-  {
-    return Constants.VERSION;
-  }
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-  public static var API_VERSION(get, never):String;
-
-  static function get_API_VERSION():String
-  {
-    return Constants.VERSION;
-  }
-=======
-  // static final API_VERSION:String = Constants.VERSION;
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-  // static final API_VERSION:String = Constants.VERSION;
-=======
-  public static var API_VERSION(get, never):String;
-
-  static function get_API_VERSION():String
-  {
-    return Constants.VERSION;
-  }
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-  public static var API_VERSION(get, never):String;
-
-  static function get_API_VERSION():String
-  {
-    return Constants.VERSION;
-  }
-=======
-  // static final API_VERSION:String = Constants.VERSION;
->>>>>>> cd960b0a (idk7)
 
   /**
    * The Semantic Versioning rule
@@ -240,35 +38,7 @@ class PolymodHandler
    * Using more complex rules allows mods from older compatible versions to stay functioning,
    * while preventing mods made for future versions from being installed.
    */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  public static final API_VERSION_RULE:String = ">=0.6.3 <0.8.0";
-=======
   static final API_VERSION_RULE:String = ">=0.5.0 <0.6.0";
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-  static final API_VERSION_RULE:String = ">=0.5.0 <0.6.0";
-=======
-  public static final API_VERSION_RULE:String = ">=0.6.3 <0.8.0";
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-  public static final API_VERSION_RULE:String = ">=0.6.3 <0.8.0";
-=======
-  static final API_VERSION_RULE:String = ">=0.5.0 <0.6.0";
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-  static final API_VERSION_RULE:String = ">=0.5.0 <0.6.0";
-=======
-  public static final API_VERSION_RULE:String = ">=0.6.3 <0.8.0";
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-  public static final API_VERSION_RULE:String = ">=0.6.3 <0.8.0";
-=======
-  static final API_VERSION_RULE:String = ">=0.5.0 <0.6.0";
->>>>>>> cd960b0a (idk7)
 
   /**
    * Where relative to the executable that mods are located.
@@ -293,35 +63,7 @@ class PolymodHandler
 
   public static var loadedModIds:Array<String> = [];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  // Use SysZipFileSystem on native and MemoryZipFilesystem on web.
-=======
   // Use SysZipFileSystem on desktop and MemoryZipFilesystem on web.
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-  // Use SysZipFileSystem on desktop and MemoryZipFilesystem on web.
-=======
-  // Use SysZipFileSystem on native and MemoryZipFilesystem on web.
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-  // Use SysZipFileSystem on native and MemoryZipFilesystem on web.
-=======
-  // Use SysZipFileSystem on desktop and MemoryZipFilesystem on web.
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-  // Use SysZipFileSystem on desktop and MemoryZipFilesystem on web.
-=======
-  // Use SysZipFileSystem on native and MemoryZipFilesystem on web.
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-  // Use SysZipFileSystem on native and MemoryZipFilesystem on web.
-=======
-  // Use SysZipFileSystem on desktop and MemoryZipFilesystem on web.
->>>>>>> cd960b0a (idk7)
   static var modFileSystem:Null<ZipFileSystem> = null;
 
   /**
@@ -337,55 +79,8 @@ class PolymodHandler
    */
   public static function loadAllMods():Void
   {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #if sys
-||||||| parent of b150c43d (lol4)
-=======
-    #if sys
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    #if sys
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-    #if sys
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    #if sys
-=======
->>>>>>> cd960b0a (idk7)
     // Create the mod root if it doesn't exist.
     createModRoot();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #end
-=======
-    // Create the mod root if it doesn't exist.
-    createModRoot();
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-=======
-    #end
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    #end
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-    #end
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    #end
-=======
->>>>>>> cd960b0a (idk7)
     trace('Initializing Polymod (using all mods)...');
     loadModsById(getAllModIds());
   }
@@ -395,60 +90,9 @@ class PolymodHandler
    */
   public static function loadEnabledMods():Void
   {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #if sys
-||||||| parent of 8a1f54ca (lol8)
-    #if sys
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-    #if sys
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    #if sys
-=======
->>>>>>> cd960b0a (idk7)
     // Create the mod root if it doesn't exist.
     createModRoot();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #end
-=======
-||||||| parent of b150c43d (lol4)
-=======
-    #if sys
->>>>>>> b150c43d (lol4)
-    // Create the mod root if it doesn't exist.
-    createModRoot();
-<<<<<<< HEAD
 
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-
-=======
-    #end
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    #end
-=======
-
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-
-=======
-    #end
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    #end
-=======
-
->>>>>>> cd960b0a (idk7)
     trace('Initializing Polymod (using configured mods)...');
     loadModsById(Save.instance.enabledModIds);
   }
@@ -458,60 +102,9 @@ class PolymodHandler
    */
   public static function loadNoMods():Void
   {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #if sys
-||||||| parent of 8a1f54ca (lol8)
-    #if sys
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-    #if sys
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    #if sys
-=======
->>>>>>> cd960b0a (idk7)
     // Create the mod root if it doesn't exist.
     createModRoot();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #end
-=======
-||||||| parent of b150c43d (lol4)
-=======
-    #if sys
->>>>>>> b150c43d (lol4)
-    // Create the mod root if it doesn't exist.
-    createModRoot();
-<<<<<<< HEAD
 
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-
-=======
-    #end
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    #end
-=======
-
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-
-=======
-    #end
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    #end
-=======
-
->>>>>>> cd960b0a (idk7)
     // We still need to configure the debug print calls etc.
     trace('Initializing Polymod (using no mods)...');
     loadModsById([]);
@@ -558,35 +151,7 @@ class PolymodHandler
         frameworkParams: buildFrameworkParams(),
 
         // List of filenames to ignore in mods. Use the default list to ignore the metadata file, etc.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        ignoredFiles: buildIgnoreList(),
-=======
         ignoredFiles: Polymod.getDefaultIgnoreList(),
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-        ignoredFiles: Polymod.getDefaultIgnoreList(),
-=======
-        ignoredFiles: buildIgnoreList(),
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-        ignoredFiles: buildIgnoreList(),
-=======
-        ignoredFiles: Polymod.getDefaultIgnoreList(),
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-        ignoredFiles: Polymod.getDefaultIgnoreList(),
-=======
-        ignoredFiles: buildIgnoreList(),
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-        ignoredFiles: buildIgnoreList(),
-=======
-        ignoredFiles: Polymod.getDefaultIgnoreList(),
->>>>>>> cd960b0a (idk7)
 
         // Parsing rules for various data formats.
         parseRules: buildParseRules(),
@@ -681,203 +246,12 @@ class PolymodHandler
 
     Polymod.addImportAlias('funkin.data.event.SongEventSchema', funkin.data.event.SongEventSchema.SongEventSchemaRaw);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     Polymod.addImportAlias('funkin.play.character.CharacterDataParser', funkin.data.character.CharacterRegistry);
 
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-    Polymod.addImportAlias('funkin.play.character.CharacterDataParser', funkin.data.character.CharacterRegistry);
-
-=======
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-=======
-    Polymod.addImportAlias('funkin.play.character.CharacterDataParser', funkin.data.character.CharacterRegistry);
-
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    Polymod.addImportAlias('funkin.play.character.CharacterDataParser', funkin.data.character.CharacterRegistry);
-
-=======
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-=======
-    Polymod.addImportAlias('funkin.play.character.CharacterDataParser', funkin.data.character.CharacterRegistry);
-
->>>>>>> cd960b0a (idk7)
     // `lime.utils.Assets` literally just has a private `resolveClass` function for some reason? so we replace it with our own.
     Polymod.addImportAlias('lime.utils.Assets', funkin.Assets);
     Polymod.addImportAlias('openfl.utils.Assets', funkin.Assets);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Backward compatibility for certain scripted classes outside `funkin.modding.base`.
-    Polymod.addImportAlias('funkin.modding.base.ScriptedFunkinSprite', funkin.graphics.ScriptedFunkinSprite);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatState', funkin.ui.ScriptedMusicBeatState);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatSubState', funkin.ui.ScriptedMusicBeatSubState);
-
-    // Backward compatibility for some classes that moved.
-    Polymod.addImportAlias('funkin.data.dialogue.conversation.ConversationRegistry', funkin.data.dialogue.ConversationRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.dialoguebox.DialogueBoxRegistry', funkin.data.dialogue.DialogueBoxRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.speaker.SpeakerRegistry', funkin.data.dialogue.SpeakerRegistry);
-
-    // `funkin.util.FileUtil` has unrestricted access to the file system.
-    Polymod.addImportAlias('funkin.util.FileUtil', funkin.util.FileUtilSandboxed);
-
-    #if FEATURE_NEWGROUNDS
-    // `funkin.api.newgrounds.Leaderboards` allows for submitting cheated scores.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Leaderboards', funkin.api.newgrounds.Leaderboards.LeaderboardsSandboxed);
-
-    // `funkin.api.newgrounds.Medals` allows for unfair granting of medals.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Medals', funkin.api.newgrounds.Medals.MedalsSandboxed);
-
-    // `funkin.api.newgrounds.NewgroundsClientSandboxed` allows for submitting cheated data.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.NewgroundsClient', funkin.api.newgrounds.NewgroundsClient.NewgroundsClientSandboxed);
-    #end
-
-    Polymod.addImportAlias('funkin.api.discord.DiscordClient', funkin.api.discord.DiscordClient.DiscordClientSandboxed);
-
-=======
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-=======
-    // Backward compatibility for certain scripted classes outside `funkin.modding.base`.
-    Polymod.addImportAlias('funkin.modding.base.ScriptedFunkinSprite', funkin.graphics.ScriptedFunkinSprite);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatState', funkin.ui.ScriptedMusicBeatState);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatSubState', funkin.ui.ScriptedMusicBeatSubState);
-
-    // Backward compatibility for some classes that moved.
-    Polymod.addImportAlias('funkin.data.dialogue.conversation.ConversationRegistry', funkin.data.dialogue.ConversationRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.dialoguebox.DialogueBoxRegistry', funkin.data.dialogue.DialogueBoxRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.speaker.SpeakerRegistry', funkin.data.dialogue.SpeakerRegistry);
-
-    // `funkin.util.FileUtil` has unrestricted access to the file system.
-    Polymod.addImportAlias('funkin.util.FileUtil', funkin.util.FileUtilSandboxed);
-
-    #if FEATURE_NEWGROUNDS
-    // `funkin.api.newgrounds.Leaderboards` allows for submitting cheated scores.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Leaderboards', funkin.api.newgrounds.Leaderboards.LeaderboardsSandboxed);
-
-    // `funkin.api.newgrounds.Medals` allows for unfair granting of medals.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Medals', funkin.api.newgrounds.Medals.MedalsSandboxed);
-
-    // `funkin.api.newgrounds.NewgroundsClientSandboxed` allows for submitting cheated data.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.NewgroundsClient', funkin.api.newgrounds.NewgroundsClient.NewgroundsClientSandboxed);
-    #end
-
-    Polymod.addImportAlias('funkin.api.discord.DiscordClient', funkin.api.discord.DiscordClient.DiscordClientSandboxed);
-
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    // Backward compatibility for certain scripted classes outside `funkin.modding.base`.
-    Polymod.addImportAlias('funkin.modding.base.ScriptedFunkinSprite', funkin.graphics.ScriptedFunkinSprite);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatState', funkin.ui.ScriptedMusicBeatState);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatSubState', funkin.ui.ScriptedMusicBeatSubState);
-
-    // Backward compatibility for some classes that moved.
-    Polymod.addImportAlias('funkin.data.dialogue.conversation.ConversationRegistry', funkin.data.dialogue.ConversationRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.dialoguebox.DialogueBoxRegistry', funkin.data.dialogue.DialogueBoxRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.speaker.SpeakerRegistry', funkin.data.dialogue.SpeakerRegistry);
-
-    // `funkin.util.FileUtil` has unrestricted access to the file system.
-    Polymod.addImportAlias('funkin.util.FileUtil', funkin.util.FileUtilSandboxed);
-
-    #if FEATURE_NEWGROUNDS
-    // `funkin.api.newgrounds.Leaderboards` allows for submitting cheated scores.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Leaderboards', funkin.api.newgrounds.Leaderboards.LeaderboardsSandboxed);
-
-    // `funkin.api.newgrounds.Medals` allows for unfair granting of medals.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Medals', funkin.api.newgrounds.Medals.MedalsSandboxed);
-
-    // `funkin.api.newgrounds.NewgroundsClientSandboxed` allows for submitting cheated data.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.NewgroundsClient', funkin.api.newgrounds.NewgroundsClient.NewgroundsClientSandboxed);
-    #end
-
-    Polymod.addImportAlias('funkin.api.discord.DiscordClient', funkin.api.discord.DiscordClient.DiscordClientSandboxed);
-
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-    // Backward compatibility for certain scripted classes outside `funkin.modding.base`.
-    Polymod.addImportAlias('funkin.modding.base.ScriptedFunkinSprite', funkin.graphics.ScriptedFunkinSprite);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatState', funkin.ui.ScriptedMusicBeatState);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatSubState', funkin.ui.ScriptedMusicBeatSubState);
-
-    // Backward compatibility for some classes that moved.
-    Polymod.addImportAlias('funkin.data.dialogue.conversation.ConversationRegistry', funkin.data.dialogue.ConversationRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.dialoguebox.DialogueBoxRegistry', funkin.data.dialogue.DialogueBoxRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.speaker.SpeakerRegistry', funkin.data.dialogue.SpeakerRegistry);
-
-    // `funkin.util.FileUtil` has unrestricted access to the file system.
-    Polymod.addImportAlias('funkin.util.FileUtil', funkin.util.FileUtilSandboxed);
-
-    #if FEATURE_NEWGROUNDS
-    // `funkin.api.newgrounds.Leaderboards` allows for submitting cheated scores.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Leaderboards', funkin.api.newgrounds.Leaderboards.LeaderboardsSandboxed);
-
-    // `funkin.api.newgrounds.Medals` allows for unfair granting of medals.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Medals', funkin.api.newgrounds.Medals.MedalsSandboxed);
-
-    // `funkin.api.newgrounds.NewgroundsClientSandboxed` allows for submitting cheated data.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.NewgroundsClient', funkin.api.newgrounds.NewgroundsClient.NewgroundsClientSandboxed);
-    #end
-
-    Polymod.addImportAlias('funkin.api.discord.DiscordClient', funkin.api.discord.DiscordClient.DiscordClientSandboxed);
-
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    // Backward compatibility for certain scripted classes outside `funkin.modding.base`.
-    Polymod.addImportAlias('funkin.modding.base.ScriptedFunkinSprite', funkin.graphics.ScriptedFunkinSprite);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatState', funkin.ui.ScriptedMusicBeatState);
-    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatSubState', funkin.ui.ScriptedMusicBeatSubState);
-
-    // Backward compatibility for some classes that moved.
-    Polymod.addImportAlias('funkin.data.dialogue.conversation.ConversationRegistry', funkin.data.dialogue.ConversationRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.dialoguebox.DialogueBoxRegistry', funkin.data.dialogue.DialogueBoxRegistry);
-    Polymod.addImportAlias('funkin.data.dialogue.speaker.SpeakerRegistry', funkin.data.dialogue.SpeakerRegistry);
-
-    // `funkin.util.FileUtil` has unrestricted access to the file system.
-    Polymod.addImportAlias('funkin.util.FileUtil', funkin.util.FileUtilSandboxed);
-
-    #if FEATURE_NEWGROUNDS
-    // `funkin.api.newgrounds.Leaderboards` allows for submitting cheated scores.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Leaderboards', funkin.api.newgrounds.Leaderboards.LeaderboardsSandboxed);
-
-    // `funkin.api.newgrounds.Medals` allows for unfair granting of medals.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.Medals', funkin.api.newgrounds.Medals.MedalsSandboxed);
-
-    // `funkin.api.newgrounds.NewgroundsClientSandboxed` allows for submitting cheated data.
-    // We still grant read-only access.
-    Polymod.addImportAlias('funkin.api.newgrounds.NewgroundsClient', funkin.api.newgrounds.NewgroundsClient.NewgroundsClientSandboxed);
-    #end
-
-    Polymod.addImportAlias('funkin.api.discord.DiscordClient', funkin.api.discord.DiscordClient.DiscordClientSandboxed);
-
-=======
->>>>>>> cd960b0a (idk7)
     // Add blacklisting for prohibited classes and packages.
 
     // `Sys`
@@ -885,357 +259,20 @@ class PolymodHandler
     Polymod.blacklistImport('Sys');
 
     // `Reflect`
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Reflect.callMethod() can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Reflect', funkin.util.ReflectUtil);
-||||||| parent of 8a1f54ca (lol8)
-    // Reflect.callMethod() can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Reflect', funkin.util.ReflectUtil);
-=======
     // Reflect.callMethod() can access blacklisted packages
     Polymod.blacklistImport('Reflect');
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    // Reflect.callMethod() can access blacklisted packages
-    Polymod.blacklistImport('Reflect');
-=======
-    // Reflect.callMethod() can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Reflect', funkin.util.ReflectUtil);
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    // Reflect.callMethod() can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Reflect', funkin.util.ReflectUtil);
-=======
-    // Reflect.callMethod() can access blacklisted packages
-    Polymod.blacklistImport('Reflect');
->>>>>>> cd960b0a (idk7)
 
     // `Type`
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Type.createInstance(Type.resolveClass()) can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Type', funkin.util.ReflectUtil);
-=======
-    // Reflect.callMethod() can access blacklisted packages
-    Polymod.blacklistImport('Reflect');
-||||||| parent of b150c43d (lol4)
-    // Reflect.callMethod() can access blacklisted packages
-    Polymod.blacklistImport('Reflect');
-=======
-    // Reflect.callMethod() can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Reflect', funkin.util.ReflectUtil);
->>>>>>> b150c43d (lol4)
-
-    // `Type`
-<<<<<<< HEAD
     // Type.createInstance(Type.resolveClass()) can access blacklisted packages
     Polymod.blacklistImport('Type');
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-    // Type.createInstance(Type.resolveClass()) can access blacklisted packages
-    Polymod.blacklistImport('Type');
-=======
-    // Type.createInstance(Type.resolveClass()) can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Type', funkin.util.ReflectUtil);
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    // Type.createInstance(Type.resolveClass()) can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Type', funkin.util.ReflectUtil);
-=======
-    // Type.createInstance(Type.resolveClass()) can access blacklisted packages
-    Polymod.blacklistImport('Type');
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    // Type.createInstance(Type.resolveClass()) can access blacklisted packages
-    Polymod.blacklistImport('Type');
-=======
-    // Type.createInstance(Type.resolveClass()) can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Type', funkin.util.ReflectUtil);
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    // Type.createInstance(Type.resolveClass()) can access blacklisted packages, but some functions are whitelisted
-    Polymod.addImportAlias('Type', funkin.util.ReflectUtil);
-=======
-    // Type.createInstance(Type.resolveClass()) can access blacklisted packages
-    Polymod.blacklistImport('Type');
->>>>>>> cd960b0a (idk7)
 
     // `cpp.Lib`
     // Lib.load() can load malicious DLLs
     Polymod.blacklistImport('cpp.Lib');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // `haxe.Unserializer`
-||||||| parent of 8a1f54ca (lol8)
-    // `haxe.Unserializer`
-=======
     // `Unserializer`
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    // `Unserializer`
-=======
-    // `haxe.Unserializer`
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    // `haxe.Unserializer`
-=======
-    // `Unserializer`
->>>>>>> cd960b0a (idk7)
     // Unserializer.DEFAULT_RESOLVER.resolveClass() can access blacklisted packages
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    Polymod.blacklistImport('haxe.Unserializer');
-
-    // `flixel.util.FlxSave`
-    // FlxSave.resolveFlixelClasses() can access blacklisted packages
-    Polymod.blacklistImport('flixel.util.FlxSave');
-
-    // Disable access to AdMob Util
-    Polymod.blacklistImport('funkin.mobile.util.AdMobUtil');
-
-    // Disable access to In-App Purchases Util
-    Polymod.blacklistImport('funkin.mobile.util.InAppPurchasesUtil');
-
-    // Disable access to Admob Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.admob'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to AndroidTools Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.androidtools'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to IAPCore Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.iapcore'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to Haptics Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.haptics'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-=======
-    // `Unserializer`
-||||||| parent of b150c43d (lol4)
-    // `Unserializer`
-=======
-    // `haxe.Unserializer`
->>>>>>> b150c43d (lol4)
-    // Unserializer.DEFAULT_RESOLVER.resolveClass() can access blacklisted packages
-<<<<<<< HEAD
     Polymod.blacklistImport('Unserializer');
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-    Polymod.blacklistImport('Unserializer');
-=======
-    Polymod.blacklistImport('haxe.Unserializer');
-
-    // `flixel.util.FlxSave`
-    // FlxSave.resolveFlixelClasses() can access blacklisted packages
-    Polymod.blacklistImport('flixel.util.FlxSave');
-
-    // Disable access to AdMob Util
-    Polymod.blacklistImport('funkin.mobile.util.AdMobUtil');
-
-    // Disable access to In-App Purchases Util
-    Polymod.blacklistImport('funkin.mobile.util.InAppPurchasesUtil');
-
-    // Disable access to Admob Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.admob'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to AndroidTools Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.androidtools'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to IAPCore Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.iapcore'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to Haptics Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.haptics'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    Polymod.blacklistImport('haxe.Unserializer');
-
-    // `flixel.util.FlxSave`
-    // FlxSave.resolveFlixelClasses() can access blacklisted packages
-    Polymod.blacklistImport('flixel.util.FlxSave');
-
-    // Disable access to AdMob Util
-    Polymod.blacklistImport('funkin.mobile.util.AdMobUtil');
-
-    // Disable access to In-App Purchases Util
-    Polymod.blacklistImport('funkin.mobile.util.InAppPurchasesUtil');
-
-    // Disable access to Admob Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.admob'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to AndroidTools Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.androidtools'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to IAPCore Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.iapcore'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to Haptics Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.haptics'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-=======
-    Polymod.blacklistImport('Unserializer');
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    Polymod.blacklistImport('Unserializer');
-=======
-    Polymod.blacklistImport('haxe.Unserializer');
-
-    // `flixel.util.FlxSave`
-    // FlxSave.resolveFlixelClasses() can access blacklisted packages
-    Polymod.blacklistImport('flixel.util.FlxSave');
-
-    // Disable access to AdMob Util
-    Polymod.blacklistImport('funkin.mobile.util.AdMobUtil');
-
-    // Disable access to In-App Purchases Util
-    Polymod.blacklistImport('funkin.mobile.util.InAppPurchasesUtil');
-
-    // Disable access to Admob Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.admob'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to AndroidTools Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.androidtools'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to IAPCore Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.iapcore'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to Haptics Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.haptics'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    Polymod.blacklistImport('haxe.Unserializer');
-
-    // `flixel.util.FlxSave`
-    // FlxSave.resolveFlixelClasses() can access blacklisted packages
-    Polymod.blacklistImport('flixel.util.FlxSave');
-
-    // Disable access to AdMob Util
-    Polymod.blacklistImport('funkin.mobile.util.AdMobUtil');
-
-    // Disable access to In-App Purchases Util
-    Polymod.blacklistImport('funkin.mobile.util.InAppPurchasesUtil');
-
-    // Disable access to Admob Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.admob'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to AndroidTools Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.androidtools'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to IAPCore Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.iapcore'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // Disable access to Haptics Extension
-    for (cls in ClassMacro.listClassesInPackage('extension.haptics'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-=======
-    Polymod.blacklistImport('Unserializer');
->>>>>>> cd960b0a (idk7)
 
     // `lime.system.CFFI`
     // Can load and execute compiled binaries.
@@ -1261,90 +298,6 @@ class PolymodHandler
     // Can load native processes on the host operating system.
     Polymod.blacklistImport('openfl.desktop.NativeProcess');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Contains critical private environment variables.
-    Polymod.blacklistImport('funkin.util.macro.EnvironmentConfigMacro');
-
-    // `funkin.api.*`
-    // Contains functions which may allow for cheating and such.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      if (polymod.hscript._internal.PolymodScriptClass.importOverrides.exists(className)) continue;
-      Polymod.blacklistImport(className);
-    }
-
-=======
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-=======
-    // Contains critical private environment variables.
-    Polymod.blacklistImport('funkin.util.macro.EnvironmentConfigMacro');
-
-    // `funkin.api.*`
-    // Contains functions which may allow for cheating and such.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      if (polymod.hscript._internal.PolymodScriptClass.importOverrides.exists(className)) continue;
-      Polymod.blacklistImport(className);
-    }
-
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    // Contains critical private environment variables.
-    Polymod.blacklistImport('funkin.util.macro.EnvironmentConfigMacro');
-
-    // `funkin.api.*`
-    // Contains functions which may allow for cheating and such.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      if (polymod.hscript._internal.PolymodScriptClass.importOverrides.exists(className)) continue;
-      Polymod.blacklistImport(className);
-    }
-
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-    // Contains critical private environment variables.
-    Polymod.blacklistImport('funkin.util.macro.EnvironmentConfigMacro');
-
-    // `funkin.api.*`
-    // Contains functions which may allow for cheating and such.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      if (polymod.hscript._internal.PolymodScriptClass.importOverrides.exists(className)) continue;
-      Polymod.blacklistImport(className);
-    }
-
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    // Contains critical private environment variables.
-    Polymod.blacklistImport('funkin.util.macro.EnvironmentConfigMacro');
-
-    // `funkin.api.*`
-    // Contains functions which may allow for cheating and such.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      if (polymod.hscript._internal.PolymodScriptClass.importOverrides.exists(className)) continue;
-      Polymod.blacklistImport(className);
-    }
-
-=======
->>>>>>> cd960b0a (idk7)
     // `polymod.*`
     // Contains functions which may allow for un-blacklisting other modules.
     for (cls in ClassMacro.listClassesInPackage('polymod'))
@@ -1354,160 +307,6 @@ class PolymodHandler
       Polymod.blacklistImport(className);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // `hscript.*
-    // Contains functions which may allow for interpreting unsanitized strings.
-    for (cls in ClassMacro.listClassesInPackage('hscript'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `funkin.api.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `io.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('io.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-=======
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-=======
-    // `hscript.*
-    // Contains functions which may allow for interpreting unsanitized strings.
-    for (cls in ClassMacro.listClassesInPackage('hscript'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `funkin.api.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `io.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('io.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    // `hscript.*
-    // Contains functions which may allow for interpreting unsanitized strings.
-    for (cls in ClassMacro.listClassesInPackage('hscript'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `funkin.api.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `io.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('io.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-    // `hscript.*
-    // Contains functions which may allow for interpreting unsanitized strings.
-    for (cls in ClassMacro.listClassesInPackage('hscript'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `funkin.api.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `io.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('io.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    // `hscript.*
-    // Contains functions which may allow for interpreting unsanitized strings.
-    for (cls in ClassMacro.listClassesInPackage('hscript'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `funkin.api.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('funkin.api.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-    // `io.newgrounds.*`
-    // Contains functions which allow for cheating medals and leaderboards.
-    for (cls in ClassMacro.listClassesInPackage('io.newgrounds'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-
-=======
->>>>>>> cd960b0a (idk7)
     // `sys.*`
     // Access to system utilities such as the file system.
     for (cls in ClassMacro.listClassesInPackage('sys'))
@@ -1516,150 +315,6 @@ class PolymodHandler
       var className:String = Type.getClassName(cls);
       Polymod.blacklistImport(className);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-    // `funkin.util.macro.*`
-    // CompiledClassList's get function allows access to sys and Newgrounds classes
-    // None of the classes are suitable for mods anyway
-    for (cls in ClassMacro.listClassesInPackage('funkin.util.macro'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-  }
-
-  /**
-   * Build a list of file paths that will be ignored in mods.
-   */
-  static function buildIgnoreList():Array<String>
-  {
-    var result = Polymod.getDefaultIgnoreList();
-
-    result.push('.git');
-    result.push('.gitignore');
-    result.push('.gitattributes');
-    result.push('README.md');
-
-    return result;
-=======
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-=======
-
-    // `funkin.util.macro.*`
-    // CompiledClassList's get function allows access to sys and Newgrounds classes
-    // None of the classes are suitable for mods anyway
-    for (cls in ClassMacro.listClassesInPackage('funkin.util.macro'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-  }
-
-  /**
-   * Build a list of file paths that will be ignored in mods.
-   */
-  static function buildIgnoreList():Array<String>
-  {
-    var result = Polymod.getDefaultIgnoreList();
-
-    result.push('.git');
-    result.push('.gitignore');
-    result.push('.gitattributes');
-    result.push('README.md');
-
-    return result;
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-
-    // `funkin.util.macro.*`
-    // CompiledClassList's get function allows access to sys and Newgrounds classes
-    // None of the classes are suitable for mods anyway
-    for (cls in ClassMacro.listClassesInPackage('funkin.util.macro'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-  }
-
-  /**
-   * Build a list of file paths that will be ignored in mods.
-   */
-  static function buildIgnoreList():Array<String>
-  {
-    var result = Polymod.getDefaultIgnoreList();
-
-    result.push('.git');
-    result.push('.gitignore');
-    result.push('.gitattributes');
-    result.push('README.md');
-
-    return result;
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-
-    // `funkin.util.macro.*`
-    // CompiledClassList's get function allows access to sys and Newgrounds classes
-    // None of the classes are suitable for mods anyway
-    for (cls in ClassMacro.listClassesInPackage('funkin.util.macro'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-  }
-
-  /**
-   * Build a list of file paths that will be ignored in mods.
-   */
-  static function buildIgnoreList():Array<String>
-  {
-    var result = Polymod.getDefaultIgnoreList();
-
-    result.push('.git');
-    result.push('.gitignore');
-    result.push('.gitattributes');
-    result.push('README.md');
-
-    return result;
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-
-    // `funkin.util.macro.*`
-    // CompiledClassList's get function allows access to sys and Newgrounds classes
-    // None of the classes are suitable for mods anyway
-    for (cls in ClassMacro.listClassesInPackage('funkin.util.macro'))
-    {
-      if (cls == null) continue;
-      var className:String = Type.getClassName(cls);
-      Polymod.blacklistImport(className);
-    }
-  }
-
-  /**
-   * Build a list of file paths that will be ignored in mods.
-   */
-  static function buildIgnoreList():Array<String>
-  {
-    var result = Polymod.getDefaultIgnoreList();
-
-    result.push('.git');
-    result.push('.gitignore');
-    result.push('.gitattributes');
-    result.push('README.md');
-
-    return result;
-=======
->>>>>>> cd960b0a (idk7)
   }
 
   static function buildParseRules():polymod.format.ParseRules
@@ -1761,67 +416,12 @@ class PolymodHandler
     Polymod.clearScripts();
 
     // Forcibly reload Polymod so it finds any new files.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // This will also register all scripts.
-||||||| parent of 8a1f54ca (lol8)
-    // This will also register all scripts.
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-    // This will also register all scripts.
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    // This will also register all scripts.
-=======
->>>>>>> cd960b0a (idk7)
     // TODO: Replace this with loadEnabledMods().
     funkin.modding.PolymodHandler.loadAllMods();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-||||||| parent of b150c43d (lol4)
-=======
-    // This will also register all scripts.
->>>>>>> b150c43d (lol4)
-    // TODO: Replace this with loadEnabledMods().
-    funkin.modding.PolymodHandler.loadAllMods();
-
-<<<<<<< HEAD
     // Reload scripted classes so stages and modules will update.
     Polymod.registerAllScriptClasses();
 
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-    // Reload scripted classes so stages and modules will update.
-    Polymod.registerAllScriptClasses();
-
-=======
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-=======
-    // Reload scripted classes so stages and modules will update.
-    Polymod.registerAllScriptClasses();
-
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    // Reload scripted classes so stages and modules will update.
-    Polymod.registerAllScriptClasses();
-
-=======
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-=======
-    // Reload scripted classes so stages and modules will update.
-    Polymod.registerAllScriptClasses();
-
->>>>>>> cd960b0a (idk7)
     // Reload everything that is cached.
     // Currently this freezes the game for a second but I guess that's tolerable?
 
@@ -1840,63 +440,8 @@ class PolymodHandler
     SpeakerRegistry.instance.loadEntries();
     AlbumRegistry.instance.loadEntries();
     StageRegistry.instance.loadEntries();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    StickerRegistry.instance.loadEntries();
-    FreeplayStyleRegistry.instance.loadEntries();
-||||||| parent of 8a1f54ca (lol8)
-    StickerRegistry.instance.loadEntries();
-    FreeplayStyleRegistry.instance.loadEntries();
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-    StickerRegistry.instance.loadEntries();
-    FreeplayStyleRegistry.instance.loadEntries();
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    StickerRegistry.instance.loadEntries();
-    FreeplayStyleRegistry.instance.loadEntries();
-=======
->>>>>>> cd960b0a (idk7)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    CharacterDataParser.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
-=======
-||||||| parent of b150c43d (lol4)
-=======
-    StickerRegistry.instance.loadEntries();
-    FreeplayStyleRegistry.instance.loadEntries();
->>>>>>> b150c43d (lol4)
-
-<<<<<<< HEAD
     CharacterRegistry.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-    CharacterRegistry.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
-=======
-    CharacterDataParser.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    CharacterDataParser.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
-=======
-    CharacterRegistry.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    CharacterRegistry.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
-=======
-    CharacterDataParser.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    CharacterDataParser.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
-=======
-    CharacterRegistry.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
->>>>>>> cd960b0a (idk7)
     NoteKindManager.loadScripts();
     ModuleHandler.loadModuleCache();
   }

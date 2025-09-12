@@ -2,45 +2,8 @@ package funkin.play.character;
 
 import flixel.math.FlxPoint;
 import funkin.modding.events.ScriptEvent;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import funkin.play.character.CharacterData.CharacterDataParser;
-import funkin.play.character.CharacterData.CharacterRenderType;
-=======
 import funkin.data.character.CharacterRegistry;
 import funkin.data.character.CharacterData;
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-import funkin.data.character.CharacterRegistry;
-import funkin.data.character.CharacterData;
-=======
-import funkin.play.character.CharacterData.CharacterDataParser;
-import funkin.play.character.CharacterData.CharacterRenderType;
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-import funkin.play.character.CharacterData.CharacterDataParser;
-import funkin.play.character.CharacterData.CharacterRenderType;
-=======
-import funkin.data.character.CharacterRegistry;
-import funkin.data.character.CharacterData;
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-import funkin.data.character.CharacterRegistry;
-import funkin.data.character.CharacterData;
-=======
-import funkin.play.character.CharacterData.CharacterDataParser;
-import funkin.play.character.CharacterData.CharacterRenderType;
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-import funkin.play.character.CharacterData.CharacterDataParser;
-import funkin.play.character.CharacterData.CharacterRenderType;
-=======
-import funkin.data.character.CharacterRegistry;
-import funkin.data.character.CharacterData;
->>>>>>> cd960b0a (idk7)
 import funkin.play.stage.Bopper;
 import funkin.play.notes.NoteDirection;
 
@@ -185,73 +148,12 @@ class BaseCharacter extends Bopper
 
   public function new(id:String, renderType:CharacterRenderType)
   {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    super(CharacterDataParser.DEFAULT_DANCEEVERY);
-
-=======
     super(CharacterRegistry.DEFAULT_DANCEEVERY);
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-    super(CharacterRegistry.DEFAULT_DANCEEVERY);
-=======
-    super(CharacterDataParser.DEFAULT_DANCEEVERY);
-
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    super(CharacterDataParser.DEFAULT_DANCEEVERY);
-
-=======
-    super(CharacterRegistry.DEFAULT_DANCEEVERY);
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    super(CharacterRegistry.DEFAULT_DANCEEVERY);
-=======
-    super(CharacterDataParser.DEFAULT_DANCEEVERY);
-
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    super(CharacterDataParser.DEFAULT_DANCEEVERY);
-
-=======
-    super(CharacterRegistry.DEFAULT_DANCEEVERY);
->>>>>>> cd960b0a (idk7)
     this.characterId = id;
 
     ignoreExclusionPref = ["sing"];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    _data = CharacterDataParser.fetchCharacterData(this.characterId);
-=======
     _data = CharacterRegistry.fetchCharacterData(this.characterId);
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-    _data = CharacterRegistry.fetchCharacterData(this.characterId);
-=======
-    _data = CharacterDataParser.fetchCharacterData(this.characterId);
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    _data = CharacterDataParser.fetchCharacterData(this.characterId);
-=======
-    _data = CharacterRegistry.fetchCharacterData(this.characterId);
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    _data = CharacterRegistry.fetchCharacterData(this.characterId);
-=======
-    _data = CharacterDataParser.fetchCharacterData(this.characterId);
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    _data = CharacterDataParser.fetchCharacterData(this.characterId);
-=======
-    _data = CharacterRegistry.fetchCharacterData(this.characterId);
->>>>>>> cd960b0a (idk7)
     if (_data == null)
     {
       throw 'Could not find character data for characterId: $characterId';
@@ -650,216 +552,17 @@ class BaseCharacter extends Bopper
 
     if (event.note.noteData.getMustHitNote() && characterType == BF)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      // If the note is from the same strumline, play the miss animation.
-=======
       // If the note is from the same strumline, play the sing animation.
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-      // If the note is from the same strumline, play the sing animation.
-=======
-      // If the note is from the same strumline, play the miss animation.
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-      // If the note is from the same strumline, play the miss animation.
-=======
-      // If the note is from the same strumline, play the sing animation.
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-      // If the note is from the same strumline, play the sing animation.
-=======
-      // If the note is from the same strumline, play the miss animation.
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-      // If the note is from the same strumline, play the miss animation.
-=======
-      // If the note is from the same strumline, play the sing animation.
->>>>>>> cd960b0a (idk7)
       this.playSingAnimation(event.note.noteData.getDirection(), true);
     }
     else if (!event.note.noteData.getMustHitNote() && characterType == DAD)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      // If the note is from the same strumline, play the miss animation.
-=======
       // If the note is from the same strumline, play the sing animation.
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-      // If the note is from the same strumline, play the sing animation.
-=======
-      // If the note is from the same strumline, play the miss animation.
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-      // If the note is from the same strumline, play the miss animation.
-=======
-      // If the note is from the same strumline, play the sing animation.
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-      // If the note is from the same strumline, play the sing animation.
-=======
-      // If the note is from the same strumline, play the miss animation.
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-      // If the note is from the same strumline, play the miss animation.
-=======
-      // If the note is from the same strumline, play the sing animation.
->>>>>>> cd960b0a (idk7)
       this.playSingAnimation(event.note.noteData.getDirection(), true);
     }
     else if (event.note.noteData.getMustHitNote() && characterType == GF)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      playComboDropAnimation(event.comboCount);
-    }
-  }
-
-  public override function onNoteHoldDrop(event:HoldNoteScriptEvent)
-  {
-    super.onNoteHoldDrop(event);
-
-    // If another script cancelled the event, don't do anything.
-    if (event.eventCanceled) return;
-
-    if (event.holdNote.noteData.getMustHitNote() && characterType == BF)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (!event.holdNote.noteData.getMustHitNote() && characterType == DAD)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (event.holdNote.noteData.getMustHitNote() && event.isComboBreak && characterType == GF)
-    {
-      playComboDropAnimation(event.comboCount);
-=======
       playComboDropAnimation(Highscore.tallies.combo);
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-      playComboDropAnimation(Highscore.tallies.combo);
-=======
-      playComboDropAnimation(event.comboCount);
-    }
-  }
-
-  public override function onNoteHoldDrop(event:HoldNoteScriptEvent)
-  {
-    super.onNoteHoldDrop(event);
-
-    // If another script cancelled the event, don't do anything.
-    if (event.eventCanceled) return;
-
-    if (event.holdNote.noteData.getMustHitNote() && characterType == BF)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (!event.holdNote.noteData.getMustHitNote() && characterType == DAD)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (event.holdNote.noteData.getMustHitNote() && event.isComboBreak && characterType == GF)
-    {
-      playComboDropAnimation(event.comboCount);
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-      playComboDropAnimation(event.comboCount);
-    }
-  }
-
-  public override function onNoteHoldDrop(event:HoldNoteScriptEvent)
-  {
-    super.onNoteHoldDrop(event);
-
-    // If another script cancelled the event, don't do anything.
-    if (event.eventCanceled) return;
-
-    if (event.holdNote.noteData.getMustHitNote() && characterType == BF)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (!event.holdNote.noteData.getMustHitNote() && characterType == DAD)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (event.holdNote.noteData.getMustHitNote() && event.isComboBreak && characterType == GF)
-    {
-      playComboDropAnimation(event.comboCount);
-=======
-      playComboDropAnimation(Highscore.tallies.combo);
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-      playComboDropAnimation(Highscore.tallies.combo);
-=======
-      playComboDropAnimation(event.comboCount);
-    }
-  }
-
-  public override function onNoteHoldDrop(event:HoldNoteScriptEvent)
-  {
-    super.onNoteHoldDrop(event);
-
-    // If another script cancelled the event, don't do anything.
-    if (event.eventCanceled) return;
-
-    if (event.holdNote.noteData.getMustHitNote() && characterType == BF)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (!event.holdNote.noteData.getMustHitNote() && characterType == DAD)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (event.holdNote.noteData.getMustHitNote() && event.isComboBreak && characterType == GF)
-    {
-      playComboDropAnimation(event.comboCount);
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-      playComboDropAnimation(event.comboCount);
-    }
-  }
-
-  public override function onNoteHoldDrop(event:HoldNoteScriptEvent)
-  {
-    super.onNoteHoldDrop(event);
-
-    // If another script cancelled the event, don't do anything.
-    if (event.eventCanceled) return;
-
-    if (event.holdNote.noteData.getMustHitNote() && characterType == BF)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (!event.holdNote.noteData.getMustHitNote() && characterType == DAD)
-    {
-      // If the note is from the same strumline, play the miss animation.
-      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
-    }
-    else if (event.holdNote.noteData.getMustHitNote() && event.isComboBreak && characterType == GF)
-    {
-      playComboDropAnimation(event.comboCount);
-=======
-      playComboDropAnimation(Highscore.tallies.combo);
->>>>>>> cd960b0a (idk7)
     }
   }
 
@@ -940,50 +643,6 @@ class BaseCharacter extends Bopper
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-  public function getDeathQuote():Null<String>
-  {
-    return null;
-  }
-=======
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-=======
-
-  public function getDeathQuote():Null<String>
-  {
-    return null;
-  }
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-
-  public function getDeathQuote():Null<String>
-  {
-    return null;
-  }
-=======
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-=======
-
-  public function getDeathQuote():Null<String>
-  {
-    return null;
-  }
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-
-  public function getDeathQuote():Null<String>
-  {
-    return null;
-  }
-=======
->>>>>>> cd960b0a (idk7)
 }
 
 /**

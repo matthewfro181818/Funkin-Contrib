@@ -2,35 +2,7 @@ package funkin.play.character;
 
 import flixel.graphics.frames.FlxFramesCollection;
 import funkin.modding.events.ScriptEvent;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import funkin.play.character.CharacterData.CharacterRenderType;
-=======
 import funkin.data.character.CharacterData.CharacterRenderType;
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-import funkin.data.character.CharacterData.CharacterRenderType;
-=======
-import funkin.play.character.CharacterData.CharacterRenderType;
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-import funkin.play.character.CharacterData.CharacterRenderType;
-=======
-import funkin.data.character.CharacterData.CharacterRenderType;
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-import funkin.data.character.CharacterData.CharacterRenderType;
-=======
-import funkin.play.character.CharacterData.CharacterRenderType;
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-import funkin.play.character.CharacterData.CharacterRenderType;
-=======
-import funkin.data.character.CharacterData.CharacterRenderType;
->>>>>>> cd960b0a (idk7)
 import funkin.util.assets.FlxAnimationUtil;
 
 /**
@@ -46,50 +18,7 @@ class PackerCharacter extends BaseCharacter
 
   override function onCreate(event:ScriptEvent):Void
   {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Display a custom scope for debugging purposes.
-    #if FEATURE_DEBUG_TRACY
-    cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
-    #end
-=======
     trace('Creating Packer character: ' + this.characterId);
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-    trace('Creating Packer character: ' + this.characterId);
-=======
-    // Display a custom scope for debugging purposes.
-    #if FEATURE_DEBUG_TRACY
-    cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
-    #end
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-    // Display a custom scope for debugging purposes.
-    #if FEATURE_DEBUG_TRACY
-    cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
-    #end
-=======
-    trace('Creating Packer character: ' + this.characterId);
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    trace('Creating Packer character: ' + this.characterId);
-=======
-    // Display a custom scope for debugging purposes.
-    #if FEATURE_DEBUG_TRACY
-    cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
-    #end
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    // Display a custom scope for debugging purposes.
-    #if FEATURE_DEBUG_TRACY
-    cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
-    #end
-=======
-    trace('Creating Packer character: ' + this.characterId);
->>>>>>> cd960b0a (idk7)
 
     loadSpritesheet();
     loadAnimations();
@@ -99,69 +28,12 @@ class PackerCharacter extends BaseCharacter
 
   function loadSpritesheet():Void
   {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
-||||||| parent of 8a1f54ca (lol8)
-    trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
-=======
     trace('[PACKERCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-    trace('[PACKERCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
-=======
-    trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-    trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
-=======
-    trace('[PACKERCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
->>>>>>> cd960b0a (idk7)
 
     var tex:FlxFramesCollection = Paths.getPackerAtlas(_data.assetPaths[0]);
     if (tex == null)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      trace('Could not load Packer sprite: ${_data.assetPath}');
-=======
-    trace('[PACKERCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
-||||||| parent of b150c43d (lol4)
-    trace('[PACKERCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
-=======
-    trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
->>>>>>> b150c43d (lol4)
-
-    var tex:FlxFramesCollection = Paths.getPackerAtlas(_data.assetPath);
-    if (tex == null)
-    {
-<<<<<<< HEAD
       trace('Could not load Packer sprite: ${_data.assetPaths[0]}');
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-      trace('Could not load Packer sprite: ${_data.assetPaths[0]}');
-=======
-      trace('Could not load Packer sprite: ${_data.assetPath}');
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-      trace('Could not load Packer sprite: ${_data.assetPath}');
-=======
-      trace('Could not load Packer sprite: ${_data.assetPaths[0]}');
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-      trace('Could not load Packer sprite: ${_data.assetPaths[0]}');
-=======
-      trace('Could not load Packer sprite: ${_data.assetPath}');
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-      trace('Could not load Packer sprite: ${_data.assetPath}');
-=======
-      trace('Could not load Packer sprite: ${_data.assetPaths[0]}');
->>>>>>> cd960b0a (idk7)
       return;
     }
 
@@ -171,45 +43,8 @@ class PackerCharacter extends BaseCharacter
     {
       this.isPixel = true;
       this.antialiasing = false;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      // pixelPerfectRender = true;
-      // pixelPerfectPosition = true;
-=======
       pixelPerfectRender = true;
       pixelPerfectPosition = true;
->>>>>>> e11c5f8d (Add files via upload)
-||||||| parent of b150c43d (lol4)
-      pixelPerfectRender = true;
-      pixelPerfectPosition = true;
-=======
-      // pixelPerfectRender = true;
-      // pixelPerfectPosition = true;
->>>>>>> b150c43d (lol4)
-||||||| parent of 8a1f54ca (lol8)
-      // pixelPerfectRender = true;
-      // pixelPerfectPosition = true;
-=======
-      pixelPerfectRender = true;
-      pixelPerfectPosition = true;
->>>>>>> 8a1f54ca (lol8)
-||||||| parent of 905084b8 (idk2)
-      pixelPerfectRender = true;
-      pixelPerfectPosition = true;
-=======
-      // pixelPerfectRender = true;
-      // pixelPerfectPosition = true;
->>>>>>> 905084b8 (idk2)
-||||||| parent of cd960b0a (idk7)
-      // pixelPerfectRender = true;
-      // pixelPerfectPosition = true;
-=======
-      pixelPerfectRender = true;
-      pixelPerfectPosition = true;
->>>>>>> cd960b0a (idk7)
     }
     else
     {
