@@ -20,6 +20,7 @@ import funkin.modding.events.ScriptEvent;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterRenderType;
 import flixel.util.FlxDirectionFlags;
 =======
@@ -49,6 +50,12 @@ import flixel.util.FlxDirectionFlags;
 =======
 import funkin.data.character.CharacterData.CharacterRenderType;
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+import funkin.data.character.CharacterData.CharacterRenderType;
+=======
+import funkin.play.character.CharacterData.CharacterRenderType;
+import flixel.util.FlxDirectionFlags;
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
 import openfl.display.BitmapData;
 import openfl.display.BlendMode;
 
@@ -112,6 +119,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Display a custom scope for debugging purposes.
     #if FEATURE_DEBUG_TRACY
     cpp.vm.tracy.TracyProfiler.zoneScoped('AnimateAtlasCharacter.create(${this.characterId})');
@@ -140,9 +148,18 @@ class AnimateAtlasCharacter extends BaseCharacter
 =======
     trace('Creating Animate Atlas character: ' + this.characterId);
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+    trace('Creating Animate Atlas character: ' + this.characterId);
+=======
+    // Display a custom scope for debugging purposes.
+    #if FEATURE_DEBUG_TRACY
+    cpp.vm.tracy.TracyProfiler.zoneScoped('AnimateAtlasCharacter.create(${this.characterId})');
+    #end
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
 
     try
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -178,6 +195,10 @@ class AnimateAtlasCharacter extends BaseCharacter
       trace('Loading assets for Animate Atlas character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+=======
+      trace('Loading assets for Animate Atlas character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
       var atlasSprite:FlxAtlasSprite = loadAtlasSprite();
       setSprite(atlasSprite);
 
@@ -198,6 +219,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
     if ((!canPlayOtherAnims && !ignoreOther)) return;
@@ -213,9 +235,15 @@ class AnimateAtlasCharacter extends BaseCharacter
     if ((!canPlayOtherAnims && !ignoreOther)) return;
 
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+    if ((!canPlayOtherAnims && !ignoreOther)) return;
+
+=======
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
     var correctName = correctAnimationName(name);
     if (correctName == null)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -254,6 +282,11 @@ class AnimateAtlasCharacter extends BaseCharacter
 =======
       trace('Could not find Atlas animation: ' + name);
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+      trace('Could not find Atlas animation: ' + name);
+=======
+      trace('$characterName Could not find Atlas animation: ' + name);
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
       return;
     }
 
@@ -289,6 +322,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var animLibrary:String = Paths.getLibrary(_data.assetPath);
     var animPath:String = Paths.stripLibrary(_data.assetPath);
 =======
@@ -323,6 +357,13 @@ class AnimateAtlasCharacter extends BaseCharacter
     var animLibrary:String = Paths.getLibrary(_data.assetPaths[0]);
     var animPath:String = Paths.stripLibrary(_data.assetPaths[0]);
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+    var animLibrary:String = Paths.getLibrary(_data.assetPaths[0]);
+    var animPath:String = Paths.stripLibrary(_data.assetPaths[0]);
+=======
+    var animLibrary:String = Paths.getLibrary(_data.assetPath);
+    var animPath:String = Paths.stripLibrary(_data.assetPath);
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
     var assetPath:String = Paths.animateAtlas(animPath, animLibrary);
 
     var sprite:FlxAtlasSprite = new FlxAtlasSprite(0, 0, assetPath);
@@ -342,6 +383,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (!getCurrentAnimation().endsWith(Constants.ANIMATION_HOLD_SUFFIX)
       && hasAnimation(getCurrentAnimation() + Constants.ANIMATION_HOLD_SUFFIX))
     {
@@ -375,8 +417,18 @@ class AnimateAtlasCharacter extends BaseCharacter
 
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+=======
+    if (!getCurrentAnimation().endsWith(Constants.ANIMATION_HOLD_SUFFIX)
+      && hasAnimation(getCurrentAnimation() + Constants.ANIMATION_HOLD_SUFFIX))
+    {
+      playAnimation(getCurrentAnimation() + Constants.ANIMATION_HOLD_SUFFIX);
+    }
+
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
     if (getAnimationData() != null && getAnimationData().looped)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -421,6 +473,12 @@ class AnimateAtlasCharacter extends BaseCharacter
 =======
       playAnimation(currentAnimName, true, false);
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+      playAnimation(currentAnimName, true, false);
+=======
+      if (StringTools.endsWith(prefix, "-hold")) trace(prefix);
+      playAnimation(prefix, true, false);
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
     }
     else
     {
@@ -477,6 +535,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
         trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
 =======
@@ -511,6 +570,13 @@ class AnimateAtlasCharacter extends BaseCharacter
         FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
         trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+        FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
+        trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPaths[0]}');
+=======
+        FlxG.log.warn('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
+        trace('[ATLASCHAR] Animation ${prefix} not found in Animate Atlas ${_data.assetPath}');
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
         continue;
       }
       animations.set(anim.name, anim);
@@ -695,6 +761,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   inline function facingTransform(sprite:FlxSprite, facing:FlxDirectionFlags):Void
 =======
   inline function facingTransform(sprite:FlxSprite, facing:Int):Void
@@ -719,6 +786,11 @@ class AnimateAtlasCharacter extends BaseCharacter
 =======
   inline function facingTransform(sprite:FlxSprite, facing:Int):Void
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+  inline function facingTransform(sprite:FlxSprite, facing:Int):Void
+=======
+  inline function facingTransform(sprite:FlxSprite, facing:FlxDirectionFlags):Void
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
     sprite.facing = facing;
 
   inline function flipXTransform(sprite:FlxSprite, flipX:Bool):Void
@@ -792,6 +864,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   var resS:FlxPoint = new FlxPoint();
 
   /**
@@ -1061,6 +1134,60 @@ class AnimateAtlasCharacter extends BaseCharacter
 
 =======
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+=======
+  var resS:FlxPoint = new FlxPoint();
+
+  /**
+   * Reset the character so it can be used at the start of the level.
+   * Call this when restarting the level.
+   */
+  override public function resetCharacter(resetCamera:Bool = true):Void
+  {
+    trace("RESETTING ATLAS " + characterName);
+
+    // Reset the animation offsets. This will modify x and y to be the absolute position of the character.
+    // this.animOffsets = [0, 0];
+
+    // Now we can set the x and y to be their original values without having to account for animOffsets.
+    this.resetPosition();
+    mainSprite.setPosition(originalPosition.x, originalPosition.y);
+
+    // Then reapply animOffsets...
+    // applyAnimationOffsets(getCurrentAnimation());
+
+    // Make sure we are playing the idle animation
+    // ...then update the hitbox so that this.width and this.height are correct.
+
+    mainSprite.scale.set(1, 1);
+    mainSprite.alpha = 0.0001;
+    mainSprite.width = 0;
+    mainSprite.height = 0;
+    this.dance(true); // Force to avoid the old animation playing with the wrong offset at the start of the song.
+
+    mainSprite.draw(); // refresh frame
+
+    if (resS.x == 0)
+    {
+      resS.x = mainSprite.width; // clunky bizz
+      resS.y = mainSprite.height;
+    }
+
+    mainSprite.alpha = alpha;
+
+    mainSprite.width = resS.x;
+    mainSprite.height = resS.y;
+    frameWidth = 0;
+    frameHeight = 0;
+
+    scaleCallback(scale);
+    this.updateHitbox();
+
+    // Reset the camera focus point while we're at it.
+    if (resetCamera) this.resetCameraFocusPoint();
+  }
+
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
   inline function offsetCallback(offset:FlxPoint):Void
     transformChildren(offsetTransform, offset);
 
@@ -1136,6 +1263,7 @@ class AnimateAtlasCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     value = value.clamp(0, 1);
 =======
     value = FlxMath.bound(value, 0, 1);
@@ -1160,6 +1288,11 @@ class AnimateAtlasCharacter extends BaseCharacter
 =======
     value = FlxMath.bound(value, 0, 1);
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+    value = FlxMath.bound(value, 0, 1);
+=======
+    value = value.clamp(0, 1);
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
 
     if (exists && alpha != value)
     {
@@ -1168,6 +1301,7 @@ class AnimateAtlasCharacter extends BaseCharacter
     return alpha = value;
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1183,6 +1317,11 @@ class AnimateAtlasCharacter extends BaseCharacter
 =======
   override function set_facing(value:Int):Int
 >>>>>>> cd960b0a (idk7)
+||||||| parent of 7b9efaf2 (Update AnimateAtlasCharacter.hx)
+  override function set_facing(value:Int):Int
+=======
+  override function set_facing(value:FlxDirectionFlags):FlxDirectionFlags
+>>>>>>> 7b9efaf2 (Update AnimateAtlasCharacter.hx)
   {
     if (exists && facing != value) transformChildren(facingTransform, value);
     return facing = value;
