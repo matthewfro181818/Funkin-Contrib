@@ -210,7 +210,7 @@ class RegistryMacro
           }
           return parser.value;
         }
-      }).fields.filter((field) -> return !MacroUtil.fieldAlreadyExists(field.name));
+      }).fields.filter((field));
   }
 
   /**
@@ -253,7 +253,7 @@ class RegistryMacro
         public final id:String;
 
         public final _data:Null<$entryDataType>;
-      }).fields.filter((field) -> return !MacroUtil.fieldAlreadyExists(field.name));
+      }).fields.filter((field));
   }
 
   /**
@@ -282,7 +282,7 @@ class RegistryMacro
         {
           ${Context.parse(impl, Context.currentPos())}.destroy(this);
         }
-      }).fields.filter((field) -> return !MacroUtil.fieldAlreadyExists(field.name));
+      }).fields.filter((field));
   }
 
   /**
