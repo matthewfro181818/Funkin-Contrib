@@ -5,8 +5,6 @@ import funkin.api.newgrounds.NewgroundsClient;
 #end
 import funkin.save.Save;
 
-import funkin.ui.options.OptionsState;
-
 class SaveDataMenu extends Page<OptionsState.OptionsMenuPageName>
 {
   var items:TextMenuList;
