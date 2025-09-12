@@ -5,7 +5,7 @@ import flxanimate.FlxAnimate;
 import flxanimate.FlxAnimate.Settings;
 import flxanimate.frames.FlxAnimateFrames;
 import flixel.graphics.frames.FlxFrame;
-import flixel.graphics.FlxGraphic.FlxGraphicAsset;
+import flixel.graphics.FlxGraphic;
 import openfl.display.BitmapData;
 import flixel.math.FlxPoint;
 import flxanimate.animate.FlxKeyFrame;
@@ -379,7 +379,7 @@ class CharSelectAtlasSprite extends FlxAnimate
 
   var prevFrames:Map<Int, FlxFrame> = [];
 
-  public function replaceFrameGraphic(index:Int, ?graphic:FlxGraphicAsset):Void
+  public function replaceFrameGraphic(index:Int, ?graphic:FlxGraphic):Void
   {
     if (this.frames == null || this.anim == null) return;
 

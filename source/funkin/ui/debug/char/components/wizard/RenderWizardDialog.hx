@@ -1,6 +1,6 @@
 package funkin.ui.debug.char.components.wizard;
 
-import funkin.play.character.CharacterRenderType;
+import funkin.data.character.CharacterData.CharacterRenderType;
 
 @:build(haxe.ui.macros.ComponentMacros.build("assets/exclude/data/ui/char-creator/wizard/sprite-support.xml"))
 class RenderWizardDialog extends DefaultWizardDialog
