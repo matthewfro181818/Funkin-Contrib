@@ -20,6 +20,7 @@ class PureColor extends FlxShader
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     funnyColor.value = [val.redFloat, val.greenFloat, val.blueFloat, val.alphaFloat];
 =======
     funnyColor.value = [val.red, val.green, val.blue, val.alpha];
@@ -34,6 +35,11 @@ class PureColor extends FlxShader
 =======
     funnyColor.value = [val.red, val.green, val.blue, val.alpha];
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    funnyColor.value = [val.red, val.green, val.blue, val.alpha];
+=======
+    funnyColor.value = [val.redFloat, val.greenFloat, val.blueFloat, val.alphaFloat];
+>>>>>>> 905084b8 (idk2)
 
     return val;
   }
@@ -52,6 +58,7 @@ class PureColor extends FlxShader
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 color = funnyColor * color.a;
 =======
                 color = vec4(funnyColor.r, funnyColor.g, funnyColor.b, color.a);
@@ -66,6 +73,11 @@ class PureColor extends FlxShader
 =======
                 color = vec4(funnyColor.r, funnyColor.g, funnyColor.b, color.a);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+                color = vec4(funnyColor.r, funnyColor.g, funnyColor.b, color.a);
+=======
+                color = funnyColor * color.a;
+>>>>>>> 905084b8 (idk2)
 
             gl_FragColor = color;
         }

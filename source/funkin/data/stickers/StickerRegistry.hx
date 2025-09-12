@@ -5,7 +5,7 @@ import funkin.ui.transition.stickers.StickerPack;
 import funkin.ui.transition.stickers.ScriptedStickerPack;
 
 @:nullSafety
-class StickerRegistry extends BaseRegistry<StickerPack, StickerData>
+class StickerRegistry extends BaseRegistry<StickerPack, StickerData, StickerEntryParams>
 {
   /**
    * The current version string for the sticker pack data format.

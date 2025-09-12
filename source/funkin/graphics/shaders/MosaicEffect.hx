@@ -6,6 +6,7 @@ import flixel.math.FlxPoint;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -17,6 +18,10 @@ import flixel.math.FlxPoint;
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 class MosaicEffect extends FlxRuntimeShader
 {
   public var blockSize:FlxPoint = FlxPoint.get(1.0, 1.0);

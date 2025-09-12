@@ -21,13 +21,19 @@ enum WiggleEffectType
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 class WiggleEffectRuntime extends FlxRuntimeShader
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
 =======
@@ -50,6 +56,11 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   public static function getEffectTypeId(v:WiggleEffectType):Int
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public static function getEffectTypeId(v:WiggleEffectType):Int
+=======
+  public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
+>>>>>>> 905084b8 (idk2)
   {
     return WiggleEffectType.getConstructors().indexOf(Std.string(v));
   }
@@ -57,13 +68,20 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
 ||||||| parent of 8a1f54ca (lol8)
   public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
 =======
   public var effectType(default, set):WiggleEffectType = DREAMY;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public var effectType(default, set):WiggleEffectType = DREAMY;
+=======
+  public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
+>>>>>>> 905084b8 (idk2)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
 =======
@@ -87,6 +105,11 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   function set_effectType(v:WiggleEffectType):WiggleEffectType
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  function set_effectType(v:WiggleEffectType):WiggleEffectType
+=======
+  function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
+>>>>>>> 905084b8 (idk2)
   {
     this.setInt('effectType', getEffectTypeId(v));
     return effectType = v;

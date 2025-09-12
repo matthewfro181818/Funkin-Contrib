@@ -4,11 +4,17 @@ import flixel.FlxSprite;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.group.FlxGroup.FlxTypedGroup;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.group.FlxGroup.FlxTypedGroup;
+=======
+>>>>>>> 905084b8 (idk2)
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -34,6 +40,12 @@ import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.math.FlxMath;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+=======
+>>>>>>> 905084b8 (idk2)
 import flixel.text.FlxText.FlxTextAlign;
 import funkin.util.MathUtil;
 
@@ -43,6 +55,7 @@ import funkin.util.MathUtil;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -54,6 +67,10 @@ import funkin.util.MathUtil;
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
 {
   public var curNumber:Float = 0;
@@ -66,6 +83,7 @@ class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public function new(x:Float, y:Float, neededNumber:Int = 0, ?flavour:Int, align:FlxTextAlign = FlxTextAlign.LEFT)
 =======
   public function new(x:Float, y:Float, neededNumber:Int = 0, ?flavour:Int = 0xFFFFFFFF, align:FlxTextAlign = FlxTextAlign.LEFT)
@@ -80,6 +98,11 @@ class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
 =======
   public function new(x:Float, y:Float, neededNumber:Int = 0, ?flavour:Int = 0xFFFFFFFF, align:FlxTextAlign = FlxTextAlign.LEFT)
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public function new(x:Float, y:Float, neededNumber:Int = 0, ?flavour:Int = 0xFFFFFFFF, align:FlxTextAlign = FlxTextAlign.LEFT)
+=======
+  public function new(x:Float, y:Float, neededNumber:Int = 0, ?flavour:Int, align:FlxTextAlign = FlxTextAlign.LEFT)
+>>>>>>> 905084b8 (idk2)
   {
     super(x, y);
 
@@ -88,6 +111,7 @@ class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.flavour = flavour ?? 0xFFFFFFFF;
 =======
     this.flavour = flavour;
@@ -102,6 +126,11 @@ class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
 =======
     this.flavour = flavour;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    this.flavour = flavour;
+=======
+    this.flavour = flavour ?? 0xFFFFFFFF;
+>>>>>>> 905084b8 (idk2)
 
     this.neededNumber = neededNumber;
 
@@ -160,6 +189,7 @@ class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -171,6 +201,10 @@ class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 class TallyNumber extends FlxSprite
 {
   public function new(x:Float, y:Float, digit:Int)

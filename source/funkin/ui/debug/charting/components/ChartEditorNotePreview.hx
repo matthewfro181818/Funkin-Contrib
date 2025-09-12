@@ -28,6 +28,7 @@ class ChartEditorNotePreview extends FlxSprite
   static final RIGHT_COLOR:FlxColor = 0xFFCC1111;
   static final EVENT_COLOR:FlxColor = 0xFF111111;
   static final SELECTED_COLOR:FlxColor = 0xFFFFFF00;
+  static final OVERLAPPING_COLOR:FlxColor = 0xFF640000;
 
   var previewHeight:Int;
 
@@ -59,21 +60,22 @@ class ChartEditorNotePreview extends FlxSprite
    * @param note The data for the note.
    * @param songLengthInMs The total length of the song in milliseconds.
    */
-  public function addNote(note:SongNoteData, songLengthInMs:Int, ?isSelection:Bool = false):Void
+  public function addNote(note:SongNoteData, songLengthInMs:Int, previewType:NotePreviewType = None):Void
   {
     var noteDir:Int = note.getDirection();
     var mustHit:Bool = note.getStrumlineIndex() == 0;
-    drawNote(noteDir, mustHit, Std.int(note.time), songLengthInMs, isSelection);
+    drawNote(noteDir, mustHit, Std.int(note.time), songLengthInMs, previewType);
   }
 
   /**
    * Add a song event to the preview.
    * @param event The data for the event.
    * @param songLengthInMs The total length of the song in milliseconds.
+   * @param isSelection If current event is selected, which then it's forced to be yellow.
    */
-  public function addEvent(event:SongEventData, songLengthInMs:Int, ?isSelection:Bool = false):Void
+  public function addEvent(event:SongEventData, songLengthInMs:Int, isSelection:Bool = false):Void
   {
-    drawNote(-1, false, Std.int(event.time), songLengthInMs, isSelection);
+    drawNote(-1, false, Std.int(event.time), songLengthInMs, isSelection ? Selection : None);
   }
 
   /**
@@ -85,7 +87,7 @@ class ChartEditorNotePreview extends FlxSprite
   {
     for (note in notes)
     {
-      addNote(note, songLengthInMs, false);
+      addNote(note, songLengthInMs, None);
     }
   }
 
@@ -98,7 +100,20 @@ class ChartEditorNotePreview extends FlxSprite
   {
     for (note in notes)
     {
-      addNote(note, songLengthInMs, true);
+      addNote(note, songLengthInMs, Selection);
+    }
+  }
+
+  /**
+   * Add an array of overlapping notes to the preview.
+   * @param notes The data for the notes
+   * @param songLengthInMs The total length of the song in milliseconds.
+   */
+  public function addOverlappingNotes(notes:Array<SongNoteData>, songLengthInMs:Int):Void
+  {
+    for (note in notes)
+    {
+      addNote(note, songLengthInMs, Overlapping);
     }
   }
 
@@ -134,9 +149,9 @@ class ChartEditorNotePreview extends FlxSprite
    * @param mustHit False if opponent, true if player.
    * @param strumTimeInMs Time in milliseconds to strum the note.
    * @param songLengthInMs Length of the song in milliseconds.
-   * @param isSelection If current note is selected note, which then it's forced to be green
+   * @param previewType If the note should forcibly be colored as selected or overlapping.
    */
-  public function drawNote(dir:Int, mustHit:Bool, strumTimeInMs:Int, songLengthInMs:Int, ?isSelection:Bool = false):Void
+  public function drawNote(dir:Int, mustHit:Bool, strumTimeInMs:Int, songLengthInMs:Int, previewType:NotePreviewType = None):Void
   {
     var color:FlxColor = switch (dir)
     {
@@ -149,10 +164,15 @@ class ChartEditorNotePreview extends FlxSprite
 
     var noteHeight:Int = NOTE_HEIGHT;
 
-    if (isSelection != null && isSelection)
+    switch (previewType)
     {
-      color = SELECTED_COLOR;
-      noteHeight += 1;
+      case Selection:
+        color = SELECTED_COLOR;
+        noteHeight += 1;
+      case Overlapping:
+        color = OVERLAPPING_COLOR;
+        noteHeight += 2;
+      default:
     }
 
     var noteX:Float = NOTE_WIDTH * dir;
@@ -179,6 +199,7 @@ class ChartEditorNotePreview extends FlxSprite
     FlxSpriteUtil.drawRect(this, noteX, noteY, width, height, color);
   }
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 enum NotePreviewType
@@ -411,3 +432,13 @@ enum NotePreviewType
 }
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+
+enum NotePreviewType
+{
+  None;
+  Selection;
+  Overlapping;
+}
+>>>>>>> 905084b8 (idk2)

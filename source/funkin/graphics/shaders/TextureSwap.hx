@@ -4,6 +4,7 @@ import flixel.system.FlxAssets.FlxShader;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.util.FlxColor;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -15,6 +16,10 @@ import flixel.util.FlxColor;
 =======
 import flixel.util.FlxColor;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.util.FlxColor;
+=======
+>>>>>>> 905084b8 (idk2)
 import openfl.display.BitmapData;
 
 class TextureSwap extends FlxShader
@@ -25,6 +30,7 @@ class TextureSwap extends FlxShader
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public function loadSwapImage(path:String)
   {
     #if html5
@@ -66,6 +72,20 @@ class TextureSwap extends FlxShader
 
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+  public function loadSwapImage(path:String)
+  {
+    #if html5
+    BitmapData.loadFromFile(path).onComplete(function(bmp:BitmapData) {
+      swappedImage = bmp;
+    });
+    #else
+    swappedImage = BitmapData.fromFile(path);
+    #end
+  }
+
+>>>>>>> 905084b8 (idk2)
   function set_swappedImage(_bitmapData:BitmapData):BitmapData
   {
     image.input = _bitmapData;

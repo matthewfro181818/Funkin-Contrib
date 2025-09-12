@@ -2,13 +2,13 @@
 package funkin.audio;
 
 import flixel.group.FlxGroup.FlxTypedGroup;
-import funkin.audio.FunkinSound;
 import flixel.tweens.FlxTween;
 
 /**
  * A group of FunkinSounds that are all synced together.
  * Unlike FlxSoundGroup, you can also control their time and pitch.
  */
+@:nullSafety
 class SoundGroup extends FlxTypedGroup<FunkinSound>
 {
   public var time(get, set):Float;
@@ -38,6 +38,7 @@ class SoundGroup extends FlxTypedGroup<FunkinSound>
       return result;
     }
 
+    @:nullSafety(Off)
     for (sndFile in files)
     {
       var snd:FunkinSound = FunkinSound.load(Paths.voices(song, '$sndFile'));
@@ -72,7 +73,7 @@ class SoundGroup extends FlxTypedGroup<FunkinSound>
   /**
    * Add a sound to the group.
    */
-  public override function add(sound:FunkinSound):FunkinSound
+  public override function add(sound:FunkinSound):Null<FunkinSound>
   {
     var result:FunkinSound = super.add(sound);
 
@@ -136,6 +137,7 @@ class SoundGroup extends FlxTypedGroup<FunkinSound>
   /**
    * Fade in all the sounds in the group.
    */
+  @:nullSafety(Off)
   public function fadeIn(duration:Float, ?from:Float = 0.0, ?to:Float = 1.0, ?onComplete:FlxTween->Void):Void
   {
     forEachAlive(function(sound:FunkinSound) {
@@ -146,6 +148,7 @@ class SoundGroup extends FlxTypedGroup<FunkinSound>
   /**
    * Fade out all the sounds in the group.
    */
+  @:nullSafety(Off)
   public function fadeOut(duration:Float, ?to:Float = 0.0, ?onComplete:FlxTween->Void):Void
   {
     forEachAlive(function(sound:FunkinSound) {
@@ -240,7 +243,7 @@ class SoundGroup extends FlxTypedGroup<FunkinSound>
 
   function get_muted():Bool
   {
-    if (getFirstAlive() != null) return getFirstAlive().muted;
+    if (getFirstAlive() != null) return getFirstAlive()?.muted ?? false;
     else
       return false;
   }

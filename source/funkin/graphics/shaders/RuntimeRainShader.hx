@@ -3,6 +3,7 @@ package funkin.graphics.shaders;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.system.FlxAssets.FlxShader;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -14,6 +15,10 @@ import flixel.system.FlxAssets.FlxShader;
 =======
 import flixel.system.FlxAssets.FlxShader;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.system.FlxAssets.FlxShader;
+=======
+>>>>>>> 905084b8 (idk2)
 import openfl.display.BitmapData;
 import openfl.display.ShaderParameter;
 import openfl.display.ShaderParameterType;

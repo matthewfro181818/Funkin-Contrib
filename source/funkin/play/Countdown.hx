@@ -5,6 +5,7 @@ import flixel.tweens.FlxTween;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
@@ -25,6 +26,13 @@ import funkin.graphics.FunkinSprite;
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.module.ModuleHandler;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.modding.module.ModuleHandler;
+=======
+>>>>>>> 905084b8 (idk2)
 import funkin.modding.events.ScriptEvent;
 import funkin.modding.events.ScriptEvent.CountdownScriptEvent;
 import flixel.util.FlxTimer;
@@ -281,6 +289,7 @@ class Countdown
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME, null, null, true);
 =======
     return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME);
@@ -295,6 +304,11 @@ class Countdown
 =======
     return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME);
+=======
+    return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME, null, null, true);
+>>>>>>> 905084b8 (idk2)
   }
 
   public static function decrement(step:CountdownStep):CountdownStep

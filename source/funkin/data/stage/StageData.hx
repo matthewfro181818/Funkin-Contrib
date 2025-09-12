@@ -174,10 +174,10 @@ typedef StageDataProp =
    * [1, 1] means the prop moves 1:1 with the camera.
    * [0.5, 0.5] means the prop moves half as much as the camera.
    * [0, 0] means the prop is not moved.
-   * @default [0, 0]
+   * @default [1, 1]
    */
   @:optional
-  @:default([0, 0])
+  @:default([1, 1])
   var scroll:Array<Float>;
 
   /**
@@ -206,7 +206,7 @@ typedef StageDataProp =
 
   /**
    * The angle of the prop, as a float.
-   * @default 1.0
+   * @default 0.0
    */
   @:optional
   @:default(0.0)
@@ -285,7 +285,7 @@ typedef StageDataCharacter =
 
   /**
    * The angle of the character, as a float.
-   * @default 1.0
+   * @default 0.0
    */
   @:optional
   @:default(0.0)

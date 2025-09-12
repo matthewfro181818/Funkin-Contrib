@@ -10,11 +10,17 @@ import flixel.math.FlxMatrix;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.math.FlxPoint;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.math.FlxPoint;
+=======
+>>>>>>> 905084b8 (idk2)
 import flixel.math.FlxRect;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import flixel.math.FlxPoint;
@@ -34,6 +40,10 @@ import flixel.util.FlxColor;
 =======
 import flixel.util.FlxColor;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.util.FlxColor;
+=======
+>>>>>>> 905084b8 (idk2)
 import lime.graphics.cairo.Cairo;
 import openfl.display.BitmapData;
 import openfl.display.BlendMode;
@@ -43,16 +53,20 @@ import openfl.display.OpenGLRenderer;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import openfl.display._internal.Context3DGraphics;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import openfl.display._internal.Context3DGraphics;
+=======
+>>>>>>> 905084b8 (idk2)
 import openfl.display3D.Context3D;
-import openfl.display3D.Context3DClearMask;
 import openfl.filters.BitmapFilter;
-import openfl.filters.BlurFilter;
 import openfl.geom.ColorTransform;
 import openfl.geom.Matrix;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import openfl.display._internal.Context3DGraphics;
@@ -75,6 +89,10 @@ import openfl.geom.Point;
 =======
 import openfl.geom.Point;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import openfl.geom.Point;
+=======
+>>>>>>> 905084b8 (idk2)
 import openfl.geom.Rectangle;
 #if (js && html5)
 import lime._internal.graphics.ImageCanvasUtil;
@@ -92,6 +110,7 @@ import openfl.display._internal.CairoGraphics as GfxRenderer;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -103,6 +122,10 @@ import openfl.display._internal.CairoGraphics as GfxRenderer;
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 @:access(openfl.geom.Rectangle)
 @:access(openfl.filters.BitmapFilter)
 @:access(flixel.graphics.frames.FlxFrame)
@@ -113,6 +136,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   @:noCompletion var _filterMatrix:FlxMatrix = new FlxMatrix();
 =======
   @:noCompletion var _filterMatrix:FlxMatrix;
@@ -127,6 +151,11 @@ class FlxFilteredSprite extends FlxSprite
 =======
   @:noCompletion var _filterMatrix:FlxMatrix;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  @:noCompletion var _filterMatrix:FlxMatrix;
+=======
+  @:noCompletion var _filterMatrix:FlxMatrix = new FlxMatrix();
+>>>>>>> 905084b8 (idk2)
 
   /**
    * An `Array` of shader filters (aka `BitmapFilter`).
@@ -134,6 +163,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var filters(default, set):Null<Array<BitmapFilter>>;
 =======
   public var filters(default, set):Array<BitmapFilter>;
@@ -148,6 +178,11 @@ class FlxFilteredSprite extends FlxSprite
 =======
   public var filters(default, set):Array<BitmapFilter>;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public var filters(default, set):Array<BitmapFilter>;
+=======
+  public var filters(default, set):Null<Array<BitmapFilter>>;
+>>>>>>> 905084b8 (idk2)
 
   /**
    * a flag to update the image with the filters.
@@ -158,16 +193,26 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   @:noCompletion var filtered:Bool = false;
 ||||||| parent of 8a1f54ca (lol8)
   @:noCompletion var filtered:Bool = false;
 =======
   @:noCompletion var filtered:Bool;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  @:noCompletion var filtered:Bool;
+=======
+  @:noCompletion var filtered:Bool = false;
+>>>>>>> 905084b8 (idk2)
 
+  // These appear to be a little troublesome to null safe.
+  @:nullSafety(Off)
   @:noCompletion var _blankFrame:FlxFrame;
 
+  @:nullSafety(Off)
   var _filterBmp1:BitmapData;
+<<<<<<< HEAD
 <<<<<<< HEAD
   @:nullSafety(Off)
 =======
@@ -194,6 +239,10 @@ class FlxFilteredSprite extends FlxSprite
   @:nullSafety(Off)
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+  @:nullSafety(Off)
+>>>>>>> 905084b8 (idk2)
   var _filterBmp2:BitmapData;
 
   override public function update(elapsed:Float)
@@ -302,6 +351,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       @:nullSafety(Off)
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -313,6 +363,10 @@ class FlxFilteredSprite extends FlxSprite
       @:nullSafety(Off)
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+      @:nullSafety(Off)
+>>>>>>> 905084b8 (idk2)
       if (_blankFrame == null) _blankFrame = new FlxFrame(null);
 
       if (_blankFrame.parent == null || _flashRect.width > _blankFrame.parent.width || _flashRect.height > _blankFrame.parent.height)
@@ -332,6 +386,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       @:nullSafety(Off)
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -343,6 +398,10 @@ class FlxFilteredSprite extends FlxSprite
       @:nullSafety(Off)
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+      @:nullSafety(Off)
+>>>>>>> 905084b8 (idk2)
       _blankFrame.parent.bitmap = _renderer.applyFilter(_blankFrame.parent.bitmap, _filterBmp1, _filterBmp2, frame.parent.bitmap, filters, _flashRect,
         frame.frame.copyToFlash());
       _blankFrame.frame = FlxRect.get(0, 0, _blankFrame.parent.bitmap.width, _blankFrame.parent.bitmap.height);
@@ -361,6 +420,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   function set_filters(value:Null<Array<BitmapFilter>>)
 =======
   function set_filters(value:Array<BitmapFilter>)
@@ -375,6 +435,11 @@ class FlxFilteredSprite extends FlxSprite
 =======
   function set_filters(value:Array<BitmapFilter>)
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  function set_filters(value:Array<BitmapFilter>)
+=======
+  function set_filters(value:Null<Array<BitmapFilter>>)
+>>>>>>> 905084b8 (idk2)
   {
     if (filters != value) filterDirty = true;
 

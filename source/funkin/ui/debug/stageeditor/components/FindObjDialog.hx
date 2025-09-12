@@ -2,8 +2,6 @@
 package funkin.ui.debug.stageeditor.components;
 
 import haxe.ui.containers.dialogs.Dialog;
-import funkin.play.stage.StageProp;
-import funkin.ui.debug.stageeditor.handlers.AssetDataHandler;
 import haxe.ui.components.TextField;
 import haxe.ui.components.CheckBox;
 

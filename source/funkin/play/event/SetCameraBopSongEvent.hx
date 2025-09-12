@@ -3,16 +3,23 @@ package funkin.play.event;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.tweens.FlxTween;
 import flixel.FlxCamera;
 import flixel.tweens.FlxEase;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.tweens.FlxTween;
+import flixel.FlxCamera;
+import flixel.tweens.FlxEase;
+=======
+>>>>>>> 905084b8 (idk2)
 // Data from the chart
-import funkin.data.song.SongData;
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import flixel.tweens.FlxTween;
@@ -38,6 +45,10 @@ import funkin.play.event.SongEvent;
 =======
 import funkin.play.event.SongEvent;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.play.event.SongEvent;
+=======
+>>>>>>> 905084b8 (idk2)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -80,6 +91,7 @@ class SetCameraBopSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var offset:Null<Int> = data.getInt('offset');
     if (rate == null) offset = Constants.DEFAULT_ZOOM_OFFSET;
 =======
@@ -94,6 +106,11 @@ class SetCameraBopSongEvent extends SongEvent
     if (rate == null) offset = Constants.DEFAULT_ZOOM_OFFSET;
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+    var offset:Null<Int> = data.getInt('offset');
+    if (rate == null) offset = Constants.DEFAULT_ZOOM_OFFSET;
+>>>>>>> 905084b8 (idk2)
     var intensity:Null<Float> = data.getFloat('intensity');
     if (intensity == null) intensity = 1.0;
 
@@ -103,6 +120,7 @@ class SetCameraBopSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     PlayState.instance.cameraZoomRateOffset = offset;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -114,6 +132,10 @@ class SetCameraBopSongEvent extends SongEvent
     PlayState.instance.cameraZoomRateOffset = offset;
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+    PlayState.instance.cameraZoomRateOffset = offset;
+>>>>>>> 905084b8 (idk2)
     trace('Set camera zoom rate to ${PlayState.instance.cameraZoomRate}');
   }
 
@@ -141,6 +163,7 @@ class SetCameraBopSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -152,6 +175,10 @@ class SetCameraBopSongEvent extends SongEvent
         min: 0,
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+        min: 0,
+>>>>>>> 905084b8 (idk2)
         step: 0.1,
         type: SongEventFieldType.FLOAT,
         units: 'x'
@@ -160,6 +187,7 @@ class SetCameraBopSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         name: 'offset',
         title: 'Offset',
         defaultValue: 0,
@@ -190,9 +218,21 @@ class SetCameraBopSongEvent extends SongEvent
       {
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+        name: 'offset',
+        title: 'Offset',
+        defaultValue: 0,
+        step: 1,
+        type: SongEventFieldType.INTEGER,
+        units: 'beats'
+      },
+      {
+>>>>>>> 905084b8 (idk2)
         name: 'rate',
         title: 'Rate',
         defaultValue: 4,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         min: 0,
@@ -209,6 +249,10 @@ class SetCameraBopSongEvent extends SongEvent
         min: 0,
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+        min: 0,
+>>>>>>> 905084b8 (idk2)
         step: 1,
         type: SongEventFieldType.INTEGER,
         units: 'beats/zoom'

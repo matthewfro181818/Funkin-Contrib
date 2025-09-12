@@ -25,7 +25,7 @@ class SongDataMigrator
 
   public static function migrate_SongMetadata_v2_1_0(input:SongData_v2_1_0.SongMetadata_v2_1_0):SongMetadata
   {
-    var result:SongMetadata = new SongMetadata(input.songName, input.artist, input.variation);
+    var result:SongMetadata = new SongMetadata(input.songName, input.artist, Constants.DEFAULT_CHARTER, input.variation);
     result.version = SongRegistry.SONG_METADATA_VERSION;
     result.timeFormat = input.timeFormat;
     result.divisions = input.divisions;
@@ -67,7 +67,7 @@ class SongDataMigrator
 
   public static function migrate_SongMetadata_v2_0_0(input:SongData_v2_0_0.SongMetadata_v2_0_0):SongMetadata
   {
-    var result:SongMetadata = new SongMetadata(input.songName, input.artist, input.variation);
+    var result:SongMetadata = new SongMetadata(input.songName, input.artist, Constants.DEFAULT_CHARTER, input.variation);
     result.version = SongRegistry.SONG_METADATA_VERSION;
     result.timeFormat = input.timeFormat;
     result.divisions = input.divisions;

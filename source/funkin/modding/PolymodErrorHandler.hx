@@ -5,13 +5,19 @@ import polymod.Polymod;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 class PolymodErrorHandler
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 ||||||| parent of b150c43d (lol4)
@@ -67,6 +73,22 @@ class PolymodErrorHandler
   }
 
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  /**
+   * Show a popup with the given text.
+   * This displays a system popup, it WILL interrupt the game.
+   * Make sure to only use this when it's important, like when there's a script error.
+   *
+   * @param name The name at the top of the popup.
+   * @param desc The body text of the popup.
+   */
+  public static function showAlert(name:String, desc:String):Void
+  {
+    lime.app.Application.current.window.alert(desc, name);
+  }
+
+=======
+>>>>>>> 905084b8 (idk2)
   public static function onPolymodError(error:PolymodError):Void
   {
     // Perform an action based on the error code.
@@ -89,6 +111,7 @@ class PolymodErrorHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         funkin.util.WindowUtil.showError('Polymod Script Parsing Error', error.message);
 =======
         showAlert('Polymod Script Parsing Error', error.message);
@@ -103,6 +126,11 @@ class PolymodErrorHandler
 =======
         showAlert('Polymod Script Parsing Error', error.message);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+        showAlert('Polymod Script Parsing Error', error.message);
+=======
+        funkin.util.WindowUtil.showError('Polymod Script Parsing Error', error.message);
+>>>>>>> 905084b8 (idk2)
       case SCRIPT_RUNTIME_EXCEPTION:
         // A runtime error when running a script.
         logError(error.message);
@@ -110,6 +138,7 @@ class PolymodErrorHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         funkin.util.WindowUtil.showError('Polymod Script Exception', error.message);
 =======
         showAlert('Polymod Script Exception', error.message);
@@ -124,6 +153,11 @@ class PolymodErrorHandler
 =======
         showAlert('Polymod Script Exception', error.message);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+        showAlert('Polymod Script Exception', error.message);
+=======
+        funkin.util.WindowUtil.showError('Polymod Script Exception', error.message);
+>>>>>>> 905084b8 (idk2)
       case SCRIPT_CLASS_MODULE_NOT_FOUND:
         // A scripted class tried to reference an unknown class or module.
         logError(error.message);
@@ -132,6 +166,7 @@ class PolymodErrorHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         var className:Null<String> = error.message.split(' ').pop();
 =======
         var className:String = error.message.split(' ').pop();
@@ -146,6 +181,11 @@ class PolymodErrorHandler
 =======
         var className:String = error.message.split(' ').pop();
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+        var className:String = error.message.split(' ').pop();
+=======
+        var className:Null<String> = error.message.split(' ').pop();
+>>>>>>> 905084b8 (idk2)
         var msg:String = 'Import error in ${error.origin}';
         msg += '\nCould not import unknown class ${className}';
         msg += '\nCheck to ensure the class exists and is spelled correctly.';
@@ -154,6 +194,7 @@ class PolymodErrorHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         funkin.util.WindowUtil.showError('Polymod Script Import Error', msg);
 =======
         showAlert('Polymod Script Import Error', msg);
@@ -168,6 +209,11 @@ class PolymodErrorHandler
 =======
         showAlert('Polymod Script Import Error', msg);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+        showAlert('Polymod Script Import Error', msg);
+=======
+        funkin.util.WindowUtil.showError('Polymod Script Import Error', msg);
+>>>>>>> 905084b8 (idk2)
       case SCRIPT_CLASS_MODULE_BLACKLISTED:
         // A scripted class tried to reference a blacklisted class or module.
         logError(error.message);
@@ -175,6 +221,7 @@ class PolymodErrorHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         funkin.util.WindowUtil.showError('Polymod Script Blacklist Violation', error.message);
 =======
         showAlert('Polymod Script Blacklist Violation', error.message);
@@ -192,6 +239,12 @@ class PolymodErrorHandler
         showAlert('Polymod Script Blacklist Violation', error.message);
 
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+        showAlert('Polymod Script Blacklist Violation', error.message);
+
+=======
+        funkin.util.WindowUtil.showError('Polymod Script Blacklist Violation', error.message);
+>>>>>>> 905084b8 (idk2)
       default:
         // Log the message based on its severity.
         switch (error.severity)

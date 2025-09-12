@@ -3,6 +3,7 @@ package funkin.modding.events;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -14,6 +15,10 @@ package funkin.modding.events;
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 enum abstract ScriptEventType(String) from String to String
 {
   /**
@@ -106,6 +111,7 @@ enum abstract ScriptEventType(String) from String to String
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    * Called when a character lets go of a hold note.
    * Important information such as note data, player/opponent, etc. are all provided.
    *
@@ -138,6 +144,17 @@ enum abstract ScriptEventType(String) from String to String
   /**
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+   * Called when a character lets go of a hold note.
+   * Important information such as note data, player/opponent, etc. are all provided.
+   *
+   * This event is not cancelable.
+   */
+  var NOTE_HOLD_DROP = 'NOTE_HOLD_DROP';
+
+  /**
+>>>>>>> 905084b8 (idk2)
    * Called when a character presses a note when there was none there, causing them to lose health.
    * Important information such as direction pressed, etc. are all provided.
    *

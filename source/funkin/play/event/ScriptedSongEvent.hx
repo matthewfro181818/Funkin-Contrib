@@ -3,6 +3,7 @@ package funkin.play.event;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import funkin.play.song.Song;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -14,6 +15,10 @@ import funkin.play.song.Song;
 =======
 import funkin.play.song.Song;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.play.song.Song;
+=======
+>>>>>>> 905084b8 (idk2)
 import polymod.hscript.HScriptedClass;
 
 /**

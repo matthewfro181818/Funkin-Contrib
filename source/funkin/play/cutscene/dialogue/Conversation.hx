@@ -3,6 +3,7 @@ package funkin.play.cutscene.dialogue;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.addons.display.FlxPieDial;
 import flixel.FlxSprite;
@@ -17,6 +18,11 @@ import flixel.FlxSprite;
 import flixel.addons.display.FlxPieDial;
 import flixel.FlxSprite;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.addons.display.FlxPieDial;
+import flixel.FlxSprite;
+=======
+>>>>>>> 905084b8 (idk2)
 import flixel.group.FlxSpriteGroup;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -26,6 +32,7 @@ import funkin.audio.FunkinSound;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.data.dialogue.ConversationData;
 import funkin.data.dialogue.ConversationData.DialogueEntryData;
 import funkin.data.dialogue.ConversationRegistry;
@@ -70,6 +77,21 @@ import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
 import funkin.data.dialogue.speaker.SpeakerData;
 import funkin.data.dialogue.speaker.SpeakerRegistry;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.data.dialogue.conversation.ConversationData;
+import funkin.data.dialogue.conversation.ConversationData.DialogueEntryData;
+import funkin.data.dialogue.conversation.ConversationRegistry;
+import funkin.data.dialogue.dialoguebox.DialogueBoxData;
+import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
+import funkin.data.dialogue.speaker.SpeakerData;
+import funkin.data.dialogue.speaker.SpeakerRegistry;
+=======
+import funkin.data.dialogue.ConversationData;
+import funkin.data.dialogue.ConversationData.DialogueEntryData;
+import funkin.data.dialogue.ConversationRegistry;
+import funkin.data.dialogue.DialogueBoxRegistry;
+import funkin.data.dialogue.SpeakerRegistry;
+>>>>>>> 905084b8 (idk2)
 import funkin.data.IRegistryEntry;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.events.ScriptEvent;
@@ -79,6 +101,7 @@ import funkin.modding.IScriptedClass.IEventHandler;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import funkin.play.cutscene.dialogue.DialogueBox;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -90,6 +113,10 @@ import funkin.play.cutscene.dialogue.DialogueBox;
 =======
 import funkin.play.cutscene.dialogue.DialogueBox;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.play.cutscene.dialogue.DialogueBox;
+=======
+>>>>>>> 905084b8 (idk2)
 import funkin.util.SortUtil;
 import funkin.util.EaseUtil;
 
@@ -101,14 +128,20 @@ import funkin.util.EaseUtil;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass implements IRegistryEntry<ConversationData>
 {
   /**
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 ||||||| parent of b150c43d (lol4)
@@ -141,6 +174,14 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   /**
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+   * The ID of the conversation.
+   */
+  public final id:String;
+
+  /**
+=======
+>>>>>>> 905084b8 (idk2)
    * The current state of the conversation.
    */
   var state:ConversationState = ConversationState.Start;
@@ -149,6 +190,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    * Conversation data as parsed from the JSON file.
    */
@@ -172,6 +214,14 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   /**
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+   * Conversation data as parsed from the JSON file.
+   */
+  public final _data:ConversationData;
+
+  /**
+=======
+>>>>>>> 905084b8 (idk2)
    * The current entry in the dialogue.
    */
   var currentDialogueEntry:Int = 0;
@@ -183,6 +233,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     return _data?.dialogue?.length ?? 0;
 =======
     return _data.dialogue.length;
@@ -197,6 +248,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     return _data.dialogue.length;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    return _data.dialogue.length;
+=======
+    return _data?.dialogue?.length ?? 0;
+>>>>>>> 905084b8 (idk2)
   }
 
   /**
@@ -211,16 +267,23 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     return currentDialogueEntryData?.text?.length ?? 0;
 ||||||| parent of 8a1f54ca (lol8)
     return currentDialogueEntryData?.text?.length ?? 0;
 =======
     return currentDialogueEntryData.text.length;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    return currentDialogueEntryData.text.length;
+=======
+    return currentDialogueEntryData?.text?.length ?? 0;
+>>>>>>> 905084b8 (idk2)
   }
 
-  var currentDialogueEntryData(get, never):DialogueEntryData;
+  var currentDialogueEntryData(get, never):Null<DialogueEntryData>;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   function get_currentDialogueEntryData():Null<DialogueEntryData>
 =======
@@ -247,6 +310,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
   function get_currentDialogueEntryData():DialogueEntryData
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  function get_currentDialogueEntryData():DialogueEntryData
+=======
+  function get_currentDialogueEntryData():Null<DialogueEntryData>
+>>>>>>> 905084b8 (idk2)
   {
     if (_data == null || _data.dialogue == null) return null;
     if (currentDialogueEntry < 0 || currentDialogueEntry >= _data.dialogue.length) return null;
@@ -261,6 +329,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // TODO: Replace "" with some placeholder text?
     return currentDialogueEntryData?.text[currentDialogueLine] ?? "";
 =======
@@ -278,6 +347,12 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     return currentDialogueEntryData?.text[currentDialogueLine];
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    return currentDialogueEntryData?.text[currentDialogueLine];
+=======
+    // TODO: Replace "" with some placeholder text?
+    return currentDialogueEntryData?.text[currentDialogueLine] ?? "";
+>>>>>>> 905084b8 (idk2)
   }
 
   /**
@@ -286,6 +361,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   var music:Null<FunkinSound>;
 =======
   var music:FunkinSound;
@@ -300,10 +376,16 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
   var music:FunkinSound;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  var music:FunkinSound;
+=======
+  var music:Null<FunkinSound>;
+>>>>>>> 905084b8 (idk2)
 
   /**
    * GRAPHICS
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -313,11 +395,17 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
   var backdrop:FunkinSprite;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  var backdrop:FunkinSprite;
+=======
+  var backdrop:Null<FunkinSprite>;
+>>>>>>> 905084b8 (idk2)
 
-  var currentSpeaker:Speaker;
+  var currentSpeaker:Null<Speaker>;
 
-  var currentDialogueBox:DialogueBox;
+  var currentDialogueBox:Null<DialogueBox>;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   public function new(id:String, ?params:Dynamic)
 =======
@@ -345,6 +433,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
   public function new(id:String)
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public function new(id:String)
+=======
+  public function new(id:String, ?params:Dynamic)
+>>>>>>> 905084b8 (idk2)
   {
     super();
 
@@ -373,6 +466,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (_data == null) return;
 
     if (_data.music == null || (_data.music.asset ?? "") == "") return;
@@ -383,15 +477,24 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     if (_data.music == null) return;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    if (_data.music == null) return;
+=======
+    if (_data == null) return;
+
+    if (_data.music == null || (_data.music.asset ?? "") == "") return;
+>>>>>>> 905084b8 (idk2)
 
     music = FunkinSound.load(Paths.music(_data.music.asset), 0.0, true, true, true);
+    var fadeTime:Float = _data.music.fadeTime ?? 0.0;
 
-    if (_data.music.fadeTime > 0.0)
+    if (fadeTime > 0.0)
     {
-      FlxTween.tween(music, {volume: 1.0}, _data.music.fadeTime, {ease: FlxEase.linear});
+      FlxTween.tween(music, {volume: 1.0}, fadeTime, {ease: FlxEase.linear});
     }
     else
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       if (music != null)
       {
@@ -435,6 +538,14 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
       music.volume = 1.0;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      music.volume = 1.0;
+=======
+      if (music != null)
+      {
+        music.volume = 1.0;
+      }
+>>>>>>> 905084b8 (idk2)
     }
   }
 
@@ -459,6 +570,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (_data == null) return;
 
 =======
@@ -473,6 +585,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+    if (_data == null) return;
+
+>>>>>>> 905084b8 (idk2)
     if (backdrop != null)
     {
       backdrop.destroy();
@@ -491,16 +608,24 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         var targetColor:Null<FlxColor> = FlxColor.fromString(backdropData.color);
 ||||||| parent of 8a1f54ca (lol8)
         var targetColor:Null<FlxColor> = FlxColor.fromString(backdropData.color);
 =======
         var targetColor:FlxColor = FlxColor.fromString(backdropData.color);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+        var targetColor:FlxColor = FlxColor.fromString(backdropData.color);
+=======
+        var targetColor:Null<FlxColor> = FlxColor.fromString(backdropData.color);
+>>>>>>> 905084b8 (idk2)
         backdrop.makeSolidColor(Std.int(FlxG.width), Std.int(FlxG.height), targetColor);
-        if (backdropData.fadeTime > 0.0)
+        var fadeTime = backdropData.fadeTime ?? 0.0;
+        if (fadeTime > 0.0)
         {
           backdrop.alpha = 0.0;
+<<<<<<< HEAD
 <<<<<<< HEAD
           FlxTween.tween(backdrop, {alpha: 1.0}, fadeTime, {ease: EaseUtil.stepped(10)});
 =======
@@ -528,6 +653,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
           FlxTween.tween(backdrop, {alpha: 1.0}, backdropData.fadeTime, {ease: EaseUtil.stepped(10)});
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+          FlxTween.tween(backdrop, {alpha: 1.0}, backdropData.fadeTime, {ease: EaseUtil.stepped(10)});
+=======
+          FlxTween.tween(backdrop, {alpha: 1.0}, fadeTime, {ease: EaseUtil.stepped(10)});
+>>>>>>> 905084b8 (idk2)
         }
         else
         {
@@ -554,6 +684,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextSpeakerId:String = currentDialogueEntryData?.speaker ?? "";
 =======
     var nextSpeakerId:String = currentDialogueEntryData.speaker;
@@ -568,6 +699,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     var nextSpeakerId:String = currentDialogueEntryData.speaker;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    var nextSpeakerId:String = currentDialogueEntryData.speaker;
+=======
+    var nextSpeakerId:String = currentDialogueEntryData?.speaker ?? "";
+>>>>>>> 905084b8 (idk2)
 
     // Skip the next steps if the current speaker is already displayed.
     if ((currentSpeaker != null && currentSpeaker.alive) && nextSpeakerId == currentSpeaker.id) return;
@@ -582,6 +718,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextSpeaker:Null<Speaker> = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
 =======
     var nextSpeaker:Speaker = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
@@ -596,6 +733,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     var nextSpeaker:Speaker = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    var nextSpeaker:Speaker = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
+=======
+    var nextSpeaker:Null<Speaker> = SpeakerRegistry.instance.fetchEntry(nextSpeakerId);
+>>>>>>> 905084b8 (idk2)
 
     if (nextSpeaker == null)
     {
@@ -624,15 +766,22 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextSpeakerAnimation:Null<String> = currentDialogueEntryData?.speakerAnimation;
 ||||||| parent of 8a1f54ca (lol8)
     var nextSpeakerAnimation:Null<String> = currentDialogueEntryData?.speakerAnimation;
 =======
     var nextSpeakerAnimation:String = currentDialogueEntryData.speakerAnimation;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    var nextSpeakerAnimation:String = currentDialogueEntryData.speakerAnimation;
+=======
+    var nextSpeakerAnimation:Null<String> = currentDialogueEntryData?.speakerAnimation;
+>>>>>>> 905084b8 (idk2)
 
     if (nextSpeakerAnimation == null) return;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (currentSpeaker != null) currentSpeaker.playAnimation(nextSpeakerAnimation);
 =======
@@ -658,6 +807,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     currentSpeaker.playAnimation(nextSpeakerAnimation);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    currentSpeaker.playAnimation(nextSpeakerAnimation);
+=======
+    if (currentSpeaker != null) currentSpeaker.playAnimation(nextSpeakerAnimation);
+>>>>>>> 905084b8 (idk2)
   }
 
   public function refresh():Void
@@ -670,6 +824,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextDialogueBoxId:String = currentDialogueEntryData?.box ?? "";
 =======
     var nextDialogueBoxId:String = currentDialogueEntryData?.box;
@@ -684,6 +839,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     var nextDialogueBoxId:String = currentDialogueEntryData?.box;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    var nextDialogueBoxId:String = currentDialogueEntryData?.box;
+=======
+    var nextDialogueBoxId:String = currentDialogueEntryData?.box ?? "";
+>>>>>>> 905084b8 (idk2)
 
     // Skip the next steps if the current dialogue box is already displayed.
     if ((currentDialogueBox != null && currentDialogueBox.alive) && nextDialogueBoxId == currentDialogueBox.id) return;
@@ -698,6 +858,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextDialogueBox:Null<DialogueBox> = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
 =======
     var nextDialogueBox:DialogueBox = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
@@ -712,6 +873,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     var nextDialogueBox:DialogueBox = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    var nextDialogueBox:DialogueBox = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
+=======
+    var nextDialogueBox:Null<DialogueBox> = DialogueBoxRegistry.instance.fetchEntry(nextDialogueBoxId);
+>>>>>>> 905084b8 (idk2)
 
     if (nextDialogueBox == null)
     {
@@ -736,15 +902,22 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var nextDialogueBoxAnimation:Null<String> = currentDialogueEntryData?.boxAnimation;
 ||||||| parent of 8a1f54ca (lol8)
     var nextDialogueBoxAnimation:Null<String> = currentDialogueEntryData?.boxAnimation;
 =======
     var nextDialogueBoxAnimation:String = currentDialogueEntryData?.boxAnimation;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    var nextDialogueBoxAnimation:String = currentDialogueEntryData?.boxAnimation;
+=======
+    var nextDialogueBoxAnimation:Null<String> = currentDialogueEntryData?.boxAnimation;
+>>>>>>> 905084b8 (idk2)
 
     if (nextDialogueBoxAnimation == null) return;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (currentDialogueBox != null) currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
 =======
@@ -770,6 +943,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
+=======
+    if (currentDialogueBox != null) currentDialogueBox.playAnimation(nextDialogueBoxAnimation);
+>>>>>>> 905084b8 (idk2)
   }
 
   function onTypingComplete():Void
@@ -841,6 +1019,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (this.music != null)
     {
       this.music.stop();
@@ -856,15 +1035,32 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     if (this.music != null) this.music.stop();
     this.music = null;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    if (this.music != null) this.music.stop();
+    this.music = null;
+=======
+    if (this.music != null)
+    {
+      this.music.stop();
+      this.music = null;
+    }
+>>>>>>> 905084b8 (idk2)
 
-    if (currentSpeaker != null) currentSpeaker.kill();
-    remove(currentSpeaker);
-    currentSpeaker = null;
+    if (currentSpeaker != null)
+    {
+      currentSpeaker.kill();
+      remove(currentSpeaker);
+      currentSpeaker = null;
+    }
 
-    if (currentDialogueBox != null) currentDialogueBox.kill();
-    remove(currentDialogueBox);
-    currentDialogueBox = null;
+    if (currentDialogueBox != null)
+    {
+      currentDialogueBox.kill();
+      remove(currentDialogueBox);
+      currentDialogueBox = null;
+    }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (backdrop != null)
     {
@@ -929,6 +1125,18 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     remove(backdrop);
     backdrop = null;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    if (backdrop != null) backdrop.destroy();
+    remove(backdrop);
+    backdrop = null;
+=======
+    if (backdrop != null)
+    {
+      backdrop.destroy();
+      remove(backdrop);
+      backdrop = null;
+    }
+>>>>>>> 905084b8 (idk2)
 
     startConversation();
   }
@@ -947,6 +1155,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   var outroTween:Null<FlxTween> = null;
 =======
   var outroTween:FlxTween;
@@ -961,6 +1170,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
   var outroTween:FlxTween;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  var outroTween:FlxTween;
+=======
+  var outroTween:Null<FlxTween> = null;
+>>>>>>> 905084b8 (idk2)
 
   public function startOutro():Void
   {
@@ -978,6 +1192,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (this.music != null) FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
 =======
         FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
@@ -992,6 +1207,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
         FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+        FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
+=======
+        if (this.music != null) FlxTween.tween(this.music, {volume: 0.0}, outroData.fadeTime);
+>>>>>>> 905084b8 (idk2)
       case NONE(_):
         // Immediately clean up.
         endOutro();
@@ -1004,6 +1224,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var completeCallback:Null<Void->Void> = null;
 =======
   public var completeCallback:() -> Void;
@@ -1018,6 +1239,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
   public var completeCallback:() -> Void;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public var completeCallback:() -> Void;
+=======
+  public var completeCallback:Null<Void->Void> = null;
+>>>>>>> 905084b8 (idk2)
 
   public function endOutro():Void
   {
@@ -1080,6 +1306,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (currentDialogueBox != null) currentDialogueBox.appendText(currentDialogueLineString);
 =======
       currentDialogueBox.appendText(currentDialogueLineString);
@@ -1094,6 +1321,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
       currentDialogueBox.appendText(currentDialogueLineString);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      currentDialogueBox.appendText(currentDialogueLineString);
+=======
+      if (currentDialogueBox != null) currentDialogueBox.appendText(currentDialogueLineString);
+>>>>>>> 905084b8 (idk2)
     }
   }
 
@@ -1108,6 +1340,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (currentDialogueBox != null) currentDialogueBox.skip();
 =======
     currentDialogueBox.skip();
@@ -1122,6 +1355,11 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 =======
     currentDialogueBox.skip();
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    currentDialogueBox.skip();
+=======
+    if (currentDialogueBox != null) currentDialogueBox.skip();
+>>>>>>> 905084b8 (idk2)
   }
 
   /**
@@ -1199,6 +1437,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (currentSpeaker != null)
     {
       currentSpeaker.kill();
@@ -1217,11 +1456,27 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     remove(currentSpeaker);
     currentSpeaker = null;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    if (currentSpeaker != null) currentSpeaker.kill();
+    remove(currentSpeaker);
+    currentSpeaker = null;
+=======
+    if (currentSpeaker != null)
+    {
+      currentSpeaker.kill();
+      remove(currentSpeaker);
+      currentSpeaker = null;
+    }
+>>>>>>> 905084b8 (idk2)
 
-    if (currentDialogueBox != null) currentDialogueBox.kill();
-    remove(currentDialogueBox);
-    currentDialogueBox = null;
+    if (currentDialogueBox != null)
+    {
+      currentDialogueBox.kill();
+      remove(currentDialogueBox);
+      currentDialogueBox = null;
+    }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (backdrop != null)
     {
@@ -1282,6 +1537,18 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     remove(backdrop);
     backdrop = null;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    if (backdrop != null) backdrop.destroy();
+    remove(backdrop);
+    backdrop = null;
+=======
+    if (backdrop != null)
+    {
+      backdrop.destroy();
+      remove(backdrop);
+      backdrop = null;
+    }
+>>>>>>> 905084b8 (idk2)
 
     this.clear();
 
@@ -1341,6 +1608,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   public override function toString():String
@@ -1379,6 +1647,19 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     return ConversationRegistry.instance.parseEntryDataWithMigration(id, ConversationRegistry.instance.fetchEntryVersion(id));
   }
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+
+  public override function toString():String
+  {
+    return 'Conversation($id)';
+  }
+
+  static function _fetchData(id:String):Null<ConversationData>
+  {
+    return ConversationRegistry.instance.parseEntryDataWithMigration(id, ConversationRegistry.instance.fetchEntryVersion(id));
+  }
+=======
+>>>>>>> 905084b8 (idk2)
 }
 
 // Managing things with a single enum is a lot easier than a multitude of flags.

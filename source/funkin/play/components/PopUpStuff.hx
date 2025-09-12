@@ -3,17 +3,20 @@ package funkin.play.components;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.FlxSprite;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.FlxSprite;
+=======
+>>>>>>> 905084b8 (idk2)
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tweens.FlxTween;
-import flixel.util.FlxDirection;
 import funkin.graphics.FunkinSprite;
-import funkin.play.PlayState;
-import funkin.util.TimerUtil;
 import funkin.util.EaseUtil;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import flixel.FlxSprite;
@@ -36,6 +39,10 @@ import funkin.data.notestyle.NoteStyleRegistry;
 =======
 import funkin.data.notestyle.NoteStyleRegistry;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.data.notestyle.NoteStyleRegistry;
+=======
+>>>>>>> 905084b8 (idk2)
 import funkin.play.notes.notestyle.NoteStyle;
 
 @:nullSafety

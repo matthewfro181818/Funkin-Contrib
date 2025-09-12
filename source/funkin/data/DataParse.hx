@@ -20,6 +20,7 @@ import thx.semver.VersionRule;
  *
  * Functions must be of the signature `(hxjsonast.Json, String) -> T`, where the String is the property name and `T` is the type of the property.
  */
+@:nullSafety
 class DataParse
 {
   /**
@@ -99,7 +100,7 @@ class DataParse
       case JArray(values):
         return Either.Left(legacyNoteSectionArray(json, name));
       case JObject(fields):
-        return Either.Right(cast Tools.getValue(json));
+        return Either.Right(legacyNoteData(json, name));
       default:
         throw 'Expected property $name to be note data, but it was ${json.value}.';
     }
@@ -121,7 +122,7 @@ class DataParse
     }
   }
 
-  public static function backdropData(json:Json, name:String):funkin.data.dialogue.conversation.ConversationData.BackdropData
+  public static function backdropData(json:Json, name:String):funkin.data.dialogue.ConversationData.BackdropData
   {
     switch (json.value)
     {
@@ -147,13 +148,12 @@ class DataParse
             throw 'Expected Backdrop property $name to be specify a valid "type", but it was "${backdropType}".';
         }
 
-        return null;
       default:
         throw 'Expected property $name to be an object, but it was ${json.value}.';
     }
   }
 
-  public static function outroData(json:Json, name:String):Null<funkin.data.dialogue.conversation.ConversationData.OutroData>
+  public static function outroData(json:Json, name:String):Null<funkin.data.dialogue.ConversationData.OutroData>
   {
     switch (json.value)
     {
@@ -311,6 +311,7 @@ class DataParse
         var length:Null<Float> = values[2] == null ? null : Tools.getValue(values[2]);
         var alt:Null<Bool> = values[3] == null ? null : Tools.getValue(values[3]);
 
+        if (time == null || data == null) throw 'Property $name note is missing time and/or data values.';
         return new LegacyNote(time, data, length, alt);
       // return null;
       default:

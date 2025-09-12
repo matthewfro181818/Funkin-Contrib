@@ -8,13 +8,19 @@ import flixel.addons.display.FlxRuntimeShader;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 class InverseDotsShader extends FlxRuntimeShader
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   public var amount:Float = 0;
 =======
@@ -37,6 +43,11 @@ class InverseDotsShader extends FlxRuntimeShader
 =======
   public var amount:Float;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public var amount:Float;
+=======
+  public var amount:Float = 0;
+>>>>>>> 905084b8 (idk2)
 
   public function new(amount:Float = 1.0)
   {

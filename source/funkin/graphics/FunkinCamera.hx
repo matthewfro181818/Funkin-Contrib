@@ -27,6 +27,7 @@ import openfl.filters.ShaderFilter;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -38,6 +39,10 @@ import openfl.filters.ShaderFilter;
 @:nullSafety
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+@:nullSafety
+>>>>>>> 905084b8 (idk2)
 @:access(openfl.display.DisplayObject)
 @:access(openfl.display.BitmapData)
 @:access(openfl.display3D.Context3D)
@@ -67,6 +72,7 @@ class FunkinCamera extends FlxCamera
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   @:nullSafety(Off)
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -78,6 +84,10 @@ class FunkinCamera extends FlxCamera
   @:nullSafety(Off)
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+  @:nullSafety(Off)
+>>>>>>> 905084b8 (idk2)
   public function new(id:String = 'unknown', x:Int = 0, y:Int = 0, width:Int = 0, height:Int = 0, zoom:Float = 0)
   {
     super(x, y, width, height, zoom);
@@ -85,6 +95,7 @@ class FunkinCamera extends FlxCamera
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     bgTexture = @:nullSafety(Off) pickTexture(width, height);
 =======
     bgTexture = pickTexture(width, height);
@@ -99,6 +110,11 @@ class FunkinCamera extends FlxCamera
 =======
     bgTexture = pickTexture(width, height);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    bgTexture = pickTexture(width, height);
+=======
+    bgTexture = @:nullSafety(Off) pickTexture(width, height);
+>>>>>>> 905084b8 (idk2)
     bgBitmap = FixedBitmapData.fromTexture(bgTexture);
     bgFrame = new FlxFrame(new FlxGraphic('', null));
     bgFrame.parent.bitmap = bgBitmap;
@@ -121,15 +137,22 @@ class FunkinCamera extends FlxCamera
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public function grabScreen(applyFilters:Bool, isolate:Bool = false):Null<BitmapData>
 ||||||| parent of 8a1f54ca (lol8)
   public function grabScreen(applyFilters:Bool, isolate:Bool = false):Null<BitmapData>
 =======
   public function grabScreen(applyFilters:Bool, isolate:Bool = false):BitmapData
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public function grabScreen(applyFilters:Bool, isolate:Bool = false):BitmapData
+=======
+  public function grabScreen(applyFilters:Bool, isolate:Bool = false):Null<BitmapData>
+>>>>>>> 905084b8 (idk2)
   {
     final texture = pickTexture(width, height);
     final bitmap = FixedBitmapData.fromTexture(texture);
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (bitmap != null)
     {
@@ -170,6 +193,16 @@ class FunkinCamera extends FlxCamera
     squashTo(bitmap, applyFilters, isolate);
     grabbed.push(bitmap);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    squashTo(bitmap, applyFilters, isolate);
+    grabbed.push(bitmap);
+=======
+    if (bitmap != null)
+    {
+      squashTo(bitmap, applyFilters, isolate);
+      grabbed.push(bitmap);
+    }
+>>>>>>> 905084b8 (idk2)
     return bitmap;
   }
 
@@ -219,6 +252,7 @@ class FunkinCamera extends FlxCamera
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       @:nullSafety(Off) // TODO: Remove this once openfl.display.Sprite has been null safed.
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -230,6 +264,10 @@ class FunkinCamera extends FlxCamera
       @:nullSafety(Off) // TODO: Remove this once openfl.display.Sprite has been null safed.
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+      @:nullSafety(Off) // TODO: Remove this once openfl.display.Sprite has been null safed.
+>>>>>>> 905084b8 (idk2)
       flashSprite.filters = null;
       filtersApplied = true;
     }
@@ -239,6 +277,7 @@ class FunkinCamera extends FlxCamera
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       @:nullSafety(Off)
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -250,6 +289,10 @@ class FunkinCamera extends FlxCamera
       @:nullSafety(Off)
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+      @:nullSafety(Off)
+>>>>>>> 905084b8 (idk2)
       flashSprite.filters = null;
       bitmap.draw(flashSprite, matrix);
       flashSprite.filters = tmp;
@@ -318,6 +361,7 @@ class FunkinCamera extends FlxCamera
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       @:nullSafety(Off) // I hope this doesn't cause issues
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -329,6 +373,10 @@ class FunkinCamera extends FlxCamera
       @:nullSafety(Off) // I hope this doesn't cause issues
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+      @:nullSafety(Off) // I hope this doesn't cause issues
+>>>>>>> 905084b8 (idk2)
       customBlendShader.sourceSwag = isolated;
       customBlendShader.updateViewInfo(FlxG.width, FlxG.height, this);
       applyFilter(customBlendFilter);
@@ -363,6 +411,7 @@ class FunkinCamera extends FlxCamera
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   function pickTexture(width:Int, height:Int):Null<TextureBase>
 =======
   function pickTexture(width:Int, height:Int):TextureBase
@@ -377,6 +426,11 @@ class FunkinCamera extends FlxCamera
 =======
   function pickTexture(width:Int, height:Int):TextureBase
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  function pickTexture(width:Int, height:Int):TextureBase
+=======
+  function pickTexture(width:Int, height:Int):Null<TextureBase>
+>>>>>>> 905084b8 (idk2)
   {
     // zero-sized textures will be problematic
     width = width < 1 ? 1 : width;
@@ -387,6 +441,7 @@ class FunkinCamera extends FlxCamera
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (res != null) BitmapDataUtil.resizeTexture(res, width, height);
       else
         trace('huh? why is this null? $texturePool');
@@ -407,6 +462,13 @@ class FunkinCamera extends FlxCamera
 =======
       BitmapDataUtil.resizeTexture(res, width, height);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      BitmapDataUtil.resizeTexture(res, width, height);
+=======
+      if (res != null) BitmapDataUtil.resizeTexture(res, width, height);
+      else
+        trace('huh? why is this null? $texturePool');
+>>>>>>> 905084b8 (idk2)
       return res;
     }
     return Lib.current.stage.context3D.createTexture(width, height, BGRA, true);

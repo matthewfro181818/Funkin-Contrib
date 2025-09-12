@@ -5,12 +5,18 @@ import flixel.tweens.FlxEase;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import funkin.data.song.SongData;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.data.song.SongData;
+=======
+>>>>>>> 905084b8 (idk2)
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import funkin.data.song.SongData;
@@ -31,6 +37,10 @@ import funkin.play.event.SongEvent;
 =======
 import funkin.play.event.SongEvent;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.play.event.SongEvent;
+=======
+>>>>>>> 905084b8 (idk2)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -216,6 +226,7 @@ class FocusCameraSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -227,6 +238,10 @@ class FocusCameraSongEvent extends SongEvent
         min: 0,
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+        min: 0,
+>>>>>>> 905084b8 (idk2)
         step: 0.5,
         type: SongEventFieldType.FLOAT,
         units: 'steps'
@@ -262,6 +277,7 @@ class FocusCameraSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           'Smoother Step In' => 'smootherStepIn',
           'Smoother Step Out' => 'smootherStepOut',
           'Smoother Step In/Out' => 'smootherStepInOut',
@@ -277,9 +293,16 @@ class FocusCameraSongEvent extends SongEvent
           'Smoother Step In/Out' => 'smootherStepInOut',
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+          'Smoother Step In' => 'smootherStepIn',
+          'Smoother Step Out' => 'smootherStepOut',
+          'Smoother Step In/Out' => 'smootherStepInOut',
+>>>>>>> 905084b8 (idk2)
           'Elastic In' => 'elasticIn',
           'Elastic Out' => 'elasticOut',
           'Elastic In/Out' => 'elasticInOut',
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           'Back In' => 'backIn',
@@ -320,6 +343,18 @@ class FocusCameraSongEvent extends SongEvent
           'Circ In/Out' => 'circInOut',
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+          'Back In' => 'backIn',
+          'Back Out' => 'backOut',
+          'Back In/Out' => 'backInOut',
+          'Bounce In' => 'bounceIn',
+          'Bounce Out' => 'bounceOut',
+          'Bounce In/Out' => 'bounceInOut',
+          'Circ In' => 'circIn',
+          'Circ Out' => 'circOut',
+          'Circ In/Out' => 'circInOut',
+>>>>>>> 905084b8 (idk2)
           'Instant (Ignores duration)' => 'INSTANT',
           'Classic (Ignores duration)' => 'CLASSIC'
         ]

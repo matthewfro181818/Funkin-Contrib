@@ -3,16 +3,22 @@ package funkin.play.event;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.tweens.FlxTween;
 import flixel.FlxCamera;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.tweens.FlxTween;
+import flixel.FlxCamera;
+=======
+>>>>>>> 905084b8 (idk2)
 import flixel.tweens.FlxEase;
 // Data from the chart
-import funkin.data.song.SongData;
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import flixel.tweens.FlxTween;
@@ -37,6 +43,10 @@ import funkin.play.event.SongEvent;
 =======
 import funkin.play.event.SongEvent;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.play.event.SongEvent;
+=======
+>>>>>>> 905084b8 (idk2)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -146,6 +156,7 @@ class ZoomCameraSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -157,6 +168,10 @@ class ZoomCameraSongEvent extends SongEvent
         min: 0,
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+        min: 0,
+>>>>>>> 905084b8 (idk2)
         step: 0.05,
         type: SongEventFieldType.FLOAT,
         units: 'x'
@@ -168,6 +183,7 @@ class ZoomCameraSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -179,6 +195,10 @@ class ZoomCameraSongEvent extends SongEvent
         min: 0,
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+        min: 0,
+>>>>>>> 905084b8 (idk2)
         step: 0.5,
         type: SongEventFieldType.FLOAT,
         units: 'steps'
@@ -222,6 +242,7 @@ class ZoomCameraSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           'Smoother Step In' => 'smootherStepIn',
           'Smoother Step Out' => 'smootherStepOut',
           'Smoother Step In/Out' => 'smootherStepInOut',
@@ -231,8 +252,15 @@ class ZoomCameraSongEvent extends SongEvent
           'Smoother Step In/Out' => 'smootherStepInOut',
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+          'Smoother Step In' => 'smootherStepIn',
+          'Smoother Step Out' => 'smootherStepOut',
+          'Smoother Step In/Out' => 'smootherStepInOut',
+>>>>>>> 905084b8 (idk2)
           'Elastic In' => 'elasticIn',
           'Elastic Out' => 'elasticOut',
+<<<<<<< HEAD
 <<<<<<< HEAD
           'Elastic In/Out' => 'elasticInOut',
           'Back In' => 'backIn',
@@ -284,6 +312,20 @@ class ZoomCameraSongEvent extends SongEvent
 =======
           'Elastic In/Out' => 'elasticInOut'
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+          'Elastic In/Out' => 'elasticInOut'
+=======
+          'Elastic In/Out' => 'elasticInOut',
+          'Back In' => 'backIn',
+          'Back Out' => 'backOut',
+          'Back In/Out' => 'backInOut',
+          'Bounce In' => 'bounceIn',
+          'Bounce Out' => 'bounceOut',
+          'Bounce In/Out' => 'bounceInOut',
+          'Circ In' => 'circIn',
+          'Circ Out' => 'circOut',
+          'Circ In/Out' => 'circInOut'
+>>>>>>> 905084b8 (idk2)
         ]
       }
     ]);

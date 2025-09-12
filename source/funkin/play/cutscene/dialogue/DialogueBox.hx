@@ -8,6 +8,7 @@ import funkin.graphics.FunkinSprite;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.addons.text.FlxTypeText;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -19,6 +20,10 @@ import flixel.addons.text.FlxTypeText;
 =======
 import flixel.addons.text.FlxTypeText;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.addons.text.FlxTypeText;
+=======
+>>>>>>> 905084b8 (idk2)
 import funkin.util.assets.FlxAnimationUtil;
 import funkin.modding.events.ScriptEvent;
 import funkin.audio.FunkinSound;
@@ -27,6 +32,7 @@ import flixel.util.FlxColor;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.ui.FullScreenScaleMode;
 import funkin.data.dialogue.DialogueBoxData;
 import funkin.data.dialogue.DialogueBoxRegistry;
@@ -38,9 +44,18 @@ import funkin.data.dialogue.DialogueBoxRegistry;
 import funkin.data.dialogue.dialoguebox.DialogueBoxData;
 import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.data.dialogue.dialoguebox.DialogueBoxData;
+import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
+=======
+import funkin.ui.FullScreenScaleMode;
+import funkin.data.dialogue.DialogueBoxData;
+import funkin.data.dialogue.DialogueBoxRegistry;
+>>>>>>> 905084b8 (idk2)
 
 class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass implements IRegistryEntry<DialogueBoxData>
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import funkin.data.dialogue.dialoguebox.DialogueBoxData;
@@ -70,6 +85,11 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
   public final id:String;
 
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public final id:String;
+
+=======
+>>>>>>> 905084b8 (idk2)
   public var dialogueBoxName(get, never):String;
 
   function get_dialogueBoxName():String
@@ -80,6 +100,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   public final _data:DialogueBoxData;
 
@@ -94,6 +115,11 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
   public final _data:DialogueBoxData;
 
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public final _data:DialogueBoxData;
+
+=======
+>>>>>>> 905084b8 (idk2)
   /**
    * Offset the speaker's sprite by this much when playing each animation.
    */
@@ -136,6 +162,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -165,6 +192,16 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      this.x *= fullscreenScale;
+      this.y = this.y * fullscreenScale + (-100 * fullscreenScale);
+    }
+
+>>>>>>> 905084b8 (idk2)
     return globalOffsets = value;
   }
 
@@ -172,6 +209,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   var textDisplay:FunkinTypeText;
 =======
   var textDisplay:FlxTypeText;
@@ -186,6 +224,11 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 =======
   var textDisplay:FlxTypeText;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  var textDisplay:FlxTypeText;
+=======
+  var textDisplay:FunkinTypeText;
+>>>>>>> 905084b8 (idk2)
 
   var text(default, set):String;
 
@@ -211,6 +254,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * A value used for scaling object's parameters on mobile.
    */
@@ -255,6 +299,21 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 =======
   public function new(id:String)
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public function new(id:String)
+=======
+  /**
+   * A value used for scaling object's parameters on mobile.
+   */
+  var fullscreenScale(get, never):Float;
+
+  function get_fullscreenScale():Float
+  {
+    return FullScreenScaleMode.wideScale.x - 0.05;
+  }
+
+  public function new(id:String, ?params:Dynamic)
+>>>>>>> 905084b8 (idk2)
   {
     super();
     this.id = id;
@@ -357,6 +416,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (FullScreenScaleMode.wideScale.x != 1)
     {
@@ -383,6 +443,15 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      scale *= fullscreenScale;
+    }
+
+>>>>>>> 905084b8 (idk2)
     this.boxSprite.scale.x = scale;
     this.boxSprite.scale.y = scale;
     this.boxSprite.updateHitbox();
@@ -440,6 +509,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     boxSprite.animation.onFrameChange.add(this.onAnimationFrame);
     boxSprite.animation.onFinish.add(this.onAnimationFinished);
 =======
@@ -460,6 +530,13 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
     boxSprite.animation.callback = this.onAnimationFrame;
     boxSprite.animation.finishCallback = this.onAnimationFinished;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    boxSprite.animation.callback = this.onAnimationFrame;
+    boxSprite.animation.finishCallback = this.onAnimationFinished;
+=======
+    boxSprite.animation.onFrameChange.add(this.onAnimationFrame);
+    boxSprite.animation.onFinish.add(this.onAnimationFinished);
+>>>>>>> 905084b8 (idk2)
   }
 
   /**
@@ -491,6 +568,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     textDisplay = new FunkinTypeText(0, 0, 300, '', 32);
 =======
     textDisplay = new FlxTypeText(0, 0, 300, '', 32);
@@ -505,6 +583,11 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 =======
     textDisplay = new FlxTypeText(0, 0, 300, '', 32);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    textDisplay = new FlxTypeText(0, 0, 300, '', 32);
+=======
+    textDisplay = new FunkinTypeText(0, 0, 300, '', 32);
+>>>>>>> 905084b8 (idk2)
     textDisplay.fieldWidth = _data.text.width;
     textDisplay.setFormat(_data.text.fontFamily, _data.text.size, FlxColor.fromString(_data.text.color), LEFT, SHADOW,
       FlxColor.fromString(_data.text.shadowColor ?? '#00000000'), false);
@@ -520,6 +603,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (FullScreenScaleMode.wideScale.x != 1)
     {
       textDisplay.fieldWidth *= fullscreenScale;
@@ -549,6 +633,16 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+    if (FullScreenScaleMode.wideScale.x != 1)
+    {
+      textDisplay.fieldWidth *= fullscreenScale;
+      textDisplay.x *= fullscreenScale;
+      textDisplay.y *= fullscreenScale;
+    }
+
+>>>>>>> 905084b8 (idk2)
     add(textDisplay);
   }
 
@@ -681,6 +775,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   public override function toString():String
@@ -719,4 +814,17 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
     return DialogueBoxRegistry.instance.parseEntryDataWithMigration(id, DialogueBoxRegistry.instance.fetchEntryVersion(id));
   }
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+
+  public override function toString():String
+  {
+    return 'DialogueBox($id)';
+  }
+
+  static function _fetchData(id:String):Null<DialogueBoxData>
+  {
+    return DialogueBoxRegistry.instance.parseEntryDataWithMigration(id, DialogueBoxRegistry.instance.fetchEntryVersion(id));
+  }
+=======
+>>>>>>> 905084b8 (idk2)
 }

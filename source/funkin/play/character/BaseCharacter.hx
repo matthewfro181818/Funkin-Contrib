@@ -5,6 +5,7 @@ import funkin.modding.events.ScriptEvent;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterDataParser;
 import funkin.play.character.CharacterData.CharacterRenderType;
 =======
@@ -25,6 +26,13 @@ import funkin.play.character.CharacterData.CharacterRenderType;
 import funkin.data.character.CharacterRegistry;
 import funkin.data.character.CharacterData;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.data.character.CharacterRegistry;
+import funkin.data.character.CharacterData;
+=======
+import funkin.play.character.CharacterData.CharacterDataParser;
+import funkin.play.character.CharacterData.CharacterRenderType;
+>>>>>>> 905084b8 (idk2)
 import funkin.play.stage.Bopper;
 import funkin.play.notes.NoteDirection;
 
@@ -172,6 +180,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     super(CharacterDataParser.DEFAULT_DANCEEVERY);
 
 =======
@@ -189,6 +198,12 @@ class BaseCharacter extends Bopper
 =======
     super(CharacterRegistry.DEFAULT_DANCEEVERY);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    super(CharacterRegistry.DEFAULT_DANCEEVERY);
+=======
+    super(CharacterDataParser.DEFAULT_DANCEEVERY);
+
+>>>>>>> 905084b8 (idk2)
     this.characterId = id;
 
     ignoreExclusionPref = ["sing"];
@@ -196,6 +211,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     _data = CharacterDataParser.fetchCharacterData(this.characterId);
 =======
     _data = CharacterRegistry.fetchCharacterData(this.characterId);
@@ -210,6 +226,11 @@ class BaseCharacter extends Bopper
 =======
     _data = CharacterRegistry.fetchCharacterData(this.characterId);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    _data = CharacterRegistry.fetchCharacterData(this.characterId);
+=======
+    _data = CharacterDataParser.fetchCharacterData(this.characterId);
+>>>>>>> 905084b8 (idk2)
     if (_data == null)
     {
       throw 'Could not find character data for characterId: $characterId';
@@ -611,6 +632,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // If the note is from the same strumline, play the miss animation.
 =======
       // If the note is from the same strumline, play the sing animation.
@@ -625,6 +647,11 @@ class BaseCharacter extends Bopper
 =======
       // If the note is from the same strumline, play the sing animation.
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      // If the note is from the same strumline, play the sing animation.
+=======
+      // If the note is from the same strumline, play the miss animation.
+>>>>>>> 905084b8 (idk2)
       this.playSingAnimation(event.note.noteData.getDirection(), true);
     }
     else if (!event.note.noteData.getMustHitNote() && characterType == DAD)
@@ -632,6 +659,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // If the note is from the same strumline, play the miss animation.
 =======
       // If the note is from the same strumline, play the sing animation.
@@ -646,6 +674,11 @@ class BaseCharacter extends Bopper
 =======
       // If the note is from the same strumline, play the sing animation.
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      // If the note is from the same strumline, play the sing animation.
+=======
+      // If the note is from the same strumline, play the miss animation.
+>>>>>>> 905084b8 (idk2)
       this.playSingAnimation(event.note.noteData.getDirection(), true);
     }
     else if (event.note.noteData.getMustHitNote() && characterType == GF)
@@ -653,6 +686,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       playComboDropAnimation(event.comboCount);
     }
   }
@@ -736,6 +770,34 @@ class BaseCharacter extends Bopper
 =======
       playComboDropAnimation(Highscore.tallies.combo);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      playComboDropAnimation(Highscore.tallies.combo);
+=======
+      playComboDropAnimation(event.comboCount);
+    }
+  }
+
+  public override function onNoteHoldDrop(event:HoldNoteScriptEvent)
+  {
+    super.onNoteHoldDrop(event);
+
+    // If another script cancelled the event, don't do anything.
+    if (event.eventCanceled) return;
+
+    if (event.holdNote.noteData.getMustHitNote() && characterType == BF)
+    {
+      // If the note is from the same strumline, play the miss animation.
+      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
+    }
+    else if (!event.holdNote.noteData.getMustHitNote() && characterType == DAD)
+    {
+      // If the note is from the same strumline, play the miss animation.
+      this.playSingAnimation(event.holdNote.noteData.getDirection(), true);
+    }
+    else if (event.holdNote.noteData.getMustHitNote() && event.isComboBreak && characterType == GF)
+    {
+      playComboDropAnimation(event.comboCount);
+>>>>>>> 905084b8 (idk2)
     }
   }
 
@@ -819,6 +881,7 @@ class BaseCharacter extends Bopper
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   public function getDeathQuote():Null<String>
   {
@@ -842,6 +905,14 @@ class BaseCharacter extends Bopper
   }
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+
+  public function getDeathQuote():Null<String>
+  {
+    return null;
+  }
+>>>>>>> 905084b8 (idk2)
 }
 
 /**

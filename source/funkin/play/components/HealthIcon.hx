@@ -3,14 +3,20 @@ package funkin.play.components;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData;
 ||||||| parent of 8a1f54ca (lol8)
 import funkin.play.character.CharacterData;
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+import funkin.play.character.CharacterData;
+>>>>>>> 905084b8 (idk2)
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
+<<<<<<< HEAD
 <<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterDataParser;
 =======
@@ -34,6 +40,11 @@ import funkin.play.character.CharacterData.CharacterDataParser;
 =======
 import funkin.data.character.CharacterData;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import funkin.data.character.CharacterData;
+=======
+import funkin.play.character.CharacterData.CharacterDataParser;
+>>>>>>> 905084b8 (idk2)
 import funkin.graphics.FunkinSprite;
 import funkin.util.MathUtil;
 
@@ -147,6 +158,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var iconOffset:FlxPoint = FlxPoint.get();
 
 =======
@@ -161,6 +173,11 @@ class HealthIcon extends FunkinSprite
 
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+  public var iconOffset:FlxPoint = FlxPoint.get();
+
+>>>>>>> 905084b8 (idk2)
   public function new(char:Null<String>, playerId:Int = 0)
   {
     super(0, 0);
@@ -200,6 +217,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     final playState:Null<PlayState> = PlayState.instance;
     if (playState == null || playState.currentStage == null) return;
 ||||||| parent of 8a1f54ca (lol8)
@@ -207,8 +225,14 @@ class HealthIcon extends FunkinSprite
     if (playState == null || playState.currentStage == null) return;
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+    final playState:Null<PlayState> = PlayState.instance;
+    if (playState == null || playState.currentStage == null) return;
+>>>>>>> 905084b8 (idk2)
     if (characterId == 'bf-old')
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       isPixel = playState.currentStage.getBoyfriend()?.isPixel ?? false;
       playState.currentStage.getBoyfriend()?.initHealthIcon(false);
@@ -238,6 +262,13 @@ class HealthIcon extends FunkinSprite
       isPixel = PlayState.instance.currentStage.getBoyfriend().isPixel;
       PlayState.instance.currentStage.getBoyfriend().initHealthIcon(false);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      isPixel = PlayState.instance.currentStage.getBoyfriend().isPixel;
+      PlayState.instance.currentStage.getBoyfriend().initHealthIcon(false);
+=======
+      isPixel = playState.currentStage.getBoyfriend()?.isPixel ?? false;
+      playState.currentStage.getBoyfriend()?.initHealthIcon(false);
+>>>>>>> 905084b8 (idk2)
     }
     else
     {
@@ -266,6 +297,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       this.iconOffset.set();
 =======
       this.offset.x = 0.0;
@@ -283,6 +315,12 @@ class HealthIcon extends FunkinSprite
       this.offset.x = 0.0;
       this.offset.y = 0.0;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      this.offset.x = 0.0;
+      this.offset.y = 0.0;
+=======
+      this.iconOffset.set();
+>>>>>>> 905084b8 (idk2)
       this.flipX = false;
     }
     else
@@ -296,6 +334,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (data.offsets != null && data.offsets.length == 2)
       {
         this.iconOffset.set(data.offsets[0], data.offsets[1]);
@@ -337,6 +376,20 @@ class HealthIcon extends FunkinSprite
       this.offset.x = (data.offsets != null) ? data.offsets[0] : 0.0;
       this.offset.y = (data.offsets != null) ? data.offsets[1] : 0.0;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      this.offset.x = (data.offsets != null) ? data.offsets[0] : 0.0;
+      this.offset.y = (data.offsets != null) ? data.offsets[1] : 0.0;
+=======
+      if (data.offsets != null && data.offsets.length == 2)
+      {
+        this.iconOffset.set(data.offsets[0], data.offsets[1]);
+      }
+      else
+      {
+        this.iconOffset.set(0, 0);
+      }
+
+>>>>>>> 905084b8 (idk2)
       this.flipX = data.flipX ?? false; // Face the OTHER way by default, since that is more common.
     }
   }
@@ -356,6 +409,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       this.angle = MathUtil.smoothLerpPrecision(this.angle, 0, elapsed, 0.512);
 =======
       this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
@@ -370,6 +424,11 @@ class HealthIcon extends FunkinSprite
 =======
       this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
+=======
+      this.angle = MathUtil.smoothLerpPrecision(this.angle, 0, elapsed, 0.512);
+>>>>>>> 905084b8 (idk2)
     }
 
     this.updatePosition();
@@ -390,6 +449,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.width, HEALTH_ICON_SIZE * this.size.x, FlxG.elapsed, 0.512));
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
@@ -404,6 +464,11 @@ class HealthIcon extends FunkinSprite
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
+=======
+      var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.width, HEALTH_ICON_SIZE * this.size.x, FlxG.elapsed, 0.512));
+>>>>>>> 905084b8 (idk2)
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.x);
 
@@ -414,6 +479,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.height, HEALTH_ICON_SIZE * this.size.y, FlxG.elapsed, 0.512));
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
@@ -428,6 +494,11 @@ class HealthIcon extends FunkinSprite
 =======
       var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
+=======
+      var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.height, HEALTH_ICON_SIZE * this.size.y, FlxG.elapsed, 0.512));
+>>>>>>> 905084b8 (idk2)
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.y);
 
@@ -483,6 +554,7 @@ class HealthIcon extends FunkinSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
       offset += iconOffset;
 =======
@@ -497,6 +569,11 @@ class HealthIcon extends FunkinSprite
       offset += iconOffset;
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+
+      offset += iconOffset;
+>>>>>>> 905084b8 (idk2)
     }
   }
 

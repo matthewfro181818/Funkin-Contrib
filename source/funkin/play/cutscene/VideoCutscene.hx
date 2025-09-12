@@ -9,13 +9,19 @@ import flixel.util.FlxSignal;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.util.FlxTimer;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.util.FlxTimer;
+=======
+>>>>>>> 905084b8 (idk2)
 #if html5
 import funkin.graphics.video.FlxVideo;
 #end
+<<<<<<< HEAD
 <<<<<<< HEAD
 #if hxvlc
 =======
@@ -40,6 +46,11 @@ import funkin.graphics.video.FlxVideo;
 =======
 #if hxCodec
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+#if hxCodec
+=======
+#if hxvlc
+>>>>>>> 905084b8 (idk2)
 import funkin.graphics.video.FunkinVideoSprite;
 #end
 
@@ -57,6 +68,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if hxvlc
 =======
   #if hxCodec
@@ -71,6 +83,11 @@ class VideoCutscene
 =======
   #if hxCodec
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  #if hxCodec
+=======
+  #if hxvlc
+>>>>>>> 905084b8 (idk2)
   static var vid:FunkinVideoSprite;
   #end
 
@@ -115,6 +132,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // funkin.util.WindowUtil.showError('Error playing video', 'Video file does not exist: ${filePath}');
 =======
       // lime.app.Application.current.window.alert('Video file does not exist: ${filePath}', 'Error playing video');
@@ -129,6 +147,11 @@ class VideoCutscene
 =======
       // lime.app.Application.current.window.alert('Video file does not exist: ${filePath}', 'Error playing video');
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      // lime.app.Application.current.window.alert('Video file does not exist: ${filePath}', 'Error playing video');
+=======
+      // funkin.util.WindowUtil.showError('Error playing video', 'Video file does not exist: ${filePath}');
+>>>>>>> 905084b8 (idk2)
       // return;
 
       // TODO: After moving videos to their own library,
@@ -154,6 +177,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if mobile
     if (cutsceneType == ENDING)
     {
@@ -171,8 +195,19 @@ class VideoCutscene
 
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+    #if mobile
+    if (cutsceneType == ENDING)
+    {
+      PlayState.instance.togglePauseButton();
+    }
+    #end
+
+>>>>>>> 905084b8 (idk2)
     #if html5
     playVideoHTML5(rawFilePath);
+<<<<<<< HEAD
 <<<<<<< HEAD
     #elseif hxvlc
     playVideoNative(filePath);
@@ -207,6 +242,13 @@ class VideoCutscene
     #elseif hxCodec
     playVideoNative(rawFilePath);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    #elseif hxCodec
+    playVideoNative(rawFilePath);
+=======
+    #elseif hxvlc
+    playVideoNative(filePath);
+>>>>>>> 905084b8 (idk2)
     #else
     throw "No video support for this platform!";
     #end
@@ -217,6 +259,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if (html5 || hxvlc)
 =======
     #if (html5 || hxCodec)
@@ -231,6 +274,11 @@ class VideoCutscene
 =======
     #if (html5 || hxCodec)
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    #if (html5 || hxCodec)
+=======
+    #if (html5 || hxvlc)
+>>>>>>> 905084b8 (idk2)
     return vid != null;
     #else
     return false;
@@ -266,6 +314,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if hxvlc
 =======
   #if hxCodec
@@ -280,6 +329,11 @@ class VideoCutscene
 =======
   #if hxCodec
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  #if hxCodec
+=======
+  #if hxvlc
+>>>>>>> 905084b8 (idk2)
   static function playVideoNative(filePath:String):Void
   {
     // Video displays OVER the FlxState.
@@ -291,6 +345,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       vid.active = false;
       vid.bitmap.onEncounteredError.add(function(msg:String):Void {
         trace('[VLC] Encountered an error: $msg');
@@ -306,7 +361,17 @@ class VideoCutscene
       });
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+      vid.active = false;
+      vid.bitmap.onEncounteredError.add(function(msg:String):Void {
+        trace('[VLC] Encountered an error: $msg');
+
+        finishVideo(0.5);
+      });
+>>>>>>> 905084b8 (idk2)
       vid.bitmap.onEndReached.add(finishVideo.bind(0.5));
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 ||||||| parent of b150c43d (lol4)
@@ -330,12 +395,17 @@ class VideoCutscene
 =======
       vid.autoPause = FlxG.autoPause;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      vid.autoPause = FlxG.autoPause;
+=======
+>>>>>>> 905084b8 (idk2)
 
       vid.cameras = [PlayState.instance.camCutscene];
 
       PlayState.instance.add(vid);
 
       PlayState.instance.refresh();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -347,11 +417,19 @@ class VideoCutscene
 =======
       vid.play(filePath, false);
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      vid.play(filePath, false);
+=======
+
+      if (vid.load(filePath)) vid.play();
+>>>>>>> 905084b8 (idk2)
 
       // Resize videos bigger or smaller than the screen.
-      vid.bitmap.onTextureSetup.add(() -> {
-        vid.setGraphicSize(FlxG.width, FlxG.height);
+      vid.bitmap.onFormatSetup.add(function():Void {
+        if (vid == null) return;
+        vid.setGraphicSize(FlxG.initialWidth, FlxG.initialHeight);
         vid.updateHitbox();
+<<<<<<< HEAD
 <<<<<<< HEAD
         vid.screenCenter();
 =======
@@ -384,6 +462,12 @@ class VideoCutscene
         vid.x = 0;
         vid.y = 0;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+        vid.x = 0;
+        vid.y = 0;
+=======
+        vid.screenCenter();
+>>>>>>> 905084b8 (idk2)
         // vid.scale.set(0.5, 0.5);
       });
 
@@ -399,6 +483,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public static function restartVideo():Void
 =======
   public static function restartVideo(resume:Bool = true):Void
@@ -413,6 +498,11 @@ class VideoCutscene
 =======
   public static function restartVideo(resume:Bool = true):Void
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public static function restartVideo(resume:Bool = true):Void
+=======
+  public static function restartVideo():Void
+>>>>>>> 905084b8 (idk2)
   {
     #if html5
     if (vid != null)
@@ -425,16 +515,22 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 ||||||| parent of 8a1f54ca (lol8)
     #if hxvlc
 =======
     #if hxCodec
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> 905084b8 (idk2)
     if (vid != null)
     {
-      // Seek to the start of the video.
       vid.bitmap.time = 0;
+<<<<<<< HEAD
 <<<<<<< HEAD
       vid.resume();
 =======
@@ -475,6 +571,16 @@ class VideoCutscene
       }
 
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+      if (resume)
+      {
+        // Resume the video if it was paused.
+        vid.resume();
+      }
+
+=======
+      vid.resume();
+>>>>>>> 905084b8 (idk2)
       onVideoRestarted.dispatch();
     }
     #end
@@ -493,6 +599,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
@@ -507,6 +614,11 @@ class VideoCutscene
 =======
     #if hxCodec
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> 905084b8 (idk2)
     if (vid != null)
     {
       vid.pause();
@@ -528,6 +640,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
@@ -542,6 +655,11 @@ class VideoCutscene
 =======
     #if hxCodec
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> 905084b8 (idk2)
     if (vid != null)
     {
       vid.visible = false;
@@ -563,6 +681,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
@@ -577,6 +696,11 @@ class VideoCutscene
 =======
     #if hxCodec
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> 905084b8 (idk2)
     if (vid != null)
     {
       vid.visible = true;
@@ -598,6 +722,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
@@ -612,6 +737,11 @@ class VideoCutscene
 =======
     #if hxCodec
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> 905084b8 (idk2)
     if (vid != null)
     {
       vid.resume();
@@ -641,6 +771,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if hxvlc
 =======
     #if hxCodec
@@ -655,6 +786,11 @@ class VideoCutscene
 =======
     #if hxCodec
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    #if hxCodec
+=======
+    #if hxvlc
+>>>>>>> 905084b8 (idk2)
     if (vid != null)
     {
       vid.stop();
@@ -665,6 +801,7 @@ class VideoCutscene
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if (html5 || hxvlc)
 =======
     #if (html5 || hxCodec)
@@ -679,6 +816,11 @@ class VideoCutscene
 =======
     #if (html5 || hxCodec)
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    #if (html5 || hxCodec)
+=======
+    #if (html5 || hxvlc)
+>>>>>>> 905084b8 (idk2)
     vid.destroy();
     vid = null;
     #end

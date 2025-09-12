@@ -121,7 +121,12 @@ class LegacyNote
 
   public inline function getKind():String
   {
-    return this.alt ? 'alt' : 'normal';
+    return this.alt ? 'alt' : '';
+  }
+
+  public function toString():String
+  {
+    return 'LegacyNote(${this.time}, ${this.data}, ${this.length}, ${this.alt})';
   }
 }
 ||||||| parent of 76e5592a (Add files via upload)

@@ -4,6 +4,7 @@ import flixel.FlxSprite;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.PlayState.PlayStateParams;
 =======
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -21,6 +22,12 @@ import funkin.play.PlayState.PlayStateParams;
 import flixel.graphics.frames.FlxAtlasFrames;
 import funkin.play.PlayState;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+import flixel.graphics.frames.FlxAtlasFrames;
+import funkin.play.PlayState;
+=======
+import funkin.play.PlayState.PlayStateParams;
+>>>>>>> 905084b8 (idk2)
 import funkin.graphics.FunkinSprite;
 import funkin.ui.MusicBeatState;
 import flixel.addons.transition.FlxTransitionableState;
@@ -28,6 +35,7 @@ import funkin.ui.mainmenu.MainMenuState;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if mobile
 import funkin.util.TouchUtil;
 import funkin.util.SwipeUtil;
@@ -48,6 +56,13 @@ import funkin.util.SwipeUtil;
 #end
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+#if mobile
+import funkin.util.TouchUtil;
+import funkin.util.SwipeUtil;
+#end
+>>>>>>> 905084b8 (idk2)
 
 class GitarooPause extends MusicBeatState
 {
@@ -59,13 +74,20 @@ class GitarooPause extends MusicBeatState
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   var previousParams:Null<PlayStateParams>;
 ||||||| parent of 8a1f54ca (lol8)
   var previousParams:Null<PlayStateParams>;
 =======
   var previousParams:PlayStateParams;
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  var previousParams:PlayStateParams;
+=======
+  var previousParams:Null<PlayStateParams>;
+>>>>>>> 905084b8 (idk2)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   public function new(?previousParams:PlayStateParams):Void
 =======
@@ -89,6 +111,11 @@ class GitarooPause extends MusicBeatState
 =======
   public function new(previousParams:PlayStateParams):Void
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+  public function new(previousParams:PlayStateParams):Void
+=======
+  public function new(?previousParams:PlayStateParams):Void
+>>>>>>> 905084b8 (idk2)
   {
     super();
 
@@ -107,6 +134,7 @@ class GitarooPause extends MusicBeatState
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     bg.setGraphicSize(Std.int(FlxG.width));
     bg.updateHitbox();
     bg.screenCenter();
@@ -124,6 +152,12 @@ class GitarooPause extends MusicBeatState
     bg.screenCenter();
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+    bg.setGraphicSize(Std.int(FlxG.width));
+    bg.updateHitbox();
+    bg.screenCenter();
+>>>>>>> 905084b8 (idk2)
     add(bg);
 
     var bf:FunkinSprite = FunkinSprite.createSparrow(0, 30, 'pauseAlt/bfLol');
@@ -132,14 +166,21 @@ class GitarooPause extends MusicBeatState
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     bf.screenCenter(X);
 ||||||| parent of 8a1f54ca (lol8)
     bf.screenCenter(X);
 =======
 >>>>>>> 8a1f54ca (lol8)
     add(bf);
+||||||| parent of 905084b8 (idk2)
+    add(bf);
+=======
+>>>>>>> 905084b8 (idk2)
     bf.screenCenter(X);
+    add(bf);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     replayButton = FunkinSprite.createSparrow(FlxG.width * 0.25, FlxG.height * 0.7, 'pauseAlt/pauseUI');
 =======
@@ -164,6 +205,11 @@ class GitarooPause extends MusicBeatState
 =======
     replayButton = FunkinSprite.createSparrow(FlxG.width * 0.28, FlxG.height * 0.7, 'pauseAlt/pauseUI');
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    replayButton = FunkinSprite.createSparrow(FlxG.width * 0.28, FlxG.height * 0.7, 'pauseAlt/pauseUI');
+=======
+    replayButton = FunkinSprite.createSparrow(FlxG.width * 0.25, FlxG.height * 0.7, 'pauseAlt/pauseUI');
+>>>>>>> 905084b8 (idk2)
     replayButton.animation.addByPrefix('selected', 'bluereplay', 0, false);
     replayButton.animation.appendByPrefix('selected', 'yellowreplay');
     replayButton.animation.play('selected');
@@ -183,6 +229,7 @@ class GitarooPause extends MusicBeatState
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if mobile
   function checkSelectionPress():Bool
   {
@@ -202,10 +249,22 @@ class GitarooPause extends MusicBeatState
 
 =======
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+=======
+  #if mobile
+  function checkSelectionPress():Bool
+  {
+    var buttonAcceptCheck:Bool = replaySelect ? TouchUtil.pressAction(replayButton) : TouchUtil.pressAction(cancelButton);
+    return buttonAcceptCheck && !SwipeUtil.swipeAny;
+  }
+  #end
+
+>>>>>>> 905084b8 (idk2)
   override function update(elapsed:Float):Void
   {
-    if (controls.UI_LEFT_P || controls.UI_RIGHT_P) changeThing();
+    if (controls.UI_LEFT_P || controls.UI_RIGHT_P #if mobile || SwipeUtil.justSwipedLeft || SwipeUtil.justSwipedRight #end) changeThing();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (controls.ACCEPT #if mobile || checkSelectionPress() #end)
 =======
@@ -237,6 +296,11 @@ class GitarooPause extends MusicBeatState
 =======
     if (controls.ACCEPT)
 >>>>>>> 8a1f54ca (lol8)
+||||||| parent of 905084b8 (idk2)
+    if (controls.ACCEPT)
+=======
+    if (controls.ACCEPT #if mobile || checkSelectionPress() #end)
+>>>>>>> 905084b8 (idk2)
     {
       if (replaySelect)
       {
