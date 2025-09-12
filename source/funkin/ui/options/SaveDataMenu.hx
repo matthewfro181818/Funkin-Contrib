@@ -4,10 +4,12 @@ package funkin.ui.options;
 import funkin.api.newgrounds.NewgroundsClient;
 #end
 import funkin.save.Save;
+import funkin.ui.options.OptionsMenuPage; // ✅ New import
 
-class SaveDataMenu extends Page<OptionsState.OptionsMenuPageName>
+class SaveDataMenu extends Page<OptionsMenuPage> // ✅ Updated generic type
 {
   var items:TextMenuList;
+  var prompt:Prompt;
 
   public function new()
   {
@@ -23,8 +25,7 @@ class SaveDataMenu extends Page<OptionsState.OptionsMenuPageName>
       createItem("LOAD FROM NG", function() {
         openConfirmPrompt("This will overwrite
         \nALL your save data.
-        \nAre you sure?
-      ", "Overwrite", function() {
+        \nAre you sure?", "Overwrite", function() {
           Save.loadFromNewgrounds(function() {
             FlxG.switchState(() -> new funkin.InitState());
           });
@@ -72,8 +73,6 @@ class SaveDataMenu extends Page<OptionsState.OptionsMenuPageName>
     return super.set_enabled(value);
   }
 
-  var prompt:Prompt;
-
   function openConfirmPrompt(text:String, yesText:String, onYes:Void->Void, ?groupToOpenOn:Null<flixel.group.FlxGroup>):Void
   {
     if (prompt != null) return;
@@ -86,30 +85,30 @@ class SaveDataMenu extends Page<OptionsState.OptionsMenuPageName>
 
     prompt.onYes = function() {
       onYes();
-
-      if (prompt != null)
-      {
-        prompt.close();
-        prompt.destroy();
-        prompt = null;
-      }
+      cleanupPrompt();
     };
 
     prompt.onNo = function() {
+      cleanupPrompt();
+    }
+  }
+
+  function cleanupPrompt():Void
+  {
+    if (prompt != null)
+    {
       prompt.close();
       prompt.destroy();
       prompt = null;
     }
   }
+
   public function openSaveDataPrompt()
   {
     openConfirmPrompt("This will delete
         \nALL your save data.
-        \nAre you sure?
-      ", "Delete", function() {
-      // Clear the save data.
+        \nAre you sure?", "Delete", function() {
       Save.clearData();
-
       FlxG.switchState(() -> new funkin.InitState());
     });
   }
