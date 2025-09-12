@@ -2,7 +2,7 @@ package funkin.ui.debug.char.components.wizard;
 
 import haxe.io.Path;
 import haxe.ui.containers.HBox;
-import haxe.ui.containers.dialogs.FileDialogExtensionInfo; // ✅ fixed path
+import haxe.ui.containers.dialogs.Dialogs.FileDialogExtensionInfo; // ✅ fixed path
 import haxe.ui.components.Button;
 import haxe.ui.components.TextField;
 import funkin.ui.debug.char.handlers.CharCreatorStartupWizard;
