@@ -3,22 +3,18 @@ package funkin.data.character;
 import funkin.data.animation.AnimationData;
 import funkin.data.character.CharacterData;
 import funkin.data.character.migrator.CharacterData_v1_0_0;
-
 import funkin.modding.events.ScriptEvent;
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.BaseCharacter;
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.character.PackerCharacter;
-import funkin.play.character.SparrowCharacter;
-
-// Scripted variants are nested under ScriptedCharacter
+import funkin.play.character.SparrowCharacter;r
 import funkin.play.character.ScriptedCharacter.ScriptedAnimateAtlasCharacter;
 import funkin.play.character.ScriptedCharacter.ScriptedBaseCharacter;
 import funkin.play.character.ScriptedCharacter.ScriptedMultiSparrowCharacter;
 import funkin.play.character.ScriptedCharacter.ScriptedPackerCharacter;
 import funkin.play.character.ScriptedCharacter.ScriptedSparrowCharacter;
-
 import funkin.util.assets.DataAssets;
 import funkin.util.VersionUtil;
 
