@@ -9,7 +9,7 @@ import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.BaseCharacter;
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.character.PackerCharacter;
-import funkin.play.character.SparrowCharacter;r
+import funkin.play.character.SparrowCharacter;
 import funkin.play.character.ScriptedCharacter.ScriptedAnimateAtlasCharacter;
 import funkin.play.character.ScriptedCharacter.ScriptedBaseCharacter;
 import funkin.play.character.ScriptedCharacter.ScriptedMultiSparrowCharacter;
