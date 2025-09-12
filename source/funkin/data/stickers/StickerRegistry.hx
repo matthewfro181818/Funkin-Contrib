@@ -5,7 +5,7 @@ import funkin.ui.transition.stickers.StickerPack;
 import funkin.ui.transition.stickers.ScriptedStickerPack;
 
 @:nullSafety
-class StickerRegistry extends BaseRegistry<StickerPack, StickerData, StickerEntryParams>
+class StickerRegistry extends BaseRegistry<StickerPack, StickerData>
 {
   /**
    * The current version string for the sticker pack data format.
@@ -37,8 +37,6 @@ class StickerRegistry extends BaseRegistry<StickerPack, StickerData, StickerEntr
    */
   public function parseEntryData(id:String):Null<StickerData>
   {
-    // JsonParser does not take type parameters,
-    // otherwise this function would be in BaseRegistry.
     var parser:json2object.JsonParser<StickerData> = new json2object.JsonParser<StickerData>();
     parser.ignoreUnknownVariables = false;
 
@@ -60,8 +58,6 @@ class StickerRegistry extends BaseRegistry<StickerPack, StickerData, StickerEntr
 
   /**
    * Parse and validate the JSON data and produce the corresponding data object.
-   *
-   * NOTE: Must be implemented on the implementation class.
    * @param contents The JSON as a string.
    * @param fileName An optional file name for error reporting.
    * @return The parsed data object.
@@ -90,5 +86,3 @@ class StickerRegistry extends BaseRegistry<StickerPack, StickerData, StickerEntr
     return ScriptedStickerPack.listScriptClasses();
   }
 }
-
-typedef StickerEntryParams = {}
