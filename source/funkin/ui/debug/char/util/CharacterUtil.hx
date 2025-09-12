@@ -2,8 +2,13 @@ package funkin.ui.debug.char.util;
 
 import flixel.graphics.frames.FlxAtlasFrames;
 import openfl.display.BitmapData;
+
 import funkin.ui.debug.char.animate.CharSelectAtlasSprite;
+
+import funkin.data.animation.AnimationData;
 import funkin.data.character.CharacterData;
+import funkin.data.character.CharacterData.CharacterRenderType;
+import funkin.data.character.CharacterRegistry;
 
 @:access(funkin.ui.debug.char.CharCreatorCharacter)
 class CharacterUtil

@@ -3,8 +3,8 @@ package funkin.ui.debug.char.util;
 import haxe.io.Path;
 import haxe.ui.core.Screen;
 import haxe.ui.focus.FocusManager;
-import haxe.ui.notifications.NotificationType;
 import haxe.ui.notifications.NotificationManager;
+import haxe.ui.notifications.NotificationType;
 
 class CharCreatorUtil
 {

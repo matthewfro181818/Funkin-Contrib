@@ -1,20 +1,24 @@
 package funkin.ui.debug.char;
 
 import haxe.io.Path;
+
 import haxe.ui.core.Screen;
 import haxe.ui.backend.flixel.UIState;
 import haxe.ui.containers.dialogs.Dialog;
 import haxe.ui.containers.windows.WindowManager;
+
+import flixel.FlxCamera;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.addons.display.FlxGridOverlay;
+
 import funkin.audio.FunkinSound;
 import funkin.input.Cursor;
+
 import funkin.ui.debug.char.pages.*;
+import funkin.util.FileUtil;
 import funkin.util.MouseUtil;
 import funkin.util.WindowUtil;
-import funkin.util.FileUtil;
-import flixel.addons.display.FlxGridOverlay;
-import flixel.FlxCamera;
-import flixel.FlxSprite;
-import flixel.FlxG;
 
 /**
  * also made by kolo

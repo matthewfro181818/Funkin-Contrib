@@ -2,8 +2,8 @@ package funkin.ui.debug.char.components.dialogs.gameplay;
 
 import funkin.ui.debug.char.pages.CharCreatorGameplayPage.CharDialogType;
 import funkin.data.character.CharacterData.CharacterRenderType;
-import haxe.ui.containers.dialogs.CollapsibleDialog;
-import haxe.ui.data.ArrayDataSource;
+import haxe.ui.containers.dialogs.Dialog; // instead of CollapsibleDialog
+import haxe.ui.data.DataSource;           // safer than ArrayDataSource
 
 @:build(haxe.ui.macros.ComponentMacros.build("assets/exclude/data/ui/char-creator/dialogs/gameplay/anim-dialog.xml"))
 class AddAnimDialog extends DefaultPageDialog
