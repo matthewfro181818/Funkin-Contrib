@@ -210,7 +210,7 @@ class RegistryMacro
           }
           return parser.value;
         }
-      }).fields.filter((field));
+      }).fields.filter()
   }
 
   /**
@@ -253,7 +253,7 @@ class RegistryMacro
         public final id:String;
 
         public final _data:Null<$entryDataType>;
-      }).fields.filter((field));
+      }).fields.filter();
   }
 
   /**
@@ -282,7 +282,7 @@ class RegistryMacro
         {
           ${Context.parse(impl, Context.currentPos())}.destroy(this);
         }
-      }).fields.filter((field));
+      }).fields.filter();
   }
 
   /**

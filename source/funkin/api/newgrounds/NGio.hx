@@ -7,6 +7,7 @@ import io.newgrounds.NGLite;
 import io.newgrounds.objects.Error;
 import io.newgrounds.objects.Score;
 import lime.app.Application;
+import io.newgrounds.objects.events.Result;
 #end
 
 /**
