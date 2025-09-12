@@ -1,79 +1,53 @@
 package funkin.data.dialogue;
 
-import funkin.data.dialogue.SpeakerData;
-import funkin.data.BaseRegistry;
-import funkin.util.tools.ISingleton;
-import funkin.data.DefaultRegistryImpl;
-// In 0.7.4, Speaker is the actual class, not funkin.ui.dialogue.Speaker
-import funkin.play.cutscene.dialogue.Speaker;
-import funkin.play.cutscene.dialogue.ScriptedSpeaker;
+import funkin.data.BaseRegistry.IRegistryEntry;
 
-@:nullSafety
-class SpeakerRegistry extends BaseRegistry<Speaker, SpeakerData>
-  implements ISingleton
-  implements DefaultRegistryImpl
+/**
+ * The data structure for a dialogue speaker.
+ * Stored in JSON and loaded by the SpeakerRegistry.
+ */
+typedef SpeakerData =
 {
-  public static final SPEAKER_DATA_VERSION:thx.semver.Version = '1.0.0';
-  public static final SPEAKER_DATA_VERSION_RULE:thx.semver.VersionRule = '1.0.x';
+  /**
+   * The display name of the speaker.
+   */
+  var name:String;
 
-  public static final instance:SpeakerRegistry = new SpeakerRegistry();
+  /**
+   * The portrait or avatar asset ID for the speaker.
+   */
+  var portrait:String;
 
-  public function new()
+  /**
+   * An optional voice or sound cue to use when the speaker is talking.
+   */
+  @:optional var voice:String;
+
+  /**
+   * Additional metadata for modders.
+   */
+  @:optional var metadata:Dynamic;
+}
+
+/**
+ * A single entry in the SpeakerRegistry.
+ */
+@:build(funkin.util.macro.RegistryMacro.buildEntry())
+class DialogueSpeaker implements IRegistryEntry<SpeakerData>
+{
+  public function new(id:String)
   {
-    super('SPEAKER', 'speakers', SPEAKER_DATA_VERSION_RULE);
+    this.id = id;
+    this._data = _fetchData(id);
   }
 
-  public function fetchDefault():Speaker
+  public final id:String;
+  public final _data:Null<SpeakerData>;
+
+  public var data(get, never):SpeakerData;
+  inline function get_data():SpeakerData
   {
-    var speaker:Null<Speaker> = fetchEntry(Constants.DEFAULT_SPEAKER);
-    if (speaker == null) throw 'Default speaker was null! This should not happen!';
-    return speaker;
-  }
-
-  public function parseEntryData(id:String):Null<SpeakerData>
-  {
-    var parser:json2object.JsonParser<SpeakerData> = new json2object.JsonParser<SpeakerData>();
-    parser.ignoreUnknownVariables = false;
-
-    switch (loadEntryFile(id))
-    {
-      case {fileName: fileName, contents: contents}:
-        parser.fromJson(contents, fileName);
-      default:
-        return null;
-    }
-
-    if (parser.errors.length > 0)
-    {
-      printErrors(parser.errors, id);
-      return null;
-    }
-
-    return parser.value;
-  }
-
-  public function parseEntryDataRaw(contents:String, ?fileName:String):Null<SpeakerData>
-  {
-    var parser:json2object.JsonParser<SpeakerData> = new json2object.JsonParser<SpeakerData>();
-    parser.ignoreUnknownVariables = false;
-    parser.fromJson(contents, fileName);
-
-    if (parser.errors.length > 0)
-    {
-      printErrors(parser.errors, fileName);
-      return null;
-    }
-
-    return parser.value;
-  }
-
-  function createScriptedEntry(clsName:String):Speaker
-  {
-    return ScriptedSpeaker.init(clsName, 'unknown');
-  }
-
-  function getScriptedClassNames():Array<String>
-  {
-    return ScriptedSpeaker.listScriptClasses();
+    if (_data == null) throw 'DialogueSpeaker $id has no data!';
+    return _data;
   }
 }
