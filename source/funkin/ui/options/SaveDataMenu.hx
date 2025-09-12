@@ -4,9 +4,8 @@ package funkin.ui.options;
 import funkin.api.newgrounds.NewgroundsClient;
 #end
 import funkin.save.Save;
-import funkin.ui.options.OptionsMenuPage; // ✅ New import
 
-class SaveDataMenu extends Page<OptionsMenuPage> // ✅ Updated generic type
+class SaveDataMenu
 {
   var items:TextMenuList;
   var prompt:Prompt;
