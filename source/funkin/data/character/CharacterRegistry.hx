@@ -17,7 +17,6 @@ import funkin.play.character.ScriptedCharacter.ScriptedPackerCharacter;
 import funkin.play.character.ScriptedCharacter.ScriptedSparrowCharacter;
 import funkin.util.assets.DataAssets;
 import funkin.util.VersionUtil;
-
 import haxe.Json;
 import flixel.graphics.frames.FlxFrame;
 
