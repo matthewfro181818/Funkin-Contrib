@@ -5,9 +5,7 @@ import flixel.util.FlxSignal;
 import flixel.math.FlxMath;
 import funkin.data.song.SongData.SongTimeChange;
 import funkin.data.song.SongDataUtils;
-import funkin.play.PlayState;
 import funkin.save.Save;
-import funkin.util.TimerUtil.SongSequence;
 import haxe.Timer;
 import flixel.sound.FlxSound;
 
@@ -94,12 +92,6 @@ class Conductor
    */
   public var songPosition(default, null):Float = 0;
 
-  /**
-   * The offset between frame time and music time.
-   * Used in `getTimeWithDelta()` to get a more accurate music time when on higher framerates.
-   */
-  var songPositionDelta(default, null):Float = 0;
-
   var prevTimestamp:Float = 0;
   var prevTime:Float = 0;
 
@@ -113,17 +105,6 @@ class Conductor
     if (bpmOverride != null) return bpmOverride;
 
     if (currentTimeChange == null) return Constants.DEFAULT_BPM;
-
-    @:privateAccess
-    if (PlayState.instance != null && PlayState.instance.startingSong)
-    {
-      for (i in 0...timeChanges.length)
-      {
-        if (PlayState.instance.startTimestamp >= timeChanges[i].timeStamp) currentTimeChange = timeChanges[i];
-
-        if (PlayState.instance.startTimestamp < timeChanges[i].timeStamp) break;
-      }
-    }
 
     return currentTimeChange.bpm;
   }
@@ -261,18 +242,25 @@ class Conductor
    * No matter if you're using a local conductor or not, this always loads
    * to/from the save file
    */
-  public var globalOffset(get, never):Int;
+  public var inputOffset(get, set):Int;
 
   /**
    * An offset set by the user to compensate for audio/visual lag
    * No matter if you're using a local conductor or not, this always loads
    * to/from the save file
    */
-  public var audioVisualOffset(get, never):Int;
+  public var audioVisualOffset(get, set):Int;
 
-  function get_globalOffset():Int
+  function get_inputOffset():Int
   {
-    return Preferences.globalOffset;
+    return Save?.instance?.options?.inputOffset ?? 0;
+  }
+
+  function set_inputOffset(value:Int):Int
+  {
+    Save.instance.options.inputOffset = value;
+    Save.instance.flush();
+    return Save.instance.options.inputOffset;
   }
 
   function get_audioVisualOffset():Int
@@ -280,11 +268,18 @@ class Conductor
     return Save?.instance?.options?.audioVisualOffset ?? 0;
   }
 
+  function set_audioVisualOffset(value:Int):Int
+  {
+    Save.instance.options.audioVisualOffset = value;
+    Save.instance.flush();
+    return Save.instance.options.audioVisualOffset;
+  }
+
   public var combinedOffset(get, never):Float;
 
   function get_combinedOffset():Float
   {
-    return instrumentalOffset + formatOffset + globalOffset;
+    return instrumentalOffset + audioVisualOffset + inputOffset;
   }
 
   /**
@@ -406,10 +401,8 @@ class Conductor
    * @param	songPosition The current position in the song in milliseconds.
    *        Leave blank to use the FlxG.sound.music position.
    * @param applyOffsets If it should apply the instrumentalOffset + formatOffset + audioVisualOffset
-   * @param forceDispatch If it should force the dispatch of onStepHit, onBeatHit, and onMeasureHit
-   *        even if the current step, beat, or measure hasn't changed.
    */
-  public function update(?songPos:Float, applyOffsets:Bool = true, forceDispatch:Bool = false):Void
+  public function update(?songPos:Float, applyOffsets:Bool = true, forceDispatch:Bool = false)
   {
     var currentTime:Float = (FlxG.sound.music != null) ? FlxG.sound.music.time : 0.0;
     var currentLength:Float = (FlxG.sound.music != null) ? FlxG.sound.music.length : 0.0;
@@ -429,8 +422,7 @@ class Conductor
     // If the song is playing, limit the song position to the length of the song or beginning of the song.
     if (FlxG.sound.music != null && FlxG.sound.music.playing)
     {
-      this.songPosition = Math.min(this.combinedOffset, 0).clamp(songPos, currentLength);
-      this.songPositionDelta += FlxG.elapsed * 1000 * FlxG.sound.music.pitch;
+      this.songPosition = Math.min(currentLength, Math.max(0, songPos));
     }
     else
     {
@@ -496,23 +488,10 @@ class Conductor
     // which it doesn't do every frame!
     if (prevTime != this.songPosition)
     {
-      this.songPositionDelta = 0;
-
       // Update the timestamp for use in-between frames
       prevTime = this.songPosition;
       prevTimestamp = Std.int(Timer.stamp() * 1000);
     }
-
-    if (this == Conductor.instance) @:privateAccess SongSequence.update.dispatch();
-  }
-
-  /**
-   * Returns a more accurate music time for higher framerates.
-   * @return Float
-   */
-  public function getTimeWithDelta():Float
-  {
-    return this.songPosition + this.songPositionDelta;
   }
 
   /**

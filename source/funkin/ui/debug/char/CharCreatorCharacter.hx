@@ -1,25 +1,19 @@
 package funkin.ui.debug.char;
 
-import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.math.FlxPoint;
-import flixel.math.FlxPoint.FlxCallbackPoint;
-
 import openfl.display.BitmapData;
-
-import haxe.io.Bytes;
-import haxe.io.Path;
-
 import funkin.data.animation.AnimationData;
+import funkin.play.character.BaseCharacter.CharacterType;
 import funkin.data.character.CharacterData;
 import funkin.data.character.CharacterData.CharacterRenderType;
 import funkin.data.character.CharacterRegistry;
-
-import funkin.play.character.BaseCharacter.CharacterType;
-import funkin.play.stage.Bopper;
-
 import funkin.ui.debug.char.animate.CharSelectAtlasSprite;
-
+import funkin.play.stage.Bopper;
+import flixel.math.FlxPoint;
+import flixel.math.FlxPoint.FlxCallbackPoint; // honestly these are kind of awesome
+import flixel.FlxSprite;
+import haxe.io.Bytes;
+import haxe.io.Path;
 
 // literally just basecharacter but less functionality
 // like the removal of note event functions

@@ -6,7 +6,6 @@ import haxe.ui.containers.menus.MenuCheckBox;
 import haxe.ui.components.DropDown;
 import haxe.ui.components.Label;
 import haxe.ui.components.VerticalRule;
-
 import funkin.data.stage.StageData;
 import funkin.play.stage.Bopper;
 import funkin.data.stage.StageData.StageDataCharacter;
@@ -15,15 +14,12 @@ import funkin.data.character.CharacterRegistry;
 import funkin.play.character.BaseCharacter.CharacterType;
 import funkin.play.stage.StageProp;
 import funkin.data.stage.StageRegistry;
-
 import funkin.ui.debug.char.components.dialogs.gameplay.*;
 import funkin.ui.debug.char.components.dialogs.DefaultPageDialog;
-
 import flixel.util.FlxColor;
 import flixel.addons.display.shapes.FlxShapeCircle;
 import flixel.FlxSprite;
 import flixel.text.FlxText;
-
 
 using StringTools;
 

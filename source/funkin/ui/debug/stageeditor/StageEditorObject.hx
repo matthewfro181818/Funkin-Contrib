@@ -3,6 +3,7 @@ package funkin.ui.debug.stageeditor;
 
 import funkin.data.animation.AnimationData;
 import funkin.graphics.FunkinSprite;
+import funkin.modding.events.ScriptEvent;
 import funkin.graphics.shaders.InverseDotsShader;
 
 /**

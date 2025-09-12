@@ -5,6 +5,7 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import funkin.play.notes.NoteDirection;
@@ -13,9 +14,16 @@ import funkin.play.notes.NoteDirection;
 import funkin.play.notes.NoteDirection;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import funkin.play.notes.NoteDirection;
+>>>>>>> cd960b0a (idk7)
 import flixel.graphics.frames.FlxFramesCollection;
 import funkin.util.assets.FlxAnimationUtil;
+import flixel.FlxG;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.FlxSprite;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 import funkin.play.notes.notestyle.NoteStyle;
@@ -42,6 +50,10 @@ import funkin.play.notes.notestyle.NoteStyle;
 =======
 import funkin.play.notes.notestyle.NoteStyle;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+import funkin.play.notes.notestyle.NoteStyle;
+=======
+>>>>>>> cd960b0a (idk7)
 
 class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 {
@@ -51,6 +63,7 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
   static var glowFrames:FlxFramesCollection;
@@ -61,16 +74,21 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+  static var glowFrames:FlxFramesCollection;
+
+>>>>>>> cd960b0a (idk7)
   public var holdNote:SustainTrail;
 
-  public var glow:FlxSprite;
-
+  var glow:FlxSprite;
   var sparks:FlxSprite;
 
-  public function new(noteStyle:NoteStyle)
+  public function new()
   {
     super(0, 0);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     setupHoldNoteCover(noteStyle);
@@ -194,6 +212,32 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 =======
     setupHoldNoteCover(noteStyle);
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    setupHoldNoteCover(noteStyle);
+=======
+    setup();
+  }
+
+  public static function preloadFrames():Void
+  {
+    glowFrames = null;
+    for (direction in Strumline.DIRECTIONS)
+    {
+      var directionName = direction.colorName.toTitleCase();
+
+      var atlas:FlxFramesCollection = Paths.getSparrowAtlas('holdCover${directionName}');
+      atlas.parent.persist = true;
+
+      if (glowFrames != null)
+      {
+        glowFrames = FlxAnimationUtil.combineFramesCollections(glowFrames, atlas);
+      }
+      else
+      {
+        glowFrames = atlas;
+      }
+    }
+>>>>>>> cd960b0a (idk7)
   }
 
   /**
@@ -203,6 +247,7 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   function setupHoldNoteCover(noteStyle:NoteStyle):Void
 ||||||| parent of 8a1f54ca (lol8)
   function setupHoldNoteCover(noteStyle:NoteStyle):Void
@@ -214,13 +259,22 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 =======
   function setupHoldNoteCover(noteStyle:NoteStyle):Void
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  function setupHoldNoteCover(noteStyle:NoteStyle):Void
+=======
+  function setup():Void
+>>>>>>> cd960b0a (idk7)
   {
     glow = new FlxSprite();
     add(glow);
+    if (glowFrames == null) preloadFrames();
+    glow.frames = glowFrames;
 
-    // TODO: null check here like how NoteSplash does
-    noteStyle.buildHoldCoverSprite(this);
+    for (direction in Strumline.DIRECTIONS)
+    {
+      var directionName = direction.colorName.toTitleCase();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     glow.animation.onFinish.add(this.onAnimationFinished);
@@ -276,6 +330,16 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 =======
     glow.animation.onFinish.add(this.onAnimationFinished);
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    glow.animation.onFinish.add(this.onAnimationFinished);
+=======
+      glow.animation.addByPrefix('holdCoverStart$directionName', 'holdCoverStart${directionName}0', FRAMERATE_DEFAULT, false, false, false);
+      glow.animation.addByPrefix('holdCover$directionName', 'holdCover${directionName}0', FRAMERATE_DEFAULT, true, false, false);
+      glow.animation.addByPrefix('holdCoverEnd$directionName', 'holdCoverEnd${directionName}0', FRAMERATE_DEFAULT, false, false, false);
+    }
+
+    glow.animation.finishCallback = this.onAnimationFinished;
+>>>>>>> cd960b0a (idk7)
 
     if (glow.animation.getAnimationList().length < 3 * 4)
     {
@@ -316,6 +380,7 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     holdNote.cover = null;
 
 =======
@@ -335,6 +400,11 @@ class NoteHoldCover extends FlxTypedSpriteGroup<FlxSprite>
     holdNote.cover = null;
 
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    holdNote.cover = null;
+
+=======
+>>>>>>> cd960b0a (idk7)
     if (glow != null) glow.visible = false;
     if (sparks != null) sparks.visible = false;
   }

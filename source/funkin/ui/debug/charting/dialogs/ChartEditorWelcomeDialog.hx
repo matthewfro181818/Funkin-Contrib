@@ -4,6 +4,7 @@ package funkin.ui.debug.charting.dialogs;
 import funkin.data.song.SongRegistry;
 import funkin.play.song.Song;
 import funkin.ui.debug.charting.ChartEditorState;
+import funkin.ui.debug.charting.dialogs.ChartEditorBaseDialog;
 import funkin.ui.debug.charting.dialogs.ChartEditorBaseDialog.DialogParams;
 import funkin.util.FileUtil;
 import funkin.util.SortUtil;
@@ -11,7 +12,11 @@ import haxe.ui.components.Label;
 import haxe.ui.components.Link;
 import haxe.ui.containers.dialogs.Dialog.DialogButton;
 import haxe.ui.containers.dialogs.Dialog.DialogEvent;
+import haxe.ui.core.Component;
 import haxe.ui.events.MouseEvent;
+import haxe.ui.events.UIEvent;
+import haxe.ui.notifications.NotificationManager;
+import haxe.ui.notifications.NotificationType;
 
 /**
  * Builds and opens a dialog letting the user create a new chart, open a recent chart, or load from a template.
@@ -92,8 +97,6 @@ class ChartEditorWelcomeDialog extends ChartEditorBaseDialog
     #end
 
     linkRecentChart.onClick = function(_event) {
-      linkRecentChart.hide();
-
       this.hideDialog(DialogButton.CANCEL);
 
       // Load chart from file
@@ -109,7 +112,7 @@ class ChartEditorWelcomeDialog extends ChartEditorBaseDialog
       }
     }
 
-    if (!FileUtil.fileExists(chartPath))
+    if (!FileUtil.doesFileExist(chartPath))
     {
       trace('Previously loaded chart file (${chartPath}) does not exist, disabling link...');
       linkRecentChart.disabled = true;
@@ -140,7 +143,7 @@ class ChartEditorWelcomeDialog extends ChartEditorBaseDialog
 
     for (targetSongId in songList)
     {
-      var songData:Null<Song> = SongRegistry.instance.fetchEntry(targetSongId, {variation: Constants.DEFAULT_VARIATION});
+      var songData:Null<Song> = SongRegistry.instance.fetchEntry(targetSongId);
       if (songData == null) continue;
 
       var songName:Null<String> = songData.getDifficulty('normal')?.songName;

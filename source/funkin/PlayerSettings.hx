@@ -2,24 +2,21 @@ package funkin;
 
 import funkin.save.Save;
 import funkin.input.Controls;
+import flixel.FlxCamera;
 import funkin.input.PreciseInputManager;
+import flixel.input.actions.FlxActionInput;
 import flixel.input.gamepad.FlxGamepad;
-import flixel.util.FlxSignal.FlxTypedSignal;
+import flixel.util.FlxSignal;
 
 /**
  * A core class which represents the current player(s) and their controls and other configuration.
  */
-@:nullSafety
 class PlayerSettings
 {
   // TODO: Finish implementation of second player.
   public static var numPlayers(default, null) = 0;
   public static var numAvatars(default, null) = 0;
-  // TODO: Making both of these null makes a lot of errors with the controls.
-  // That'd explain why unplugging input devices can cause the game to crash?
-  @:nullSafety(Off)
   public static var player1(default, null):PlayerSettings;
-  @:nullSafety(Off)
   public static var player2(default, null):PlayerSettings;
 
   public static var onAvatarAdd(default, null) = new FlxTypedSignal<PlayerSettings->Void>();
@@ -75,7 +72,6 @@ class PlayerSettings
   /**
    * Forcibly destroy the PlayerSettings singletons for each player.
    */
-  @:nullSafety(Off)
   public static function reset():Void
   {
     player1 = null;

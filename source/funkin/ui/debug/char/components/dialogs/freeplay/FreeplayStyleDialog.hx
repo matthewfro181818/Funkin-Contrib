@@ -2,14 +2,13 @@ package funkin.ui.debug.char.components.dialogs.freeplay;
 
 import funkin.data.freeplay.style.FreeplayStyleRegistry;
 import funkin.data.freeplay.player.PlayerRegistry;
+import haxe.ui.components.OptionBox;
+import haxe.ui.util.Color;
 import funkin.ui.freeplay.FreeplayScore;
 import funkin.util.FileUtil;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxColor;
 import openfl.display.BitmapData;
-import haxe.ui.components.CheckBox; // if you need toggles
-import haxe.ui.components.DropDown; // if you need selection menus
-
 
 @:access(funkin.ui.debug.char.pages.CharCreatorFreeplayPage)
 @:build(haxe.ui.macros.ComponentMacros.build("assets/exclude/data/ui/char-creator/dialogs/freeplay/style-dialog.xml"))

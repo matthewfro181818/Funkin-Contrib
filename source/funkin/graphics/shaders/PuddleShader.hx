@@ -7,6 +7,7 @@ import openfl.Assets;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -22,6 +23,10 @@ import openfl.Assets;
 =======
 @:nullSafety
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+@:nullSafety
+=======
+>>>>>>> cd960b0a (idk7)
 class PuddleShader extends FlxRuntimeShader
 {
   public function new()

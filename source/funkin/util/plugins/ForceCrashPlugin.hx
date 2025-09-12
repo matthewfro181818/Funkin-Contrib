@@ -6,7 +6,6 @@ import flixel.FlxBasic;
  * A plugin which forcibly crashes the application.
  * TODO: Should we disable this in release builds?
  */
-@:nullSafety
 class ForceCrashPlugin extends FlxBasic
 {
   public function new()
@@ -24,7 +23,7 @@ class ForceCrashPlugin extends FlxBasic
     super.update(elapsed);
 
     // Ctrl + Alt + Shift + L = Crash the game for debugging purposes
-    if (InputUtil.allPressedWithDebounce([CONTROL, ALT, SHIFT, L]))
+    if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.pressed.L)
     {
       // TODO: Make this message 87% funnier.
       throw "DEBUG: Crashing the game via debug keybind!";

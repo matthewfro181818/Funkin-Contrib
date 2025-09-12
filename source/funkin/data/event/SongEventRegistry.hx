@@ -2,6 +2,7 @@
 package funkin.data.event;
 
 import funkin.play.event.SongEvent;
+import funkin.data.event.SongEventSchema;
 import funkin.data.song.SongData.SongEventData;
 import funkin.util.macro.ClassMacro;
 import funkin.play.event.ScriptedSongEvent;
@@ -9,7 +10,6 @@ import funkin.play.event.ScriptedSongEvent;
 /**
  * This class statically handles the parsing of internal and scripted song event handlers.
  */
-@:nullSafety
 class SongEventRegistry
 {
   /**
@@ -89,14 +89,14 @@ class SongEventRegistry
     return eventCache.values();
   }
 
-  public static function getEvent(id:String):Null<SongEvent>
+  public static function getEvent(id:String):SongEvent
   {
     return eventCache.get(id);
   }
 
-  public static function getEventSchema(id:String):Null<SongEventSchema>
+  public static function getEventSchema(id:String):SongEventSchema
   {
-    var event:Null<SongEvent> = getEvent(id);
+    var event:SongEvent = getEvent(id);
     if (event == null) return null;
 
     return event.getEventSchema();
@@ -110,7 +110,7 @@ class SongEventRegistry
   public static function handleEvent(data:SongEventData):Void
   {
     var eventKind:String = data.eventKind;
-    var eventHandler:Null<SongEvent> = eventCache.get(eventKind);
+    var eventHandler:SongEvent = eventCache.get(eventKind);
 
     if (eventHandler != null)
     {

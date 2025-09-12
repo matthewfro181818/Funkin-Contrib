@@ -7,6 +7,7 @@ import flixel.FlxSprite;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -15,7 +16,12 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxGroup.FlxTypedGroup;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import flixel.group.FlxGroup.FlxTypedGroup;
+>>>>>>> cd960b0a (idk7)
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -56,6 +62,14 @@ import flixel.text.FlxText.FlxTextAlign;
 import funkin.util.MathUtil;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import flixel.math.FlxMath;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.text.FlxText.FlxTextAlign;
+import funkin.util.MathUtil;
+>>>>>>> cd960b0a (idk7)
 import flixel.util.FlxColor;
 
 /**
@@ -121,6 +135,7 @@ class ClearPercentCounter extends FlxTypedSpriteGroup<FlxSprite>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     while (tempCombo > 0 && tempCombo != 0)
 =======
     while (tempCombo != 0)
@@ -140,6 +155,11 @@ class ClearPercentCounter extends FlxTypedSpriteGroup<FlxSprite>
 =======
     while (tempCombo > 0 && tempCombo != 0)
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    while (tempCombo > 0 && tempCombo != 0)
+=======
+    while (tempCombo != 0)
+>>>>>>> cd960b0a (idk7)
     {
       seperatedScore.push(tempCombo % 10);
       tempCombo = Math.floor(tempCombo / 10);

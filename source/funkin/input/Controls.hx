@@ -6,6 +6,7 @@ import flixel.util.FlxDirectionFlags;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.input.FlxInput.FlxInputState;
 ||||||| parent of 8a1f54ca (lol8)
 import flixel.input.FlxInput.FlxInputState;
@@ -19,8 +20,15 @@ import flixel.input.FlxInput;
 =======
 import flixel.input.FlxInput.FlxInputState;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+import flixel.input.FlxInput.FlxInputState;
+=======
+import flixel.FlxObject;
+import flixel.input.FlxInput;
+>>>>>>> cd960b0a (idk7)
 import flixel.input.actions.FlxAction;
 import flixel.input.actions.FlxActionInput;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -49,6 +57,10 @@ import flixel.input.actions.FlxActionInputAnalog.FlxActionInputAnalogClickAndDra
 import flixel.input.actions.FlxActionInputAnalog.FlxActionInputAnalogClickAndDragMouseMotion;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import flixel.input.actions.FlxActionInputAnalog.FlxActionInputAnalogClickAndDragMouseMotion;
+>>>>>>> cd960b0a (idk7)
 import flixel.input.actions.FlxActionInputDigital;
 import flixel.input.actions.FlxActionManager;
 import flixel.input.actions.FlxActionSet;
@@ -57,6 +69,7 @@ import flixel.input.android.FlxAndroidKey;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.input.gamepad.FlxGamepadButton;
@@ -65,10 +78,16 @@ import flixel.input.gamepad.FlxGamepadButton;
 import flixel.input.gamepad.FlxGamepadButton;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import flixel.input.gamepad.FlxGamepadButton;
+>>>>>>> cd960b0a (idk7)
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
+import flixel.input.mouse.FlxMouseButton.FlxMouseButtonID;
 import flixel.math.FlxAngle;
 import flixel.math.FlxPoint;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -104,6 +123,12 @@ import flixel.util.FlxTimer;
 import lime.ui.Haptic;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
+import lime.ui.Haptic;
+>>>>>>> cd960b0a (idk7)
 
 /**
  * A core class which handles receiving player input and interpreting it into game actions.
@@ -158,6 +183,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if FEATURE_DEBUG_MENU
 ||||||| parent of b150c43d (lol4)
 =======
@@ -171,7 +197,12 @@ class Controls extends FlxActionSet
 =======
   #if FEATURE_DEBUG_MENU
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  #if FEATURE_DEBUG_MENU
+=======
+>>>>>>> cd960b0a (idk7)
   var _debug_menu = new FunkinAction(Action.DEBUG_MENU);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -191,6 +222,10 @@ class Controls extends FlxActionSet
 =======
   #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  #end
+=======
+>>>>>>> cd960b0a (idk7)
   #if FEATURE_CHART_EDITOR
   var _debug_chart = new FunkinAction(Action.DEBUG_CHART);
   #end
@@ -417,6 +452,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if FEATURE_DEBUG_MENU
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -432,6 +468,10 @@ class Controls extends FlxActionSet
 =======
   #if FEATURE_DEBUG_MENU
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  #if FEATURE_DEBUG_MENU
+=======
+>>>>>>> cd960b0a (idk7)
   public var DEBUG_MENU(get, never):Bool;
 
   inline function get_DEBUG_MENU()
@@ -440,6 +480,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #end
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -455,6 +496,10 @@ class Controls extends FlxActionSet
 =======
   #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  #end
+=======
+>>>>>>> cd960b0a (idk7)
 
   #if FEATURE_CHART_EDITOR
   public var DEBUG_CHART(get, never):Bool;
@@ -489,6 +534,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public function new(name, ?scheme:KeyboardScheme)
 =======
   public function new(name, scheme:KeyboardScheme = null)
@@ -508,6 +554,11 @@ class Controls extends FlxActionSet
 =======
   public function new(name, ?scheme:KeyboardScheme)
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  public function new(name, ?scheme:KeyboardScheme)
+=======
+  public function new(name, scheme:KeyboardScheme = null)
+>>>>>>> cd960b0a (idk7)
   {
     super(name);
 
@@ -536,6 +587,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if FEATURE_DEBUG_MENU add(_debug_menu); #end
 =======
     add(_debug_menu);
@@ -555,6 +607,11 @@ class Controls extends FlxActionSet
 =======
     #if FEATURE_DEBUG_MENU add(_debug_menu); #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    #if FEATURE_DEBUG_MENU add(_debug_menu); #end
+=======
+    add(_debug_menu);
+>>>>>>> cd960b0a (idk7)
     #if FEATURE_CHART_EDITOR add(_debug_chart); #end
     #if FEATURE_STAGE_EDITOR add(_debug_stage); #end
     add(_volume_up);
@@ -581,6 +638,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   override function update():Void
 =======
   override function update()
@@ -600,6 +658,11 @@ class Controls extends FlxActionSet
 =======
   override function update():Void
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  override function update():Void
+=======
+  override function update()
+>>>>>>> cd960b0a (idk7)
   {
     super.update();
   }
@@ -651,6 +714,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (action.inputs.length == 0) return 'N/A';
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -666,6 +730,10 @@ class Controls extends FlxActionSet
 =======
     if (action.inputs.length == 0) return 'N/A';
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    if (action.inputs.length == 0) return 'N/A';
+=======
+>>>>>>> cd960b0a (idk7)
     var input = action.inputs[0];
     if (ignoreSurrounding == false)
     {
@@ -726,6 +794,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       #if FEATURE_DEBUG_MENU case DEBUG_MENU: _debug_menu; #end
 =======
       case DEBUG_MENU: _debug_menu;
@@ -745,6 +814,11 @@ class Controls extends FlxActionSet
 =======
       #if FEATURE_DEBUG_MENU case DEBUG_MENU: _debug_menu; #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      #if FEATURE_DEBUG_MENU case DEBUG_MENU: _debug_menu; #end
+=======
+      case DEBUG_MENU: _debug_menu;
+>>>>>>> cd960b0a (idk7)
       #if FEATURE_CHART_EDITOR case DEBUG_CHART: _debug_chart; #end
       #if FEATURE_STAGE_EDITOR case DEBUG_STAGE: _debug_stage; #end
       case VOLUME_UP: _volume_up;
@@ -759,6 +833,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     FlxG.inputs.addUniqueType(new FlxActionManager());
 =======
     var actions = new FlxActionManager();
@@ -782,6 +857,12 @@ class Controls extends FlxActionSet
 =======
     FlxG.inputs.addUniqueType(new FlxActionManager());
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    FlxG.inputs.addUniqueType(new FlxActionManager());
+=======
+    var actions = new FlxActionManager();
+    FlxG.inputs.add(actions);
+>>>>>>> cd960b0a (idk7)
   }
 
   /**
@@ -858,6 +939,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       #if FEATURE_DEBUG_MENU
 ||||||| parent of b150c43d (lol4)
 =======
@@ -871,8 +953,13 @@ class Controls extends FlxActionSet
 =======
       #if FEATURE_DEBUG_MENU
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      #if FEATURE_DEBUG_MENU
+=======
+>>>>>>> cd960b0a (idk7)
       case DEBUG_MENU:
         func(_debug_menu, JUST_PRESSED);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -893,6 +980,10 @@ class Controls extends FlxActionSet
 =======
       #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      #end
+=======
+>>>>>>> cd960b0a (idk7)
       #if FEATURE_CHART_EDITOR
       case DEBUG_CHART:
         func(_debug_chart, JUST_PRESSED);
@@ -1062,6 +1153,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   public function bindSwipe(control:Control, swipeDir:Int = FlxDirectionFlags.UP, ?swpLength:Float = 90)
   {
@@ -1093,6 +1185,14 @@ class Controls extends FlxActionSet
 
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+  public function bindSwipe(control:Control, swipeDir:Int = FlxDirectionFlags.UP, ?swpLength:Float = 90)
+  {
+    forEachBound(control, function(action, press) action.add(new FlxActionInputDigitalMobileSwipeGameplay(swipeDir, press, swpLength)));
+  }
+
+>>>>>>> cd960b0a (idk7)
   /**
    * Sets all actions that pertain to the binder to trigger when the supplied keys are used.
    * If binder is a literal you can inline this
@@ -1154,6 +1254,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if FEATURE_DEBUG_MENU
 ||||||| parent of b150c43d (lol4)
 =======
@@ -1167,7 +1268,12 @@ class Controls extends FlxActionSet
 =======
     #if FEATURE_DEBUG_MENU
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    #if FEATURE_DEBUG_MENU
+=======
+>>>>>>> cd960b0a (idk7)
     bindKeys(Control.DEBUG_MENU, getDefaultKeybinds(scheme, Control.DEBUG_MENU));
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1187,6 +1293,10 @@ class Controls extends FlxActionSet
 =======
     #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    #end
+=======
+>>>>>>> cd960b0a (idk7)
     #if FEATURE_CHART_EDITOR
     bindKeys(Control.DEBUG_CHART, getDefaultKeybinds(scheme, Control.DEBUG_CHART));
     #end
@@ -1200,6 +1310,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
     bindMobileLol();
@@ -1219,6 +1330,11 @@ class Controls extends FlxActionSet
     bindMobileLol();
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+
+    bindMobileLol();
+>>>>>>> cd960b0a (idk7)
   }
 
   function getDefaultKeybinds(scheme:KeyboardScheme, control:Control):Array<FlxKey>
@@ -1253,6 +1369,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
 =======
           case Control.DEBUG_MENU: return [GRAVEACCENT];
@@ -1272,6 +1389,11 @@ class Controls extends FlxActionSet
 =======
           #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+          #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
+=======
+          case Control.DEBUG_MENU: return [GRAVEACCENT];
+>>>>>>> cd960b0a (idk7)
           #if FEATURE_CHART_EDITOR case Control.DEBUG_CHART: return []; #end
           #if FEATURE_STAGE_EDITOR case Control.DEBUG_STAGE: return []; #end
           case Control.VOLUME_UP: return [PLUS, NUMPADPLUS];
@@ -1306,6 +1428,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
 =======
           case Control.DEBUG_MENU: return [GRAVEACCENT];
@@ -1325,6 +1448,11 @@ class Controls extends FlxActionSet
 =======
           #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+          #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return [GRAVEACCENT]; #end
+=======
+          case Control.DEBUG_MENU: return [GRAVEACCENT];
+>>>>>>> cd960b0a (idk7)
           #if FEATURE_CHART_EDITOR case Control.DEBUG_CHART: return []; #end
           #if FEATURE_STAGE_EDITOR case Control.DEBUG_STAGE: return []; #end
           case Control.VOLUME_UP: return [PLUS];
@@ -1359,6 +1487,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return []; #end
 =======
           case Control.DEBUG_MENU: return [];
@@ -1378,6 +1507,11 @@ class Controls extends FlxActionSet
 =======
           #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return []; #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+          #if FEATURE_DEBUG_MENU case Control.DEBUG_MENU: return []; #end
+=======
+          case Control.DEBUG_MENU: return [];
+>>>>>>> cd960b0a (idk7)
           #if FEATURE_CHART_EDITOR case Control.DEBUG_CHART: return []; #end
           #if FEATURE_STAGE_EDITOR case Control.DEBUG_STAGE: return []; #end
           case Control.VOLUME_UP: return [NUMPADPLUS];
@@ -1395,6 +1529,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   function bindMobileLol()
   {
@@ -1502,6 +1637,33 @@ class Controls extends FlxActionSet
 
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+  function bindMobileLol()
+  {
+    #if FLX_TOUCH
+    // MAKE BETTER TOUCH BIND CODE
+
+    bindSwipe(Control.NOTE_UP, FlxDirectionFlags.UP, 40);
+    bindSwipe(Control.NOTE_DOWN, FlxDirectionFlags.DOWN, 40);
+    bindSwipe(Control.NOTE_LEFT, FlxDirectionFlags.LEFT, 40);
+    bindSwipe(Control.NOTE_RIGHT, FlxDirectionFlags.RIGHT, 40);
+
+    // feels more like drag when up/down are inversed
+    bindSwipe(Control.UI_UP, FlxDirectionFlags.DOWN);
+    bindSwipe(Control.UI_DOWN, FlxDirectionFlags.UP);
+    bindSwipe(Control.UI_LEFT, FlxDirectionFlags.LEFT);
+    bindSwipe(Control.UI_RIGHT, FlxDirectionFlags.RIGHT);
+    #end
+
+    #if android
+    forEachBound(Control.BACK, function(action, pres) {
+      action.add(new FlxActionInputDigitalAndroid(FlxAndroidKey.BACK, JUST_PRESSED));
+    });
+    #end
+  }
+
+>>>>>>> cd960b0a (idk7)
   function removeKeyboard()
   {
     for (action in this.digitalActions)
@@ -1588,6 +1750,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       #if FEATURE_DEBUG_MENU
 ||||||| parent of b150c43d (lol4)
 =======
@@ -1601,7 +1764,12 @@ class Controls extends FlxActionSet
 =======
       #if FEATURE_DEBUG_MENU
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      #if FEATURE_DEBUG_MENU
+=======
+>>>>>>> cd960b0a (idk7)
       Control.DEBUG_MENU => getDefaultGamepadBinds(Control.DEBUG_MENU),
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1621,6 +1789,10 @@ class Controls extends FlxActionSet
 =======
       #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      #end
+=======
+>>>>>>> cd960b0a (idk7)
       #if FEATURE_CHART_EDITOR
       Control.DEBUG_CHART => getDefaultGamepadBinds(Control.DEBUG_CHART),
       #end
@@ -1679,6 +1851,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         return [RIGHT_STICK_DIGITAL_UP];
 ||||||| parent of 8a1f54ca (lol8)
         return [RIGHT_STICK_DIGITAL_UP];
@@ -1690,7 +1863,13 @@ class Controls extends FlxActionSet
 =======
         return [RIGHT_STICK_DIGITAL_UP];
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+        return [RIGHT_STICK_DIGITAL_UP];
+=======
+        return [];
+>>>>>>> cd960b0a (idk7)
       case Control.FREEPLAY_JUMP_TO_BOTTOM:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         return [RIGHT_STICK_DIGITAL_DOWN];
@@ -1720,6 +1899,11 @@ class Controls extends FlxActionSet
 =======
         return [RIGHT_STICK_DIGITAL_DOWN];
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+        return [RIGHT_STICK_DIGITAL_DOWN];
+=======
+        return [];
+>>>>>>> cd960b0a (idk7)
       case Control.VOLUME_UP:
         [];
       case Control.VOLUME_DOWN:
@@ -1730,6 +1914,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       #if FEATURE_DEBUG_MENU
 ||||||| parent of b150c43d (lol4)
 =======
@@ -1743,8 +1928,13 @@ class Controls extends FlxActionSet
 =======
       #if FEATURE_DEBUG_MENU
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      #if FEATURE_DEBUG_MENU
+=======
+>>>>>>> cd960b0a (idk7)
       case Control.DEBUG_MENU:
         [];
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1765,6 +1955,10 @@ class Controls extends FlxActionSet
 =======
       #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      #end
+=======
+>>>>>>> cd960b0a (idk7)
       #if FEATURE_CHART_EDITOR
       case Control.DEBUG_CHART:
         [];
@@ -1792,6 +1986,7 @@ class Controls extends FlxActionSet
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   public function touchShit(control:Control, id)
   {
@@ -1831,6 +2026,16 @@ class Controls extends FlxActionSet
 
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+  public function touchShit(control:Control, id)
+  {
+    forEachBound(control, function(action, state) {
+      // action
+    });
+  }
+
+>>>>>>> cd960b0a (idk7)
   /**
    * Sets all actions that pertain to the binder to trigger when the supplied keys are used.
    * If binder is a literal you can inline this
@@ -2196,6 +2401,7 @@ class FunkinAction extends FlxActionDigital
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 class FlxActionInputDigitalMobileSwipeGameplay extends FlxActionInputDigital
 {
@@ -2815,6 +3021,161 @@ class FlxActionInputDigitalAndroid extends FlxActionInputDigital
 
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+class FlxActionInputDigitalMobileSwipeGameplay extends FlxActionInputDigital
+{
+  var touchMap:Map<Int, Swipes> = new Map();
+
+  var vibrationSteps:Int = 5;
+  var curStep:Int = 5;
+  var activateLength:Float = 90;
+  var hapticPressure:Int = 100;
+
+  public function new(swipeDir:Int = FlxDirectionFlags.ANY, Trigger:FlxInputState, ?swipeLength:Float = 90)
+  {
+    super(OTHER, swipeDir, Trigger);
+
+    activateLength = swipeLength;
+  }
+
+  // fix right swipe
+  // make so cant double swipe during gameplay
+  // hold notes?
+
+  override function update():Void
+  {
+    super.update();
+
+    #if FLX_TOUCH
+    for (touch in FlxG.touches.list)
+    {
+      if (touch.justPressed)
+      {
+        var pos:FlxPoint = new FlxPoint(touch.screenX, touch.screenY);
+        var pos2:FlxPoint = new FlxPoint(touch.screenX, touch.screenY);
+
+        var swp:Swipes =
+          {
+            initTouchPos: pos,
+            curTouchPos: pos2,
+            touchAngle: 0,
+            touchLength: 0
+          };
+        touchMap[touch.touchPointID] = swp;
+
+        curStep = 1;
+        Haptic.vibrate(40, 70);
+      }
+      if (touch.pressed)
+      {
+        var daSwipe = touchMap[touch.touchPointID];
+
+        daSwipe.curTouchPos.set(touch.screenX, touch.screenY);
+
+        var dx = daSwipe.initTouchPos.x - touch.screenX;
+        var dy = daSwipe.initTouchPos.y - touch.screenY;
+
+        daSwipe.touchAngle = Math.atan2(dy, dx);
+        daSwipe.touchLength = Math.sqrt(dx * dx + dy * dy);
+
+        FlxG.watch.addQuick("LENGTH", daSwipe.touchLength);
+        FlxG.watch.addQuick("ANGLE", FlxAngle.asDegrees(daSwipe.touchAngle));
+
+        if (daSwipe.touchLength >= (activateLength / vibrationSteps) * curStep)
+        {
+          curStep += 1;
+          // Haptic.vibrate(Std.int(hapticPressure / (curStep * 1.5)), 50);
+        }
+      }
+
+      if (touch.justReleased)
+      {
+        touchMap.remove(touch.touchPointID);
+      }
+
+      /* switch (inputID)
+        {
+          case FlxDirectionFlags.UP:
+            return
+          case FlxDirectionFlags.DOWN:
+        }
+       */
+    }
+    #end
+  }
+
+  override public function check(Action:FlxAction):Bool
+  {
+    for (swp in touchMap)
+    {
+      var degAngle = FlxAngle.asDegrees(swp.touchAngle);
+
+      switch (trigger)
+      {
+        case JUST_PRESSED:
+          if (swp.touchLength >= activateLength)
+          {
+            switch (inputID)
+            {
+              case FlxDirectionFlags.UP:
+                if (degAngle >= 45 && degAngle <= 90 + 45) return properTouch(swp);
+              case FlxDirectionFlags.DOWN:
+                if (-degAngle >= 45 && -degAngle <= 90 + 45) return properTouch(swp);
+              case FlxDirectionFlags.LEFT:
+                if (degAngle <= 45 && -degAngle <= 45) return properTouch(swp);
+              case FlxDirectionFlags.RIGHT:
+                if (degAngle >= 90 + 45 && degAngle <= -90 + -45) return properTouch(swp);
+            }
+          }
+        default:
+      }
+    }
+
+    return false;
+  }
+
+  function properTouch(swipe:Swipes):Bool
+  {
+    curStep = 1;
+    Haptic.vibrate(100, 30);
+    swipe.initTouchPos.set(swipe.curTouchPos.x, swipe.curTouchPos.y);
+    return true;
+  }
+}
+
+// Maybe this can be committed to main HaxeFlixel repo?
+#if android
+class FlxActionInputDigitalAndroid extends FlxActionInputDigital
+{
+  /**
+   * Android buttons action input
+   * @param	androidKeyID Key identifier (FlxAndroidKey.BACK, FlxAndroidKey.MENU... those are the only 2 android specific ones)
+   * @param	Trigger What state triggers this action (PRESSED, JUST_PRESSED, RELEASED, JUST_RELEASED)
+   */
+  public function new(androidKeyID:FlxAndroidKey, Trigger:FlxInputState)
+  {
+    super(FlxInputDevice.OTHER, androidKeyID, Trigger);
+  }
+
+  override public function check(Action:FlxAction):Bool
+  {
+    return switch (trigger)
+    {
+      #if android
+      case PRESSED: FlxG.android.checkStatus(inputID, PRESSED) || FlxG.android.checkStatus(inputID, PRESSED);
+      case RELEASED: FlxG.android.checkStatus(inputID, RELEASED) || FlxG.android.checkStatus(inputID, JUST_RELEASED);
+      case JUST_PRESSED: FlxG.android.checkStatus(inputID, JUST_PRESSED);
+      case JUST_RELEASED: FlxG.android.checkStatus(inputID, JUST_RELEASED);
+      #end
+
+      default: false;
+    }
+  }
+}
+#end
+
+>>>>>>> cd960b0a (idk7)
 /**
  * Since, in many cases multiple actions should use similar keys, we don't want the
  * rebinding UI to list every action. ActionBinders are what the user percieves as
@@ -2857,6 +3218,7 @@ enum Control
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if FEATURE_DEBUG_MENU DEBUG_MENU; #end
 =======
   DEBUG_MENU;
@@ -2876,6 +3238,11 @@ enum Control
 =======
   #if FEATURE_DEBUG_MENU DEBUG_MENU; #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  #if FEATURE_DEBUG_MENU DEBUG_MENU; #end
+=======
+  DEBUG_MENU;
+>>>>>>> cd960b0a (idk7)
   #if FEATURE_CHART_EDITOR DEBUG_CHART; #end
   #if FEATURE_STAGE_EDITOR DEBUG_STAGE; #end
 }
@@ -2935,6 +3302,7 @@ enum abstract Action(String) to String from String
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #if FEATURE_DEBUG_MENU
 ||||||| parent of b150c43d (lol4)
 =======
@@ -2948,7 +3316,12 @@ enum abstract Action(String) to String from String
 =======
   #if FEATURE_DEBUG_MENU
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  #if FEATURE_DEBUG_MENU
+=======
+>>>>>>> cd960b0a (idk7)
   var DEBUG_MENU = "debug_menu";
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2968,6 +3341,10 @@ enum abstract Action(String) to String from String
 =======
   #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  #end
+=======
+>>>>>>> cd960b0a (idk7)
   #if FEATURE_CHART_EDITOR
   var DEBUG_CHART = "debug_chart";
   #end

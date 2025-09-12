@@ -7,6 +7,7 @@ import funkin.play.character.BaseCharacter;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import funkin.data.song.SongData;
@@ -15,8 +16,13 @@ import funkin.data.song.SongData;
 import funkin.data.song.SongData;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import funkin.data.song.SongData;
+>>>>>>> cd960b0a (idk7)
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -42,6 +48,10 @@ import funkin.play.event.SongEvent;
 import funkin.play.event.SongEvent;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import funkin.play.event.SongEvent;
+>>>>>>> cd960b0a (idk7)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 

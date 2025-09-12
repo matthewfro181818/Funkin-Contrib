@@ -5,6 +5,7 @@ import polymod.fs.ZipFileSystem;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.data.dialogue.ConversationRegistry;
 import funkin.data.dialogue.DialogueBoxRegistry;
 import funkin.data.dialogue.SpeakerRegistry;
@@ -40,6 +41,15 @@ import funkin.data.dialogue.ConversationRegistry;
 import funkin.data.dialogue.DialogueBoxRegistry;
 import funkin.data.dialogue.SpeakerRegistry;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+import funkin.data.dialogue.ConversationRegistry;
+import funkin.data.dialogue.DialogueBoxRegistry;
+import funkin.data.dialogue.SpeakerRegistry;
+=======
+import funkin.data.dialogue.conversation.ConversationRegistry;
+import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
+import funkin.data.dialogue.speaker.SpeakerRegistry;
+>>>>>>> cd960b0a (idk7)
 import funkin.data.event.SongEventRegistry;
 import funkin.data.story.level.LevelRegistry;
 import funkin.data.notestyle.NoteStyleRegistry;
@@ -50,6 +60,7 @@ import funkin.data.freeplay.player.PlayerRegistry;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.data.freeplay.style.FreeplayStyleRegistry;
 ||||||| parent of 8a1f54ca (lol8)
 import funkin.data.freeplay.style.FreeplayStyleRegistry;
@@ -59,10 +70,14 @@ import funkin.data.freeplay.style.FreeplayStyleRegistry;
 =======
 import funkin.data.freeplay.style.FreeplayStyleRegistry;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+import funkin.data.freeplay.style.FreeplayStyleRegistry;
+=======
+>>>>>>> cd960b0a (idk7)
 import funkin.data.stage.StageRegistry;
-import funkin.data.stickers.StickerRegistry;
 import funkin.data.freeplay.album.AlbumRegistry;
 import funkin.modding.module.ModuleHandler;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterDataParser;
@@ -93,6 +108,11 @@ import funkin.data.character.CharacterRegistry;
 =======
 import funkin.play.character.CharacterData.CharacterDataParser;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+import funkin.play.character.CharacterData.CharacterDataParser;
+=======
+import funkin.data.character.CharacterRegistry;
+>>>>>>> cd960b0a (idk7)
 import funkin.save.Save;
 import funkin.util.FileUtil;
 import funkin.util.macro.ClassMacro;
@@ -107,6 +127,7 @@ import polymod.Polymod;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -122,6 +143,10 @@ import polymod.Polymod;
 =======
 @:nullSafety
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+@:nullSafety
+=======
+>>>>>>> cd960b0a (idk7)
 class PolymodHandler
 {
   /**
@@ -130,6 +155,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    * Minor updates rarely impact mods but major versions sometimes do.
 ||||||| parent of 8a1f54ca (lol8)
    * Minor updates rarely impact mods but major versions sometimes do.
@@ -141,7 +167,13 @@ class PolymodHandler
 =======
    * Minor updates rarely impact mods but major versions sometimes do.
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+   * Minor updates rarely impact mods but major versions sometimes do.
+=======
+   * Minor updates rarely impact mods but major versions often do.
+>>>>>>> cd960b0a (idk7)
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   public static var API_VERSION(get, never):String;
@@ -191,6 +223,16 @@ class PolymodHandler
     return Constants.VERSION;
   }
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  public static var API_VERSION(get, never):String;
+
+  static function get_API_VERSION():String
+  {
+    return Constants.VERSION;
+  }
+=======
+  // static final API_VERSION:String = Constants.VERSION;
+>>>>>>> cd960b0a (idk7)
 
   /**
    * The Semantic Versioning rule
@@ -202,6 +244,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public static final API_VERSION_RULE:String = ">=0.6.3 <0.8.0";
 =======
   static final API_VERSION_RULE:String = ">=0.5.0 <0.6.0";
@@ -221,6 +264,11 @@ class PolymodHandler
 =======
   public static final API_VERSION_RULE:String = ">=0.6.3 <0.8.0";
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  public static final API_VERSION_RULE:String = ">=0.6.3 <0.8.0";
+=======
+  static final API_VERSION_RULE:String = ">=0.5.0 <0.6.0";
+>>>>>>> cd960b0a (idk7)
 
   /**
    * Where relative to the executable that mods are located.
@@ -249,6 +297,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Use SysZipFileSystem on native and MemoryZipFilesystem on web.
 =======
   // Use SysZipFileSystem on desktop and MemoryZipFilesystem on web.
@@ -268,6 +317,11 @@ class PolymodHandler
 =======
   // Use SysZipFileSystem on native and MemoryZipFilesystem on web.
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  // Use SysZipFileSystem on native and MemoryZipFilesystem on web.
+=======
+  // Use SysZipFileSystem on desktop and MemoryZipFilesystem on web.
+>>>>>>> cd960b0a (idk7)
   static var modFileSystem:Null<ZipFileSystem> = null;
 
   /**
@@ -287,6 +341,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if sys
 ||||||| parent of b150c43d (lol4)
 =======
@@ -300,8 +355,13 @@ class PolymodHandler
 =======
     #if sys
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    #if sys
+=======
+>>>>>>> cd960b0a (idk7)
     // Create the mod root if it doesn't exist.
     createModRoot();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -322,6 +382,10 @@ class PolymodHandler
 =======
     #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    #end
+=======
+>>>>>>> cd960b0a (idk7)
     trace('Initializing Polymod (using all mods)...');
     loadModsById(getAllModIds());
   }
@@ -335,6 +399,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if sys
 ||||||| parent of 8a1f54ca (lol8)
     #if sys
@@ -344,8 +409,13 @@ class PolymodHandler
 =======
     #if sys
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    #if sys
+=======
+>>>>>>> cd960b0a (idk7)
     // Create the mod root if it doesn't exist.
     createModRoot();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     #end
@@ -374,6 +444,11 @@ class PolymodHandler
 =======
     #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    #end
+=======
+
+>>>>>>> cd960b0a (idk7)
     trace('Initializing Polymod (using configured mods)...');
     loadModsById(Save.instance.enabledModIds);
   }
@@ -387,6 +462,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #if sys
 ||||||| parent of 8a1f54ca (lol8)
     #if sys
@@ -396,8 +472,13 @@ class PolymodHandler
 =======
     #if sys
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    #if sys
+=======
+>>>>>>> cd960b0a (idk7)
     // Create the mod root if it doesn't exist.
     createModRoot();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     #end
@@ -426,6 +507,11 @@ class PolymodHandler
 =======
     #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    #end
+=======
+
+>>>>>>> cd960b0a (idk7)
     // We still need to configure the debug print calls etc.
     trace('Initializing Polymod (using no mods)...');
     loadModsById([]);
@@ -476,6 +562,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         ignoredFiles: buildIgnoreList(),
 =======
         ignoredFiles: Polymod.getDefaultIgnoreList(),
@@ -495,6 +582,11 @@ class PolymodHandler
 =======
         ignoredFiles: buildIgnoreList(),
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+        ignoredFiles: buildIgnoreList(),
+=======
+        ignoredFiles: Polymod.getDefaultIgnoreList(),
+>>>>>>> cd960b0a (idk7)
 
         // Parsing rules for various data formats.
         parseRules: buildParseRules(),
@@ -593,6 +685,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     Polymod.addImportAlias('funkin.play.character.CharacterDataParser', funkin.data.character.CharacterRegistry);
 
@@ -612,6 +705,11 @@ class PolymodHandler
 
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+    Polymod.addImportAlias('funkin.play.character.CharacterDataParser', funkin.data.character.CharacterRegistry);
+
+>>>>>>> cd960b0a (idk7)
     // `lime.utils.Assets` literally just has a private `resolveClass` function for some reason? so we replace it with our own.
     Polymod.addImportAlias('lime.utils.Assets', funkin.Assets);
     Polymod.addImportAlias('openfl.utils.Assets', funkin.Assets);
@@ -620,6 +718,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Backward compatibility for certain scripted classes outside `funkin.modding.base`.
     Polymod.addImportAlias('funkin.modding.base.ScriptedFunkinSprite', funkin.graphics.ScriptedFunkinSprite);
     Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatState', funkin.ui.ScriptedMusicBeatState);
@@ -747,6 +846,38 @@ class PolymodHandler
     Polymod.addImportAlias('funkin.api.discord.DiscordClient', funkin.api.discord.DiscordClient.DiscordClientSandboxed);
 
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    // Backward compatibility for certain scripted classes outside `funkin.modding.base`.
+    Polymod.addImportAlias('funkin.modding.base.ScriptedFunkinSprite', funkin.graphics.ScriptedFunkinSprite);
+    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatState', funkin.ui.ScriptedMusicBeatState);
+    Polymod.addImportAlias('funkin.modding.base.ScriptedMusicBeatSubState', funkin.ui.ScriptedMusicBeatSubState);
+
+    // Backward compatibility for some classes that moved.
+    Polymod.addImportAlias('funkin.data.dialogue.conversation.ConversationRegistry', funkin.data.dialogue.ConversationRegistry);
+    Polymod.addImportAlias('funkin.data.dialogue.dialoguebox.DialogueBoxRegistry', funkin.data.dialogue.DialogueBoxRegistry);
+    Polymod.addImportAlias('funkin.data.dialogue.speaker.SpeakerRegistry', funkin.data.dialogue.SpeakerRegistry);
+
+    // `funkin.util.FileUtil` has unrestricted access to the file system.
+    Polymod.addImportAlias('funkin.util.FileUtil', funkin.util.FileUtilSandboxed);
+
+    #if FEATURE_NEWGROUNDS
+    // `funkin.api.newgrounds.Leaderboards` allows for submitting cheated scores.
+    // We still grant read-only access.
+    Polymod.addImportAlias('funkin.api.newgrounds.Leaderboards', funkin.api.newgrounds.Leaderboards.LeaderboardsSandboxed);
+
+    // `funkin.api.newgrounds.Medals` allows for unfair granting of medals.
+    // We still grant read-only access.
+    Polymod.addImportAlias('funkin.api.newgrounds.Medals', funkin.api.newgrounds.Medals.MedalsSandboxed);
+
+    // `funkin.api.newgrounds.NewgroundsClientSandboxed` allows for submitting cheated data.
+    // We still grant read-only access.
+    Polymod.addImportAlias('funkin.api.newgrounds.NewgroundsClient', funkin.api.newgrounds.NewgroundsClient.NewgroundsClientSandboxed);
+    #end
+
+    Polymod.addImportAlias('funkin.api.discord.DiscordClient', funkin.api.discord.DiscordClient.DiscordClientSandboxed);
+
+=======
+>>>>>>> cd960b0a (idk7)
     // Add blacklisting for prohibited classes and packages.
 
     // `Sys`
@@ -758,6 +889,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Reflect.callMethod() can access blacklisted packages, but some functions are whitelisted
     Polymod.addImportAlias('Reflect', funkin.util.ReflectUtil);
 ||||||| parent of 8a1f54ca (lol8)
@@ -774,8 +906,16 @@ class PolymodHandler
     // Reflect.callMethod() can access blacklisted packages, but some functions are whitelisted
     Polymod.addImportAlias('Reflect', funkin.util.ReflectUtil);
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    // Reflect.callMethod() can access blacklisted packages, but some functions are whitelisted
+    Polymod.addImportAlias('Reflect', funkin.util.ReflectUtil);
+=======
+    // Reflect.callMethod() can access blacklisted packages
+    Polymod.blacklistImport('Reflect');
+>>>>>>> cd960b0a (idk7)
 
     // `Type`
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     // Type.createInstance(Type.resolveClass()) can access blacklisted packages, but some functions are whitelisted
@@ -817,6 +957,13 @@ class PolymodHandler
     // Type.createInstance(Type.resolveClass()) can access blacklisted packages, but some functions are whitelisted
     Polymod.addImportAlias('Type', funkin.util.ReflectUtil);
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    // Type.createInstance(Type.resolveClass()) can access blacklisted packages, but some functions are whitelisted
+    Polymod.addImportAlias('Type', funkin.util.ReflectUtil);
+=======
+    // Type.createInstance(Type.resolveClass()) can access blacklisted packages
+    Polymod.blacklistImport('Type');
+>>>>>>> cd960b0a (idk7)
 
     // `cpp.Lib`
     // Lib.load() can load malicious DLLs
@@ -826,6 +973,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // `haxe.Unserializer`
 ||||||| parent of 8a1f54ca (lol8)
     // `haxe.Unserializer`
@@ -837,7 +985,13 @@ class PolymodHandler
 =======
     // `haxe.Unserializer`
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    // `haxe.Unserializer`
+=======
+    // `Unserializer`
+>>>>>>> cd960b0a (idk7)
     // Unserializer.DEFAULT_RESOLVER.resolveClass() can access blacklisted packages
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     Polymod.blacklistImport('haxe.Unserializer');
@@ -1035,6 +1189,53 @@ class PolymodHandler
       Polymod.blacklistImport(className);
     }
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    Polymod.blacklistImport('haxe.Unserializer');
+
+    // `flixel.util.FlxSave`
+    // FlxSave.resolveFlixelClasses() can access blacklisted packages
+    Polymod.blacklistImport('flixel.util.FlxSave');
+
+    // Disable access to AdMob Util
+    Polymod.blacklistImport('funkin.mobile.util.AdMobUtil');
+
+    // Disable access to In-App Purchases Util
+    Polymod.blacklistImport('funkin.mobile.util.InAppPurchasesUtil');
+
+    // Disable access to Admob Extension
+    for (cls in ClassMacro.listClassesInPackage('extension.admob'))
+    {
+      if (cls == null) continue;
+      var className:String = Type.getClassName(cls);
+      Polymod.blacklistImport(className);
+    }
+
+    // Disable access to AndroidTools Extension
+    for (cls in ClassMacro.listClassesInPackage('extension.androidtools'))
+    {
+      if (cls == null) continue;
+      var className:String = Type.getClassName(cls);
+      Polymod.blacklistImport(className);
+    }
+
+    // Disable access to IAPCore Extension
+    for (cls in ClassMacro.listClassesInPackage('extension.iapcore'))
+    {
+      if (cls == null) continue;
+      var className:String = Type.getClassName(cls);
+      Polymod.blacklistImport(className);
+    }
+
+    // Disable access to Haptics Extension
+    for (cls in ClassMacro.listClassesInPackage('extension.haptics'))
+    {
+      if (cls == null) continue;
+      var className:String = Type.getClassName(cls);
+      Polymod.blacklistImport(className);
+    }
+=======
+    Polymod.blacklistImport('Unserializer');
+>>>>>>> cd960b0a (idk7)
 
     // `lime.system.CFFI`
     // Can load and execute compiled binaries.
@@ -1064,6 +1265,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Contains critical private environment variables.
     Polymod.blacklistImport('funkin.util.macro.EnvironmentConfigMacro');
 
@@ -1127,6 +1329,22 @@ class PolymodHandler
     }
 
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    // Contains critical private environment variables.
+    Polymod.blacklistImport('funkin.util.macro.EnvironmentConfigMacro');
+
+    // `funkin.api.*`
+    // Contains functions which may allow for cheating and such.
+    for (cls in ClassMacro.listClassesInPackage('funkin.api'))
+    {
+      if (cls == null) continue;
+      var className:String = Type.getClassName(cls);
+      if (polymod.hscript._internal.PolymodScriptClass.importOverrides.exists(className)) continue;
+      Polymod.blacklistImport(className);
+    }
+
+=======
+>>>>>>> cd960b0a (idk7)
     // `polymod.*`
     // Contains functions which may allow for un-blacklisting other modules.
     for (cls in ClassMacro.listClassesInPackage('polymod'))
@@ -1140,6 +1358,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // `hscript.*
     // Contains functions which may allow for interpreting unsanitized strings.
     for (cls in ClassMacro.listClassesInPackage('hscript'))
@@ -1259,6 +1478,36 @@ class PolymodHandler
     }
 
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    // `hscript.*
+    // Contains functions which may allow for interpreting unsanitized strings.
+    for (cls in ClassMacro.listClassesInPackage('hscript'))
+    {
+      if (cls == null) continue;
+      var className:String = Type.getClassName(cls);
+      Polymod.blacklistImport(className);
+    }
+
+    // `funkin.api.newgrounds.*`
+    // Contains functions which allow for cheating medals and leaderboards.
+    for (cls in ClassMacro.listClassesInPackage('funkin.api.newgrounds'))
+    {
+      if (cls == null) continue;
+      var className:String = Type.getClassName(cls);
+      Polymod.blacklistImport(className);
+    }
+
+    // `io.newgrounds.*`
+    // Contains functions which allow for cheating medals and leaderboards.
+    for (cls in ClassMacro.listClassesInPackage('io.newgrounds'))
+    {
+      if (cls == null) continue;
+      var className:String = Type.getClassName(cls);
+      Polymod.blacklistImport(className);
+    }
+
+=======
+>>>>>>> cd960b0a (idk7)
     // `sys.*`
     // Access to system utilities such as the file system.
     for (cls in ClassMacro.listClassesInPackage('sys'))
@@ -1271,6 +1520,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     // `funkin.util.macro.*`
     // CompiledClassList's get function allows access to sys and Newgrounds classes
@@ -1382,6 +1632,34 @@ class PolymodHandler
 
     return result;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+
+    // `funkin.util.macro.*`
+    // CompiledClassList's get function allows access to sys and Newgrounds classes
+    // None of the classes are suitable for mods anyway
+    for (cls in ClassMacro.listClassesInPackage('funkin.util.macro'))
+    {
+      if (cls == null) continue;
+      var className:String = Type.getClassName(cls);
+      Polymod.blacklistImport(className);
+    }
+  }
+
+  /**
+   * Build a list of file paths that will be ignored in mods.
+   */
+  static function buildIgnoreList():Array<String>
+  {
+    var result = Polymod.getDefaultIgnoreList();
+
+    result.push('.git');
+    result.push('.gitignore');
+    result.push('.gitattributes');
+    result.push('README.md');
+
+    return result;
+=======
+>>>>>>> cd960b0a (idk7)
   }
 
   static function buildParseRules():polymod.format.ParseRules
@@ -1487,6 +1765,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // This will also register all scripts.
 ||||||| parent of 8a1f54ca (lol8)
     // This will also register all scripts.
@@ -1496,9 +1775,14 @@ class PolymodHandler
 =======
     // This will also register all scripts.
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    // This will also register all scripts.
+=======
+>>>>>>> cd960b0a (idk7)
     // TODO: Replace this with loadEnabledMods().
     funkin.modding.PolymodHandler.loadAllMods();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -1532,6 +1816,12 @@ class PolymodHandler
 
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+    // Reload scripted classes so stages and modules will update.
+    Polymod.registerAllScriptClasses();
+
+>>>>>>> cd960b0a (idk7)
     // Reload everything that is cached.
     // Currently this freezes the game for a second but I guess that's tolerable?
 
@@ -1554,6 +1844,7 @@ class PolymodHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     StickerRegistry.instance.loadEntries();
     FreeplayStyleRegistry.instance.loadEntries();
 ||||||| parent of 8a1f54ca (lol8)
@@ -1566,7 +1857,13 @@ class PolymodHandler
     StickerRegistry.instance.loadEntries();
     FreeplayStyleRegistry.instance.loadEntries();
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    StickerRegistry.instance.loadEntries();
+    FreeplayStyleRegistry.instance.loadEntries();
+=======
+>>>>>>> cd960b0a (idk7)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     CharacterDataParser.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
@@ -1595,6 +1892,11 @@ class PolymodHandler
 =======
     CharacterDataParser.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    CharacterDataParser.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
+=======
+    CharacterRegistry.loadCharacterCache(); // TODO: Migrate characters to BaseRegistry.
+>>>>>>> cd960b0a (idk7)
     NoteKindManager.loadScripts();
     ModuleHandler.loadModuleCache();
   }

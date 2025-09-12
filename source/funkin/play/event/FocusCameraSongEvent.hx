@@ -6,6 +6,7 @@ import flixel.tweens.FlxEase;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import funkin.data.song.SongData;
@@ -14,8 +15,13 @@ import funkin.data.song.SongData;
 import funkin.data.song.SongData;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import funkin.data.song.SongData;
+>>>>>>> cd960b0a (idk7)
 import funkin.data.song.SongData.SongEventData;
 // Data from the event schema
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -41,6 +47,10 @@ import funkin.play.event.SongEvent;
 import funkin.play.event.SongEvent;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import funkin.play.event.SongEvent;
+>>>>>>> cd960b0a (idk7)
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
 
@@ -227,6 +237,7 @@ class FocusCameraSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         min: 0,
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -242,6 +253,10 @@ class FocusCameraSongEvent extends SongEvent
 =======
         min: 0,
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+        min: 0,
+=======
+>>>>>>> cd960b0a (idk7)
         step: 0.5,
         type: SongEventFieldType.FLOAT,
         units: 'steps'
@@ -278,6 +293,7 @@ class FocusCameraSongEvent extends SongEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           'Smoother Step In' => 'smootherStepIn',
           'Smoother Step Out' => 'smootherStepOut',
           'Smoother Step In/Out' => 'smootherStepInOut',
@@ -299,9 +315,16 @@ class FocusCameraSongEvent extends SongEvent
           'Smoother Step Out' => 'smootherStepOut',
           'Smoother Step In/Out' => 'smootherStepInOut',
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+          'Smoother Step In' => 'smootherStepIn',
+          'Smoother Step Out' => 'smootherStepOut',
+          'Smoother Step In/Out' => 'smootherStepInOut',
+=======
+>>>>>>> cd960b0a (idk7)
           'Elastic In' => 'elasticIn',
           'Elastic Out' => 'elasticOut',
           'Elastic In/Out' => 'elasticInOut',
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -355,6 +378,18 @@ class FocusCameraSongEvent extends SongEvent
           'Circ Out' => 'circOut',
           'Circ In/Out' => 'circInOut',
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+          'Back In' => 'backIn',
+          'Back Out' => 'backOut',
+          'Back In/Out' => 'backInOut',
+          'Bounce In' => 'bounceIn',
+          'Bounce Out' => 'bounceOut',
+          'Bounce In/Out' => 'bounceInOut',
+          'Circ In' => 'circIn',
+          'Circ Out' => 'circOut',
+          'Circ In/Out' => 'circInOut',
+=======
+>>>>>>> cd960b0a (idk7)
           'Instant (Ignores duration)' => 'INSTANT',
           'Classic (Ignores duration)' => 'CLASSIC'
         ]

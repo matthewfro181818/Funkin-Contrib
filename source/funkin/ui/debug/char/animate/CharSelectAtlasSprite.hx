@@ -1,11 +1,11 @@
 package funkin.ui.debug.char.animate;
 
-import flixel.util.FlxSignal;
+import flixel.util.FlxSignal.FlxTypedSignal;
 import flxanimate.FlxAnimate;
 import flxanimate.FlxAnimate.Settings;
 import flxanimate.frames.FlxAnimateFrames;
 import flixel.graphics.frames.FlxFrame;
-import flixel.graphics.FlxGraphic;
+import flixel.system.FlxAssets.FlxGraphicAsset;
 import openfl.display.BitmapData;
 import flixel.math.FlxPoint;
 import flxanimate.animate.FlxKeyFrame;
@@ -379,7 +379,7 @@ class CharSelectAtlasSprite extends FlxAnimate
 
   var prevFrames:Map<Int, FlxFrame> = [];
 
-  public function replaceFrameGraphic(index:Int, ?graphic:FlxGraphic):Void
+  public function replaceFrameGraphic(index:Int, ?graphic:FlxGraphicAsset):Void
   {
     if (this.frames == null || this.anim == null) return;
 

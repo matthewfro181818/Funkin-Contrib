@@ -8,36 +8,26 @@ import haxe.ui.containers.HBox;
 import haxe.ui.containers.menus.Menu;
 import haxe.ui.containers.menus.MenuItem;
 import haxe.ui.containers.menus.MenuCheckBox;
-
 import funkin.ui.freeplay.LetterSort;
 import funkin.ui.freeplay.CapsuleText;
-
 import flixel.text.FlxText;
-
-import funkin.ui.freeplay.components.DifficultySprite;
-
+import funkin.ui.freeplay.FreeplayState.DifficultySprite;
 import funkin.ui.debug.char.components.dialogs.freeplay.*;
 import funkin.ui.debug.char.components.dialogs.DefaultPageDialog;
-
 import funkin.graphics.FunkinSprite;
 import funkin.ui.freeplay.FreeplayScore;
 import funkin.ui.freeplay.FreeplayStyle;
-
 import funkin.data.animation.AnimationData;
 import funkin.data.freeplay.style.FreeplayStyleData;
 import funkin.data.freeplay.style.FreeplayStyleRegistry;
-
 import funkin.graphics.shaders.AngleMask;
 import funkin.graphics.shaders.Grayscale;
 import funkin.graphics.shaders.StrokeShader;
-
 import funkin.data.freeplay.player.PlayerRegistry;
 import funkin.ui.debug.char.animate.CharSelectAtlasSprite;
 import funkin.ui.freeplay.BGScrollingText;
 import funkin.ui.AtlasText;
-
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
-
 import flixel.addons.display.shapes.FlxShapeCircle;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
@@ -45,9 +35,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.util.FlxSpriteUtil;
 import flixel.FlxSprite;
-
 import openfl.display.BlendMode;
-
 
 // mainly used for dj animations and style
 class CharCreatorFreeplayPage extends CharCreatorDefaultPage

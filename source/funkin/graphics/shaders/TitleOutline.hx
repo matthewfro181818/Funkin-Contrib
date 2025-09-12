@@ -4,6 +4,7 @@ package funkin.graphics.shaders;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.math.FlxPoint;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -19,6 +20,10 @@ import flixel.math.FlxPoint;
 import flixel.math.FlxPoint;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import flixel.math.FlxPoint;
+>>>>>>> cd960b0a (idk7)
 import flixel.system.FlxAssets.FlxShader;
 
 class TitleOutline extends FlxShader

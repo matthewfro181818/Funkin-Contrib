@@ -2,7 +2,8 @@ package funkin.util.macro;
 
 import haxe.macro.Context;
 import haxe.macro.Expr;
-import haxe.macro.Type.ClassType;
+import haxe.macro.Type;
+import funkin.util.macro.MacroUtil;
 
 /**
  * Macros to generate lists of classes at compile time.
@@ -10,7 +11,6 @@ import haxe.macro.Type.ClassType;
  * This code is a bitch glad Jason figured it out.
  * Based on code from CompileTime: https://github.com/jasononeil/compiletime
  */
-@:nullSafety
 class ClassMacro
 {
   /**

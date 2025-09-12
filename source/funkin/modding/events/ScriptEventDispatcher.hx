@@ -10,6 +10,7 @@ import funkin.modding.IScriptedClass;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -25,6 +26,10 @@ import funkin.modding.IScriptedClass;
 =======
 @:nullSafety
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+@:nullSafety
+=======
+>>>>>>> cd960b0a (idk7)
 class ScriptEventDispatcher
 {
   /**
@@ -113,6 +118,7 @@ class ScriptEventDispatcher
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         case NOTE_HOLD_DROP:
           t.onNoteHoldDrop(cast event);
           return;
@@ -136,6 +142,12 @@ class ScriptEventDispatcher
           t.onNoteHoldDrop(cast event);
           return;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+        case NOTE_HOLD_DROP:
+          t.onNoteHoldDrop(cast event);
+          return;
+=======
+>>>>>>> cd960b0a (idk7)
         default: // Continue;
       }
     }

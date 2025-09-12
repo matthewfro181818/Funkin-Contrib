@@ -10,6 +10,7 @@ import flixel.util.FlxTimer;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.util.HapticUtil;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -25,6 +26,10 @@ import funkin.util.HapticUtil;
 =======
 import funkin.util.HapticUtil;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+import funkin.util.HapticUtil;
+=======
+>>>>>>> cd960b0a (idk7)
 
 /**
  * Static methods for playing cutscenes in the PlayState.
@@ -64,6 +69,7 @@ class VanillaCutscenes
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       HapticUtil.vibrate(0.1, 0.5, 1, 1);
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -79,6 +85,10 @@ class VanillaCutscenes
 =======
       HapticUtil.vibrate(0.1, 0.5, 1, 1);
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      HapticUtil.vibrate(0.1, 0.5, 1, 1);
+=======
+>>>>>>> cd960b0a (idk7)
       FunkinSound.playOnce(Paths.sound('Lights_Turn_On'), function() {
         // Fade in the HUD.
         trace('SFX done...');

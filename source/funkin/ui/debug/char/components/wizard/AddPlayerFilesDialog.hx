@@ -2,20 +2,19 @@ package funkin.ui.debug.char.components.wizard;
 
 import haxe.io.Path;
 import haxe.ui.containers.HBox;
-import haxe.ui.containers.dialogs.Dialogs.FileDialogExtensionInfo; // ✅ fixed path
+import haxe.ui.containers.dialogs.Dialogs.FileDialogExtensionInfo;
 import haxe.ui.components.Button;
 import haxe.ui.components.TextField;
 import funkin.ui.debug.char.handlers.CharCreatorStartupWizard;
 import funkin.util.FileUtil;
-import flxanimate.data.AnimationData;   // ✅ use the module, not AnimAtlas directly
-import flxanimate.data.SpriteMapData;  // ✅ use the module, not AnimateAtlas directly
+import flxanimate.data.AnimationData.AnimAtlas;
+import flxanimate.data.SpriteMapData.AnimateAtlas;
 import funkin.data.character.CharacterData.CharacterRenderType;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.FlxSprite;
 import openfl.display.BitmapData;
 import openfl.net.FileFilter;
 import funkin.ui.debug.char.components.wizard.AddCharFilesDialog.UploadAssetsBox;
-
 
 using StringTools;
 

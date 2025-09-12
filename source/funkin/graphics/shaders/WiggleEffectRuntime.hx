@@ -22,6 +22,7 @@ enum WiggleEffectType
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
@@ -31,8 +32,13 @@ enum WiggleEffectType
 =======
 @:nullSafety
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+@:nullSafety
+=======
+>>>>>>> cd960b0a (idk7)
 class WiggleEffectRuntime extends FlxRuntimeShader
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
@@ -61,6 +67,11 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  public static function getEffectTypeId(v:Null<WiggleEffectType>):Int
+=======
+  public static function getEffectTypeId(v:WiggleEffectType):Int
+>>>>>>> cd960b0a (idk7)
   {
     return WiggleEffectType.getConstructors().indexOf(Std.string(v));
   }
@@ -69,6 +80,7 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
 ||||||| parent of 8a1f54ca (lol8)
   public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
@@ -80,7 +92,13 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  public var effectType(default, set):Null<WiggleEffectType> = DREAMY;
+=======
+  public var effectType(default, set):WiggleEffectType = DREAMY;
+>>>>>>> cd960b0a (idk7)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
@@ -110,6 +128,11 @@ class WiggleEffectRuntime extends FlxRuntimeShader
 =======
   function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  function set_effectType(v:Null<WiggleEffectType>):Null<WiggleEffectType>
+=======
+  function set_effectType(v:WiggleEffectType):WiggleEffectType
+>>>>>>> cd960b0a (idk7)
   {
     this.setInt('effectType', getEffectTypeId(v));
     return effectType = v;

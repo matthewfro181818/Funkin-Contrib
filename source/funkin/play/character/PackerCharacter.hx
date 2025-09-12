@@ -6,6 +6,7 @@ import funkin.modding.events.ScriptEvent;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.character.CharacterData.CharacterRenderType;
 =======
 import funkin.data.character.CharacterData.CharacterRenderType;
@@ -25,6 +26,11 @@ import funkin.data.character.CharacterData.CharacterRenderType;
 =======
 import funkin.play.character.CharacterData.CharacterRenderType;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+import funkin.play.character.CharacterData.CharacterRenderType;
+=======
+import funkin.data.character.CharacterData.CharacterRenderType;
+>>>>>>> cd960b0a (idk7)
 import funkin.util.assets.FlxAnimationUtil;
 
 /**
@@ -44,6 +50,7 @@ class PackerCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Display a custom scope for debugging purposes.
     #if FEATURE_DEBUG_TRACY
     cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
@@ -75,6 +82,14 @@ class PackerCharacter extends BaseCharacter
     cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
     #end
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    // Display a custom scope for debugging purposes.
+    #if FEATURE_DEBUG_TRACY
+    cpp.vm.tracy.TracyProfiler.zoneScoped('PackerCharacter.create(${this.characterId})');
+    #end
+=======
+    trace('Creating Packer character: ' + this.characterId);
+>>>>>>> cd960b0a (idk7)
 
     loadSpritesheet();
     loadAnimations();
@@ -88,6 +103,7 @@ class PackerCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
 ||||||| parent of 8a1f54ca (lol8)
     trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
@@ -99,10 +115,16 @@ class PackerCharacter extends BaseCharacter
 =======
     trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    trace('Loading assets for Packer character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
+=======
+    trace('[PACKERCHAR] Loading spritesheet ${_data.assetPaths[0]} for ${characterId}');
+>>>>>>> cd960b0a (idk7)
 
-    var tex:FlxFramesCollection = Paths.getPackerAtlas(_data.assetPath);
+    var tex:FlxFramesCollection = Paths.getPackerAtlas(_data.assetPaths[0]);
     if (tex == null)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       trace('Could not load Packer sprite: ${_data.assetPath}');
@@ -135,6 +157,11 @@ class PackerCharacter extends BaseCharacter
 =======
       trace('Could not load Packer sprite: ${_data.assetPath}');
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      trace('Could not load Packer sprite: ${_data.assetPath}');
+=======
+      trace('Could not load Packer sprite: ${_data.assetPaths[0]}');
+>>>>>>> cd960b0a (idk7)
       return;
     }
 
@@ -148,6 +175,7 @@ class PackerCharacter extends BaseCharacter
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // pixelPerfectRender = true;
       // pixelPerfectPosition = true;
 =======
@@ -175,6 +203,13 @@ class PackerCharacter extends BaseCharacter
       // pixelPerfectRender = true;
       // pixelPerfectPosition = true;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      // pixelPerfectRender = true;
+      // pixelPerfectPosition = true;
+=======
+      pixelPerfectRender = true;
+      pixelPerfectPosition = true;
+>>>>>>> cd960b0a (idk7)
     }
     else
     {

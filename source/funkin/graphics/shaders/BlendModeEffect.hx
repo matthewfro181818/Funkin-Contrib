@@ -12,6 +12,7 @@ typedef BlendModeShader =
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -27,6 +28,10 @@ typedef BlendModeShader =
 =======
 @:nullSafety
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+@:nullSafety
+=======
+>>>>>>> cd960b0a (idk7)
 class BlendModeEffect
 {
   public var shader(default, null):BlendModeShader;
@@ -36,6 +41,7 @@ class BlendModeEffect
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var color(default, set):FlxColor = new FlxColor();
 =======
   public var color(default, set):FlxColor;
@@ -55,6 +61,11 @@ class BlendModeEffect
 =======
   public var color(default, set):FlxColor = new FlxColor();
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  public var color(default, set):FlxColor = new FlxColor();
+=======
+  public var color(default, set):FlxColor;
+>>>>>>> cd960b0a (idk7)
 
   public function new(shader:BlendModeShader, color:FlxColor):Void
   {

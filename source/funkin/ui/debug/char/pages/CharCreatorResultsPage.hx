@@ -2,39 +2,30 @@ package funkin.ui.debug.char.pages;
 
 import flixel.tweens.FlxEase;
 import openfl.media.Sound;
-
 import haxe.ui.components.Label;
 import haxe.ui.components.CheckBox;
 import haxe.ui.containers.Box;
 import haxe.ui.containers.menus.Menu;
 import haxe.ui.containers.menus.MenuItem;
 import haxe.ui.containers.menus.MenuCheckBox;
-
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.ui.debug.char.animate.CharSelectAtlasSprite;
 import funkin.graphics.FunkinSprite;
-
 import funkin.ui.debug.char.components.dialogs.results.*;
 import funkin.ui.debug.char.components.dialogs.DefaultPageDialog;
-
 import funkin.data.freeplay.player.PlayerData;
 import funkin.data.freeplay.player.PlayerRegistry;
-
 import funkin.play.components.TallyCounter;
 import funkin.play.components.ClearPercentCounter;
 import funkin.play.scoring.Scoring.ScoringRank;
 import funkin.play.ResultScore;
-
 import funkin.util.SortUtil;
-
 import flixel.graphics.frames.FlxBitmapFont;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.math.FlxPoint;
 import flixel.text.FlxBitmapText;
 import flixel.tweens.FlxTween;
-
 import funkin.audio.FunkinSound;
-
 import flixel.util.FlxGradient;
 import flixel.util.FlxTimer;
 import flixel.util.FlxSort;

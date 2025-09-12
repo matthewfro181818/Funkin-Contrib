@@ -8,6 +8,7 @@ import openfl.net.URLLoader;
 import openfl.net.URLRequest;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
+import openfl.events.ProgressEvent;
 import openfl.events.SecurityErrorEvent;
 import openfl.utils.ByteArray;
 

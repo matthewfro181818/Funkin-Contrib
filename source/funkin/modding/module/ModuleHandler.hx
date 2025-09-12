@@ -10,6 +10,7 @@ import funkin.modding.module.ScriptedModule;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flixel.FlxG;
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -25,6 +26,10 @@ import flixel.FlxG;
 =======
 import flixel.FlxG;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+import flixel.FlxG;
+=======
+>>>>>>> cd960b0a (idk7)
 
 /**
  * Utility functions for loading and manipulating active modules.
@@ -33,6 +38,7 @@ import flixel.FlxG;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -48,6 +54,10 @@ import flixel.FlxG;
 =======
 @:nullSafety
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+@:nullSafety
+=======
+>>>>>>> cd960b0a (idk7)
 class ModuleHandler
 {
   static final moduleCache:Map<String, Module> = new Map<String, Module>();
@@ -116,6 +126,7 @@ class ModuleHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   static function sortByPriority(a:String, b:String):Int
 ||||||| parent of 8a1f54ca (lol8)
   static function sortByPriority(a:String, b:String):Int
@@ -127,10 +138,16 @@ class ModuleHandler
 =======
   static function sortByPriority(a:String, b:String):Int
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  static function sortByPriority(a:String, b:String):Int
+=======
+  static function sortByPriority(a:String, b:String)
+>>>>>>> cd960b0a (idk7)
   {
-    var aModule:Null<Module> = getModule(a);
-    var bModule:Null<Module> = getModule(b);
+    var aModule:Module = moduleCache.get(a);
+    var bModule:Module = moduleCache.get(b);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     if (aModule == null || bModule == null)
@@ -171,6 +188,13 @@ class ModuleHandler
       return 0;
     }
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    if (aModule == null || bModule == null)
+    {
+      return 0;
+    }
+=======
+>>>>>>> cd960b0a (idk7)
     if (aModule.priority != bModule.priority)
     {
       return aModule.priority - bModule.priority;
@@ -185,6 +209,7 @@ class ModuleHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public static function getModule(moduleId:String):Null<Module>
 =======
   public static function getModule(moduleId:String):Module
@@ -204,6 +229,11 @@ class ModuleHandler
 =======
   public static function getModule(moduleId:String):Null<Module>
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  public static function getModule(moduleId:String):Null<Module>
+=======
+  public static function getModule(moduleId:String):Module
+>>>>>>> cd960b0a (idk7)
   {
     return moduleCache.get(moduleId);
   }
@@ -214,6 +244,7 @@ class ModuleHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var module:Null<Module> = getModule(moduleId);
 =======
     var module:Module = getModule(moduleId);
@@ -233,6 +264,11 @@ class ModuleHandler
 =======
     var module:Null<Module> = getModule(moduleId);
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    var module:Null<Module> = getModule(moduleId);
+=======
+    var module:Module = getModule(moduleId);
+>>>>>>> cd960b0a (idk7)
     if (module != null)
     {
       module.active = true;
@@ -245,6 +281,7 @@ class ModuleHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     var module:Null<Module> = getModule(moduleId);
 =======
     var module:Module = getModule(moduleId);
@@ -264,6 +301,11 @@ class ModuleHandler
 =======
     var module:Null<Module> = getModule(moduleId);
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    var module:Null<Module> = getModule(moduleId);
+=======
+    var module:Module = getModule(moduleId);
+>>>>>>> cd960b0a (idk7)
     if (module != null)
     {
       module.active = false;
@@ -298,6 +340,7 @@ class ModuleHandler
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       var module:Null<Module> = moduleCache.get(moduleId);
 ||||||| parent of 8a1f54ca (lol8)
       var module:Null<Module> = moduleCache.get(moduleId);
@@ -309,9 +352,15 @@ class ModuleHandler
 =======
       var module:Null<Module> = moduleCache.get(moduleId);
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      var module:Null<Module> = moduleCache.get(moduleId);
+=======
+      var module:Module = moduleCache.get(moduleId);
+>>>>>>> cd960b0a (idk7)
       // The module needs to be active to receive events.
       if (module != null && module.active)
       {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         if (module.state != null)
@@ -367,6 +416,17 @@ class ModuleHandler
           }
         }
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+        if (module.state != null)
+        {
+          // Only call the event if the current state is what the module's state is.
+          if (!(Type.getClass(FlxG.state) == module.state) && !(Type.getClass(FlxG.state?.subState) == module.state))
+          {
+            continue;
+          }
+        }
+=======
+>>>>>>> cd960b0a (idk7)
         ScriptEventDispatcher.callEvent(module, event);
       }
     }

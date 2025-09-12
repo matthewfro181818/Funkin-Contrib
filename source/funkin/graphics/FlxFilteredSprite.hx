@@ -11,6 +11,7 @@ import flixel.math.FlxMatrix;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import flixel.math.FlxPoint;
@@ -19,7 +20,12 @@ import flixel.math.FlxPoint;
 import flixel.math.FlxPoint;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import flixel.math.FlxPoint;
+>>>>>>> cd960b0a (idk7)
 import flixel.math.FlxRect;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -44,6 +50,10 @@ import flixel.util.FlxColor;
 import flixel.util.FlxColor;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import flixel.util.FlxColor;
+>>>>>>> cd960b0a (idk7)
 import lime.graphics.cairo.Cairo;
 import openfl.display.BitmapData;
 import openfl.display.BlendMode;
@@ -54,6 +64,7 @@ import openfl.display.OpenGLRenderer;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| parent of 8a1f54ca (lol8)
 =======
 import openfl.display._internal.Context3DGraphics;
@@ -62,10 +73,17 @@ import openfl.display._internal.Context3DGraphics;
 import openfl.display._internal.Context3DGraphics;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import openfl.display._internal.Context3DGraphics;
+>>>>>>> cd960b0a (idk7)
 import openfl.display3D.Context3D;
+import openfl.display3D.Context3DClearMask;
 import openfl.filters.BitmapFilter;
+import openfl.filters.BlurFilter;
 import openfl.geom.ColorTransform;
 import openfl.geom.Matrix;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -93,6 +111,10 @@ import openfl.geom.Point;
 import openfl.geom.Point;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import openfl.geom.Point;
+>>>>>>> cd960b0a (idk7)
 import openfl.geom.Rectangle;
 #if (js && html5)
 import lime._internal.graphics.ImageCanvasUtil;
@@ -111,6 +133,7 @@ import openfl.display._internal.CairoGraphics as GfxRenderer;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -126,6 +149,10 @@ import openfl.display._internal.CairoGraphics as GfxRenderer;
 =======
 @:nullSafety
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+@:nullSafety
+=======
+>>>>>>> cd960b0a (idk7)
 @:access(openfl.geom.Rectangle)
 @:access(openfl.filters.BitmapFilter)
 @:access(flixel.graphics.frames.FlxFrame)
@@ -137,6 +164,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   @:noCompletion var _filterMatrix:FlxMatrix = new FlxMatrix();
 =======
   @:noCompletion var _filterMatrix:FlxMatrix;
@@ -156,6 +184,11 @@ class FlxFilteredSprite extends FlxSprite
 =======
   @:noCompletion var _filterMatrix:FlxMatrix = new FlxMatrix();
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  @:noCompletion var _filterMatrix:FlxMatrix = new FlxMatrix();
+=======
+  @:noCompletion var _filterMatrix:FlxMatrix;
+>>>>>>> cd960b0a (idk7)
 
   /**
    * An `Array` of shader filters (aka `BitmapFilter`).
@@ -164,6 +197,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public var filters(default, set):Null<Array<BitmapFilter>>;
 =======
   public var filters(default, set):Array<BitmapFilter>;
@@ -183,6 +217,11 @@ class FlxFilteredSprite extends FlxSprite
 =======
   public var filters(default, set):Null<Array<BitmapFilter>>;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  public var filters(default, set):Null<Array<BitmapFilter>>;
+=======
+  public var filters(default, set):Array<BitmapFilter>;
+>>>>>>> cd960b0a (idk7)
 
   /**
    * a flag to update the image with the filters.
@@ -194,6 +233,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   @:noCompletion var filtered:Bool = false;
 ||||||| parent of 8a1f54ca (lol8)
   @:noCompletion var filtered:Bool = false;
@@ -205,13 +245,16 @@ class FlxFilteredSprite extends FlxSprite
 =======
   @:noCompletion var filtered:Bool = false;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  @:noCompletion var filtered:Bool = false;
+=======
+  @:noCompletion var filtered:Bool;
+>>>>>>> cd960b0a (idk7)
 
-  // These appear to be a little troublesome to null safe.
-  @:nullSafety(Off)
   @:noCompletion var _blankFrame:FlxFrame;
 
-  @:nullSafety(Off)
   var _filterBmp1:BitmapData;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   @:nullSafety(Off)
@@ -243,6 +286,10 @@ class FlxFilteredSprite extends FlxSprite
 =======
   @:nullSafety(Off)
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  @:nullSafety(Off)
+=======
+>>>>>>> cd960b0a (idk7)
   var _filterBmp2:BitmapData;
 
   override public function update(elapsed:Float)
@@ -352,6 +399,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       @:nullSafety(Off)
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -367,6 +415,10 @@ class FlxFilteredSprite extends FlxSprite
 =======
       @:nullSafety(Off)
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      @:nullSafety(Off)
+=======
+>>>>>>> cd960b0a (idk7)
       if (_blankFrame == null) _blankFrame = new FlxFrame(null);
 
       if (_blankFrame.parent == null || _flashRect.width > _blankFrame.parent.width || _flashRect.height > _blankFrame.parent.height)
@@ -387,6 +439,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       @:nullSafety(Off)
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -402,6 +455,10 @@ class FlxFilteredSprite extends FlxSprite
 =======
       @:nullSafety(Off)
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+      @:nullSafety(Off)
+=======
+>>>>>>> cd960b0a (idk7)
       _blankFrame.parent.bitmap = _renderer.applyFilter(_blankFrame.parent.bitmap, _filterBmp1, _filterBmp2, frame.parent.bitmap, filters, _flashRect,
         frame.frame.copyToFlash());
       _blankFrame.frame = FlxRect.get(0, 0, _blankFrame.parent.bitmap.width, _blankFrame.parent.bitmap.height);
@@ -421,6 +478,7 @@ class FlxFilteredSprite extends FlxSprite
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   function set_filters(value:Null<Array<BitmapFilter>>)
 =======
   function set_filters(value:Array<BitmapFilter>)
@@ -440,6 +498,11 @@ class FlxFilteredSprite extends FlxSprite
 =======
   function set_filters(value:Null<Array<BitmapFilter>>)
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  function set_filters(value:Null<Array<BitmapFilter>>)
+=======
+  function set_filters(value:Array<BitmapFilter>)
+>>>>>>> cd960b0a (idk7)
   {
     if (filters != value) filterDirty = true;
 

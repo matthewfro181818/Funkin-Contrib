@@ -9,6 +9,7 @@ import funkin.play.notes.NoteSprite;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import funkin.play.notes.SustainTrail;
 ||||||| parent of 8a1f54ca (lol8)
 import funkin.play.notes.SustainTrail;
@@ -18,9 +19,14 @@ import funkin.play.notes.SustainTrail;
 =======
 import funkin.play.notes.SustainTrail;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+import funkin.play.notes.SustainTrail;
+=======
+>>>>>>> cd960b0a (idk7)
 import funkin.play.cutscene.dialogue.Conversation;
 import funkin.play.Countdown.CountdownStep;
 import funkin.play.notes.NoteDirection;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -46,6 +52,10 @@ import openfl.events.EventType;
 import openfl.events.EventType;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import openfl.events.EventType;
+>>>>>>> cd960b0a (idk7)
 import openfl.events.KeyboardEvent;
 
 /**
@@ -56,6 +66,7 @@ import openfl.events.KeyboardEvent;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 =======
 >>>>>>> e11c5f8d (Add files via upload)
@@ -71,6 +82,10 @@ import openfl.events.KeyboardEvent;
 =======
 @:nullSafety
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+@:nullSafety
+=======
+>>>>>>> cd960b0a (idk7)
 class ScriptEvent
 {
   /**
@@ -287,6 +302,7 @@ class GhostMissNoteScriptEvent extends ScriptEvent
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 class HoldNoteScriptEvent extends NoteScriptEvent
 {
   /**
@@ -470,6 +486,52 @@ class HoldNoteScriptEvent extends NoteScriptEvent
 }
 
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+class HoldNoteScriptEvent extends NoteScriptEvent
+{
+  /**
+   * The hold note that was hit (or dropped).
+   */
+  public var holdNote:SustainTrail;
+
+  /**
+   * The score the player received for hitting the note.
+   */
+  public var score:Int;
+
+  /**
+   * If the hit causes a combo break.
+   */
+  public var isComboBreak:Bool = false;
+
+  /**
+   * The time difference when the player hit the note
+   */
+  public var hitDiff:Float = 0;
+
+  /**
+   * Whether this note hit causes a note splash to display.
+   * Defaults to true only on "sick" notes.
+   */
+  public var doesNotesplash:Bool = false;
+
+  public function new(type:ScriptEventType, holdNote:SustainTrail, healthChange:Float, score:Int, isComboBreak:Bool, comboCount:Int = 0,
+      cancelable:Bool = false):Void
+  {
+    super(type, null, healthChange, comboCount, true);
+    this.holdNote = holdNote;
+    this.score = score;
+    this.isComboBreak = isComboBreak;
+  }
+
+  public override function toString():String
+  {
+    return 'HoldNoteScriptEvent(type=$type, holdNote=$holdNote, healthChange=$healthChange, score=$score, isComboBreak=$isComboBreak, cancelable=$cancelable)';
+  }
+}
+
+=======
+>>>>>>> cd960b0a (idk7)
 /**
  * An event that is fired when the song reaches an event.
  */

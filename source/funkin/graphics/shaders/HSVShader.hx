@@ -6,6 +6,7 @@ import flixel.addons.display.FlxRuntimeShader;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @:nullSafety
 ||||||| parent of 8a1f54ca (lol8)
 @:nullSafety
@@ -15,16 +16,21 @@ import flixel.addons.display.FlxRuntimeShader;
 =======
 @:nullSafety
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+@:nullSafety
+=======
+>>>>>>> cd960b0a (idk7)
 class HSVShader extends FlxRuntimeShader
 {
-  public var hue(default, set):Float = 1;
-  public var saturation(default, set):Float = 1;
-  public var value(default, set):Float = 1;
+  public var hue(default, set):Float;
+  public var saturation(default, set):Float;
+  public var value(default, set):Float;
 
-  public function new(h:Float = 1, s:Float = 1, v:Float = 1)
+  public function new()
   {
     super(Assets.getText(Paths.frag('hsv')));
     FlxG.debugger.addTrackerProfile(new TrackerProfile(HSVShader, ['hue', 'saturation', 'value']));
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     hue = h;
@@ -77,6 +83,15 @@ class HSVShader extends FlxRuntimeShader
     saturation = s;
     value = v;
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+    hue = h;
+    saturation = s;
+    value = v;
+=======
+    hue = 1;
+    saturation = 1;
+    value = 1;
+>>>>>>> cd960b0a (idk7)
   }
 
   function set_hue(value:Float):Float

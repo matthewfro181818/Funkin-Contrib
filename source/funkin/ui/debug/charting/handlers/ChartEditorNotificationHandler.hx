@@ -14,7 +14,7 @@ class ChartEditorNotificationHandler
   {
     // Setup notifications.
     @:privateAccess
-    NotificationManager.GUTTER_SIZE = 45;
+    NotificationManager.GUTTER_SIZE = 20;
   }
 
   /**

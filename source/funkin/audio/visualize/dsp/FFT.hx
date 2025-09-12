@@ -9,7 +9,6 @@ using funkin.audio.visualize.dsp.Signal;
 /**
   Fast/Finite Fourier Transforms.
 **/
-@:nullSafety
 class FFT
 {
   /**

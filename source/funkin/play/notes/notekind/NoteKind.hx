@@ -6,6 +6,7 @@ import funkin.modding.events.ScriptEvent;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import flixel.math.FlxMath;
 >>>>>>> e11c5f8d (Add files via upload)
@@ -21,6 +22,10 @@ import flixel.math.FlxMath;
 import flixel.math.FlxMath;
 =======
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+=======
+import flixel.math.FlxMath;
+>>>>>>> cd960b0a (idk7)
 
 /**
  * Class for note scripts
@@ -51,6 +56,7 @@ class NoteKind implements INoteScriptedClass
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * If this note kind is scoreable (ie, counted towards score and accuracy)
    * Only accessible in scripts
@@ -90,6 +96,16 @@ class NoteKind implements INoteScriptedClass
   public var scoreable:Bool = true;
 
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+  /**
+   * If this note kind is scoreable (ie, counted towards score and accuracy)
+   * Only accessible in scripts
+   * Defaults to true
+   */
+  public var scoreable:Bool = true;
+
+=======
+>>>>>>> cd960b0a (idk7)
   public function new(noteKind:String, description:String = "", ?noteStyleId:String, ?params:Array<NoteKindParam>)
   {
     this.noteKind = noteKind;
@@ -132,6 +148,7 @@ class NoteKind implements INoteScriptedClass
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   public function onNoteHoldDrop(event:HoldNoteScriptEvent) {}
 =======
@@ -151,6 +168,11 @@ class NoteKind implements INoteScriptedClass
 
   public function onNoteHoldDrop(event:HoldNoteScriptEvent) {}
 >>>>>>> 905084b8 (idk2)
+||||||| parent of cd960b0a (idk7)
+
+  public function onNoteHoldDrop(event:HoldNoteScriptEvent) {}
+=======
+>>>>>>> cd960b0a (idk7)
 }
 
 /**

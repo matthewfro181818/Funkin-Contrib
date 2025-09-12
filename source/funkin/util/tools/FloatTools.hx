@@ -3,7 +3,6 @@ package funkin.util.tools;
 /**
  * Utilities for performing common math operations.
  */
-@:nullSafety
 class FloatTools
 {
   /**
@@ -17,7 +16,7 @@ class FloatTools
   /**
     Round a float to a certain number of decimal places.
   **/
-  public static function round(number:Float, precision:Int = 2):Float
+  public static function round(number:Float, ?precision = 2):Float
   {
     number *= Math.pow(10, precision);
     return Math.round(number) / Math.pow(10, precision);
