@@ -2,14 +2,13 @@ package funkin.ui;
 
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+import flixel.group.FlxSpriteGroup;
 import flixel.util.FlxStringUtil;
 
 /**
  * AtlasText is an improved version of Alphabet and FlxBitmapText.
  * It supports animations on the letters, and is less buggy than Alphabet.
  */
-@:nullSafety
 class AtlasText extends FlxTypedSpriteGroup<AtlasChar>
 {
   static var fonts = new Map<AtlasFont, AtlasFontData>();
@@ -17,7 +16,7 @@ class AtlasText extends FlxTypedSpriteGroup<AtlasChar>
 
   public var text(default, set):String = "";
 
-  var font:AtlasFontData = new AtlasFontData(AtlasFont.DEFAULT);
+  var font:AtlasFontData;
 
   public var atlas(get, never):FlxAtlasFrames;
 
@@ -34,10 +33,10 @@ class AtlasText extends FlxTypedSpriteGroup<AtlasChar>
   inline function get_maxHeight()
     return font.maxHeight;
 
-  public function new(x = 0.0, y = 0.0, text:String = "", fontName:AtlasFont = AtlasFont.DEFAULT)
+  public function new(x = 0.0, y = 0.0, text:String, fontName:AtlasFont = AtlasFont.DEFAULT)
   {
     if (!fonts.exists(fontName)) fonts[fontName] = new AtlasFontData(fontName);
-    font = fonts[fontName] ?? new AtlasFontData(fontName);
+    font = fonts[fontName];
 
     super(x, y);
 
@@ -212,7 +211,7 @@ class AtlasChar extends FlxSprite
       }
       else
       {
-        // trace('Could not find animation for char "' + value + '"');
+        trace('Could not find animation for char "' + value + '"');
       }
       updateHitbox();
     }
@@ -252,7 +251,6 @@ class AtlasChar extends FlxSprite
   }
 }
 
-@:nullSafety
 private class AtlasFontData
 {
   static public var upperChar = ~/^[A-Z]\d+$/;

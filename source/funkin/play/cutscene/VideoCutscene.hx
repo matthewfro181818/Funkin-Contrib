@@ -6,10 +6,11 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxSignal;
+import flixel.util.FlxTimer;
 #if html5
 import funkin.graphics.video.FlxVideo;
 #end
-#if hxvlc
+#if hxCodec
 import funkin.graphics.video.FunkinVideoSprite;
 #end
 
@@ -24,7 +25,7 @@ class VideoCutscene
   #if html5
   static var vid:FlxVideo;
   #end
-  #if hxvlc
+  #if hxCodec
   static var vid:FunkinVideoSprite;
   #end
 
@@ -66,7 +67,7 @@ class VideoCutscene
     if (!openfl.Assets.exists(filePath))
     {
       // Display a popup.
-      // funkin.util.WindowUtil.showError('Error playing video', 'Video file does not exist: ${filePath}');
+      // lime.app.Application.current.window.alert('Video file does not exist: ${filePath}', 'Error playing video');
       // return;
 
       // TODO: After moving videos to their own library,
@@ -89,17 +90,10 @@ class VideoCutscene
 
     VideoCutscene.cutsceneType = cutsceneType;
 
-    #if mobile
-    if (cutsceneType == ENDING)
-    {
-      PlayState.instance.togglePauseButton();
-    }
-    #end
-
     #if html5
     playVideoHTML5(rawFilePath);
-    #elseif hxvlc
-    playVideoNative(filePath);
+    #elseif hxCodec
+    playVideoNative(rawFilePath);
     #else
     throw "No video support for this platform!";
     #end
@@ -107,7 +101,7 @@ class VideoCutscene
 
   public static function isPlaying():Bool
   {
-    #if (html5 || hxvlc)
+    #if (html5 || hxCodec)
     return vid != null;
     #else
     return false;
@@ -140,7 +134,7 @@ class VideoCutscene
   }
   #end
 
-  #if hxvlc
+  #if hxCodec
   static function playVideoNative(filePath:String):Void
   {
     // Video displays OVER the FlxState.
@@ -149,28 +143,22 @@ class VideoCutscene
     if (vid != null)
     {
       vid.zIndex = 0;
-      vid.active = false;
-      vid.bitmap.onEncounteredError.add(function(msg:String):Void {
-        trace('[VLC] Encountered an error: $msg');
-
-        finishVideo(0.5);
-      });
       vid.bitmap.onEndReached.add(finishVideo.bind(0.5));
+      vid.autoPause = FlxG.autoPause;
 
       vid.cameras = [PlayState.instance.camCutscene];
 
       PlayState.instance.add(vid);
 
       PlayState.instance.refresh();
-
-      if (vid.load(filePath)) vid.play();
+      vid.play(filePath, false);
 
       // Resize videos bigger or smaller than the screen.
-      vid.bitmap.onFormatSetup.add(function():Void {
-        if (vid == null) return;
-        vid.setGraphicSize(FlxG.initialWidth, FlxG.initialHeight);
+      vid.bitmap.onTextureSetup.add(() -> {
+        vid.setGraphicSize(FlxG.width, FlxG.height);
         vid.updateHitbox();
-        vid.screenCenter();
+        vid.x = 0;
+        vid.y = 0;
         // vid.scale.set(0.5, 0.5);
       });
 
@@ -183,7 +171,7 @@ class VideoCutscene
   }
   #end
 
-  public static function restartVideo():Void
+  public static function restartVideo(resume:Bool = true):Void
   {
     #if html5
     if (vid != null)
@@ -193,11 +181,17 @@ class VideoCutscene
     }
     #end
 
-    #if hxvlc
+    #if hxCodec
     if (vid != null)
     {
+      // Seek to the start of the video.
       vid.bitmap.time = 0;
-      vid.resume();
+      if (resume)
+      {
+        // Resume the video if it was paused.
+        vid.resume();
+      }
+
       onVideoRestarted.dispatch();
     }
     #end
@@ -213,7 +207,7 @@ class VideoCutscene
     }
     #end
 
-    #if hxvlc
+    #if hxCodec
     if (vid != null)
     {
       vid.pause();
@@ -232,7 +226,7 @@ class VideoCutscene
     }
     #end
 
-    #if hxvlc
+    #if hxCodec
     if (vid != null)
     {
       vid.visible = false;
@@ -251,7 +245,7 @@ class VideoCutscene
     }
     #end
 
-    #if hxvlc
+    #if hxCodec
     if (vid != null)
     {
       vid.visible = true;
@@ -270,7 +264,7 @@ class VideoCutscene
     }
     #end
 
-    #if hxvlc
+    #if hxCodec
     if (vid != null)
     {
       vid.resume();
@@ -297,7 +291,7 @@ class VideoCutscene
     }
     #end
 
-    #if hxvlc
+    #if hxCodec
     if (vid != null)
     {
       vid.stop();
@@ -305,7 +299,7 @@ class VideoCutscene
     }
     #end
 
-    #if (html5 || hxvlc)
+    #if (html5 || hxCodec)
     vid.destroy();
     vid = null;
     #end

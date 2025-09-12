@@ -5,7 +5,6 @@ import flixel.math.FlxPoint;
 /**
  * Utility functions related to the mouse.
  */
-@:nullSafety
 class MouseUtil
 {
   static var oldCamPos:FlxPoint = new FlxPoint();
@@ -45,5 +44,7 @@ class MouseUtil
   public static function mouseWheelZoom():Void
   {
     if (FlxG.mouse.wheel != 0) FlxG.camera.zoom += FlxG.mouse.wheel * (0.1 * FlxG.camera.zoom);
+    while (FlxG.camera.zoom < 0.11)
+      FlxG.camera.zoom -= FlxG.mouse.wheel * (0.1 * FlxG.camera.zoom); // floating point error fix
   }
 }

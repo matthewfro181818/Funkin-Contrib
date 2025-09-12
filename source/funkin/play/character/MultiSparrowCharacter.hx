@@ -4,7 +4,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.frames.FlxFramesCollection;
 import funkin.modding.events.ScriptEvent;
 import funkin.util.assets.FlxAnimationUtil;
-import funkin.play.character.CharacterData.CharacterRenderType;
+import funkin.data.character.CharacterData.CharacterRenderType;
 
 /**
  * For some characters which use Sparrow atlases, the spritesheets need to be split
@@ -26,10 +26,7 @@ class MultiSparrowCharacter extends BaseCharacter
 
   override function onCreate(event:ScriptEvent):Void
   {
-    // Display a custom scope for debugging purposes.
-    #if FEATURE_DEBUG_TRACY
-    cpp.vm.tracy.TracyProfiler.zoneScoped('MultiSparrowCharacter.create(${this.characterId})');
-    #end
+    trace('Creating Multi-Sparrow character: ' + this.characterId);
 
     buildSprites();
     super.onCreate(event);
@@ -44,8 +41,8 @@ class MultiSparrowCharacter extends BaseCharacter
     {
       this.isPixel = true;
       this.antialiasing = false;
-      // pixelPerfectRender = true;
-      // pixelPerfectPosition = true;
+      pixelPerfectRender = true;
+      pixelPerfectPosition = true;
     }
     else
     {
@@ -56,45 +53,38 @@ class MultiSparrowCharacter extends BaseCharacter
 
   function buildSpritesheet():Void
   {
-    trace('Loading assets for Multi-Sparrow character "${characterId}"', flixel.util.FlxColor.fromString("#89CFF0"));
-
-    var assetList = [];
-    for (anim in _data.animations)
-    {
-      if (anim.assetPath != null && !assetList.contains(anim.assetPath))
-      {
-        assetList.push(anim.assetPath);
-      }
-    }
-
-    var texture:FlxAtlasFrames = Paths.getSparrowAtlas(_data.assetPath);
+    var texture:FlxAtlasFrames = Paths.getSparrowAtlas(_data.assetPaths[0]);
 
     if (texture == null)
     {
-      trace('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPath}');
-      FlxG.log.error('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPath}');
+      trace('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPaths[0]}');
+      FlxG.log.error('Multi-Sparrow atlas could not load PRIMARY texture: ${_data.assetPaths[0]}');
       return;
     }
     else
     {
-      trace('Creating multi-sparrow atlas: ${_data.assetPath}');
+      trace('Creating multi-sparrow atlas: ${_data.assetPaths[0]}');
       texture.parent.destroyOnNoUse = false;
     }
 
-    for (asset in assetList)
+    for (i => asset in _data.assetPaths)
     {
+      if (i == 0)
+      {
+        continue;
+      }
+
       var subTexture:FlxAtlasFrames = Paths.getSparrowAtlas(asset);
       // If we don't do this, the unused textures will be removed as soon as they're loaded.
 
       if (subTexture == null)
       {
         trace('Multi-Sparrow atlas could not load subtexture: ${asset}');
+        continue;
       }
       else
       {
         trace('Concatenating multi-sparrow atlas: ${asset}');
-        subTexture.parent.destroyOnNoUse = false;
-        FunkinMemory.cacheTexture(Paths.image(asset));
       }
 
       texture.addAtlas(subTexture);
@@ -129,6 +119,10 @@ class MultiSparrowCharacter extends BaseCharacter
 
   public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reverse:Bool = false):Void
   {
+    // Make sure we ignore other animations if we're currently playing a forced one,
+    // unless we're forcing a new animation.
+    if (!this.canPlayOtherAnims && !ignoreOther) return;
+
     super.playAnimation(name, restart, ignoreOther, reverse);
   }
 }

@@ -1,22 +1,21 @@
 package funkin.ui;
 
-import flixel.FlxG;
 import flixel.FlxSprite;
 import funkin.ui.AtlasText.AtlasFont;
+import funkin.ui.MenuList;
 
 /**
  * Opens a yes/no dialog box as a substate over the current state.
  */
-@:nullSafety
 class Prompt extends flixel.FlxSubState
 {
   inline static var MARGIN = 100;
 
-  public var onYes:Null<Void->Void>;
-  public var onNo:Null<Void->Void>;
+  public var onYes:Void->Void;
+  public var onNo:Void->Void;
   public var buttons:TextMenuList;
   public var field:AtlasText;
-  public var back:Null<FlxSprite>;
+  public var back:FlxSprite;
 
   var style:ButtonStyle;
 
@@ -49,8 +48,7 @@ class Prompt extends flixel.FlxSubState
     back.makeGraphic(width, height, color, false, "prompt-bg");
     back.screenCenter(XY);
     add(back);
-    var backObj = members.pop();
-    if (backObj != null) members.unshift(backObj); // bring to front
+    members.unshift(members.pop()); // bring to front
   }
 
   public function createBgFromMargin(margin = MARGIN, color = 0xFF808080)
@@ -92,11 +90,7 @@ class Prompt extends flixel.FlxSubState
   {
     buttons.exists = true;
     // pass anonymous functions rather than the current callbacks, in case they change later
-    var yesButton = buttons.createItem(yes, function() {
-      if (onYes != null) onYes();
-      else
-        FlxG.log.warn("onYes function was called without being set");
-    });
+    var yesButton = buttons.createItem(yes, function() onYes());
     yesButton.screenCenter(X);
     yesButton.y = FlxG.height - yesButton.height - MARGIN;
     yesButton.scrollFactor.set(0, 0);
@@ -105,7 +99,7 @@ class Prompt extends flixel.FlxSubState
       // place right
       yesButton.x = FlxG.width - yesButton.width - MARGIN;
 
-      var noButton = buttons.createItem(no, function() if (onNo != null) onNo());
+      var noButton = buttons.createItem(no, function() onNo());
       noButton.x = MARGIN;
       noButton.y = FlxG.height - noButton.height - MARGIN;
       noButton.scrollFactor.set(0, 0);

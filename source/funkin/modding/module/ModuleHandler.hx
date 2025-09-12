@@ -6,12 +6,10 @@ import funkin.modding.events.ScriptEvent;
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.module.Module;
 import funkin.modding.module.ScriptedModule;
-import flixel.FlxG;
 
 /**
  * Utility functions for loading and manipulating active modules.
  */
-@:nullSafety
 class ModuleHandler
 {
   static final moduleCache:Map<String, Module> = new Map<String, Module>();
@@ -76,15 +74,11 @@ class ModuleHandler
    * Given two module IDs, sort them by priority.
    * @return 1 or -1 depending on which module has a higher priority.
    */
-  static function sortByPriority(a:String, b:String):Int
+  static function sortByPriority(a:String, b:String)
   {
-    var aModule:Null<Module> = getModule(a);
-    var bModule:Null<Module> = getModule(b);
+    var aModule:Module = moduleCache.get(a);
+    var bModule:Module = moduleCache.get(b);
 
-    if (aModule == null || bModule == null)
-    {
-      return 0;
-    }
     if (aModule.priority != bModule.priority)
     {
       return aModule.priority - bModule.priority;
@@ -95,14 +89,14 @@ class ModuleHandler
     }
   }
 
-  public static function getModule(moduleId:String):Null<Module>
+  public static function getModule(moduleId:String):Module
   {
     return moduleCache.get(moduleId);
   }
 
   public static function activateModule(moduleId:String):Void
   {
-    var module:Null<Module> = getModule(moduleId);
+    var module:Module = getModule(moduleId);
     if (module != null)
     {
       module.active = true;
@@ -111,7 +105,7 @@ class ModuleHandler
 
   public static function deactivateModule(moduleId:String):Void
   {
-    var module:Null<Module> = getModule(moduleId);
+    var module:Module = getModule(moduleId);
     if (module != null)
     {
       module.active = false;
@@ -142,18 +136,10 @@ class ModuleHandler
   {
     for (moduleId in modulePriorityOrder)
     {
-      var module:Null<Module> = moduleCache.get(moduleId);
+      var module:Module = moduleCache.get(moduleId);
       // The module needs to be active to receive events.
       if (module != null && module.active)
       {
-        if (module.state != null)
-        {
-          // Only call the event if the current state is what the module's state is.
-          if (!(Type.getClass(FlxG.state) == module.state) && !(Type.getClass(FlxG.state?.subState) == module.state))
-          {
-            continue;
-          }
-        }
         ScriptEventDispatcher.callEvent(module, event);
       }
     }

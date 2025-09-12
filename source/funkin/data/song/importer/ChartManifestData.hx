@@ -10,8 +10,6 @@ class ChartManifestData
    */
   public static final CHART_MANIFEST_DATA_VERSION:thx.semver.Version = "1.0.0";
 
-  public static final invalidIdRegex:EReg = ~/[\/\\:*?"<>|]/g;
-
   @:default(funkin.data.song.importer.ChartManifestData.CHART_MANIFEST_DATA_VERSION)
   @:jcustomparse(funkin.data.DataParse.semverVersion)
   @:jcustomwrite(funkin.data.DataWrite.semverVersion)
@@ -21,11 +19,7 @@ class ChartManifestData
    * The internal song ID for this chart.
    * The metadata and chart data file names are derived from this.
    */
-  public var songId(default, set):String;
-  public function set_songId(value:String):String
-  {
-    return songId = invalidIdRegex.replace(value.trim(), '');
-  }
+  public var songId:String;
 
   public function new(songId:String)
   {

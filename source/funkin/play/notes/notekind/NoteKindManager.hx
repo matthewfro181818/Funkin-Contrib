@@ -1,6 +1,5 @@
 package funkin.play.notes.notekind;
 
-import funkin.data.song.SongData.SongNoteData;
 import funkin.modding.events.ScriptEventDispatcher;
 import funkin.modding.events.ScriptEvent;
 import funkin.ui.debug.charting.util.ChartEditorDropdowns;
@@ -11,21 +10,7 @@ import funkin.play.notes.notekind.NoteKind.NoteKindParam;
 
 class NoteKindManager
 {
-  /**
-   * A map of all note kinds, keyed by their name.
-   * This is used to retrieve note kinds by their name.
-   */
-  public static var noteKinds:Map<String, NoteKind> = [];
-
-  /**
-   * Retrieve a note kind by its name.
-   * @param noteKind The name of the note kind.
-   * @return The note kind, or null if it doesn't exist.
-   */
-  public static function getNoteKind(noteKind:String):Null<NoteKind>
-  {
-    return noteKinds.get(noteKind);
-  }
+  static var noteKinds:Map<String, NoteKind> = [];
 
   public static function loadScripts():Void
   {
@@ -63,7 +48,7 @@ class NoteKindManager
     {
       var noteEvent:NoteScriptEvent = cast(event, NoteScriptEvent);
 
-      var noteKind:NoteKind = noteKinds.get(noteEvent?.note?.kind);
+      var noteKind:NoteKind = noteKinds.get(noteEvent.note.kind);
 
       if (noteKind != null)
       {
@@ -95,16 +80,6 @@ class NoteKindManager
     }
 
     return NoteStyleRegistry.instance.fetchEntry(noteStyleId);
-  }
-
-  public static function listNoteStyles(songNoteDatas:Array<SongNoteData>):Array<NoteStyle>
-  {
-    var results:Array<NoteStyle> = [];
-    for (songNoteData in songNoteDatas)
-    {
-      var noteStyle:NoteStyle = getNoteStyle(songNoteData.kind, null);
-    }
-    return results;
   }
 
   /**

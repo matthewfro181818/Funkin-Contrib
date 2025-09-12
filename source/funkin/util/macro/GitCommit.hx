@@ -1,7 +1,6 @@
 package funkin.util.macro;
 
 #if !display
-@:nullSafety
 class GitCommit
 {
   /**
@@ -25,6 +24,8 @@ class GitCommit
     var commitHashSplice:String = commitHash.substr(0, 7);
 
     process.close();
+
+    trace('Git Commit ID: ${commitHashSplice}');
 
     // Generates a string expression
     return macro $v{commitHashSplice};
@@ -54,6 +55,7 @@ class GitCommit
 
     var branchName:String = branchProcess.stdout.readLine();
     branchProcess.close();
+    trace('Git Branch Name: ${branchName}');
 
     // Generates a string expression
     return macro $v{branchName};
@@ -100,6 +102,7 @@ class GitCommit
         throw e;
       }
     }
+    trace('Git Status Output: ${output}');
 
     // Generates a string expression
     return macro $v{output.length > 0};

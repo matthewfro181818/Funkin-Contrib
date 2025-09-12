@@ -3,7 +3,7 @@ package funkin.ui.debug.char.components.dialogs.select;
 import haxe.ui.containers.HBox;
 import haxe.ui.components.Button;
 import haxe.ui.components.DropDown;
-import haxe.ui.containers.ScrollView; // replaces VerticalScroll
+import haxe.ui.components.VerticalScroll;
 import haxe.ui.data.ArrayDataSource;
 import funkin.data.character.CharacterRegistry;
 import funkin.util.SortUtil;

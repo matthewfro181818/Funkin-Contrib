@@ -4,7 +4,6 @@ import flixel.util.FlxTimer;
 import flixel.FlxCamera;
 import openfl.filters.ColorMatrixFilter;
 
-@:nullSafety
 class RetroCameraFade
 {
   // im lazy, but we only use this for week 6

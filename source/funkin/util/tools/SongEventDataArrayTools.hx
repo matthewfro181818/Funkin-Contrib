@@ -5,7 +5,6 @@ import funkin.data.song.SongData.SongEventData;
 /**
  * A static extension which provides utility functions for `Array<SongEventData>`s.
  */
-@:nullSafety
 class SongEventDataArrayTools
 {
   /**
@@ -47,15 +46,10 @@ class SongEventDataArrayTools
         // Search the lower half of the range.
         highIndex = midIndex - 1;
       }
-      // Found it? Make a more thorough check.
-      else if (midNote == note)
-      {
-        return midIndex;
-      }
       else
       {
-        // We may be close, so constrain the range (but only a little) and try again.
-        highIndex -= 1;
+        // Found it!
+        return midIndex;
       }
     }
     return -1;

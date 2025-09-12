@@ -15,18 +15,17 @@ class CreditsDataHandler
   static final CREDITS_DATA_PATH:String = "assets/data/credits.json";
   #end
 
-  #if macro
   public static function debugPrint(data:Null<CreditsData>):Void
   {
     if (data == null)
     {
-      Sys.println('[INFO] CreditsData(NULL)');
+      trace('CreditsData(NULL)');
       return;
     }
 
     if (data.entries == null || data.entries.length == 0)
     {
-      Sys.println('[INFO] CreditsData(EMPTY)');
+      trace('CreditsData(EMPTY)');
       return;
     }
 
@@ -37,9 +36,8 @@ class CreditsDataHandler
       lineCount += entry?.body?.length ?? 0;
     }
 
-    Sys.println('[INFO] CreditsData($entryCount entries containing $lineCount lines)');
+    trace('CreditsData($entryCount entries containing $lineCount lines)');
   }
-  #end
 
   /**
    * If for some reason the full credits won't load,

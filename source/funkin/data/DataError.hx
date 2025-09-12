@@ -4,7 +4,6 @@ import json2object.Position;
 import json2object.Position.Line;
 import json2object.Error;
 
-@:nullSafety
 class DataError
 {
   public static function printError(error:Error):Void

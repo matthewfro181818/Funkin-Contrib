@@ -17,7 +17,7 @@ class PureColor extends FlxShader
 
   function set_col(val:FlxColor):FlxColor
   {
-    funnyColor.value = [val.redFloat, val.greenFloat, val.blueFloat, val.alphaFloat];
+    funnyColor.value = [val.red, val.green, val.blue, val.alpha];
 
     return val;
   }
@@ -33,7 +33,7 @@ class PureColor extends FlxShader
             vec4 color = flixel_texture2D(bitmap, openfl_TextureCoordv);
 
             if (color.a > 0.0 && colSet)
-                color = funnyColor * color.a;
+                color = vec4(funnyColor.r, funnyColor.g, funnyColor.b, color.a);
 
             gl_FragColor = color;
         }

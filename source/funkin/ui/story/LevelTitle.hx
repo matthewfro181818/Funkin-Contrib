@@ -1,6 +1,7 @@
 package funkin.ui.story;
 
 import flixel.FlxSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.util.FlxColor;
 import funkin.util.MathUtil;
@@ -49,7 +50,7 @@ class LevelTitle extends FlxSpriteGroup
 
   public override function update(elapsed:Float):Void
   {
-    this.y = MathUtil.smoothLerpPrecision(y, targetY, elapsed, 0.451);
+    this.y = MathUtil.coolLerp(y, targetY, 0.17);
 
     if (isFlashing)
     {

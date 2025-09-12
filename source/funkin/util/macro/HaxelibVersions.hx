@@ -2,7 +2,6 @@ package funkin.util.macro;
 
 import haxe.io.Path;
 
-@:nullSafety
 class HaxelibVersions
 {
   public static macro function getLibraryVersions():haxe.macro.Expr.ExprOf<Array<String>>
@@ -23,7 +22,7 @@ class HaxelibVersions
   {
     var result:Array<String> = [];
 
-    var hmmData:Dynamic = haxe.Json.parse(sys.io.File.getContent(#if ios '../../../../../' + #end 'hmm.json'));
+    var hmmData:Dynamic = haxe.Json.parse(sys.io.File.getContent('hmm.json'));
     var dependencies:Array<Dynamic> = cast hmmData.dependencies;
     for (library in dependencies)
     {

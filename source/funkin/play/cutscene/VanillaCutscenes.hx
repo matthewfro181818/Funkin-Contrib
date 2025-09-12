@@ -6,7 +6,6 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import funkin.audio.FunkinSound;
 import flixel.util.FlxTimer;
-import funkin.util.HapticUtil;
 
 /**
  * Static methods for playing cutscenes in the PlayState.
@@ -42,7 +41,6 @@ class VanillaCutscenes
       FlxG.camera.zoom = 2.5;
 
       // Play the Sound effect.
-      HapticUtil.vibrate(0.1, 0.5, 1, 1);
       FunkinSound.playOnce(Paths.sound('Lights_Turn_On'), function() {
         // Fade in the HUD.
         trace('SFX done...');
