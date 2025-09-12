@@ -13,8 +13,7 @@ import io.newgrounds.objects.Medal;
 import io.newgrounds.objects.Score;
 import io.newgrounds.objects.ScoreBoard;
 import io.newgrounds.objects.events.Response;
-import io.newgrounds.objects.events.Result.GetCurrentVersionResult;
-import io.newgrounds.objects.events.Result.GetVersionResult;
+import io.newgrounds.objects.events.Result;
 #end
 
 /**
@@ -126,7 +125,7 @@ class NGUtil
    * a user input event or the popup blocker will block it.
    * @param onComplete A callback with the result of the connection.
    */
-  static public function login(?popupLauncher:(Void->Void)->Void, onComplete:ConnectionResult->Void)
+  static public function login(?popupLauncher:(Void->Void)->Void)
   {
     trace("Logging in manually");
     var onPending:Void->Void = null;
@@ -138,15 +137,6 @@ class NGUtil
     var onSuccess:Void->Void = onNGLogin;
     var onFail:Error->Void = null;
     var onCancel:Void->Void = null;
-    if (onComplete != null)
-    {
-      onSuccess = function() {
-        onNGLogin();
-        onComplete(Success);
-      }
-      onFail = function(e) onComplete(Fail(e.message));
-      onCancel = function() onComplete(Cancelled);
-    }
 
     NG.core.requestLogin(onSuccess, onPending, onFail, onCancel);
   }

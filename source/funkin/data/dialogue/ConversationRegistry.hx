@@ -2,11 +2,9 @@ package funkin.data.dialogue;
 
 import funkin.play.cutscene.dialogue.Conversation;
 import funkin.play.cutscene.dialogue.ScriptedConversation;
-import funkin.util.tools.ISingleton;
-import funkin.data.DefaultRegistryImpl;
 
 @:nullSafety
-class ConversationRegistry extends BaseRegistry<Conversation, ConversationData> implements ISingleton implements DefaultRegistryImpl
+class ConversationRegistry extends BaseRegistry<Conversation, ConversationData>
 {
   /**
    * The current version string for the dialogue box data format.
