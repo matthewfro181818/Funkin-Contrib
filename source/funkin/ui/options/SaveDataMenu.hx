@@ -4,8 +4,9 @@ package funkin.ui.options;
 import funkin.api.newgrounds.NewgroundsClient;
 #end
 import funkin.save.Save;
+import flixel.FlxG;
 
-class SaveDataMenu
+class SaveDataMenu extends Page<Void>
 {
   var items:TextMenuList;
   var prompt:Prompt;
@@ -112,10 +113,6 @@ class SaveDataMenu
     });
   }
 
-  /**
-   * True if this page has multiple options, excluding the exit option.
-   * If false, there's no reason to ever show this page.
-   */
   public function hasMultipleOptions():Bool
   {
     return items.length > 2;
