@@ -1,6 +1,7 @@
 package funkin.ui.debug.char.components.dialogs;
 
-import haxe.ui.containers.dialogs.CollapsibleDialog;
+import haxe.ui.containers.dialogs.Dialog;
+import haxe.ui.containers.dialogs.Collapsible;
 
 class DefaultPageDialog extends CollapsibleDialog
 {

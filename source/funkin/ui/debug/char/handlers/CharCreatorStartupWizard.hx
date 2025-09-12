@@ -1,6 +1,6 @@
 package funkin.ui.debug.char.handlers;
 
-import funkin.data.character.CharacterData.CharacterRenderType;
+import funkin.play.character.CharacterRenderType;
 import funkin.ui.debug.char.components.wizard.*;
 import haxe.ui.containers.dialogs.Dialog;
 import haxe.io.Bytes;

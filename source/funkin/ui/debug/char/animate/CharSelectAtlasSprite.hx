@@ -1,11 +1,11 @@
 package funkin.ui.debug.char.animate;
 
-import flixel.util.FlxSignal.FlxTypedSignal;
+import flixel.util.FlxSignal;
 import flxanimate.FlxAnimate;
 import flxanimate.FlxAnimate.Settings;
 import flxanimate.frames.FlxAnimateFrames;
 import flixel.graphics.frames.FlxFrame;
-import flixel.system.FlxAssets.FlxGraphicAsset;
+import flixel.graphics.FlxGraphic.FlxGraphicAsset;
 import openfl.display.BitmapData;
 import flixel.math.FlxPoint;
 import flxanimate.animate.FlxKeyFrame;

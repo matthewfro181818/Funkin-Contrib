@@ -6,34 +6,43 @@ import haxe.ui.containers.HBox;
 import haxe.ui.containers.menus.Menu;
 import haxe.ui.containers.menus.MenuItem;
 import haxe.ui.containers.menus.MenuCheckBox;
+
 import funkin.audio.FunkinSound;
 import funkin.data.freeplay.player.PlayerRegistry;
+
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.graphics.shaders.MosaicEffect;
+
 import funkin.ui.debug.char.animate.CharSelectAtlasSprite;
 import funkin.ui.debug.char.pages.subpages.CharSelectIndexSubPage;
 import funkin.ui.debug.char.components.dialogs.select.*;
 import funkin.ui.debug.char.components.dialogs.DefaultPageDialog;
+
 import funkin.util.FileUtil;
-import flixel.addons.display.shapes.FlxShapeCircle;
-import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
-import flixel.group.FlxSpriteGroup;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.FlxSprite;
-import openfl.display.BlendMode;
-import openfl.filters.ShaderFilter;
-import funkin.ui.charSelect.Lock;
 import funkin.util.MathUtil;
+
+import funkin.ui.charSelect.Lock;
+
+import flixel.addons.display.shapes.FlxShapeCircle;
+import flixel.group.FlxSpriteGroup;
+import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.math.FlxPoint;
 import flixel.math.FlxMath;
-import flixel.FlxG;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.text.FlxText;
-import funkin.vis.dsp.SpectralAnalyzer;
+import flixel.FlxSprite;
+import flixel.FlxG;
 import flixel.util.FlxColor;
 
+import openfl.display.BlendMode;
+import openfl.filters.ShaderFilter;
+
+import funkin.vis.dsp.SpectralAnalyzer;
+
 using StringTools;
+
 
 @:allow(funkin.ui.debug.char.pages.subpages.CharSelectIndexSubPage)
 class CharCreatorSelectPage extends CharCreatorDefaultPage
