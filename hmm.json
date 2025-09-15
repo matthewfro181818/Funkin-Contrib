@@ -32,8 +32,8 @@
       "name": "flxanimate",
       "type": "git",
       "dir": null,
-      "ref": "0654797e5eb7cd7de0c1b2dbaa1efe5a1e1d9412",
-      "url": "https://github.com/Dot-Stuff/flxanimate"
+      "ref": "master",
+      "url": "https://github.com/FunkinDroidTeam/flxanimate"
     },
     {
       "name": "format",
